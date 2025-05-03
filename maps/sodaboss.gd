@@ -8,6 +8,8 @@ var loaded = []
 var loadingrooms = []
 var end
 
+#github test edit
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.cancrouch = true
