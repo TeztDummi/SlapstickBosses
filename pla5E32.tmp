@@ -1,0 +1,144 @@
+[gd_scene load_steps=20 format=3 uid="uid://chwr8oem503jp"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_1li8y"]
+[ext_resource type="Shader" path="res://blurvignette.gdshader" id="2_cqahk"]
+[ext_resource type="Texture2D" uid="uid://b4oxk77e4rj2e" path="res://paintings/elevatorpainting.png" id="2_kutj3"]
+[ext_resource type="Texture2D" uid="uid://4e4q86h5renw" path="res://elevator/elevatorup.png" id="2_usup8"]
+[ext_resource type="Shader" path="res://chromaticaber.gdshader" id="4_0r7vw"]
+[ext_resource type="Shader" path="res://bloom.gdshader" id="4_f0kp7"]
+[ext_resource type="Texture2D" uid="uid://ch86kjrfmx3f" path="res://textures/hsv.png" id="4_oilwa"]
+[ext_resource type="Texture2D" uid="uid://bokhtkibsqruh" path="res://ui/glowovertlay.png" id="5_1jw7x"]
+[ext_resource type="Texture2D" uid="uid://cqr3g8t1hr5nv" path="res://ui/glowovertlay1.png" id="5_iscad"]
+[ext_resource type="Texture2D" uid="uid://hh5w7xl1u20u" path="res://ui/motionblur.png" id="5_tiyko"]
+[ext_resource type="Texture2D" uid="uid://buajfqb0ea6k2" path="res://ui/motionblur1.png" id="6_3okm4"]
+[ext_resource type="Texture2D" uid="uid://cixfyy3fwlvbo" path="res://ui/glowovertlay2.png" id="6_oei7u"]
+[ext_resource type="Texture2D" uid="uid://dg1usefpxaws3" path="res://ui/glowovertlay3.png" id="7_hru6o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmxeg"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lenwx"]
+frames = 2
+speed_scale = 24.0
+frame_0/texture = ExtResource("5_tiyko")
+frame_1/texture = ExtResource("6_3okm4")
+frame_1/duration = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fdimd"]
+shader = ExtResource("4_0r7vw")
+shader_parameter/alpha = 1.0
+shader_parameter/scale = 1.0
+shader_parameter/red_shift = 2.0
+shader_parameter/blue_shift = -2.0
+shader_parameter/green_shift = -2.0
+shader_parameter/red_mult = 1.0
+shader_parameter/blur_effect = 1.0
+shader_parameter/blur_amount = 1.0
+shader_parameter/blur_inner = 0.488
+shader_parameter/blur_outer = 0.266
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i23xc"]
+shader = ExtResource("2_cqahk")
+shader_parameter/blur_radius = 0.2
+shader_parameter/blur_amount = 0.8
+shader_parameter/blur_inner = 0.6
+shader_parameter/blur_outer = 0.66
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_b05hh"]
+frames = 4
+speed_scale = 8.0
+frame_0/texture = ExtResource("5_iscad")
+frame_1/texture = ExtResource("6_oei7u")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_hru6o")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_1jw7x")
+frame_3/duration = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc8c2"]
+shader = ExtResource("4_f0kp7")
+shader_parameter/alpha = 0.5
+shader_parameter/curve = 2.0
+shader_parameter/noise_texture = SubResource("AnimatedTexture_b05hh")
+
+[node name="player" type="CharacterBody3D" groups=["playergroup"]]
+collision_layer = 2
+script = ExtResource("1_1li8y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_gmxeg")
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.5)
+h_offset = 4.925
+current = true
+
+[node name="Elevatorup" type="Sprite2D" parent="camera"]
+visible = false
+position = Vector2(370, 242)
+texture = ExtResource("2_usup8")
+
+[node name="Elevatorpainting" type="Sprite2D" parent="camera"]
+visible = false
+position = Vector2(893, 467)
+scale = Vector2(0.362466, 0.393279)
+texture = ExtResource("2_kutj3")
+
+[node name="Hsv" type="Sprite2D" parent="camera"]
+visible = false
+position = Vector2(593, 376)
+texture = ExtResource("4_oilwa")
+
+[node name="motionblur" type="Sprite2D" parent="camera"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(640, 360)
+rotation = 0.000222683
+scale = Vector2(0.782633, 0.782633)
+texture = SubResource("AnimatedTexture_lenwx")
+
+[node name="raycast" type="RayCast3D" parent="camera"]
+target_position = Vector3(0, 0, -5)
+
+[node name="dualtone" type="ColorRect" parent="camera"]
+material = SubResource("ShaderMaterial_fdimd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="blurvignette" type="ColorRect" parent="camera"]
+material = SubResource("ShaderMaterial_i23xc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="dualtone2" type="ColorRect" parent="camera"]
+material = SubResource("ShaderMaterial_vc8c2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="shootraycast" type="RayCast3D" parent="camera"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+target_position = Vector3(0, 0, -1000)
+
+[node name="gun" type="Marker3D" parent="camera"]
+
+[node name="walktimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="djumpaccidentproofing" type="RayCast3D" parent="."]
+
+[connection signal="timeout" from="walktimer" to="." method="_on_walktimer_timeout"]

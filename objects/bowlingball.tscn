@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx5m5137issan"]
+
+[ext_resource type="PackedScene" uid="uid://ckpanroiiixcx" path="res://objects/bowlingball.glb" id="1_mtlvv"]
+
+[node name="bowlingball" instance=ExtResource("1_mtlvv")]
+
+[node name="Icosphere" parent="." index="0"]
+transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17662, 0)

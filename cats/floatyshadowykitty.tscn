@@ -1,0 +1,368 @@
+[gd_scene load_steps=33 format=3 uid="uid://cys678g2mcrk5"]
+
+[ext_resource type="Texture2D" uid="uid://cx6vm2iok3nhd" path="res://addons/kenney_particle_pack/star_05.png" id="1_iq0wd"]
+[ext_resource type="Script" uid="uid://i6so2pbk6brp" path="res://cats/floatyshadowykitty.gd" id="1_xbe3w"]
+[ext_resource type="Texture2D" uid="uid://c5c8vdo75dqvm" path="res://cats/floatyshadowykitty.png" id="2_7i42s"]
+[ext_resource type="Texture2D" uid="uid://dj2rhs4oyvfhj" path="res://cats/floatyshadowykittyemission.png" id="3_ni2f2"]
+[ext_resource type="AudioStream" uid="uid://c7bvq8amie08p" path="res://audio/oneofthemmeow.mp3" id="4_iygqv"]
+[ext_resource type="Texture2D" uid="uid://bykrrt01t8mkv" path="res://ui/healthbottom.png" id="6_rt2yn"]
+[ext_resource type="Texture2D" uid="uid://bxb88xlsajxjq" path="res://ui/healthprogress.png" id="7_10jfi"]
+[ext_resource type="Theme" uid="uid://cmewige4oh18h" path="res://theme.tres" id="8_x5r23"]
+[ext_resource type="FontFile" uid="uid://bhrnhb6hijffl" path="res://Invade-eZBZ6.otf" id="9_eyecl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_alb28"]
+radius = 2.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7lsd6"]
+height = 3.0
+radius = 0.25
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wd5hw"]
+orientation = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k0gg1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6312"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_7i42s")
+metallic_specular = 0.0
+emission_enabled = true
+emission_texture = ExtResource("3_ni2f2")
+clearcoat_roughness = 0.0
+clearcoat_texture = SubResource("NoiseTexture2D_k0gg1")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_yott0"]
+offsets = PackedFloat32Array(0, 0.218543, 0.76, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h2xyy"]
+gradient = SubResource("Gradient_yott0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_epmpk"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, 9.8, 0)
+color_ramp = SubResource("GradientTexture1D_h2xyy")
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvpi0"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("1_iq0wd")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hnq7o"]
+material = SubResource("StandardMaterial3D_uvpi0")
+size = Vector2(0.3, 0.3)
+orientation = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jy42d"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Gradient" id="Gradient_cmvg7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_brbbw"]
+gradient = SubResource("Gradient_cmvg7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b08b3"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 9.8, 0)
+color_ramp = SubResource("GradientTexture1D_brbbw")
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0u1yc"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("1_iq0wd")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rkend"]
+material = SubResource("StandardMaterial3D_0u1yc")
+size = Vector2(3, 3)
+orientation = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hadoq"]
+height = 200.0
+radius = 30.0
+
+[sub_resource type="Animation" id="Animation_h4m5u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("visual/deathparticle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("visual/cat:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_53yj8"]
+resource_name = "death"
+length = 4.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.1, 0, 0), Vector3(0, 0, 0), Vector3(-0.1, 0, 0), Vector3(0.2, 0, 0), Vector3(-0.3, 0, 0), Vector3(0.2, 0, 0), Vector3(-0.3, 0, 0), Vector3(0.4, 0, 0), Vector3(-0.5, 0, 0), Vector3(0.4, 0, 0), Vector3(-0.5, 0, 0), Vector3(0.6, 0, 0), Vector3(-0.7, 0, 0), Vector3(0.6, 0, 0), Vector3(-0.7, 0, 0), Vector3(0.8, 0, 0), Vector3(-0.9, 0, 0), Vector3(0.8, 0, 0), Vector3(-0.9, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("visual/deathparticle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("visual/cat:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_3td8l"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.5, 0), Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qymhj"]
+_data = {
+&"RESET": SubResource("Animation_h4m5u"),
+&"death": SubResource("Animation_53yj8"),
+&"move": SubResource("Animation_3td8l")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ruqme"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r53gt"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+spread = 180.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 9.8, 0)
+color_ramp = SubResource("GradientTexture1D_brbbw")
+turbulence_enabled = true
+
+[node name="floatyshadowykitty" type="CharacterBody3D" groups=["cat"]]
+script = ExtResource("1_xbe3w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("SphereShape3D_alb28")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_7lsd6")
+
+[node name="visual" type="Marker3D" parent="."]
+
+[node name="cat" type="MeshInstance3D" parent="visual"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("PlaneMesh_wd5hw")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_c6312")
+
+[node name="particle" type="GPUParticles3D" parent="visual/cat"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+amount = 50
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_epmpk")
+draw_pass_1 = SubResource("PlaneMesh_hnq7o")
+
+[node name="healthsprite" type="Sprite3D" parent="visual"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 7.1, 0)
+offset = Vector2(0, 162)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_jy42d")
+
+[node name="deathparticle" type="GPUParticles3D" parent="visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+emitting = false
+amount = 50
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_b08b3")
+draw_pass_1 = SubResource("PlaneMesh_rkend")
+
+[node name="range" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CylinderShape3D_hadoq")
+
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_iygqv")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1152, 326)
+render_target_update_mode = 4
+
+[node name="healthbar" type="TextureProgressBar" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -13.0
+offset_right = 342.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(342, 47)
+max_value = 200.0
+value = 200.0
+texture_under = ExtResource("6_rt2yn")
+texture_progress = ExtResource("7_10jfi")
+tint_progress = Color(0.501961, 1, 0.501961, 1)
+
+[node name="healthlabel" type="Label" parent="SubViewport/healthbar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -50.0
+offset_right = 57.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_x5r23")
+theme_override_font_sizes/font_size = 66
+text = "200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="namelabel" type="Label" parent="SubViewport"]
+offset_top = 245.0
+offset_right = 1152.0
+offset_bottom = 326.0
+theme = ExtResource("8_x5r23")
+theme_override_fonts/font = ExtResource("9_eyecl")
+theme_override_font_sizes/font_size = 72
+text = "floaty shadowy kitty"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qymhj")
+}
+autoplay = "move"
+
+[node name="shoottimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ruqme")
+
+[node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ruqme")
+
+[node name="poof" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r53gt")
+draw_pass_1 = SubResource("PlaneMesh_rkend")
+
+[node name="poof2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r53gt")
+draw_pass_1 = SubResource("PlaneMesh_rkend")
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="timeout" from="shoottimer" to="." method="_on_shoottimer_timeout"]

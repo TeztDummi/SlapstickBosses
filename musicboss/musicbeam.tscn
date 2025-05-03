@@ -1,0 +1,724 @@
+[gd_scene load_steps=25 format=4 uid="uid://b03o0dniodw67"]
+
+[ext_resource type="Script" uid="uid://cld8sps8ovkor" path="res://musicboss/musicbeam.gd" id="1_gqays"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v1pse"]
+size = Vector3(100, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4otud"]
+cull_mode = 2
+shading_mode = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nduau"]
+size = Vector3(100, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te4yo"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7ebav"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2.00001),
+"format": 34359742465,
+"index_count": 24,
+"index_data": PackedByteArray("BQACAAQABQAAAAIABgAAAAUABgABAAAABwABAAYABwADAAEABAADAAcABAACAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/zcxMvwAAAADNzEy/zcxMvwAAAADNzEw/zcxMPwAAAADNzEw/zcxMPwAAAADNzEy/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n4ee7"]
+resource_name = "lasershooter_Plane_003"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2.00001),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAAADMzMw9yMzMPczMzD1mZmY/Z2ZmP2ZmZj9nZmY/yMzMPQ=="),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("BQACAAQABQAAAAIABgAAAAUABgABAAAABwABAAYABwADAAEABAADAAcABAACAAMA"),
+"material": SubResource("StandardMaterial3D_te4yo"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/zcxMvwAAAADNzEy/zcxMvwAAAADNzEw/zcxMPwAAAADNzEw/zcxMPwAAAADNzEy//3////7//7//f///////v/9///////+//3///////7//f///////v/9////+//+//3///////7//f///////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7ebav")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0466"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0cohe"]
+_surfaces = [{
+"aabb": AABB(-1, -1.50996e-07, -1, 2, 1.0151e-05, 2.00001),
+"format": 34359742465,
+"index_count": 48,
+"index_data": PackedByteArray("BAAAAAMABAABAAAABQABAAQABQACAAEACgAGAAcACgAJAAYACwAHAAgACwAKAAcAEAAMAA0AEAAPAAwAEQANAA4AEQAQAA0AFgASABUAFgATABIAFwATABYAFwAUABMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("kML1PVIB5icBAIA/AACAPwAAAAAAAIA///9/Pw+WtTOQwvU9CtejPlIB5ifOzEw/zcxMPwAAAADNzEw/zMxMPw+WtTMK16M+pML1PWohIrQBAIC/AQCAP2ghIrT8/3+///9/P8SsjjN8wvW9DtejPlW0AbTOzEy/z8xMP1O0AbTLzEy/zcxMPzWlGzMG16O+pML1veS3tCcBAIA/AACAv5xcTaj9/38///9/vw2WtTN8wvU9DtejvrQlRSfNzEw/z8xMvxZKJKjLzEw/zMxMvw6WtTMG16M+kML1vWohIrQBAIC//v9/v2khIrT//3+///9/v8KsjjOQwvW9CtejvlW0AbTPzEy/zcxMv1S0AbTNzEy/y8xMvzKlGzMK16O+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cxvlt"]
+resource_name = "lasershooter_Plane"
+_surfaces = [{
+"aabb": AABB(-1, -1.50996e-07, -1, 2, 1.0151e-05, 2.00001),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAzMzMPWZmZj9nZmY/ZmZmP2dmZj/IzMw9AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAzMzMPWZmZj9nZmY/ZmZmP2dmZj/IzMw9AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAzMzMPWZmZj9nZmY/ZmZmP2dmZj/IzMw9AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAzMzMPWZmZj9nZmY/ZmZmP2dmZj/IzMw9"),
+"format": 34359742487,
+"index_count": 48,
+"index_data": PackedByteArray("BAAAAAMABAABAAAABQABAAQABQACAAEACgAGAAcACgAJAAYACwAHAAgACwAKAAcAEAAMAA0AEAAPAAwAEQANAA4AEQAQAA0AFgASABUAFgATABIAFwATABYAFwAUABMA"),
+"material": SubResource("StandardMaterial3D_v0466"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("kML1PVIB5icBAIA/AACAPwAAAAAAAIA///9/Pw+WtTOQwvU9CtejPlIB5ifOzEw/zcxMPwAAAADNzEw/zMxMPw+WtTMK16M+pML1PWohIrQBAIC/AQCAP2ghIrT8/3+///9/P8SsjjN8wvW9DtejPlW0AbTOzEy/z8xMP1O0AbTLzEy/zcxMPzWlGzMG16O+pML1veS3tCcBAIA/AACAv5xcTaj9/38///9/vw2WtTN8wvU9DtejvrQlRSfNzEw/z8xMvxZKJKjLzEw/zMxMvw6WtTMG16M+kML1vWohIrQBAIC//v9/v2khIrT//3+///9/v8KsjjOQwvW9CtejvlW0AbTPzEy/zcxMv1S0AbTNzEy/y8xMvzKlGzMK16O+/3///////7//f///M/T/v/9///////jW/3///////7//f///UeH/v/9//////8bS/3////7//z//f/////8ZOv9///8M0v8//3////7//z//f/////+pMP9///9v2v8//3///wAA/z//f///ywv/P/9///8AAAYp/3///wAA/z//f///rR7/P/9///8AADgt/3///wAA/7//f///AADlxf9////yLf+//3///wAA/7//f///AABVz/9///+PJf+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0cohe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cehxu"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4kvsg"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2.00001),
+"format": 34359742465,
+"index_count": 24,
+"index_data": PackedByteArray("BQACAAQABQAAAAIABgAAAAUABgABAAAABwABAAYABwADAAEABAADAAcABAACAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/zcxMvwAAAADNzEy/zcxMvwAAAADNzEw/zcxMPwAAAADNzEw/zcxMPwAAAADNzEy/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n22ol"]
+resource_name = "lasershooter_Plane_001"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2.00001),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAAADMzMw9yMzMPczMzD1mZmY/Z2ZmP2ZmZj9nZmY/yMzMPQ=="),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("BQACAAQABQAAAAIABgAAAAUABgABAAAABwABAAYABwADAAEABAADAAcABAACAAMA"),
+"material": SubResource("StandardMaterial3D_cehxu"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/zcxMvwAAAADNzEy/zcxMvwAAAADNzEw/zcxMPwAAAADNzEw/zcxMPwAAAADNzEy//3////7//7//f///////v/9///////+//3///////7//f///////v/9////+//+//3///////7//f///////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4kvsg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvcte"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k6elx"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2.00001),
+"format": 34359742465,
+"index_count": 24,
+"index_data": PackedByteArray("BQACAAQABQAAAAIABgAAAAUABgABAAAABwABAAYABwADAAEABAADAAcABAACAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/zcxMvwAAAADNzEy/zcxMvwAAAADNzEw/zcxMPwAAAADNzEw/zcxMPwAAAADNzEy/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wj1yx"]
+resource_name = "lasershooter_Plane_002"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2.00001),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAAADMzMw9yMzMPczMzD1mZmY/Z2ZmP2ZmZj9nZmY/yMzMPQ=="),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("BQACAAQABQAAAAIABgAAAAUABgABAAAABwABAAYABwADAAEABAADAAcABAACAAMA"),
+"material": SubResource("StandardMaterial3D_rvcte"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/zcxMvwAAAADNzEy/zcxMvwAAAADNzEw/zcxMPwAAAADNzEw/zcxMPwAAAADNzEy//3////7//7//f///////v/9///////+//3///////7//f///////v/9////+//+//3///////7//f///////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k6elx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bi3y8"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.0196078)
+
+[sub_resource type="Curve" id="Curve_kifh3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_46urp"]
+curve = SubResource("Curve_kifh3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nfhxt"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 0, 0)
+damping_min = 100.0
+damping_max = 100.0
+scale_curve = SubResource("CurveTexture_46urp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_lsfuq"]
+material = SubResource("StandardMaterial3D_4otud")
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="Animation" id="Animation_j5cxg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker3D/Plane/Plane_003:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.0598e-08, -0.699999, 1.14044e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker3D/Plane/Plane_003:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.12382e-08, 0.785398, -1.48553e-07)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3D/Plane/Plane_003/Plane_001:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.44268e-09, -1, 7.30553e-08)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker3D/Plane/Plane_003/Plane_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-9.70965e-08, 0.785398, -6.21957e-09)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker3D/Plane:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.19209e-07, 1.62921e-07, 1.5708)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Marker3D/Plane/Plane_003/Plane_001/Plane_002:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6.2445e-08, -1.42857, -6.24448e-08)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Marker3D/Plane/Plane_003/Plane_001/Plane_002:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.23116e-08, -0.785398, -5.04175e-08)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3D/beam:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Marker3D/beam:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Marker3D:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Marker3D/beam/extrasquares:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.01, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Marker3D/particles:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ymy24"]
+resource_name = "new_animation"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker3D/Plane/Plane_003:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.45, 0.6, 0.7),
+"transitions": PackedFloat32Array(2, 2, 0.435275, 0.435275, 1),
+"update": 0,
+"values": [Vector3(-3.0598e-08, -0.699999, 1.14044e-07), Vector3(1.52992e-08, 0.350002, -5.70224e-08), Vector3(4.58972e-08, 1.05, -2.64243e-08), Vector3(4.58972e-08, 1.05, -2.64243e-08), Vector3(-1.52987e-08, -0.35, -8.76201e-08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker3D/Plane/Plane_003:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(2, 0.5, 2),
+"update": 0,
+"values": [Vector3(-1.12382e-08, 0.785398, -1.48553e-07), Vector3(-7.30555e-08, -0.785398, 8.18513e-08), Vector3(2.93441e-08, -1.5708, 1.60478e-07)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3D/Plane/Plane_003/Plane_001:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.45, 0.55, 0.65),
+"transitions": PackedFloat32Array(2, 2, 0.435275, 0.435275, 1),
+"update": 0,
+"values": [Vector3(2.44268e-09, -1, 7.30553e-08), Vector3(-1.22091e-09, 0.499998, -3.65278e-08), Vector3(2.02969e-07, 1.5, -1.09583e-07), Vector3(2.02969e-07, 1.5, -1.09583e-07), Vector3(-6.13789e-07, -2.50001, 1.82639e-07)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker3D/Plane/Plane_003/Plane_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(2, 0.5, 2),
+"update": 0,
+"values": [Vector3(-9.70965e-08, 0.785398, -6.21957e-09), Vector3(-1.16767e-07, 4.25747e-08, 4.61538e-08), Vector3(-9.36424e-08, -0.785398, 9.70964e-08)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker3D/Plane:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Marker3D/Plane/Plane_003/Plane_001/Plane_002:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.45, 0.5, 0.6),
+"transitions": PackedFloat32Array(2, 2, 0.435275, 0.435275, 1),
+"update": 0,
+"values": [Vector3(-6.2445e-08, -1.42857, -6.24448e-08), Vector3(3.71435e-07, 0.857147, -2.96501e-07), Vector3(6.4261e-07, 2.28572, -4.42785e-07), Vector3(6.4261e-07, 2.28572, -4.42785e-07), Vector3(-7.13262e-07, -4.85714, 2.8864e-07)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Marker3D/Plane/Plane_003/Plane_001/Plane_002:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(2, 0.5, 2),
+"update": 0,
+"values": [Vector3(-3.23116e-08, -0.785398, -5.04175e-08), Vector3(-2.22134e-07, -1.5708, 2.82095e-08), Vector3(1.12503e-07, -2.35619, 2.18032e-07)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3D/beam:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.45, 0.8),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector3(1, 0.1, 0.1), Vector3(1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Marker3D/beam:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 0.129408),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Marker3D:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(0.25, 10.1965, 0.25),
+"update": 0,
+"values": [Vector3(1, 0.1, 0.1), Vector3(1, 1, 1), Vector3(1, 0.1, 0.1)]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"turnareaon"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Marker3D/beam/extrasquares:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.45, 1),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [Vector3(0.01, 1, 1), Vector3(2, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Marker3D/particles:emitting")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rv5o"]
+_data = {
+&"RESET": SubResource("Animation_j5cxg"),
+&"new_animation": SubResource("Animation_ymy24")
+}
+
+[node name="musicbeam" type="Node3D"]
+script = ExtResource("1_gqays")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0)
+
+[node name="beam" type="Marker3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D/beam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+mesh = SubResource("BoxMesh_v1pse")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Area3D" type="Area3D" parent="Marker3D/beam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D/beam/Area3D"]
+shape = SubResource("BoxShape3D_nduau")
+
+[node name="extrasquares" type="Marker3D" parent="Marker3D/beam"]
+transform = Transform3D(0.01, 0, 0, 0, 1, -4.54747e-13, 0, 4.54747e-13, 1, 0, 0, 0)
+
+[node name="Plane_003" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -2, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_004" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -4, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_005" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -6, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_006" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -8, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_007" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -10, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_008" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -12, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_009" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -14, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_010" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -16, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_011" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -18, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_012" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -20, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_013" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -22, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_014" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -24, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_015" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -26, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_016" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -28, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_017" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -30, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_018" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -32, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_019" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -34, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_020" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -36, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_021" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -38, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_022" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -40, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_023" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -42, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_024" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -44, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_025" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -46, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_026" type="MeshInstance3D" parent="Marker3D/beam/extrasquares"]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -48, 0, 0)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(-5.17141e-06, -1.42857, 2.32744e-07, 1.42857, -5.17141e-06, 1.70298e-07, -1.70298e-07, 2.32745e-07, 1.42857, 1, 0, 0)
+mesh = SubResource("ArrayMesh_cxvlt")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_003" type="MeshInstance3D" parent="Marker3D/Plane"]
+transform = Transform3D(0.494975, 6.79674e-08, 0.494975, -1.03987e-07, 0.7, 7.86674e-09, -0.494975, -7.90926e-08, 0.494975, -3.0598e-08, -0.699999, 1.14044e-07)
+mesh = SubResource("ArrayMesh_n4ee7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_001" type="MeshInstance3D" parent="Marker3D/Plane/Plane_003"]
+transform = Transform3D(0.494975, -4.49818e-08, 0.494975, -4.3537e-09, 0.7, 6.79676e-08, -0.494975, -5.11389e-08, 0.494975, 2.44268e-09, -1, 7.30553e-08)
+mesh = SubResource("ArrayMesh_n22ol")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="Plane_002" type="MeshInstance3D" parent="Marker3D/Plane/Plane_003/Plane_001"]
+transform = Transform3D(0.494974, 5.84983e-08, -0.494975, -3.52922e-08, 1, 2.26181e-08, 0.494974, 1.28028e-08, 0.494975, -6.2445e-08, -1.42857, -6.24448e-08)
+mesh = SubResource("ArrayMesh_wj1yx")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4otud")
+
+[node name="warning" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0)
+mesh = SubResource("BoxMesh_v1pse")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_bi3y8")
+
+[node name="particles" type="GPUParticles3D" parent="Marker3D"]
+transform = Transform3D(-4.37245e-08, 3.61999e-06, 0.1, -3.61999e-06, 1, -3.61999e-07, -1, -3.62e-06, -4.37114e-09, 1, 0, 0)
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-13.1136, -11.3238, -1130.85, 26.2272, 22.6476, 2261.71)
+process_material = SubResource("ParticleProcessMaterial_nfhxt")
+draw_pass_1 = SubResource("BoxMesh_lsfuq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6rv5o")
+}
+autoplay = "new_animation"

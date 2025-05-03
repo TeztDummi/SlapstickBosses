@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://0pulty1n56l5"]
+
+[ext_resource type="PackedScene" uid="uid://dcgc2q77kwx7m" path="res://objects/menger.glb" id="1_v2fis"]
+[ext_resource type="Texture2D" uid="uid://c1xydmwd2b067" path="res://objects/sponge.png" id="2_4ue11"]
+[ext_resource type="Texture2D" uid="uid://8atsxurin1rn" path="res://objects/spongnormal.png" id="3_w4uvr"]
+[ext_resource type="Texture2D" uid="uid://l0hqi36nt3jr" path="res://objects/spongerough.png" id="4_ish52"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ts3e"]
+albedo_texture = ExtResource("2_4ue11")
+roughness_texture = ExtResource("4_ish52")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("3_w4uvr")
+
+[node name="menger" instance=ExtResource("1_v2fis")]
+
+[node name="menger2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3ts3e")

@@ -1,0 +1,187 @@
+[gd_scene load_steps=20 format=3 uid="uid://dkitp5rjnr7ha"]
+
+[ext_resource type="Script" uid="uid://jyjswasj3h3g" path="res://cats/theflagcat.gd" id="1_4sp72"]
+[ext_resource type="Texture2D" uid="uid://b2g44tvrjksw8" path="res://cats/flagkitty.png" id="1_j20gv"]
+[ext_resource type="Texture2D" uid="uid://b1namtlntpe1j" path="res://cats/lil whisker headphones.png" id="2_rxowm"]
+[ext_resource type="Theme" uid="uid://cmewige4oh18h" path="res://theme.tres" id="4_d0x8k"]
+[ext_resource type="FontFile" uid="uid://bhrnhb6hijffl" path="res://Invade-eZBZ6.otf" id="5_j3jxr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a4ove"]
+radius = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_td5wk"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_du8g0"]
+center_offset = Vector3(0.8, 1, 0)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_stm7l"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_00m6q"]
+gradient = SubResource("Gradient_stm7l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtpur"]
+transparency = 1
+albedo_texture = ExtResource("1_j20gv")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_00m6q")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jy42d"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c125f"]
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgy5i"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("2_rxowm")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ub40"]
+material = SubResource("StandardMaterial3D_mgy5i")
+size = Vector2(1.59, 1)
+orientation = 2
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ruqme"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[sub_resource type="Animation" id="Animation_nw5ln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j6gs5"]
+resource_name = "move"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rnyir"]
+_data = {
+&"RESET": SubResource("Animation_nw5ln"),
+&"move": SubResource("Animation_j6gs5")
+}
+
+[node name="theflagcat" type="CharacterBody3D" groups=["cat"]]
+script = ExtResource("1_4sp72")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_a4ove")
+
+[node name="visual" type="Marker3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="visual"]
+sorting_offset = 0.01
+offset = Vector2(320, 400)
+billboard = 1
+texture = SubResource("ViewportTexture_td5wk")
+
+[node name="cat" type="MeshInstance3D" parent="visual"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+mesh = SubResource("PlaneMesh_du8g0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xtpur")
+
+[node name="healthsprite" type="Sprite3D" parent="visual"]
+transform = Transform3D(0.501547, 0, 0, 0, 0.501547, 0, 0, 0, 0.501547, 0, 2.1, 0)
+offset = Vector2(0, 162)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_jy42d")
+
+[node name="deathparticle" type="GPUParticles3D" parent="visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+emitting = false
+amount = 1
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_c125f")
+draw_pass_1 = SubResource("PlaneMesh_8ub40")
+
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+max_db = 6.0
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1152, 326)
+render_target_update_mode = 4
+
+[node name="namelabel" type="Label" parent="SubViewport"]
+offset_top = 245.0
+offset_right = 1152.0
+offset_bottom = 326.0
+theme = ExtResource("4_d0x8k")
+theme_override_fonts/font = ExtResource("5_j3jxr")
+theme_override_font_sizes/font_size = 72
+text = "the flag cat"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ruqme")
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(800, 800)
+render_target_update_mode = 4
+
+[node name="wavetext" type="Label" parent="SubViewport2"]
+offset_left = -15.32
+offset_top = 56.72
+offset_right = 944.68
+offset_bottom = 697.72
+theme = ExtResource("4_d0x8k")
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 20
+theme_override_font_sizes/font_size = 391
+text = "?"
+horizontal_alignment = 1
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_rnyir")
+}
+
+[connection signal="finished" from="audio" to="." method="_on_audio_finished"]

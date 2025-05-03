@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gejsrm71atop"]
+
+[ext_resource type="Script" uid="uid://dtd81vgvmgu60" path="res://catspawner.gd" id="1_oljdi"]
+
+[node name="catspawner" type="Node3D"]
+script = ExtResource("1_oljdi")

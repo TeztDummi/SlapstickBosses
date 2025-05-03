@@ -1,0 +1,120 @@
+[gd_scene load_steps=22 format=3 uid="uid://bdchdvx41e5v7"]
+
+[ext_resource type="Script" uid="uid://72ye4d5gqr7e" path="res://bitbag.gd" id="1_t3he4"]
+[ext_resource type="Texture2D" uid="uid://bmrlf7h5c58xy" path="res://textures/bitbag/frame0000.png" id="2_p4xk1"]
+[ext_resource type="Texture2D" uid="uid://k0pfufpbngob" path="res://textures/bitbag/frame0001.png" id="3_b1aot"]
+[ext_resource type="Texture2D" uid="uid://djmxi3y0oohw" path="res://textures/bitbag/frame0002.png" id="4_3hrg1"]
+[ext_resource type="Texture2D" uid="uid://d4a0p53k1vu5u" path="res://textures/bitbag/frame0003.png" id="5_vswlp"]
+[ext_resource type="Texture2D" uid="uid://cmlb82c7gt6ta" path="res://textures/bitbag/frame0004.png" id="6_4hm8n"]
+[ext_resource type="Texture2D" uid="uid://b08ohholr8nbr" path="res://textures/bitbag/frame0005.png" id="7_6j2ei"]
+[ext_resource type="Texture2D" uid="uid://cjb7kyfdrej7b" path="res://textures/bitbag/frame0006.png" id="8_pe0tj"]
+[ext_resource type="Texture2D" uid="uid://rujvnl0rn33s" path="res://textures/bitbag/frame0007.png" id="9_kli7x"]
+[ext_resource type="Texture2D" uid="uid://cxetrqk4x6gmn" path="res://textures/bitbag/frame0008.png" id="10_hpd17"]
+[ext_resource type="Texture2D" uid="uid://2ofq1a63yo36" path="res://textures/bitbag/frame0009.png" id="11_ncuaw"]
+[ext_resource type="Texture2D" uid="uid://cdnwsdapvr63q" path="res://bits.png" id="12_g7iyf"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_q6m8r"]
+frames = 10
+speed_scale = 24.0
+frame_0/texture = ExtResource("2_p4xk1")
+frame_1/texture = ExtResource("3_b1aot")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_3hrg1")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_vswlp")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_4hm8n")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("7_6j2ei")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("8_pe0tj")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("9_kli7x")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("10_hpd17")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("11_ncuaw")
+frame_9/duration = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vj5xa"]
+transparency = 1
+albedo_texture = SubResource("AnimatedTexture_q6m8r")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_58cf1"]
+material = SubResource("StandardMaterial3D_vj5xa")
+orientation = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n2etm"]
+
+[sub_resource type="Gradient" id="Gradient_m3pff"]
+offsets = PackedFloat32Array(0, 0.797342, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b04fu"]
+gradient = SubResource("Gradient_m3pff")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edorx"]
+lifetime_randomness = 0.25
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+damping_min = 8.0
+damping_max = 8.0
+scale_min = 0.75
+scale_max = 1.25
+color_ramp = SubResource("GradientTexture1D_b04fu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lpcf"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("12_g7iyf")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iyfg0"]
+material = SubResource("StandardMaterial3D_3lpcf")
+size = Vector2(0.5, 0.38)
+orientation = 2
+
+[node name="bitbag" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_t3he4")
+metadata/id = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_58cf1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_n2etm")
+
+[node name="particle" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 30
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_edorx")
+draw_pass_1 = SubResource("PlaneMesh_iyfg0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="starttimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="starttimer" to="." method="_on_starttimer_timeout"]

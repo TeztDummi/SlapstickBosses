@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://hy7kaouiopj4"]
+
+[ext_resource type="Script" uid="uid://dgicybi6pin53" path="res://defaultitem.gd" id="1_jc6gd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_51im5"]
+
+[node name="defaultitem" type="Node3D"]
+script = ExtResource("1_jc6gd")
+metadata/held = true
+
+[node name="preview" type="Node3D" parent="."]
+
+[node name="block" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.275, -0.225, -0.441)
+mesh = SubResource("BoxMesh_51im5")
+
+[node name="raycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -5, 0)

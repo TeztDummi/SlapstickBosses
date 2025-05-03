@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://byybb421ih7sj"]
+
+[ext_resource type="Script" uid="uid://cw8jmlpb325hd" path="res://musicplatmover.gd" id="1_tpj60"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8w42q"]
+size = Vector3(40, 20, 10)
+
+[node name="musicplatmover" type="Node3D"]
+script = ExtResource("1_tpj60")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_8w42q")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

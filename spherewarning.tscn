@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccsi2lw8ve1l"]
+
+[ext_resource type="Script" uid="uid://dtkqvnepmeleg" path="res://spherewarning.gd" id="1_jwhvu"]
+
+[sub_resource type="Animation" id="Animation_72rfr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warning:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dpd8b"]
+resource_name = "default"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warning:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.392157)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_duxya"]
+_data = {
+&"RESET": SubResource("Animation_72rfr"),
+&"default": SubResource("Animation_dpd8b")
+}
+
+[sub_resource type="SphereMesh" id="SphereMesh_eiypo"]
+
+[sub_resource type="Gradient" id="Gradient_fysi3"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.504098)
+colors = PackedColorArray(1, 0, 0, 1, 0.39, 0.1482, 0.1482, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jxfxr"]
+gradient = SubResource("Gradient_fysi3")
+width = 256
+height = 256
+fill_to = Vector2(0.25, 0.25)
+repeat = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_undsh"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = SubResource("GradientTexture2D_jxfxr")
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.0
+rim_enabled = true
+rim_tint = 1.0
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="spherewarning" type="Node3D"]
+script = ExtResource("1_jwhvu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_duxya")
+}
+
+[node name="warning" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("SphereMesh_eiypo")
+surface_material_override/0 = SubResource("StandardMaterial3D_undsh")

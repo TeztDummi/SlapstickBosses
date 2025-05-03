@@ -1,0 +1,140 @@
+[gd_scene load_steps=26 format=3 uid="uid://g8n6e6bblvfr"]
+
+[ext_resource type="Script" uid="uid://c0k3kv7t5c7mt" path="res://catsoldier.gd" id="1_8asyq"]
+[ext_resource type="Texture2D" uid="uid://pomlq6il5hra" path="res://cats/lil whisker closed.png" id="2_18211"]
+[ext_resource type="Texture2D" uid="uid://c5c8vdo75dqvm" path="res://cats/floatyshadowykitty.png" id="3_wx8kb"]
+[ext_resource type="Texture2D" uid="uid://dj2rhs4oyvfhj" path="res://cats/floatyshadowykittyemission.png" id="4_d8huw"]
+[ext_resource type="Texture2D" uid="uid://cx6vm2iok3nhd" path="res://addons/kenney_particle_pack/star_05.png" id="5_bl1o0"]
+[ext_resource type="Texture2D" uid="uid://bww1rw2ll1ivv" path="res://cats/roobeer.png" id="6_pt755"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r7uqx"]
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_olevd"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_00m6q"]
+gradient = SubResource("Gradient_olevd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpq43"]
+transparency = 1
+albedo_texture = ExtResource("2_18211")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_00m6q")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kf8b7"]
+orientation = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k0gg1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvrd7"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_wx8kb")
+metallic_specular = 0.0
+emission_enabled = true
+emission_texture = ExtResource("4_d8huw")
+clearcoat_roughness = 0.0
+clearcoat_texture = SubResource("NoiseTexture2D_k0gg1")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_kcuv3"]
+offsets = PackedFloat32Array(0, 0.218543, 0.76, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h2xyy"]
+gradient = SubResource("Gradient_kcuv3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8sb8m"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, 9.8, 0)
+color_ramp = SubResource("GradientTexture1D_h2xyy")
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvpi0"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("5_bl1o0")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ii5yy"]
+material = SubResource("StandardMaterial3D_uvpi0")
+size = Vector2(0.3, 0.3)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i82lj"]
+orientation = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yo284"]
+load_path = "res://.godot/imported/oneofthem1.png-f5b7716dfcad71a231de1a73a7ef73d0.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndxb3"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_yo284")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s1gt3"]
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_3hqo7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qrtiq"]
+gradient = SubResource("Gradient_3hqo7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05m2b"]
+transparency = 1
+albedo_texture = ExtResource("6_pt755")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_qrtiq")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[node name="catsoldier" type="Node3D"]
+script = ExtResource("1_8asyq")
+
+[node name="lilwhisker" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+mesh = SubResource("PlaneMesh_r7uqx")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vpq43")
+
+[node name="floaty" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.3, 0, 0.718644, 0)
+visible = false
+mesh = SubResource("PlaneMesh_kf8b7")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gvrd7")
+
+[node name="particle" type="GPUParticles3D" parent="floaty"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+amount = 50
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_8sb8m")
+draw_pass_1 = SubResource("PlaneMesh_ii5yy")
+
+[node name="oneofthem" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.399796, 0, 0, 0, 0.399796, 0, 0, 0, 0.99949, 0, 0.4, 0)
+visible = false
+mesh = SubResource("PlaneMesh_i82lj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ndxb3")
+
+[node name="roobeer" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.789481, 0, 0, 0, 0.789481, 0, 0, 0, 3, 0, 0.790086, 0)
+visible = false
+mesh = SubResource("PlaneMesh_s1gt3")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_05m2b")

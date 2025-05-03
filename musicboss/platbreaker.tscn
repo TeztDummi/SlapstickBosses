@@ -1,0 +1,426 @@
+[gd_scene load_steps=20 format=4 uid="uid://du63pwk2dwkft"]
+
+[ext_resource type="Script" uid="uid://dlk8261f0otjp" path="res://platbreaker.gd" id="1_goug0"]
+[ext_resource type="Texture2D" uid="uid://dqj74a1go5tsa" path="res://addons/kenney_particle_pack/spark_02.png" id="2_lfyhk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mcbwq"]
+height = 15.0
+radius = 4.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_duw0c"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14jq2"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.0392157)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g20pw"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t2m0k"]
+_surfaces = [{
+"aabb": AABB(-1, -1.60393e-07, -1.15469, 1.99999, 1.01604e-05, 1.73205),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("BAACAAMABAAAAAIABwABAAUABwAGAAEADAAKAAsADAAIAAoADwAJAA0ADwAOAAkAFAASABMAFAAQABIAFwARABUAFwAWABEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAvwAAAAA3zBM/atGDvqE4LLTGhRM/yBAhvymusLPY9oS9f4EDv0FBkLM0UAo+VVEnvwAAAAAGMsE+RMR/vzZeczN0hxM/+O++vo0q97O3pcA+whUnv5OkSDHsp8A+IP9/PwAA96u8zRM/erYgP55y8LOQdYW9KEeEPqNnDLQQzBM/smW/PpKIt7NNMsE+n1AnPwCAyKt/NME+tqV/PykbczNjvBM/MCcDP7gF0LPhEAo+CPcmP/JtRDFeEsE+AABhN0JoDDT6zJO/ipu9vigmqLMW1wK/aNq9PjxCULM2LQO/mjoPPkgdnbI0LQO/AAA3NxiJtzNEM0G/AID0OcYOSTTsoZO/0LwOvriYTrMU1wK/ANj1OfZrvTMl3UC/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a0cne"]
+resource_name = "subshooters_Plane_005"
+_surfaces = [{
+"aabb": AABB(-1, -1.60393e-07, -1.15469, 1.99999, 1.01604e-05, 1.73205),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAABnzsPQR8bD4AfOw9VXBiPwAAAAAAAIA/BnzsPQR8bD4AfOw9VXBiPwAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAZ87D0EfGw+AHzsPVVwYj8AAAAAAACAPwZ87D0EfGw+AHzsPVVwYj8AAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAGfOw9BHxsPgB87D1VcGI/AAAAAAAAgD8GfOw9BHxsPgB87D1VcGI/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("BAACAAMABAAAAAIABwABAAUABwAGAAEADAAKAAsADAAIAAoADwAJAA0ADwAOAAkAFAASABMAFAAQABIAFwARABUAFwAWABEA"),
+"material": SubResource("StandardMaterial3D_g20pw"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAvwAAAAA3zBM/atGDvqE4LLTGhRM/yBAhvymusLPY9oS9f4EDv0FBkLM0UAo+VVEnvwAAAAAGMsE+RMR/vzZeczN0hxM/+O++vo0q97O3pcA+whUnv5OkSDHsp8A+IP9/PwAA96u8zRM/erYgP55y8LOQdYW9KEeEPqNnDLQQzBM/smW/PpKIt7NNMsE+n1AnPwCAyKt/NME+tqV/PykbczNjvBM/MCcDP7gF0LPhEAo+CPcmP/JtRDFeEsE+AABhN0JoDDT6zJO/ipu9vigmqLMW1wK/aNq9PjxCULM2LQO/mjoPPkgdnbI0LQO/AAA3NxiJtzNEM0G/AID0OcYOSTTsoZO/0LwOvriYTrMU1wK/ANj1OfZrvTMl3UC//3//////wNL/f/////96Ef9////M7f+//3///5HL/7//f/////8nzP9//////zgk/3///wAA6AT/f//////+Hv9///8AAMbb/3///zIS/z//f///AACE7v9//////xb7/3///wAAAOH/f///AAA+Lf9///9tNP8//3///wAA1zP/f///IXH/v/9///+7uf8//3///0NG/7//f///BSn/v/9///9QYv+//3///92O/z//f///+db/P/9///+unf8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_t2m0k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogahn"]
+cull_mode = 2
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmpa2"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yu3x6"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1.15467, 2, 1e-05, 1.73201),
+"format": 34359742465,
+"index_count": 18,
+"index_data": PackedByteArray("BAACAAMABAAAAAIABQAAAAQABQABAAAAAwABAAUAAwACAAEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AACAvwAAAAA3zBM/AACAPwAAAAA3zBM/q6qqMgAAAAASzJO/q6qqMgAAAABPMkG/VVEnvwAAAAAGMsE+VFEnPwAAAAAEMsE+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ask7l"]
+resource_name = "subshooters_Plane_004"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1.15467, 2, 1e-05, 1.73201),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAABnzsPQR8bD4AfOw9VXBiP9XgRD9VcGI/"),
+"format": 34359742487,
+"index_count": 18,
+"index_data": PackedByteArray("BAACAAMABAAAAAIABQAAAAQABQABAAAAAwABAAUAAwACAAEA"),
+"material": SubResource("StandardMaterial3D_nmpa2"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AACAvwAAAAA3zBM/AACAPwAAAAA3zBM/q6qqMgAAAAASzJO/q6qqMgAAAABPMkG/VVEnvwAAAAAGMsE+VFEnPwAAAAAEMsE+/3///////7//f////v//v/9////+//+//3////7//7//f///////v/9////+//+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yu3x6")
+
+[sub_resource type="PrismMesh" id="PrismMesh_orrgy"]
+
+[sub_resource type="Animation" id="Animation_w0e36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker3D/Plane_001/Plane:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3D/Plane_001/Plane:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.14159, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bomb:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("bomb:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 9, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Area3D/MeshInstance3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GPUParticles3D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("bomb:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.35137e-08, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("bomb:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wn2lt"]
+resource_name = "new_animation"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.203063, 2.46229, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(1, 1, 1), Vector3(0.1, 0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker3D/Plane_001/Plane:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector3(0, -1, 0), Vector3(0, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3D/Plane_001/Plane:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector3(-3.14159, 1.0472, 0), Vector3(-3.14159, -1.0472, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bomb:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("bomb:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector3(0, 9, 0), Vector3(0, 0.5, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Area3D/MeshInstance3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GPUParticles3D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.6, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"detect"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("bomb:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-7.35137e-08, 0, 0), Vector3(-2.95135, 1.26187, 4.95324), Vector3(0.876978, 1.30144, 2.34107), Vector3(0.376716, 2.52778, 1.55152), Vector3(-5.53968, 0.301942, -0.490438)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("bomb:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25, 0.35, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.111, 1.111, 1.111), Vector3(1.912, 1.912, 1.912), Vector3(7.2, 7.2, 7.2), Vector3(3.47, 3.47, 3.47)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fvuf4"]
+_data = {
+&"RESET": SubResource("Animation_w0e36"),
+&"new_animation": SubResource("Animation_wn2lt")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r4o6j"]
+emission_shape = 1
+emission_sphere_radius = 8.0
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywkn8"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_lfyhk")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6l3sl"]
+material = SubResource("StandardMaterial3D_ywkn8")
+orientation = 2
+
+[node name="platbreaker" type="Node3D"]
+script = ExtResource("1_goug0")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_mcbwq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("SphereMesh_duw0c")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_14jq2")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+
+[node name="Plane_001" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(0.7, 1.2517e-07, -1.21244, 1.41349e-07, -1.4, -6.1196e-08, -1.21244, -4.45011e-08, -0.7, 0, 0, 0)
+mesh = SubResource("ArrayMesh_a0cne")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ogahn")
+
+[node name="Plane" type="MeshInstance3D" parent="Marker3D/Plane_001"]
+transform = Transform3D(0.714285, 0, 0, 0, -0.714285, 1.81084e-06, 0, -1.81084e-06, -0.714285, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ask7l")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ogahn")
+
+[node name="bomb" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.35137e-08, 0, -7.35137e-08, 1, 0, 9, 0)
+visible = false
+mesh = SubResource("PrismMesh_orrgy")
+surface_material_override/0 = SubResource("StandardMaterial3D_ogahn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fvuf4")
+}
+autoplay = "new_animation"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 500
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_r4o6j")
+draw_pass_1 = SubResource("PlaneMesh_6l3sl")

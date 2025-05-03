@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://doi8sjieac7rh"]
+
+[ext_resource type="Texture2D" uid="uid://bqmjyirblgg6t" path="res://dagger.png" id="1_yh6tk"]
+[ext_resource type="Script" uid="uid://flj282mbdfjf" path="res://dagger.gd" id="2_ekw3i"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_g58u4"]
+size = Vector2(1.28, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exc4v"]
+transparency = 1
+albedo_texture = ExtResource("1_yh6tk")
+
+[node name="dagger" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.47)
+mesh = SubResource("QuadMesh_g58u4")
+surface_material_override/0 = SubResource("StandardMaterial3D_exc4v")
+script = ExtResource("2_ekw3i")

@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://ctssdqws033mj"]
+
+[ext_resource type="Texture2D" uid="uid://didhe51ajbmfh" path="res://characters/wizardscared0000.png" id="1_l4a4f"]
+[ext_resource type="Texture2D" uid="uid://wv75frvxtiy8" path="res://characters/wizardscared0001.png" id="2_3idxo"]
+[ext_resource type="Texture2D" uid="uid://cyxh6hrplg31o" path="res://characters/wizardscared0002.png" id="3_fdvk3"]
+[ext_resource type="Texture2D" uid="uid://dx723h3vf4xu1" path="res://characters/wizardscared0003.png" id="4_srhvj"]
+
+[resource]
+frames = 4
+speed_scale = 18.0
+frame_0/texture = ExtResource("1_l4a4f")
+frame_1/texture = ExtResource("2_3idxo")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_fdvk3")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_srhvj")
+frame_3/duration = 1.0

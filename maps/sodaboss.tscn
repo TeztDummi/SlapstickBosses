@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://fma1f25dg448"]
+
+[ext_resource type="Script" uid="uid://oc80lfbaoc8u" path="res://maps/sodaboss.gd" id="1_8oicj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rtnr1"]
+size = Vector3(5, 0.25, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ypn5"]
+size = Vector3(5, 0.25, 5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cmmb"]
+sky_top_color = Color(0.3, 0.28, 0.27, 1)
+sky_horizon_color = Color(0.14, 0.0713067, 0.0504, 1)
+ground_horizon_color = Color(0.52, 0.378387, 0.2964, 1)
+
+[sub_resource type="Sky" id="Sky_k6yoa"]
+sky_material = SubResource("ProceduralSkyMaterial_5cmmb")
+
+[sub_resource type="Environment" id="Environment_3anqi"]
+background_mode = 2
+sky = SubResource("Sky_k6yoa")
+tonemap_mode = 2
+ssil_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[node name="sodaboss" type="Node3D"]
+script = ExtResource("1_8oicj")
+
+[node name="sodaboss" type="Marker3D" parent="."]
+editor_description = "Soda boss discord thing idk"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+mesh = SubResource("BoxMesh_rtnr1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_6ypn5")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3anqi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="startdelay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="startdelay" to="." method="_on_startdelay_timeout"]

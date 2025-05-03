@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://k3sohdxewc6s"]
+
+[ext_resource type="PackedScene" uid="uid://dbje57lu7r0g6" path="res://bullet.tscn" id="1_hfdad"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6etd"]
+shading_mode = 0
+albedo_color = Color(1, 0.5, 1, 1)
+grow = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibjhv"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 1, 1)
+grow = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tyl4l"]
+radius = 0.085
+height = 11.5256
+
+[node name="sniperbullet" instance=ExtResource("1_hfdad")]
+
+[node name="Icosphere" parent="." index="0"]
+transform = Transform3D(-0.180452, 0, -9.48815e-07, 0, 0.180452, 0, 2.72475e-08, 0, -6.28372, 0, 0, 7.20886)
+surface_material_override/0 = SubResource("StandardMaterial3D_a6etd")
+
+[node name="Icosphere2" parent="." index="1"]
+transform = Transform3D(-0.224662, 0, -1.11775e-06, 0, 0.224662, 0, 3.39231e-08, 0, -7.40252, 0, 0, 8.10523)
+surface_material_override/0 = SubResource("StandardMaterial3D_ibjhv")
+
+[node name="CollisionShape3D" parent="area" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 5.62537)
+shape = SubResource("CapsuleShape3D_tyl4l")
+
+[node name="raycast" parent="." index="4"]
+target_position = Vector3(0, -2, 0)
+
+[node name="hit" parent="." index="6"]
+transform = Transform3D(-1, -1.50996e-07, -6.60024e-15, 0, -4.37114e-08, 1, -1.50996e-07, 1, 4.37114e-08, 0, 0, 1.50591)
+surface_material_override/0 = SubResource("StandardMaterial3D_a6etd")
+surface_material_override/1 = SubResource("StandardMaterial3D_ibjhv")

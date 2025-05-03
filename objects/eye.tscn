@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://djyb17qsytwgc"]
+
+[ext_resource type="PackedScene" uid="uid://dl607txrmttyb" path="res://objects/eye.glb" id="1_wajbw"]
+
+[node name="eye" instance=ExtResource("1_wajbw")]
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09918, 0)

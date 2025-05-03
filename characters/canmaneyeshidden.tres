@@ -1,0 +1,11 @@
+[gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://c1u4os75tumum"]
+
+[ext_resource type="Texture2D" uid="uid://dr3xdgfpif63q" path="res://characters/canman0002.png" id="1_usm6p"]
+[ext_resource type="Texture2D" uid="uid://bl132ojc1qanx" path="res://characters/canman0003.png" id="2_ht6ha"]
+
+[resource]
+frames = 2
+speed_scale = 8.0
+frame_0/texture = ExtResource("1_usm6p")
+frame_1/texture = ExtResource("2_ht6ha")
+frame_1/duration = 1.0

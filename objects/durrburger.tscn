@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxcs2tegbtn2y"]
+
+[ext_resource type="PackedScene" uid="uid://bdbvg7u7kxei5" path="res://objects/durrburger.glb" id="1_vrnvt"]
+[ext_resource type="Texture2D" uid="uid://dcrdnv1aeectv" path="res://objects/durrburger_durreye.png" id="2_h2qjd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fk10c"]
+frequency = 0.1203
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8cr1n"]
+in_3d_space = true
+noise = SubResource("FastNoiseLite_fk10c")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmx4e"]
+resource_name = "Material.030"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.405509, 0.218883, 0, 1)
+roughness_texture = SubResource("NoiseTexture2D_8cr1n")
+refraction_scale = -1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u045"]
+resource_name = "Material.034"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_h2qjd")
+roughness = 0.125786
+refraction_enabled = true
+
+[node name="durrburger" instance=ExtResource("1_vrnvt")]
+
+[node name="durrburger2" parent="." index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_pmx4e")
+surface_material_override/5 = SubResource("StandardMaterial3D_2u045")
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27755, 0)

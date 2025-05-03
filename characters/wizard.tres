@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://cr3hosmgvq0kv"]
+
+[ext_resource type="Texture2D" uid="uid://b5fe2xlxvjfpm" path="res://characters/wizard0000.png" id="1_4vlkg"]
+[ext_resource type="Texture2D" uid="uid://cidt8ejl1k4rx" path="res://characters/wizard0001.png" id="2_3ef5y"]
+[ext_resource type="Texture2D" uid="uid://bhvgk436vfakb" path="res://characters/wizard0002.png" id="3_6ke3b"]
+[ext_resource type="Texture2D" uid="uid://n8y4ydfm5qsu" path="res://characters/wizard0003.png" id="4_k53dq"]
+
+[resource]
+frames = 4
+speed_scale = 12.0
+frame_0/texture = ExtResource("1_4vlkg")
+frame_1/texture = ExtResource("2_3ef5y")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_6ke3b")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_k53dq")
+frame_3/duration = 1.0

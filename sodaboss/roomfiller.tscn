@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnj2yir84h0id"]
+
+[ext_resource type="Texture2D" uid="uid://bj02w0j2h5vf5" path="res://textures/concrete/Concrete031_2K-JPG_Color.jpg" id="1_vcrft"]
+[ext_resource type="Texture2D" uid="uid://cxw2hwfkdcsu" path="res://textures/concrete/Concrete031_2K-JPG_NormalDX.jpg" id="2_r78uw"]
+[ext_resource type="Texture2D" uid="uid://1x1gpbjr4nw2" path="res://textures/concrete/Concrete031_2K-JPG_Roughness.jpg" id="3_clcp8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nywkf"]
+size = Vector2(8, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s137t"]
+albedo_texture = ExtResource("1_vcrft")
+roughness_texture = ExtResource("3_clcp8")
+normal_enabled = true
+normal_texture = ExtResource("2_r78uw")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d4spu"]
+size = Vector3(8, 0.25, 2)
+
+[node name="roomfiller" type="Node3D"]
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.14603e-08, 1, -4.13264e-07, 0.5, -1.62921e-07, 2.23908e-14, -1.12346e-14, -2.06632e-07, -2, -2, 2, 2)
+mesh = SubResource("PlaneMesh_nywkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_s137t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D10/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_d4spu")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.14603e-08, -1, 2.38418e-07, 0.5, -1.62921e-07, 2.23908e-14, 4.11313e-15, 1.1921e-07, 2, 2, 2, 2)
+mesh = SubResource("PlaneMesh_nywkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_s137t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D11/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_d4spu")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.5, 2.06632e-07, -3.28124e-14, -1.03316e-07, -1, 2.38418e-07, 4.11313e-15, 1.1921e-07, 2, 0, 4, 2)
+mesh = SubResource("PlaneMesh_nywkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_s137t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_d4spu")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, -1.1921e-07, 1.19692e-14, 5.96046e-08, 1, -2.38418e-07, 4.11313e-15, 1.1921e-07, 2, 0, 0, 2)
+mesh = SubResource("PlaneMesh_nywkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_s137t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D13/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_d4spu")
+
+[node name="end" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

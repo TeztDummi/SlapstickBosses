@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnbtrd4qdqgvs"]
+
+[ext_resource type="PackedScene" uid="uid://cqoboh0w7yyj2" path="res://objects/lightbulb.glb" id="1_voy23"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ed66q"]
+resource_name = "blinn2SG"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.921568, 0.219609, 1)
+emission_enabled = true
+emission = Color(1, 0.921569, 0.219608, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p263x"]
+resource_name = "blinn3SG"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.618031, 0.618031, 0.618031, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2injd"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="lightbulb" instance=ExtResource("1_voy23")]
+
+[node name="lightbulb2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ed66q")
+surface_material_override/1 = SubResource("StandardMaterial3D_p263x")
+surface_material_override/2 = SubResource("StandardMaterial3D_2injd")
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 1.26628, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+light_color = Color(1, 1, 0.501961, 1)

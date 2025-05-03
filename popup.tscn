@@ -1,0 +1,155 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4hymusbuyujs"]
+
+[ext_resource type="Theme" uid="uid://cmewige4oh18h" path="res://theme.tres" id="1_l0i15"]
+[ext_resource type="Script" uid="uid://dtu7ttcwpgw58" path="res://popup.gd" id="1_mk5d6"]
+[ext_resource type="Texture2D" uid="uid://be7cs803wfuf5" path="res://objects/bballico.png" id="2_mvhea"]
+[ext_resource type="Texture2D" uid="uid://cdnwsdapvr63q" path="res://bits.png" id="3_4ld0t"]
+[ext_resource type="Texture2D" uid="uid://cvbhp76151735" path="res://achievements/frfr.png" id="5_q0tho"]
+[ext_resource type="FontFile" uid="uid://bhrnhb6hijffl" path="res://Invade-eZBZ6.otf" id="6_knxf2"]
+
+[sub_resource type="Animation" id="Animation_vkula"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s2wc5"]
+resource_name = "default"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.183011, 1),
+"update": 0,
+"values": [Vector2(0, 227), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(0.183011, 1, 1, 0.183011),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mt8rk"]
+_data = {
+&"RESET": SubResource("Animation_vkula"),
+&"default": SubResource("Animation_s2wc5")
+}
+
+[node name="popup" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 8960.0
+offset_bottom = 5040.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_mk5d6")
+
+[node name="cosmetic" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 461.0
+offset_top = 501.0
+offset_right = 1127.0
+offset_bottom = 609.0
+theme = ExtResource("1_l0i15")
+theme_override_colors/font_color = Color(0, 0.766667, 1, 1)
+theme_override_font_sizes/font_size = 86
+text = "+Cosmetic"
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="cosmetic"]
+position = Vector2(735, 50.375)
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("2_mvhea")
+
+[node name="bits" type="Label" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 611.0
+offset_right = 1128.0
+offset_bottom = 719.0
+theme = ExtResource("1_l0i15")
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_font_sizes/font_size = 86
+text = "+100"
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="bits"]
+position = Vector2(735, 50.375)
+scale = Vector2(0.440534, 0.440534)
+texture = ExtResource("3_4ld0t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mt8rk")
+}
+autoplay = "default"
+
+[node name="achievement" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 26.0
+offset_right = 1128.0
+offset_bottom = 134.0
+theme = ExtResource("1_l0i15")
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "the coolest achievement ever!!!1"
+horizontal_alignment = 2
+
+[node name="sprite" type="Sprite2D" parent="achievement"]
+position = Vector2(1203, 50)
+scale = Vector2(0.686, 0.686)
+texture = ExtResource("5_q0tho")
+
+[node name="desc" type="Label" parent="achievement"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 1127.0
+offset_bottom = 163.0
+theme = ExtResource("1_l0i15")
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_fonts/font = ExtResource("6_knxf2")
+theme_override_font_sizes/font_size = 32
+text = "kill yourself"
+horizontal_alignment = 2
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

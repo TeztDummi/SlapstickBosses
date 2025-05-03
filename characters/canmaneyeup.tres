@@ -1,0 +1,21 @@
+[gd_resource type="AnimatedTexture" load_steps=6 format=3 uid="uid://d1wxm6t3g78ra"]
+
+[ext_resource type="Texture2D" uid="uid://f11tc4b27n8d" path="res://characters/canman0004.png" id="1_gpnrs"]
+[ext_resource type="Texture2D" uid="uid://b2eucea4o8uve" path="res://characters/canman0005.png" id="2_2c08v"]
+[ext_resource type="Texture2D" uid="uid://1nkkirj1b5db" path="res://characters/canman0006.png" id="3_36amy"]
+[ext_resource type="Texture2D" uid="uid://cljiysg5ihjwq" path="res://characters/canman0007.png" id="4_w87y4"]
+[ext_resource type="Texture2D" uid="uid://dtsmg1veiuy45" path="res://characters/canman0008.png" id="5_ss7dj"]
+
+[resource]
+frames = 5
+one_shot = true
+speed_scale = 8.0
+frame_0/texture = ExtResource("1_gpnrs")
+frame_1/texture = ExtResource("2_2c08v")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_36amy")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_w87y4")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_ss7dj")
+frame_4/duration = 1.0

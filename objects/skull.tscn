@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctd6foyhstam6"]
+
+[ext_resource type="PackedScene" uid="uid://c6ldajeln20tf" path="res://skull.glb" id="1_eu2kq"]
+[ext_resource type="Script" uid="uid://bawg5hne4yx4q" path="res://skull.gd" id="2_ranm8"]
+
+[node name="skull" instance=ExtResource("1_eu2kq")]
+metadata/deathsound = "skull"
+metadata/winsound = "skull"
+
+[node name="skull2" parent="." index="0"]
+script = ExtResource("2_ranm8")
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07282, 0)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1mygit1qlpn4"]
+
+[ext_resource type="PackedScene" uid="uid://dpfsq0giagcbx" path="res://objects/defaultobject.glb" id="1_l3c43"]
+[ext_resource type="Texture2D" uid="uid://c7y28g6b385iq" path="res://objects/defaultobject_defaultobjecttexture.png" id="2_estlq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwbil"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_texture = ExtResource("2_estlq")
+uv1_scale = Vector3(0.5, 1, 0.5)
+uv1_offset = Vector3(0.5, 0, 0)
+billboard_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bn6yo"]
+material = SubResource("StandardMaterial3D_kwbil")
+size = Vector2(1.1, 1.1)
+orientation = 2
+
+[node name="defaultobject" instance=ExtResource("1_l3c43")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.150289, 0, 0, 0, 0.150289, 0, 0, 0, 0.150289, 0, 0.558154, 0)
+mesh = SubResource("PlaneMesh_bn6yo")
+skeleton = NodePath("../outline")
+
+[node name="outline" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.556874, 0)
+visible = false
+centered = false
+offset = Vector2(-360, -360)
+billboard = 1
+texture = ExtResource("2_estlq")
+region_enabled = true
+region_rect = Rect2(720, 0, 720, 720)
+
+[node name="nameoffset" type="Marker3D" parent="." index="3"]
+transform = Transform3D(0.999945, -0.0104892, 0, 0.0104892, 0.999945, 0, 0, 0, 1, 0, 1.18091, 0)

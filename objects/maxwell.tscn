@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://u5n3w4qp3se"]
+
+[ext_resource type="PackedScene" uid="uid://bnr1alk3w7whr" path="res://objects/maxwell.glb" id="1_ts3rv"]
+[ext_resource type="Texture2D" uid="uid://dufqmsag0mn15" path="res://objects/maxwell_dingus_nowhiskers.png" id="2_y2r55"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rt755"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wj8hb"]
+noise = SubResource("FastNoiseLite_rt755")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bklrf"]
+resource_name = "dingus"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_y2r55")
+metallic_specular = 0.2
+roughness_texture = SubResource("NoiseTexture2D_wj8hb")
+
+[node name="maxwell" instance=ExtResource("1_ts3rv")]
+metadata/winsound = "maxwell"
+
+[node name="dingus" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_bklrf")
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92998, 0)

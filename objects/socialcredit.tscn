@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsniaqbisricn"]
+
+[ext_resource type="PackedScene" uid="uid://crrep3fxohaoj" path="res://objects/socialcredit.glb" id="1_4vegc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0vvd"]
+resource_name = "Material.050"
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.827459, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ca2b"]
+resource_name = "Material.050"
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.827459, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avijt"]
+resource_name = "Material.050"
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.827459, 0, 1)
+
+[node name="socialcredit" instance=ExtResource("1_4vegc")]
+metadata/deathsound = "socialcredit"
+metadata/winsound = "socialcredit"
+
+[node name="Vert" parent="." index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_m0vvd")
+surface_material_override/3 = SubResource("StandardMaterial3D_0ca2b")
+surface_material_override/5 = SubResource("StandardMaterial3D_avijt")
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24542, 0)

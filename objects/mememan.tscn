@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgfryb0d8kkwf"]
+
+[ext_resource type="PackedScene" uid="uid://sdxyqbrpc6fi" path="res://objects/mememan.glb" id="1_ya7ld"]
+
+[node name="mememan" instance=ExtResource("1_ya7ld")]
+metadata/winsound = "mememan"
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10114, 0)

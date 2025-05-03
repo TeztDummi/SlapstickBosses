@@ -1,0 +1,635 @@
+[gd_scene load_steps=42 format=3 uid="uid://den3vbudjumyx"]
+
+[ext_resource type="Script" uid="uid://2w0tehwxue8j" path="res://cats/roobeer.gd" id="1_csxim"]
+[ext_resource type="Texture2D" uid="uid://bww1rw2ll1ivv" path="res://cats/roobeer.png" id="2_2bdsb"]
+[ext_resource type="AudioStream" uid="uid://ycyr1tgpn62" path="res://audio/roobeerdeath.mp3" id="3_3ntql"]
+[ext_resource type="Texture2D" uid="uid://bl2k2w1ur45il" path="res://cats/bullcat.png" id="4_o3mmv"]
+[ext_resource type="Texture2D" uid="uid://bykrrt01t8mkv" path="res://ui/healthbottom.png" id="5_jory2"]
+[ext_resource type="Texture2D" uid="uid://d3uo7fb74kalu" path="res://addons/kenney_particle_pack/smoke_08.png" id="5_q1hfp"]
+[ext_resource type="Texture2D" uid="uid://bxb88xlsajxjq" path="res://ui/healthprogress.png" id="6_50jvo"]
+[ext_resource type="Theme" uid="uid://cmewige4oh18h" path="res://theme.tres" id="7_imxih"]
+[ext_resource type="FontFile" uid="uid://bhrnhb6hijffl" path="res://Invade-eZBZ6.otf" id="8_3bpig"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_te3gs"]
+radius = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jv0ne"]
+radius = 3.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wd5hw"]
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_stm7l"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qrtiq"]
+gradient = SubResource("Gradient_stm7l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nb1w"]
+transparency = 1
+albedo_texture = ExtResource("2_2bdsb")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_qrtiq")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jy42d"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6epfb"]
+transparency = 1
+albedo_texture = ExtResource("4_o3mmv")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_qrtiq")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_337qo"]
+radius = 50.0
+
+[sub_resource type="Animation" id="Animation_h4m5u"]
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("visual/cat:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("warning:surface_material_override/0:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.858824, 0.596078, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("deathparticle:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("visual:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("slamwarning:surface_material_override/0:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("cat2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("cat2:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.01, 0.01, 0.01)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("cat2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u8xla"]
+resource_name = "dash"
+length = 3.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cat2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.65, 0.75, 3, 3.05, 3.1, 3.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 2, 1, 1, 2, 0.5, 0.5),
+"update": 0,
+"values": [Vector3(0.01, 0.01, 0.01), Vector3(0, 0, 0), Vector3(2, 2, 2), Vector3(2, 1.6, 2), Vector3(2, 2, 2), Vector3(2, 2, 2), Vector3(2, 1.6, 2), Vector3(2, 2, 2), Vector3(0.01, 0.01, 0.01)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cat2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.65, 0.75, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.05, 3.1, 3.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 2, 1, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 2, 0), Vector3(0, 1.6, 0), Vector3(0, 2, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 2.5, 0), Vector3(0, 2, 0), Vector3(0, 1.6, 0), Vector3(0, 2, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("visual:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.65, 0.75, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.05, 3.1, 3.25, 3.5),
+"transitions": PackedFloat32Array(0.5, 2, 1, 1, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 1, 0.5, 2, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 7, 0), Vector3(0, 3, 0), Vector3(0, 4, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 4.5, 0), Vector3(0, 4, 0), Vector3(0, 3, 0), Vector3(0, 4, 0), Vector3(0, 7, 0), Vector3(0, 0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["yes"],
+"method": &"changedashing"
+}, {
+"args": ["notmoving"],
+"method": &"changedashing"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_53yj8"]
+resource_name = "death"
+length = 5.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual/cat:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("warning:surface_material_override/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.858824, 0.596078, 0), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("deathparticle:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"activateexplode"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3td8l"]
+resource_name = "move"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_38ejp"]
+resource_name = "slam"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 1.5, 2.5, 2.6, 3),
+"transitions": PackedFloat32Array(5.65685, 0.0883884, 0.353553, 6.06287, 0.0796601, 0.258816, 5.65685),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(2, 0.5, 1), Vector3(0.5, 2.25, 1), Vector3(1, 1, 1), Vector3(0.5, 2.25, 1), Vector3(2, 0.5, 1), Vector3(1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"slam"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("visual:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1.5, 2.5),
+"transitions": PackedFloat32Array(0.25, 4, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 120, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("slamwarning:surface_material_override/0:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2, 2.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o8cvu"]
+resource_name = "throw2L"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 0.267944, 2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qymhj"]
+_data = {
+&"RESET": SubResource("Animation_h4m5u"),
+&"dash": SubResource("Animation_u8xla"),
+&"death": SubResource("Animation_53yj8"),
+&"move": SubResource("Animation_3td8l"),
+&"slam": SubResource("Animation_38ejp"),
+&"throw2L": SubResource("Animation_o8cvu")
+}
+
+[sub_resource type="SphereMesh" id="SphereMesh_cumqa"]
+radius = 20.0
+height = 40.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3akd"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 0.858824, 0.596078, 0)
+
+[sub_resource type="Gradient" id="Gradient_kaung"]
+offsets = PackedFloat32Array(0, 0.364238, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 0.572549, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wc062"]
+gradient = SubResource("Gradient_kaung")
+
+[sub_resource type="Curve" id="Curve_662kw"]
+_limits = [0.99, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_535gx"]
+curve = SubResource("Curve_662kw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qyb5c"]
+lifetime_randomness = 0.5
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 85.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+damping_min = 100.0
+damping_max = 100.0
+scale_curve = SubResource("CurveTexture_535gx")
+color = Color(1, 0.858824, 0.596078, 1)
+color_ramp = SubResource("GradientTexture1D_wc062")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwvaw"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_q1hfp")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bgqcx"]
+material = SubResource("StandardMaterial3D_pwvaw")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ohiwt"]
+radius = 20.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lro4y"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 0.001
+radial_segments = 32
+
+[sub_resource type="Gradient" id="Gradient_fkoxu"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.504098)
+colors = PackedColorArray(1, 0, 0, 1, 0.39, 0.1482, 0.1482, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hgu85"]
+gradient = SubResource("Gradient_fkoxu")
+width = 256
+height = 256
+fill_to = Vector2(0.25, 0.25)
+repeat = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmq8n"]
+transparency = 1
+no_depth_test = true
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = SubResource("GradientTexture2D_hgu85")
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.0
+rim_enabled = true
+rim_tint = 1.0
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nqag3"]
+height = 4.0
+radius = 6.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1gw54"]
+height = 10.0
+radius = 3.2
+
+[node name="roobeer" type="CharacterBody3D" groups=["cat"]]
+script = ExtResource("1_csxim")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("SphereShape3D_te3gs")
+
+[node name="dashcollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("SphereShape3D_jv0ne")
+disabled = true
+
+[node name="visual" type="Marker3D" parent="."]
+
+[node name="cat" type="MeshInstance3D" parent="visual"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 3, 0)
+mesh = SubResource("PlaneMesh_wd5hw")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8nb1w")
+
+[node name="healthsprite" type="Sprite3D" parent="visual"]
+transform = Transform3D(0.501547, 0, 0, 0, 0.501547, 0, 0, 0, 0.501547, 0, 6.1, 0)
+offset = Vector2(0, 162)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_jy42d")
+
+[node name="audio" type="AudioStreamPlayer3D" parent="visual"]
+stream = ExtResource("3_3ntql")
+volume_db = 8.889
+
+[node name="cat2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_wd5hw")
+surface_material_override/0 = SubResource("StandardMaterial3D_6epfb")
+
+[node name="range" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("SphereShape3D_337qo")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1152, 326)
+render_target_update_mode = 4
+
+[node name="healthbar" type="TextureProgressBar" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -13.0
+offset_right = 342.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(342, 47)
+max_value = 500.0
+value = 500.0
+texture_under = ExtResource("5_jory2")
+texture_progress = ExtResource("6_50jvo")
+tint_progress = Color(0.501961, 1, 0.501961, 1)
+
+[node name="healthlabel" type="Label" parent="SubViewport/healthbar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -50.0
+offset_right = 57.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_imxih")
+theme_override_font_sizes/font_size = 66
+text = "500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="namelabel" type="Label" parent="SubViewport"]
+offset_top = 245.0
+offset_right = 1152.0
+offset_bottom = 326.0
+theme = ExtResource("7_imxih")
+theme_override_fonts/font = ExtResource("8_3bpig")
+theme_override_font_sizes/font_size = 72
+text = "ROOBEER"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qymhj")
+}
+autoplay = "move"
+
+[node name="shoottimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="warning" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("SphereMesh_cumqa")
+surface_material_override/0 = SubResource("StandardMaterial3D_a3akd")
+
+[node name="deathparticle" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
+emitting = false
+amount = 5000
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qyb5c")
+draw_pass_1 = SubResource("PlaneMesh_bgqcx")
+
+[node name="explode" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="explode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("SphereShape3D_ohiwt")
+
+[node name="slamwarning" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.03162, 0, 0, 0, 0.87, 0, 0, 0, 3.03162, 0, 0.1, 0)
+mesh = SubResource("CylinderMesh_lro4y")
+surface_material_override/0 = SubResource("StandardMaterial3D_wmq8n")
+
+[node name="slam" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_nqag3")
+
+[node name="dash" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_1gw54")
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="timeout" from="shoottimer" to="." method="_on_shoottimer_timeout"]

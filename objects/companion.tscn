@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd0jckbttk8k0"]
+
+[ext_resource type="PackedScene" uid="uid://ccqmt5n4tj8pk" path="res://objects/companion.glb" id="1_22u3i"]
+
+[node name="companion" instance=ExtResource("1_22u3i")]
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05898, 0)

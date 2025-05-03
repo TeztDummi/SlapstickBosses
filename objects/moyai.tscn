@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://uvdogdgn2n7l"]
+
+[ext_resource type="PackedScene" uid="uid://42f0oks2dhnb" path="res://objects/moyai.glb" id="1_lbuwb"]
+
+[node name="moyai" instance=ExtResource("1_lbuwb")]
+metadata/deathsound = "moyai"
+metadata/winsound = "moyai"
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18037, 0)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://k2ikq0k7vxbe"]
+
+[ext_resource type="Script" uid="uid://yayl10bn81xr" path="res://tempaudio.gd" id="1_ykgqg"]
+
+[node name="tempaudio" type="AudioStreamPlayer3D"]
+script = ExtResource("1_ykgqg")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://kjttpyguacv2"]
+
+[ext_resource type="PackedScene" uid="uid://bqk1futa0q1f5" path="res://objects/distressed.glb" id="1_7r81m"]
+[ext_resource type="Texture2D" uid="uid://boh67ajdc5e5m" path="res://objects/distressed_redball.png" id="2_1kmkh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuvme"]
+resource_name = "Material.049"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_1kmkh")
+
+[node name="distressed" instance=ExtResource("1_7r81m")]
+metadata/deathsound = "distressed"
+metadata/winsound = "distressed"
+
+[node name="distressed2" parent="." index="0"]
+transform = Transform3D(-0.5, 0, -4.5392e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.519224, 0, 0.557168, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_xuvme")

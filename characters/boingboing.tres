@@ -1,0 +1,23 @@
+[gd_resource type="AnimatedTexture" load_steps=6 format=3 uid="uid://bfeimrinwbio4"]
+
+[ext_resource type="Texture2D" uid="uid://r8sxlt4pixlt" path="res://characters/boing3.png" id="1_tpgwo"]
+[ext_resource type="Texture2D" uid="uid://bc872t85ntk2o" path="res://characters/boing4.png" id="2_2apir"]
+[ext_resource type="Texture2D" uid="uid://boxl30efo6xfj" path="res://characters/boing5.png" id="3_uwd0p"]
+[ext_resource type="Texture2D" uid="uid://bckjnpslus6t" path="res://characters/boing6.png" id="4_6ohbn"]
+[ext_resource type="Texture2D" uid="uid://he1www0cyxnq" path="res://characters/boing2.png" id="5_l6ica"]
+
+[resource]
+frames = 6
+one_shot = true
+speed_scale = 12.0
+frame_0/texture = ExtResource("1_tpgwo")
+frame_1/texture = ExtResource("2_2apir")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_uwd0p")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("3_uwd0p")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("4_6ohbn")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("5_l6ica")
+frame_5/duration = 1.0

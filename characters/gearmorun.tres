@@ -1,0 +1,20 @@
+[gd_resource type="AnimatedTexture" load_steps=6 format=3 uid="uid://cls0xg0siluwy"]
+
+[ext_resource type="Texture2D" uid="uid://c3kqg3b1n320i" path="res://characters/gearmorun0000.png" id="1_cpc76"]
+[ext_resource type="Texture2D" uid="uid://btiwcnf6j660c" path="res://characters/gearmorun0001.png" id="2_n40js"]
+[ext_resource type="Texture2D" uid="uid://dv5f31p7n67m3" path="res://characters/gearmorun0002.png" id="3_3j8e3"]
+[ext_resource type="Texture2D" uid="uid://t4q1sm87pt8n" path="res://characters/gearmorun0003.png" id="4_64vcd"]
+[ext_resource type="Texture2D" uid="uid://d3dkx0bqlv43b" path="res://characters/gearmorun0004.png" id="5_pxsu5"]
+
+[resource]
+frames = 5
+speed_scale = 8.0
+frame_0/texture = ExtResource("1_cpc76")
+frame_1/texture = ExtResource("2_n40js")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_3j8e3")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_64vcd")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_pxsu5")
+frame_4/duration = 1.0

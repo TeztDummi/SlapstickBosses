@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cxh6vuchehxig"]
+
+[ext_resource type="FontFile" uid="uid://dk5h4iq6gn27n" path="res://Gabarito-Black.ttf" id="1_e4quk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmvcg"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3xvr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[resource]
+default_font = ExtResource("1_e4quk")
+default_font_size = 25
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 16
+HSlider/icons/grabber = null
+HSlider/icons/grabber_highlight = null
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vmvcg")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_b3xvr")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 16
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/constants/outline_size = 16
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 16
+ProgressBar/font_sizes/font_size = 48

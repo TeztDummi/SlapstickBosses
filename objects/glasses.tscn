@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpv6eqpnkevs"]
+
+[ext_resource type="PackedScene" uid="uid://dxd4yssfa2n6b" path="res://objects/glasses.glb" id="1_v0e4c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0vea"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.117647)
+roughness = 0.0
+refraction_enabled = true
+refraction_scale = 0.07
+
+[node name="glasses" instance=ExtResource("1_v0e4c")]
+
+[node name="glasses2" parent="." index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_v0vea")
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.301145, 0)

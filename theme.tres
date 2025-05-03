@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cmewige4oh18h"]
+
+[ext_resource type="FontFile" uid="uid://bl2v3t75lb0tl" path="res://RelapseRegular-G12G.ttf" id="1_d4qmt"]
+[ext_resource type="Texture2D" uid="uid://db2y2cyhnpmv" path="res://ui/sliderdotunhovered.png" id="2_dnr1t"]
+[ext_resource type="Texture2D" uid="uid://e7f3tmeesr0" path="res://ui/sliderdot.png" id="3_mwsqg"]
+[ext_resource type="Texture2D" uid="uid://kfv131816ydq" path="res://ui/slider.png" id="4_xl7oo"]
+[ext_resource type="FontFile" uid="uid://dmbh6ql3grduq" path="res://BieksaFreeTrial-RpdWE.otf" id="5_agh4v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41ngh"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 35
+corner_radius_top_right = 15
+corner_radius_bottom_right = 129
+corner_radius_bottom_left = 25
+shadow_color = Color(1, 1, 1, 0.160784)
+shadow_size = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrtw3"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 35
+corner_radius_top_right = 15
+corner_radius_bottom_right = 129
+corner_radius_bottom_left = 25
+shadow_color = Color(1, 1, 1, 0.313726)
+shadow_size = 15
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tl8qo"]
+texture = ExtResource("4_xl7oo")
+texture_margin_left = 35.0
+texture_margin_top = 70.0
+texture_margin_right = 50.0
+modulate_color = Color(0.6, 0.6, 0.6, 1)
+draw_center = false
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 24
+Button/font_sizes/font_size = 72
+Button/fonts/font = ExtResource("1_d4qmt")
+ColorPickerButton/colors/font_color = Color(1, 1, 1, 1)
+HSlider/icons/grabber = ExtResource("2_dnr1t")
+HSlider/icons/grabber_highlight = ExtResource("3_mwsqg")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_41ngh")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_vrtw3")
+HSlider/styles/slider = SubResource("StyleBoxTexture_tl8qo")
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_y = 5
+Label/constants/shadow_outline_size = 1
+Label/fonts/font = ExtResource("1_d4qmt")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/fonts/normal_font = ExtResource("5_agh4v")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk1cpx1qxnbl3"]
+
+[ext_resource type="PackedScene" uid="uid://8notsklgeg03" path="res://objects/excord.glb" id="1_4kn55"]
+
+[node name="excord" instance=ExtResource("1_4kn55")]
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.871742, 0)
