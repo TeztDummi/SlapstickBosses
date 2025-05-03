@@ -375,6 +375,14 @@ func _physics_process(delta):
 					velocity.x = futurevelocity_x
 					velocity.z = futurevelocity_z
 					
+		if slide && is_on_floor():
+			if $anim.is_playing():
+				if $anim.current_animation != "slide": $anim.play("slide")
+			var skeldir = Vector2(velocity.x, velocity.z).normalized()
+			$Armature/Skeleton3D.global_rotation.y = lerp_angle($Armature/Skeleton3D.global_rotation.y, atan2(skeldir.x, skeldir.y), delta*4)
+		else:
+			$Armature/Skeleton3D.rotation.y = 0
+					
 		if $djumpaccidentproofing.get_collider() != null:
 			if $djumpaccidentproofing.get_collider().is_in_group("sand"):
 				if sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 0.1 && is_on_floor():
@@ -383,7 +391,7 @@ func _physics_process(delta):
 					$sand.emitting = false
 					
 		if !is_on_floor():
-			if $anim.is_playing():
+			if $anim.is_playing() || slide:
 				if $anim.current_animation != "jump": $anim.play("jump")
 				
 		move_and_slide()

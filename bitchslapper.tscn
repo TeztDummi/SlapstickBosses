@@ -166,7 +166,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ki8uw"]
-size = Vector3(1.5, 1.5, 3)
+size = Vector3(3, 1.5, 3)
 
 [node name="bitchslapper" type="Marker3D"]
 script = ExtResource("1_m8333")
@@ -200,6 +200,7 @@ stream = ExtResource("3_lqu3d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.26016)
 shape = SubResource("BoxShape3D_ki8uw")
+debug_color = Color(0, 0.595, 0.7, 0.188235)
 
 [node name="raycast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -5)

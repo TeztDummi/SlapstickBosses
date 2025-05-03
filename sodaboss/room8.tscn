@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://c2dhdy475c6y"]
+[gd_scene load_steps=100 format=4 uid="uid://c2dhdy475c6y"]
 
 [ext_resource type="Texture2D" uid="uid://bj02w0j2h5vf5" path="res://textures/concrete/Concrete031_2K-JPG_Color.jpg" id="1_vt8ve"]
 [ext_resource type="Texture2D" uid="uid://cxw2hwfkdcsu" path="res://textures/concrete/Concrete031_2K-JPG_NormalDX.jpg" id="2_gu2oe"]
@@ -1091,6 +1091,21 @@ uv1_world_triplanar = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_3h4td"]
 size = Vector3(8, 8, 8)
 
+[sub_resource type="PrismMesh" id="PrismMesh_o38x4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h4td"]
+albedo_color = Color(0.255659, 0.255659, 0.255659, 1)
+albedo_texture = ExtResource("1_vt8ve")
+roughness_texture = ExtResource("3_c3ywh")
+normal_enabled = true
+normal_texture = ExtResource("2_gu2oe")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7a2od"]
+size = Vector3(0.49, 1, 1)
+
 [node name="room8" type="Node3D"]
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
@@ -1118,7 +1133,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.35016e-14, -1.31134e-07, -0.75, 2.25, -1.31134e-07, 5.73206e-15, -2.95052e-07, -1, 9.83506e-08, 0, -2.16301, 4.015)
+transform = Transform3D(-6.7508e-15, -1.31134e-07, -0.75, 1.125, -1.31134e-07, 5.73206e-15, -1.47526e-07, -1, 9.83506e-08, 0, 1.32137, 4.015)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1130,7 +1145,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.22926e-14, 4.37112e-08, 0.75, 2.25, -1.31134e-07, 5.73206e-15, 2.95052e-07, 1, -3.27835e-08, 0, -9.16301, 0.0150003)
+transform = Transform3D(-6.1463e-15, 4.37112e-08, 0.75, 1.125, -1.31134e-07, 5.73206e-15, 1.47526e-07, 1, -3.27835e-08, 0, -4.49896, 0.0150003)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1154,7 +1169,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.56499e-08, 1.50996e-07, -0.6048, -5.12996e-08, -1, -9.13224e-08, -0.5868, 8.74228e-08, 2.64367e-08, 0.040275, 6.83702, 2.01459)
+transform = Transform3D(-2.56499e-08, 7.5498e-08, -0.6048, -5.12996e-08, -0.5, -9.13224e-08, -0.5868, 4.37114e-08, 2.64367e-08, 0.040275, 5.53701, 2.01459)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1166,7 +1181,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.56499e-08, -1, -9.83506e-08, -5.12996e-08, -4.37114e-08, 2.25, -0.5868, 4.37114e-08, -1.96701e-07, 2.04028, -2.16298, 2.01459)
+transform = Transform3D(-2.56499e-08, -1, -4.91753e-08, -5.12996e-08, -4.37114e-08, 1.125, -0.5868, 4.37114e-08, -9.83505e-08, 2.04028, 1.32138, 2.01459)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1178,7 +1193,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.29546e-08, 1, 9.83507e-08, 5.12996e-08, -4.37114e-08, 2.25, 0.5868, 1.07284e-07, -1.96701e-07, -2.05972, -2.16298, 2.01459)
+transform = Transform3D(-6.29546e-08, 1, 4.91753e-08, 5.12996e-08, -4.37114e-08, 1.125, 0.5868, 1.07284e-07, -9.83505e-08, -2.05972, 1.32138, 2.01459)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1190,7 +1205,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-7.12496e-08, -3.82137e-15, 2, -1.42499e-07, 1, 0, -1.63, -8.74228e-08, -8.74228e-08, 0.140275, -22.9864, 6.51459)
+transform = Transform3D(-7.12496e-08, -3.82137e-15, 2, -1.42499e-07, 1, 0, -1.63, -8.74228e-08, -8.74228e-08, 0.140275, -14.9864, 6.51459)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1202,7 +1217,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.82467e-08, -1.51497e-15, 2, 0.456938, 0.28033, 6.18172e-08, -0.456938, 0.28033, -6.18172e-08, 0.140275, -21.4864, 1.65373)
+transform = Transform3D(-2.82467e-08, -1.51497e-15, 0.8, 0.456938, 0.28033, 2.47269e-08, -0.456938, 0.28033, -2.47269e-08, -6.75973, -13.4864, 1.65373)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1213,20 +1228,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.456938, 0.28033, -1.4924e-07, 0.456938, 0.28033, 6.18172e-08, 7.54557e-08, 4.45536e-09, -2, -0.859725, -44.4864, 15.6537)
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.82467e-08, -1.51497e-15, 0.8, 0.456938, 0.28033, 2.47269e-08, -0.456938, 0.28033, -2.47269e-08, 6.74027, -13.4864, 1.65373)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D8"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D40"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D8/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D40/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.46304e-15, 4.37114e-08, 1.8, 1.5, 4.37114e-08, 5.08219e-22, -6.55671e-08, 1, -7.86804e-08, 0, -17.1494, 0.015)
+transform = Transform3D(2.46304e-15, 4.37114e-08, 1.8, 1.5, 4.37114e-08, 5.08219e-22, -6.55671e-08, 1, -7.86804e-08, 0, -9.1494, 0.015)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1238,7 +1253,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
-transform = Transform3D(-9.00107e-15, -1.31134e-07, -0.75, 1.5, -1.31134e-07, 5.73206e-15, -1.96701e-07, -1, 9.83506e-08, -5, -17.1494, 13.015)
+transform = Transform3D(-9.00107e-15, -1.31134e-07, -0.75, 1.5, -1.31134e-07, 5.73206e-15, -1.96701e-07, -1, 9.83506e-08, -5, -9.1494, 13.015)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1250,7 +1265,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D16" type="MeshInstance3D" parent="."]
-transform = Transform3D(-9.00107e-15, -1.31134e-07, -0.75, 1.5, -1.31134e-07, 5.73206e-15, -1.96701e-07, -1, 9.83506e-08, 5, -17.1494, 13.015)
+transform = Transform3D(-9.00107e-15, -1.31134e-07, -0.75, 1.5, -1.31134e-07, 5.73206e-15, -1.96701e-07, -1, 9.83506e-08, 5, -9.1494, 13.015)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1262,7 +1277,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D17" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.10476e-15, -7.54979e-08, -0.5, 1, -1.62921e-07, 5.59771e-15, -1.62921e-07, -1, 3.7749e-08, 0, -14.9864, 13.015)
+transform = Transform3D(-1.10476e-15, -7.54979e-08, -0.5, 1, -1.62921e-07, 5.59771e-15, -1.62921e-07, -1, 3.7749e-08, 0, -6.9864, 13.015)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1274,7 +1289,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D20" type="MeshInstance3D" parent="."]
-transform = Transform3D(-7.12496e-08, -1, -6.55671e-08, -1.42499e-07, -4.37114e-08, 1.5, -1.63, 4.37114e-08, -1.31134e-07, 7.14028, -17.1494, 6.51459)
+transform = Transform3D(-7.12496e-08, -1, -6.55671e-08, -1.42499e-07, -4.37114e-08, 1.5, -1.63, 4.37114e-08, -1.31134e-07, 7.14028, -9.1494, 6.51459)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1286,7 +1301,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D21" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.74874e-07, 1, 6.55671e-08, 1.42499e-07, -4.37114e-08, 1.5, 1.63, 1.07284e-07, -1.31134e-07, -6.85972, -17.1494, 6.51459)
+transform = Transform3D(-1.74874e-07, 1, 6.55671e-08, 1.42499e-07, -4.37114e-08, 1.5, 1.63, 1.07284e-07, -1.31134e-07, -6.85972, -9.1494, 6.51459)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1297,8 +1312,80 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.24622e-08, 1, 1.96701e-08, -0.345775, -1.0677e-07, 0.318198, 0.345775, 4.49526e-08, 0.318198, -3.55972, -14.3494, -0.0221152)
+mesh = SubResource("PlaneMesh_uma8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D41"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D41/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_xc7n7")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.26908e-08, -1, 8.14764e-09, -0.345775, -1.0677e-07, 0.318198, -0.345775, -1.32375e-07, -0.318198, 3.54028, -14.4494, -0.122115)
+mesh = SubResource("PlaneMesh_uma8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D42"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D42/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_xc7n7")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.456938, 0.28033, -5.9696e-08, 0.456938, 0.28033, 2.47269e-08, 4.82201e-08, -1.22536e-08, -0.8, -1.0468, -27.9864, 22.2408)
+mesh = SubResource("PlaneMesh_uma8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D43"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D43/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_xc7n7")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.456938, 0.28033, -5.9696e-08, 0.456938, 0.28033, 2.47269e-08, 4.82201e-08, -1.22536e-08, -0.8, -1.0468, -27.9864, 8.74081)
+mesh = SubResource("PlaneMesh_uma8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D44"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D44/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_xc7n7")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.565685, -4.77184e-08, 0.318198, -0.565685, -1.15202e-07, 0.318198, 3.81747e-08, -1, -5.1841e-08, -2.72265, -28.8494, 19.0408)
+mesh = SubResource("PlaneMesh_uma8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D45"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D45/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_xc7n7")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.345775, -3.97044e-08, -0.565685, -0.345775, -1.15202e-07, 0.565686, -5.35629e-08, 1, 4.27081e-08, -2.82265, -28.9494, 11.9408)
+mesh = SubResource("PlaneMesh_uma8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D46"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D46/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("BoxShape3D_xc7n7")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.35016e-14, -1.31134e-07, -0.75, 2.25, -1.31134e-07, 5.73206e-15, -2.95052e-07, -1, 9.83506e-08, 0, -25.163, 17.315)
+transform = Transform3D(-5.40064e-15, -1.31134e-07, -0.75, 0.9, -1.31134e-07, 5.73206e-15, -1.18021e-07, -1, 9.83506e-08, 0, -14.273, 17.315)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1310,7 +1397,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D18" type="MeshInstance3D" parent="."]
-transform = Transform3D(-7.37557e-15, 4.37112e-08, 0.75, 1.35, -1.31134e-07, 5.73206e-15, 1.77031e-07, 1, -3.27835e-08, 0, -28.563, 13.015)
+transform = Transform3D(-2.95023e-15, 4.37112e-08, 0.75, 0.54, -1.31134e-07, 5.73206e-15, 7.08124e-08, 1, -3.27835e-08, 0, -17.1633, 13.015)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1322,7 +1409,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D22" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.67387e-15, 1.62921e-07, 0.5, 0.5, -1.62921e-07, 5.59771e-15, 8.14603e-08, 1, -8.14603e-08, 0, -17, 13.015)
+transform = Transform3D(7.67387e-15, 1.62921e-07, 0.5, 0.5, -1.62921e-07, 5.59771e-15, 8.14603e-08, 1, -8.14603e-08, 0, -9, 13.015)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1334,7 +1421,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.56499e-08, 1.50996e-07, -0.6048, -5.12996e-08, -1, -9.13224e-08, -0.5868, 8.74228e-08, 2.64367e-08, 0.040275, -16.163, 15.3146)
+transform = Transform3D(-2.56499e-08, 1.50996e-07, -0.6048, -5.12996e-08, -1, -9.13224e-08, -0.5868, 8.74228e-08, 2.64367e-08, 0.040275, -10.9843, 15.3146)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1346,7 +1433,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D23" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.56499e-08, -1, -9.83506e-08, -5.12996e-08, -4.37114e-08, 2.25, -0.5868, 4.37114e-08, -1.96701e-07, 2.04028, -25.163, 15.3146)
+transform = Transform3D(-2.56499e-08, -1, -3.93402e-08, -5.12996e-08, -4.37114e-08, 0.9, -0.5868, 4.37114e-08, -7.86804e-08, 2.04028, -14.273, 15.3146)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1358,7 +1445,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D24" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.29546e-08, 1, 9.83507e-08, 5.12996e-08, -4.37114e-08, 2.25, 0.5868, 1.07284e-07, -1.96701e-07, -2.05972, -25.163, 15.3146)
+transform = Transform3D(-6.29546e-08, 1, 3.93403e-08, 5.12996e-08, -4.37114e-08, 0.9, 0.5868, 1.07284e-07, -7.86804e-08, -2.05972, -14.273, 15.3146)
 mesh = SubResource("PlaneMesh_h43ee")
 surface_material_override/0 = SubResource("StandardMaterial3D_reih8")
 
@@ -1370,7 +1457,7 @@ shape = SubResource("BoxShape3D_hxwwn")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D25" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.63, -8.74228e-08, -1.74846e-07, -1.42499e-07, 1, 0, 1.42499e-07, 7.64274e-15, -2, 4.44493, -45.9864, 15.3697)
+transform = Transform3D(-1.63, -8.74228e-08, -1.74846e-07, -1.42499e-07, 1, 0, 1.42499e-07, 7.64274e-15, -2, 4.44493, -29.6864, 15.3697)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1382,7 +1469,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D26" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.55671e-08, 1, -1.57361e-07, 1.5, 4.37114e-08, 6.35274e-22, 4.02989e-16, -8.74228e-08, -1.8, -2.05466, -40.1494, 15.5099)
+transform = Transform3D(-6.55671e-08, 1, -1.57361e-07, 1.5, 4.37114e-08, 6.35274e-22, 4.02989e-16, -8.74228e-08, -1.8, -2.05466, -23.8494, 15.5099)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1394,7 +1481,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D27" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.96701e-07, -1, 1.31134e-07, 1.5, -1.31134e-07, 5.73206e-15, 3.89154e-14, 1.74845e-07, 0.75, 10.9453, -40.1494, 20.5099)
+transform = Transform3D(-1.96701e-07, -1, 1.31134e-07, 1.5, -1.31134e-07, 5.73206e-15, 3.89154e-14, 1.74845e-07, 0.75, 10.9453, -23.8494, 20.5099)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1406,7 +1493,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D28" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.96701e-07, -1, 1.31134e-07, 1.5, -1.31134e-07, 5.73206e-15, 3.89154e-14, 1.74845e-07, 0.75, 10.9453, -40.1494, 10.5099)
+transform = Transform3D(-1.96701e-07, -1, 1.31134e-07, 1.5, -1.31134e-07, 5.73206e-15, 3.89154e-14, 1.74845e-07, 0.75, 10.9453, -23.8494, 10.5099)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1418,7 +1505,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D29" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.62921e-07, -1, 5.96047e-08, 1, -1.62921e-07, 5.59771e-15, 2.24371e-14, 1.19209e-07, 0.5, 10.9453, -38.1864, 15.5099)
+transform = Transform3D(-1.62921e-07, -1, 5.96047e-08, 1, -1.62921e-07, 5.59771e-15, 2.24371e-14, 1.19209e-07, 0.5, 10.9453, -21.8864, 15.5099)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1430,7 +1517,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D30" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.141, 8.74228e-08, 1.74846e-07, -9.97493e-08, -1, -3.01992e-07, 9.97494e-08, -1.50996e-07, 2, 6.84493, -34.1494, 15.3697)
+transform = Transform3D(-1.141, 8.74228e-08, 1.74846e-07, -9.97493e-08, -1, -3.01992e-07, 9.97494e-08, -1.50996e-07, 2, 6.84493, -17.8494, 15.3697)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1442,7 +1529,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D33" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.5705, 8.74228e-08, 6.99382e-08, -4.98746e-08, -1, -1.20797e-07, 4.98747e-08, -1.50996e-07, 0.8, -0.00290555, -34.1494, 20.4697)
+transform = Transform3D(-0.5705, 8.74228e-08, 6.99382e-08, -4.98746e-08, -1, -1.20797e-07, 4.98747e-08, -1.50996e-07, 0.8, -0.00290555, -17.8494, 20.4697)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1454,7 +1541,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D34" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.5705, 8.74228e-08, 6.99382e-08, -4.98746e-08, -1, -1.20797e-07, 4.98747e-08, -1.50996e-07, 0.8, -0.00290555, -34.1494, 9.96966)
+transform = Transform3D(-0.5705, 8.74228e-08, 6.99382e-08, -4.98746e-08, -1, -1.20797e-07, 4.98747e-08, -1.50996e-07, 0.8, -0.00290555, -17.8494, 9.96966)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1466,7 +1553,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D35" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.19209e-07, 1.50996e-07, -2, -9.97493e-08, -1, -3.01992e-07, -1.141, 8.74228e-08, 2.38419e-07, -0.220293, -11.1494, 8.63488)
+transform = Transform3D(-1.19209e-07, 1.50996e-07, -2, -9.97493e-08, -1, -3.01992e-07, -1.141, 8.74228e-08, 2.38419e-07, -0.220293, -3.1494, 8.59079)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1478,7 +1565,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D36" type="MeshInstance3D" parent="."]
-transform = Transform3D(-8.9407e-08, 1.50996e-07, -0.8, -4.98746e-08, -1, -1.20797e-07, -0.5705, 8.74228e-08, 7.45058e-08, -5.32029, -11.1494, 1.78704)
+transform = Transform3D(-8.9407e-08, 1.50996e-07, -0.8, -4.98746e-08, -1, -1.20797e-07, -0.5705, 8.74228e-08, 7.45058e-08, -5.32029, -3.1494, 1.78704)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1490,7 +1577,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D37" type="MeshInstance3D" parent="."]
-transform = Transform3D(-8.9407e-08, 1.50996e-07, -0.8, -4.98746e-08, -1, -1.20797e-07, -0.5705, 8.74228e-08, 7.45058e-08, 5.17971, -11.1494, 1.78704)
+transform = Transform3D(-8.9407e-08, 1.50996e-07, -0.8, -4.98746e-08, -1, -1.20797e-07, -0.5705, 8.74228e-08, 7.45058e-08, 5.17971, -3.1494, 1.78704)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1502,7 +1589,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D31" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.63, 8.74228e-08, -1.31134e-07, -1.42499e-07, -4.37114e-08, 1.5, 1.42499e-07, 1, 6.55671e-08, 4.44493, -40.1494, 8.36965)
+transform = Transform3D(-1.63, 8.74228e-08, -1.31134e-07, -1.42499e-07, -4.37114e-08, 1.5, 1.42499e-07, 1, 6.55671e-08, 4.44493, -23.8494, 8.36965)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1514,7 +1601,7 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D32" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.63, 6.35726e-08, -1.31134e-07, 1.42499e-07, -4.37114e-08, 1.5, 1.03624e-07, -1, -6.55671e-08, 4.44493, -40.1494, 22.3697)
+transform = Transform3D(1.63, 6.35726e-08, -1.31134e-07, 1.42499e-07, -4.37114e-08, 1.5, 1.03624e-07, -1, -6.55671e-08, 4.44493, -23.8494, 22.3697)
 mesh = SubResource("PlaneMesh_uma8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1s2kb")
 
@@ -1526,13 +1613,13 @@ shape = SubResource("BoxShape3D_xc7n7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="end" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.9, -45.933, 15.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.944, -29.688, 15.5)
 
 [node name="small2hole" parent="." groups=["pipehole"] instance=ExtResource("4_gnwbr")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, -21.0893, 12)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, -13.0893, 12)
 
 [node name="small" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 4.37114e-08, 0, -4.37114e-08, -1, 0, 0, 0, 1, 6, -13.1, 12)
+transform = Transform3D(-1, 4.37114e-08, 0, -4.37114e-08, -1, 0, 0, 0, 1, 6, -5.1, 12)
 mesh = SubResource("ArrayMesh_fqmir")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_lqtyp")
@@ -1543,8 +1630,20 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lqtyp")
 shape = SubResource("CylinderShape3D_mgwu6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
+[node name="small5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.06581e-14, -1, 0, 1, -1.06581e-14, 0, 0, 0, 1, 0, 1, 3.4)
+mesh = SubResource("ArrayMesh_fqmir")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_lqtyp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="small5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="small5/StaticBody3D"]
+shape = SubResource("CylinderShape3D_mgwu6")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [node name="small2" type="MeshInstance3D" parent="."]
-transform = Transform3D(6.18172e-08, 0.707107, -0.707107, -1, 8.74228e-08, 0, 6.18172e-08, 0.707107, 0.707107, -0.0905263, -12.8798, 9.35856)
+transform = Transform3D(6.18172e-08, 0.707107, -0.707107, -1, 8.74228e-08, 0, 6.18172e-08, 0.707107, 0.707107, -0.0905263, -4.8798, 9.35856)
 mesh = SubResource("ArrayMesh_fqmir")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_lqtyp")
@@ -1556,7 +1655,7 @@ shape = SubResource("CylinderShape3D_mgwu6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="small3" type="MeshInstance3D" parent="."]
-transform = Transform3D(6.18172e-08, 0.707107, -0.707107, -1, 8.74228e-08, 0, 6.18172e-08, 0.707107, 0.707107, -2.91895, -12.8798, 6.53013)
+transform = Transform3D(6.18172e-08, 0.707107, -0.707107, -1, 8.74228e-08, 0, 6.18172e-08, 0.707107, 0.707107, -2.91895, -4.8798, 6.53013)
 mesh = SubResource("ArrayMesh_fqmir")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_lqtyp")
@@ -1568,7 +1667,7 @@ shape = SubResource("CylinderShape3D_mgwu6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="small4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.707107, -9.27258e-08, -0.707107, 1.31134e-07, 1, 0, 0.707107, -9.27259e-08, 0.707107, -5.54584, -16.6097, 3.90325)
+transform = Transform3D(0.707107, -9.27258e-08, -0.707107, 1.31134e-07, 1, 0, 0.707107, -9.27259e-08, 0.707107, -5.54584, -8.6097, 3.90325)
 mesh = SubResource("ArrayMesh_fqmir")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_lqtyp")
@@ -1580,7 +1679,7 @@ shape = SubResource("CylinderShape3D_mgwu6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="small6" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.707107, -9.27258e-08, -0.707107, 1.31134e-07, 1, 0, 0.707107, -9.27259e-08, 0.707107, -5.54584, -24.6097, 3.90325)
+transform = Transform3D(0.707107, -9.27258e-08, -0.707107, 1.31134e-07, 1, 0, 0.707107, -9.27259e-08, 0.707107, -5.54584, -16.6097, 3.90325)
 mesh = SubResource("ArrayMesh_fqmir")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_lqtyp")
@@ -1592,13 +1691,13 @@ shape = SubResource("CylinderShape3D_mgwu6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="smallhole" parent="." groups=["pipehole"] instance=ExtResource("9_tmh2e")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, -17.1, 12)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, -9.1, 12)
 
 [node name="smallhole2" parent="." groups=["pipehole"] instance=ExtResource("9_tmh2e")]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -5.5451, -20.6, 3.9)
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -5.5451, -12.6, 3.9)
 
 [node name="smallL" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.707107, -8.42939e-08, 0.707107, -9.03219e-15, -1, -1.1921e-07, 0.707107, -8.42939e-08, 0.707107, 2.14711, -12.3, 11.5679)
+transform = Transform3D(-0.707107, -8.42939e-08, 0.707107, -9.03219e-15, -1, -1.1921e-07, 0.707107, -8.42939e-08, 0.707107, 2.14711, -4.3, 11.5679)
 mesh = SubResource("ArrayMesh_55cc0")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ddaga")
@@ -1628,7 +1727,7 @@ shape = SubResource("CylinderShape3D_2nm5d")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="smallL2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.707107, 2.24767e-08, -0.707107, 2.70966e-14, 1, 3.17868e-08, 0.707107, 2.24767e-08, -0.707107, -5.13029, -13.4623, 4.31226)
+transform = Transform3D(-0.707107, 2.24767e-08, -0.707107, 2.70966e-14, 1, 3.17868e-08, 0.707107, 2.24767e-08, -0.707107, -5.13029, -5.4623, 4.31226)
 mesh = SubResource("ArrayMesh_55cc0")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ddaga")
@@ -1668,22 +1767,22 @@ shape = SubResource("BoxShape3D_csakt")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="popcop" parent="." instance=ExtResource("11_ew4wf")]
-transform = Transform3D(0.351424, 0, 0.35567, 0, 0.5, 0, -0.35567, 0, 0.351424, 4.85679, -22.9864, 9.26019)
+transform = Transform3D(0.351424, 0, 0.35567, 0, 0.5, 0, -0.35567, 0, 0.351424, 4.85679, -14.9864, 9.26019)
 
 [node name="popcop2" parent="." instance=ExtResource("11_ew4wf")]
-transform = Transform3D(-0.195992, 0, -0.459986, 0, 0.5, 0, 0.459986, 0, -0.195992, -4.3681, -22.9864, 10.7968)
+transform = Transform3D(-0.195992, 0, -0.459986, 0, 0.5, 0, 0.459986, 0, -0.195992, -4.3681, -14.9864, 10.7968)
 
 [node name="popcop3" parent="." instance=ExtResource("11_ew4wf")]
-transform = Transform3D(-0.310649, 0, -0.391787, 0, 0.5, 0, 0.391787, 0, -0.310649, -3.92829, -22.9864, 7.12106)
+transform = Transform3D(-0.310649, 0, -0.391787, 0, 0.5, 0, 0.391787, 0, -0.310649, -3.92829, -14.9864, 7.12106)
 
 [node name="popcop5" parent="." instance=ExtResource("11_ew4wf")]
-transform = Transform3D(0.493002, 0, 0.0833586, 0, 0.5, 0, -0.0833586, 0, 0.493002, 0.19995, -22.9864, 3.39055)
+transform = Transform3D(0.493002, 0, 0.0833586, 0, 0.5, 0, -0.0833586, 0, 0.493002, 0.19995, -14.9864, 3.39055)
 
 [node name="popcop4" parent="." instance=ExtResource("11_ew4wf")]
-transform = Transform3D(-0.358747, 0, 0.348282, 0, 0.5, 0, -0.348282, 0, -0.358747, 10.0596, -45.9864, 15.5966)
+transform = Transform3D(-0.358747, 0, 0.348282, 0, 0.5, 0, -0.348282, 0, -0.358747, 10.0596, -29.6864, 15.5966)
 
 [node name="box" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.700909, 0, -0.71325, 0, 1, 0, 0.71325, 0, 0.700909, 5.25873, -44, 11.8999)
+transform = Transform3D(0.700909, 0, -0.71325, 0, 1, 0, 0.71325, 0, 0.700909, 5.25873, -27.7, 11.8999)
 mesh = SubResource("ArrayMesh_cnbjn")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1697,7 +1796,7 @@ shape = SubResource("BoxShape3D_gq3cv")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="box2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.961315, 0, -0.275453, 0, 1, 0, 0.275453, 0, 0.961315, 9.21438, -46, 12.3044)
+transform = Transform3D(0.961315, 0, -0.275453, 0, 1, 0, 0.275453, 0, 0.961315, 9.21438, -29.7, 12.3044)
 mesh = SubResource("ArrayMesh_cnbjn")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1711,7 +1810,7 @@ shape = SubResource("BoxShape3D_gq3cv")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="box3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.267541, 0, -0.963547, 0, 1, 0, 0.963547, 0, -0.267541, 2.06637, -46, 10.8859)
+transform = Transform3D(-0.267541, 0, -0.963547, 0, 1, 0, 0.963547, 0, -0.267541, 2.06637, -29.7, 10.8859)
 mesh = SubResource("ArrayMesh_cnbjn")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1725,7 +1824,7 @@ shape = SubResource("BoxShape3D_gq3cv")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigbox" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.989427, 0, -0.14503, 0, 1, 0, 0.14503, 0, 0.989427, 9, -46, 10)
+transform = Transform3D(0.989427, 0, -0.14503, 0, 1, 0, 0.14503, 0, 0.989427, 9, -29.7, 10)
 mesh = SubResource("ArrayMesh_eeq13")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1739,7 +1838,7 @@ shape = SubResource("BoxShape3D_5nehj")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigbox2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.998477, 0, -0.0551767, 0, 1, 0, 0.0551767, 0, 0.998477, 8.85402, -44, 9.57566)
+transform = Transform3D(0.998477, 0, -0.0551767, 0, 1, 0, 0.0551767, 0, 0.998477, 8.85402, -27.7, 9.57566)
 mesh = SubResource("ArrayMesh_eeq13")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1753,7 +1852,7 @@ shape = SubResource("BoxShape3D_5nehj")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigbox4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.745045, 0, 0.667014, 0, 1, 0, -0.667014, 0, 0.745045, 3.72981, -44, 9.86893)
+transform = Transform3D(0.745045, 0, 0.667014, 0, 1, 0, -0.667014, 0, 0.745045, 3.72981, -27.7, 9.86893)
 mesh = SubResource("ArrayMesh_eeq13")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1767,7 +1866,7 @@ shape = SubResource("BoxShape3D_5nehj")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigbox3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.363918, 0, -0.931431, 0, 1, 0, 0.931431, 0, 0.363918, 5.05167, -46, 11.581)
+transform = Transform3D(0.363918, 0, -0.931431, 0, 1, 0, 0.931431, 0, 0.363918, 5.05167, -29.7, 11.581)
 mesh = SubResource("ArrayMesh_eeq13")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1781,7 +1880,7 @@ shape = SubResource("BoxShape3D_5nehj")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigbox5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.983997, 0, 0.178184, 0, 1, 0, -0.178184, 0, 0.983997, 9.06036, -46, 20.5757)
+transform = Transform3D(0.983997, 0, 0.178184, 0, 1, 0, -0.178184, 0, 0.983997, 9.06036, -29.7, 20.5757)
 mesh = SubResource("ArrayMesh_eeq13")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1795,7 +1894,7 @@ shape = SubResource("BoxShape3D_5nehj")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigbox6" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.513182, 0, 0.85828, 0, 1, 0, -0.85828, 0, -0.513182, 3.38964, -46, 18.9352)
+transform = Transform3D(-0.513182, 0, 0.85828, 0, 1, 0, -0.85828, 0, -0.513182, 3.38964, -29.7, 18.9352)
 mesh = SubResource("ArrayMesh_eeq13")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1809,7 +1908,7 @@ shape = SubResource("BoxShape3D_5nehj")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigbox7" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.00264746, -45.352, 20.9352)
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.00264746, -29.052, 20.9352)
 mesh = SubResource("ArrayMesh_eeq13")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bfd11")
@@ -1823,7 +1922,7 @@ shape = SubResource("BoxShape3D_5nehj")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigboxopen" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.933004, 0, 0.359867, 0, 1, 0, -0.359867, 0, 0.933004, 6.62607, -42, 9.94759)
+transform = Transform3D(0.933004, 0, 0.359867, 0, 1, 0, -0.359867, 0, 0.933004, 6.62607, -25.7, 9.94759)
 mesh = SubResource("ArrayMesh_mm1yx")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_x5foo")
@@ -1834,7 +1933,7 @@ surface_material_override/7 = SubResource("StandardMaterial3D_8cc5d")
 surface_material_override/9 = SubResource("ShaderMaterial_2fxgn")
 
 [node name="boxopen" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.967933, 0, 0.251208, 0, 1, 0, -0.251208, 0, 0.967933, 5.65658, -44, 20.5048)
+transform = Transform3D(0.967933, 0, 0.251208, 0, 1, 0, -0.251208, 0, 0.967933, 5.65658, -27.7, 20.5048)
 mesh = SubResource("ArrayMesh_dhe6n")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_vcn51")
@@ -1850,7 +1949,7 @@ shape = SubResource("BoxShape3D_dx2y6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="boxopen2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 6.7485, -46, 18.5705)
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 6.7485, -29.7, 18.5705)
 mesh = SubResource("ArrayMesh_dhe6n")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_vcn51")
@@ -1866,13 +1965,13 @@ shape = SubResource("BoxShape3D_dx2y6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="sign" parent="." instance=ExtResource("17_8jwa8")]
-transform = Transform3D(0.0832725, 0.485118, 0.0878985, -0.0494543, -0.0804747, 0.490997, 0.49053, -0.090467, 0.0345797, 1.5307, -43.576, 21)
+transform = Transform3D(0.0832725, 0.485118, 0.0878985, -0.0494543, -0.0804747, 0.490997, 0.49053, -0.090467, 0.0345797, 1.5307, -27.276, 21)
 
 [node name="bighole" parent="." groups=["pipehole"] instance=ExtResource("18_qawpm")]
-transform = Transform3D(4.37114e-08, 8.74228e-08, -1, 3.82137e-15, -1, -8.74228e-08, -1, 0, -4.37114e-08, 9, -36, 14.4)
+transform = Transform3D(4.37114e-08, 8.74228e-08, -1, 3.82137e-15, -1, -8.74228e-08, -1, 0, -4.37114e-08, 9, -19.7, 14.4)
 
 [node name="big" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 4.37114e-08, -1, 1, 0, 0, 0, -1, -4.37114e-08, 9, -36, 10.4)
+transform = Transform3D(0, 4.37114e-08, -1, 1, 0, 0, 0, -1, -4.37114e-08, 9, -19.7, 10.4)
 mesh = SubResource("ArrayMesh_8qs3t")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7ohtw")
@@ -1884,7 +1983,7 @@ shape = SubResource("CylinderShape3D_8fe5n")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="big2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 4.37114e-08, -1, 1, 0, 0, 0, -1, -4.37114e-08, 9, -36, 18.4)
+transform = Transform3D(0, 4.37114e-08, -1, 1, 0, 0, 0, -1, -4.37114e-08, 9, -19.7, 18.4)
 mesh = SubResource("ArrayMesh_8qs3t")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7ohtw")
@@ -1896,7 +1995,7 @@ shape = SubResource("CylinderShape3D_8fe5n")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigshort" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 4.37114e-08, -1, 1, 0, 0, 0, -1, -4.37114e-08, 9, -36, 21.4)
+transform = Transform3D(0, 4.37114e-08, -1, 1, 0, 0, 0, -1, -4.37114e-08, 9, -19.7, 21.4)
 mesh = SubResource("ArrayMesh_f7e7f")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_miuvo")
@@ -1908,10 +2007,10 @@ shape = SubResource("CylinderShape3D_ff12w")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bighole2" parent="." groups=["pipehole"] instance=ExtResource("18_qawpm")]
-transform = Transform3D(-1.31134e-07, -8.74228e-08, 1, 3.82137e-15, -1, -8.74228e-08, 1, -7.64274e-15, 1.31134e-07, 6, -36, 20.4)
+transform = Transform3D(-1.31134e-07, -8.74228e-08, 1, 3.82137e-15, -1, -8.74228e-08, 1, -7.64274e-15, 1.31134e-07, 6, -19.7, 20.4)
 
 [node name="big3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, -1.31134e-07, 1, 1, 0, 0, 0, 1, 1.31134e-07, 6, -36, 16.4)
+transform = Transform3D(0, -1.31134e-07, 1, 1, 0, 0, 0, 1, 1.31134e-07, 6, -19.7, 16.4)
 mesh = SubResource("ArrayMesh_8qs3t")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7ohtw")
@@ -1923,7 +2022,7 @@ shape = SubResource("CylinderShape3D_8fe5n")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="big4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, -1.31134e-07, 1, 1, 0, 0, 0, 1, 1.31134e-07, 6, -36, 12.4)
+transform = Transform3D(0, -1.31134e-07, 1, 1, 0, 0, 0, 1, 1.31134e-07, 6, -19.7, 12.4)
 mesh = SubResource("ArrayMesh_8qs3t")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7ohtw")
@@ -1935,7 +2034,7 @@ shape = SubResource("CylinderShape3D_8fe5n")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigshort2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, -1.31134e-07, 1, 1, 0, 0, 0, 1, 1.31134e-07, 6, -36, 9.4)
+transform = Transform3D(0, -1.31134e-07, 1, 1, 0, 0, 0, 1, 1.31134e-07, 6, -19.7, 9.4)
 mesh = SubResource("ArrayMesh_f7e7f")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_miuvo")
@@ -1947,7 +2046,7 @@ shape = SubResource("CylinderShape3D_ff12w")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigL" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 4.37114e-08, 1.62921e-07, 4.37114e-08, -1, -1.62921e-07, 1.62921e-07, 1.62921e-07, -1, 0.305395, -35.2946, 21.5207)
+transform = Transform3D(1, 4.37114e-08, 1.62921e-07, 4.37114e-08, -1, -1.62921e-07, 1.62921e-07, 1.62921e-07, -1, 0.305395, -18.9946, 21.5207)
 mesh = SubResource("ArrayMesh_rvh12")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_c00h6")
@@ -1960,10 +2059,10 @@ shape = SubResource("ConcavePolygonShape3D_ri106")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="bigLhole" parent="." groups=["pipehole"] instance=ExtResource("19_0boof")]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0.305395, -35.3054, 9.5)
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0.305395, -19.0054, 9.5)
 
 [node name="MeshInstance3D19" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.056, 0, 0, 0, 0.1, 0, 0, 0, 0.085, 0, -22.6, 6)
+transform = Transform3D(1.056, 0, 0, 0, 0.1, 0, 0, 0, 0.085, 0, -14.6, 6)
 mesh = SubResource("BoxMesh_o38x4")
 surface_material_override/0 = SubResource("StandardMaterial3D_djq56")
 
@@ -1973,7 +2072,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_djq56")
 shape = SubResource("BoxShape3D_3h4td")
 
 [node name="MeshInstance3D38" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.61592e-08, 0, 0.085, 0, 0.1, 0, -1.056, 0, -3.71547e-09, 3.9, -22.6, 1.5)
+transform = Transform3D(-4.61592e-08, 0, 0.085, 0, 0.1, 0, -1.056, 0, -3.71547e-09, 3.9, -14.6, 1.5)
 mesh = SubResource("BoxMesh_o38x4")
 surface_material_override/0 = SubResource("StandardMaterial3D_djq56")
 
@@ -1983,7 +2082,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_djq56")
 shape = SubResource("BoxShape3D_3h4td")
 
 [node name="MeshInstance3D39" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.61592e-08, 0, 0.085, 0, 0.1, 0, -1.056, 0, -3.71547e-09, -3.9, -22.6, 1.5)
+transform = Transform3D(-4.61592e-08, 0, 0.085, 0, 0.1, 0, -1.056, 0, -3.71547e-09, -3.9, -14.6, 1.5)
 mesh = SubResource("BoxMesh_o38x4")
 surface_material_override/0 = SubResource("StandardMaterial3D_djq56")
 
@@ -1991,5 +2090,29 @@ surface_material_override/0 = SubResource("StandardMaterial3D_djq56")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D39/StaticBody3D"]
 shape = SubResource("BoxShape3D_3h4td")
+
+[node name="sign2" parent="." instance=ExtResource("17_8jwa8")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -0.5, 1.4, 3.2)
+metadata/custom = "Tired of sliding after a groundslam? Stop moving!"
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5, -16.3, 17.8)
+mesh = SubResource("PrismMesh_o38x4")
+surface_material_override/0 = SubResource("StandardMaterial3D_3h4td")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.5, -16.3, 17.8)
+mesh = SubResource("BoxMesh_7a2od")
+surface_material_override/0 = SubResource("StandardMaterial3D_3h4td")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5, -16.3, 12.5413)
+mesh = SubResource("PrismMesh_o38x4")
+surface_material_override/0 = SubResource("StandardMaterial3D_3h4td")
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.5, -16.3, 12.5413)
+mesh = SubResource("BoxMesh_7a2od")
+surface_material_override/0 = SubResource("StandardMaterial3D_3h4td")
 
 [connection signal="body_entered" from="pipearea" to="pipearea" method="_on_body_entered"]

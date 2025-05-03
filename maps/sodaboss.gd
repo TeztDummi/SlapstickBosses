@@ -1,7 +1,7 @@
 extends Node3D
 
 var allrooms = 9
-var testroom = "0"
+var testroom = "8"
 var diff = -1
 @onready var player = $"../player"
 var loaded = []

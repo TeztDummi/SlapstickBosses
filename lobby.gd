@@ -25,7 +25,7 @@ var billboards = ["res://textures/billboard/ardoniasrock.png",
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	if false:
+	if $"../".lobbypower.has("slide"):
 		player.cancrouch = true
 		
 		var gun = load("res://bitchslapper.tscn").instantiate()
