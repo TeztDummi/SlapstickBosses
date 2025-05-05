@@ -6,9 +6,9 @@ var diff = -1
 @onready var player = $"../player"
 var loaded = []
 var loadingrooms = []
-var end
+var end = $startroomfiller.get_node("end")
 
-#github test edit
+#github test edit again lol
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +25,8 @@ func _ready():
 func _on_startdelay_timeout() -> void:
 	for i in range(5):
 		addroom()
+		
+	$anim.play("start")
 		
 func addroom():
 	var roompath
@@ -85,3 +87,8 @@ func _on_timer_timeout() -> void:
 			if progress[0] == 1:
 				finishloading(loadingrooms[i])
 				loadingrooms.remove_at(i)
+
+
+func _on_anim_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "start":
+		$anim.play("Animation")
