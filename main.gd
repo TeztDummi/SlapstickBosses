@@ -34,7 +34,7 @@ var freebits = false
 
 var itemdata = {}
 var savedhand = {"item": "", "extrainfo": {}}
-var lobbypower = []
+var lobbypower = {}
 
 var boughtitems = {}
 var didintro = false
@@ -325,12 +325,6 @@ func save_game():
 		uhdict[str(spot)] = i
 		spot += 1
 		
-	var lpdict = {}
-	spot = 0
-	for i in lobbypower:
-		lpdict[str(spot)] = i
-		spot += 1
-		
 	var handwassaved = false
 	for child in $"player/camera/gun".get_children():
 		if child.has_meta("held"):
@@ -370,7 +364,7 @@ func save_game():
 		"freebits" : freebits,
 		"itemdata" : itemdata,
 		"savedhand" : savedhand,
-		"lobbypower" : lpdict,
+		"lobbypower" : lobbypower,
 		"boughtitems" : boughtitems,
 		"didintro" : didintro,
 		"didpiracygag" : didpiracygag,
@@ -416,12 +410,7 @@ func load_game():
 					unlockedheads.append(data["unlockedheads"][str(i)])
 				else:break
 				
-		if data.has("lobbypower"):
-			lobbypower = []
-			for i in range(40):
-				if data["lobbypower"].has(str(i)):
-					unlockedheads.append(data["lobbypower"][str(i)])
-				else:break
+		if data.has("lobbypower"): lobbypower = data["lobbypower"]
 					
 		if data.has("bits"): bits = data["bits"]
 		if data.has("bitbags"): bitbags = data["bitbags"]
