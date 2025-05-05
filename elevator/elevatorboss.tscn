@@ -2349,7 +2349,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_o7c7s")
 [node name="anim" type="AnimationPlayer" parent="."]
 deterministic = true
 libraries = {
-"": SubResource("AnimationLibrary_w2dvl")
+&"": SubResource("AnimationLibrary_w2dvl")
 }
 autoplay = "intro"
 

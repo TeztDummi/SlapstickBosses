@@ -50,7 +50,7 @@ func pickup():
 			else: cangrab = true
 			if cangrab:
 				#grab or spend bits and grab
-				if $anim.is_playing():
+				if !$anim.is_playing():
 					if has_meta("price"):
 						$"../..".bits -= get_meta("price")
 						$"../../sfx2".stream = load("res://audio/spendbits.mp3")
