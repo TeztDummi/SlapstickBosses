@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=4 uid="uid://fma1f25dg448"]
+[gd_scene load_steps=132 format=4 uid="uid://fma1f25dg448"]
 
 [ext_resource type="Script" uid="uid://oc80lfbaoc8u" path="res://maps/sodaboss.gd" id="1_8oicj"]
 [ext_resource type="Texture2D" uid="uid://bj02w0j2h5vf5" path="res://textures/concrete/Concrete031_2K-JPG_Color.jpg" id="3_0mj7x"]
@@ -311,6 +311,19 @@ shader_parameter/glass_texture = ExtResource("9_ib20k")
 shader_parameter/alpha = 0.75
 shader_parameter/color = Color(0, 0, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwx5p"]
+resource_name = "Material.002"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.82, 0.82, 0.82, 1)
+albedo_texture = ExtResource("6_xwx5p")
+metallic = 1.0
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("7_44ccj")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fg3b"]
 resource_name = "Material.002"
 cull_mode = 2
@@ -391,6 +404,17 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vfy8a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tenrf"]
+albedo_color = Color(1, 0.845333, 0.68, 1)
+albedo_texture = ExtResource("11_fprgf")
+metallic = 1.0
+metallic_texture = ExtResource("12_8wnbc")
+roughness_texture = ExtResource("14_ficjt")
+normal_enabled = true
+normal_texture = ExtResource("13_njqee")
+uv1_scale = Vector3(-0.06, -0.06, -0.06)
+uv1_triplanar = true
 
 [sub_resource type="Gradient" id="Gradient_m274a"]
 offsets = PackedFloat32Array(0.0224719, 0.479401, 0.651685, 1)
@@ -2109,12 +2133,14 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7monm")
 surface_material_override/1 = SubResource("StandardMaterial3D_y7swh")
 surface_material_override/2 = SubResource("ShaderMaterial_68yiy")
+surface_material_override/3 = SubResource("StandardMaterial3D_xwx5p")
 surface_material_override/4 = SubResource("StandardMaterial3D_8fg3b")
 
 [node name="mixingpipes" type="MeshInstance3D" parent="mixingstation"]
 transform = Transform3D(0.385962, 0, 0, 0, 0, 0.385962, 0, -0.385962, 0, -0.4, 3.87915, -2)
 mesh = SubResource("ArrayMesh_crg0d")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_tenrf")
 
 [node name="particles" type="GPUParticles3D" parent="mixingstation"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 3.55271e-15, -1, 0, -4.37114e-08, -1.13182, 0.725855, 0)

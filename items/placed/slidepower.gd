@@ -56,6 +56,6 @@ func pickup():
 						$"../../sfx2".stream = load("res://audio/spendbits.mp3")
 						$"../../sfx2".play()
 						$anim.play("use")
-						$"../../".lobbypower.append("slide")
+						$"../../".lobbypower["slide"] = "slide"
 						$"../../player/".cancrouch = true
 						$"../../".save_game()

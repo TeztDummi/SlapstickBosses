@@ -1,4 +1,4 @@
-[gd_scene load_steps=526 format=4 uid="uid://bcej1s1pg8aag"]
+[gd_scene load_steps=527 format=4 uid="uid://bcej1s1pg8aag"]
 
 [ext_resource type="Texture2D" uid="uid://b4johswxmqio4" path="res://textures/spaceskybox.png" id="1_1axed"]
 [ext_resource type="Texture2D" uid="uid://cqonc4ujyr2gr" path="res://textures/defaulttexture/defaulttexture.png" id="1_2r0tb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dpgj1p1wd0l7k" path="res://maps/cube.gd" id="8_andgn"]
 [ext_resource type="PackedScene" uid="uid://ci3rvj4va8rih" path="res://spaceboss/crasherbot.tscn" id="10_ck4xf"]
 [ext_resource type="Theme" uid="uid://cmewige4oh18h" path="res://theme.tres" id="10_dx014"]
+[ext_resource type="PackedScene" uid="uid://dnuskf3emaj1" path="res://spaceboss/facebot.tscn" id="11_8pwko"]
 
 [sub_resource type="Environment" id="Environment_uabn3"]
 background_mode = 1
@@ -12263,7 +12264,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_scffw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform"]
 libraries = {
-"": SubResource("AnimationLibrary_4856a")
+&"": SubResource("AnimationLibrary_4856a")
 }
 autoplay = "KeyAction"
 
@@ -12301,3 +12302,6 @@ text = "4⚡"
 
 [node name="crasherbot" parent="." instance=ExtResource("10_ck4xf")]
 transform = Transform3D(1.00601, 0, 0, 0, 1.00601, 0, 0, 0, 1.00601, -14.6477, 7.6831, 6.38394)
+
+[node name="facebot" parent="." instance=ExtResource("11_8pwko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1004, 11.7906, -7.78722)
