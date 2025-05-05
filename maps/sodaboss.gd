@@ -1,12 +1,12 @@
 extends Node3D
 
 var allrooms = 9
-var testroom = "8"
+var testroom = "0"
 var diff = -1
 @onready var player = $"../player"
 var loaded = []
 var loadingrooms = []
-var end = $startroomfiller.get_node("end")
+@onready var end = $end
 
 #github test edit again lol mwah
 

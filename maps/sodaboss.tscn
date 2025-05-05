@@ -2082,6 +2082,9 @@ autostart = true
 [node name="startroomfiller" parent="." instance=ExtResource("3_g8n82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
+[node name="end" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
 [node name="room" type="MeshInstance3D" parent="."]
 transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 8, 0, 0, 0)
 mesh = SubResource("ArrayMesh_l4mu5")
