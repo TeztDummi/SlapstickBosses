@@ -103,6 +103,8 @@ func _process(delta):
 				collider.get_parent().hover = true
 			if collider.is_in_group("link"):
 				collider.get_parent().hover = true
+			if collider.is_in_group("copycredits"):
+				collider.get_parent().hover = true
 			if collider.is_in_group("item"):
 				collider.get_parent().hover = true
 			if collider.is_in_group("difficultybutton"):
@@ -446,6 +448,8 @@ func _unhandled_input(event):
 				if collider.is_in_group("link"):
 					OS.shell_open(collider.get_parent().get_meta("link"))
 					$camera.rotation_degrees.x = 90
+				if collider.is_in_group("copycredits"):
+					collider.get_parent().get_parent().copycredits()
 				if collider.is_in_group("door"):
 					collider.get_child(0).play("open")
 					if collider.name == "paintingdoor":

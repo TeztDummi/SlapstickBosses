@@ -1,8 +1,9 @@
-[gd_scene load_steps=58 format=4 uid="uid://bftbdh781b6tr"]
+[gd_scene load_steps=70 format=4 uid="uid://bftbdh781b6tr"]
 
+[ext_resource type="Script" uid="uid://b4egihb8ow5kh" path="res://maps/credits.gd" id="1_55htf"]
 [ext_resource type="Theme" uid="uid://cmewige4oh18h" path="res://theme.tres" id="1_64rit"]
-[ext_resource type="Script" uid="uid://ba80uh0wnbo7r" path="res://maps/noscriptmap.gd" id="1_acmnd"]
 [ext_resource type="Texture2D" uid="uid://bulm5krgba2rr" path="res://textures/wood/WoodFloor040_1K-JPG_Color.jpg" id="2_ushuy"]
+[ext_resource type="Texture2D" uid="uid://c8tu687uhoulc" path="res://textures/portalparticle.png" id="3_55htf"]
 [ext_resource type="Texture2D" uid="uid://dtx706caxsc47" path="res://textures/wood/WoodFloor040_1K-JPG_NormalDX.jpg" id="3_np8tj"]
 [ext_resource type="Texture2D" uid="uid://dm2crftre2cx6" path="res://textures/wood/WoodFloor040_1K-JPG_Roughness.jpg" id="4_vwpko"]
 [ext_resource type="PackedScene" uid="uid://c6ftme17gapn0" path="res://objects/dummi.tscn" id="5_yxgdb"]
@@ -12,9 +13,47 @@
 [ext_resource type="Texture2D" uid="uid://6oalw30m5qkg" path="res://linkobjects_ambientcgbricks.png" id="10_naljw"]
 [ext_resource type="Texture2D" uid="uid://ioaj143xacx7" path="res://textures/dummiluigi.png" id="11_tft8d"]
 [ext_resource type="Texture2D" uid="uid://3jc2l28hhbtp" path="res://kevinsfuckinweirdasshead_sphere mfer cropped.jpg" id="12_4twn1"]
+[ext_resource type="Texture2D" uid="uid://c1w4k87kcysve" path="res://copy.png" id="14_50rr1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ydjqe"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Gradient" id="Gradient_50rr1"]
+offsets = PackedFloat32Array(0, 0.65368, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uuygu"]
+gradient = SubResource("Gradient_50rr1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_duw0m"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(9.46, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 1, 0.196078)
+color_ramp = SubResource("GradientTexture1D_uuygu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o645m"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_55htf")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yui12"]
+material = SubResource("StandardMaterial3D_o645m")
+size = Vector2(5, 5)
+orientation = 2
 
 [sub_resource type="Environment" id="Environment_ch7v6"]
 background_mode = 1
@@ -373,7 +412,7 @@ shading_mode = 0
 grow = true
 grow_amount = -0.05
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ywy3c"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_50rr1"]
 viewport_path = NodePath("yt/outline/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elvmj"]
@@ -534,8 +573,31 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_osj65")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uuygu"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("14_50rr1")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_duw0m"]
+material = SubResource("StandardMaterial3D_uuygu")
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_50rr1"]
+size = Vector3(2.10754, 2.17767, 0.181091)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yui12"]
+transparency = 1
+albedo_texture = ExtResource("14_50rr1")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.77
+emission_texture = ExtResource("14_50rr1")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ywy3c"]
+viewport_path = NodePath("copy/outline/SubViewport")
+
 [node name="credits" type="Node3D"]
-script = ExtResource("1_acmnd")
+script = ExtResource("1_55htf")
 
 [node name="credits" type="Marker3D" parent="."]
 editor_description = "Lookin at the credits for some reason"
@@ -549,7 +611,27 @@ transparent_bg = true
 size = Vector2i(2500, 4000)
 render_target_update_mode = 4
 
-[node name="Label" type="Label" parent="SubViewport"]
+[node name="bigcredits" type="Label" parent="SubViewport"]
+modulate = Color(1, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -907.5
+offset_top = -1450.0
+offset_right = 907.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_64rit")
+theme_override_font_sizes/font_size = 72
+text = "This game is made by Tezt Dummi (thats me)
+3D Models and shit by CrumboWumbo"
+horizontal_alignment = 1
+
+[node name="credits" type="Label" parent="SubViewport"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -564,16 +646,12 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_64rit")
 theme_override_font_sizes/font_size = 51
-text = "This game is made by Tezt Dummi (thats me)
-
-Burg Shelter and Gloop Factory by CrumboWumbo
-
-Guillermo based off and voiced by ToxicTinfoil on YT
+text = "Guillermo based off and voiced by ToxicTinfoil on YT
 
 Rim designed by HastyPasty on YT
 
-Some models are from various websites listed here:
 Lots of textures from AmbientCG https://ambientcg.com/ (cool website)
+Some models are from various websites listed here:
 Red guy cosmetic from Dont Hug Me I'm Scared S2EP6
 Red Car by J-Toastie [CC-BY] via Poly Pizza
 Water Cooler by J-Toastie [CC-BY] via Poly Pizza
@@ -611,6 +689,13 @@ horizontal_alignment = 1
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 11, -10.3008)
 texture = SubResource("ViewportTexture_ydjqe")
 
+[node name="particles" type="GPUParticles3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.59, 0)
+amount = 50
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_duw0m")
+draw_pass_1 = SubResource("PlaneMesh_yui12")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ch7v6")
 
@@ -628,7 +713,7 @@ transform = Transform3D(1.2, 0, 1.43051e-07, 0, 1.2, 0, -1.43051e-07, 0, 1.2, -4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="lobbydoor"]
 libraries = {
-"": SubResource("AnimationLibrary_4quax")
+&"": SubResource("AnimationLibrary_4quax")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lobbydoor"]
@@ -738,7 +823,7 @@ skeleton = NodePath("")
 [node name="Sprite3D" type="Sprite3D" parent="yt/outline"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.2, 0)
 double_sided = false
-texture = SubResource("ViewportTexture_ywy3c")
+texture = SubResource("ViewportTexture_50rr1")
 
 [node name="SubViewport" type="SubViewport" parent="yt/outline"]
 transparent_bg = true
@@ -865,3 +950,49 @@ mesh = SubResource("PlaneMesh_vut5f")
 transform = Transform3D(-3.63391e-08, 0, 0.866651, 0, 1, 0, -0.831342, 0, -3.78825e-08, -24, 1, 0)
 mesh = SubResource("ArrayMesh_lesjd")
 skeleton = NodePath("")
+
+[node name="copy" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.511651, 0.183013, -0.683013, 0, 0.965926, 0.258819, 0.511651, -0.183013, 0.683013, 4.4, 1.1, -4.4)
+mesh = SubResource("PlaneMesh_duw0m")
+script = ExtResource("9_rfop8")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="copy" groups=["copycredits"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.097724, -1.11742, -0.0797958)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="copy/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, -5.96046e-08, 1, 0, 0, -2.98023e-08, 1, 0.0873456, 1.08884, -0.00570774)
+shape = SubResource("BoxShape3D_50rr1")
+
+[node name="outline" type="MeshInstance3D" parent="copy"]
+transform = Transform3D(1.09, 0, 0, 0, 1.09, 0, 0, 0, 1.09, 0, 0, -0.09)
+mesh = SubResource("PlaneMesh_duw0m")
+surface_material_override/0 = SubResource("StandardMaterial3D_yui12")
+
+[node name="Sprite3D" type="Sprite3D" parent="copy/outline"]
+transform = Transform3D(1.10079, -7.10543e-15, -0.452065, -0.0293862, 0.88617, -0.261428, 0.109671, 0.237449, 0.975662, -0.0899081, 1.18165, 0.261468)
+double_sided = false
+texture = SubResource("ViewportTexture_ywy3c")
+
+[node name="SubViewport" type="SubViewport" parent="copy/outline"]
+transparent_bg = true
+size = Vector2i(512, 52)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="copy/outline/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -23.5
+offset_right = 246.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_64rit")
+theme_override_font_sizes/font_size = 36
+text = "Copy credits"
+horizontal_alignment = 1
+vertical_alignment = 1
