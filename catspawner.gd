@@ -178,5 +178,5 @@ func spawnflagcat(pos, wave):
 	var enemy = load("res://cats/theflagcat.tscn").instantiate()
 	enemy.position = pos
 	print(enemy.flagtext)
-	enemy.flagtext = str(wave)
+	enemy.flagtext = str(int(wave))
 	add_child(enemy)
