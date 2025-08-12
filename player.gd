@@ -7,6 +7,9 @@ var SPEED = 2 #in loadmap
 var SLIDEMULT = 1.5
 var JUMP_VELOCITY = 12 #in loadmap
 @onready var camera = $camera
+
+@onready var healthbarpos = $"../canvas/hud/healthbar".position
+
 var health = 100
 var shockwavedmgdelay = 0
 var hiteffect = 0
@@ -27,6 +30,7 @@ var cancrouch = false
 var slidefallpos = 0
 var falldamagemult = 0
 var falloff = true
+var emoting = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -40,6 +44,14 @@ func _process(delta):
 	if motionblur > 0: motionblur -= delta*20
 	else: motionblur = 0
 	if motionblur > 1: motionblur = 1
+	
+	var totalvel = sqrt(pow(velocity.x, 2)+pow(velocity.y, 2)+pow(velocity.z, 2))
+	
+	if !dead && emoting && ($anim.current_animation != "getfucked" || !$anim.is_playing() || !is_on_floor() || totalvel >= 2):
+		emoting = false
+		camera.current = true
+	if !$"../tppivot/tppivot2/tpcam".current:
+		emoting = false
 	
 	if motionblur < 0.5: $camera/motionblur.modulate = Color(1, 1, 1, motionblur/2)
 	else: $camera/motionblur.modulate = Color(1, 1, 1, 0.5)
@@ -67,39 +79,71 @@ func _process(delta):
 	if hiteffect > 0:
 		hiteffect = hiteffect*0.99-(delta*0.1)
 			
-		$"../map/WorldEnvironment".environment.adjustment_brightness = 1+(hiteffect*1)
-		$"../map/WorldEnvironment".environment.adjustment_contrast = 1+(hiteffect*7)
-		$"../map/WorldEnvironment".environment.adjustment_saturation = 1-(hiteffect*0.99)
+		#$"../map/WorldEnvironment".environment.adjustment_brightness = 1+(hiteffect*1)
+		#$"../map/WorldEnvironment".environment.adjustment_contrast = 1+(hiteffect*7)
+		#$"../map/WorldEnvironment".environment.adjustment_saturation = 1-(hiteffect*0.99)
+		$camera/damage.material.set_shader_parameter('amount', hiteffect)
+		
+		$"../canvas/hud/healthbar".position.x = healthbarpos.x+randf_range(-1, 1)*hiteffect*50
+		$"../canvas/hud/healthbar".position.y = healthbarpos.y+randf_range(-1, 1)*hiteffect*50
+		
 	else:
 		hiteffect = 0
 		$"../map/WorldEnvironment".environment.adjustment_brightness = 1
 		$"../map/WorldEnvironment".environment.adjustment_contrast = 1
 		$"../map/WorldEnvironment".environment.adjustment_saturation = 1
 		
+		$"../canvas/hud/healthbar".position = healthbarpos
+		
 	if !$camera.current && !$"../canvas/hud/talk".visible && !$"../canvas/hud/pause".visible && !get_viewport().get_camera_3d().has_meta("showhud"):
 		$camera/gun.hide()
 		$Armature.hide()
+		$light.hide()
 		if !$"../tppivot/tppivot2/tpcam".current:
 			$"../canvas/hud".hide()
 	else:
 		$camera/gun.show()
 		$Armature.show()
+		$light.show()
+		$"../canvas/hud".show()
+	if get_viewport().get_camera_3d().has_meta("freecam"):
+		$Armature.show()
+		$camera/gun.hide()
+		$"../canvas/hud".hide()
+	if (emoting && !dead):
+		$Armature.show()
+		$camera/gun.hide()
 		$"../canvas/hud".show()
 		
-	var windspeed = sqrt(pow(velocity.x, 2)+pow(velocity.y, 2)+pow(velocity.z, 2))
-	if dead: windspeed = 0
+	var windspeed = totalvel
+	if dead || !camera.current: windspeed = 0
 	var windpitch = clampf(windspeed/SPEED/6, 0.65, 3)
 	var windvol = -80+clampf(windspeed/SPEED*6, 0, 80)
 	$wind.pitch_scale = lerpf($wind.pitch_scale, windpitch, delta*5)
 	$wind.volume_db = lerpf($wind.volume_db, windvol, delta*5)
-		
+	
+	var linespeed = totalvel
+	linespeed -= 5
+	if dead || !camera.current: linespeed = 0
+	
+	var actionrad = 1.2+((1-(linespeed/50))*0.8)
+	actionrad = clampf(actionrad, 1.2, 2)
+	
+	var prev = $camera/actionlines.material.get_shader_parameter("Radius")
+	$camera/actionlines.material.set_shader_parameter("Radius", lerpf(prev, actionrad, delta*2))
 		
 	if !dead && $camera.current:
 		var collider = $camera/raycast.get_collider()
 		if collider != null:
 			if collider.is_in_group("painting"):
 				collider.hover = true
+			if collider.is_in_group("clickable"):
+				collider.get_parent().hover = true
 			if collider.is_in_group("pipewheel"):
+				collider.get_parent().hover = true
+			if collider.is_in_group("poobottle"):
+				collider.get_parent().hover = true
+			if collider.is_in_group("acrylicpaint"):
 				collider.get_parent().hover = true
 			if collider.is_in_group("link"):
 				collider.get_parent().hover = true
@@ -165,7 +209,10 @@ func _process(delta):
 	if !dead:
 		if slide && cancrouch:
 			screenshake += (extra)*delta*0.01
-			$camera/slidething.transparency = lerpf($camera/slidething.transparency, clampf(1.1-(extra)*delta*5, 0, 1), delta*10)
+			if sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 25:
+				$camera/slidething.transparency = lerpf($camera/slidething.transparency, 0.95, delta*3)
+			else:
+				$camera/slidething.transparency = lerpf($camera/slidething.transparency, clampf(1.1-(extra)*delta*5, 0, 1), delta*10)
 			if $camera/slidething.transparency < 0: $camera/slidething.transparency = 0
 			$camera/slidething.get_surface_override_material(0).uv2_offset.x -= (extra)*delta*0.1+delta*0.5
 			$camera/slidething.get_surface_override_material(0).uv2_offset.z -= (extra)*delta*0.1+delta*0.5
@@ -180,7 +227,7 @@ func _process(delta):
 		$camera/slidething.transparency = 1
 
 func _physics_process(delta):
-	if !dead && $camera.current:
+	if !dead && ($camera.current || emoting):
 		
 		# Add the gravity.
 		if not is_on_floor():
@@ -291,11 +338,13 @@ func _physics_process(delta):
 				velocity.x += direction.x*SPEED*SLIDEMULT*mult
 				velocity.z += direction.z*SPEED*SLIDEMULT*mult
 				
-			print("velocity = "+str(sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))))
+			#print("velocity = "+str(sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))))
 			if sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 25:
 				for body in $groundslam.get_overlapping_bodies():
 					if body.is_in_group("popcop"):
 						body.die()
+					if body.is_in_group("sodacan"):
+						body.explode(true)
 				
 			if (is_on_floor()):
 				if $audio.stream.resource_path.get_file() != "slide.tres" || !$audio.playing:
@@ -320,6 +369,10 @@ func _physics_process(delta):
 						for body in $groundslam.get_overlapping_bodies():
 							if body.is_in_group("popcop"):
 								body.die()
+					if extra > 0.2:
+						for body in $groundslam.get_overlapping_bodies():
+							if body.is_in_group("springmachine"):
+								body.get_parent().launch()
 					
 					var tempaudio = load("res://tempaudio.tscn").instantiate()
 					add_child(tempaudio)
@@ -346,7 +399,7 @@ func _physics_process(delta):
 					$walktimer.wait_time = 0.4/SPEED
 					$walktimer.start()
 				if $anim.current_animation != "move": $anim.play("move")
-			if direction == Vector3.ZERO && is_on_floor():
+			if direction == Vector3.ZERO && is_on_floor() && !emoting:
 				if $anim.current_animation != "idle": $anim.play("idle")
 					
 			var control = 1
@@ -409,28 +462,55 @@ func playaudio(stream, pitch = 1, vol = 5):
 		
 func rotatecam(movecamx, movecamy):
 	if !camlock:
-		if !Input.is_action_pressed("zoom"):
-			rotate_y(-movecamx * ($"../".sensitivity/1000))
-			$camera.rotate_x(-movecamy * ($"../".sensitivity/1000))
+		if !$"../tppivot/tppivot2/tpcam".current:
+			if !Input.is_action_pressed("zoom"):
+				rotate_y(-movecamx * ($"../".sensitivity/1000))
+				$camera.rotate_x(-movecamy * ($"../".sensitivity/1000))
+			else:
+				rotate_y(-movecamx * ($"../".sensitivity/1000)/5)
+				$camera.rotate_x(-movecamy * ($"../".sensitivity/1000)/5)
+			$camera.rotation.x = clamp($camera.rotation.x, -PI/2, PI/2)
+			
+			if (atan2(movecamx, movecamy) != 0):
+				$camera/motionblur.rotation = -atan2(movecamx, movecamy)
+			motionblur += sqrt(pow(movecamx,2)+pow(movecamy,2))*($"../".sensitivity/1000)
+		
 		else:
-			rotate_y(-movecamx * ($"../".sensitivity/1000)/5)
-			$camera.rotate_x(-movecamy * ($"../".sensitivity/1000)/5)
-		$camera.rotation.x = clamp($camera.rotation.x, -PI/2, PI/2)
-		
-		if (atan2(movecamx, movecamy) != 0):
-			$camera/motionblur.rotation = -atan2(movecamx, movecamy)
-		motionblur += sqrt(pow(movecamx,2)+pow(movecamy,2))*($"../".sensitivity/1000)
-		
-		if $"../tppivot/tppivot2/tpcam".current:
 			$"../tppivot".rotate_y(-movecamx * ($"../".sensitivity/1000))
 			$"../tppivot/tppivot2".rotate_x(-movecamy * ($"../".sensitivity/1000))
 			$"../tppivot/tppivot2".rotation.x = clamp($"../tppivot/tppivot2".rotation.x, -PI/2, PI/2)
-	
+			if $"../tppivot/tppivot2/tpraycast".is_colliding():
+				var colpoint = $"../tppivot/tppivot2/tpraycast".get_collision_point()
+				var raypoint = $"../tppivot/tppivot2/tpraycast".global_position
+				var dist = sqrt(pow(colpoint.x-raypoint.x, 2)+pow(colpoint.y-raypoint.y, 2)+pow(colpoint.z-raypoint.z, 2))
+				$"../tppivot/tppivot2/tpcam".position.z = dist
+			else:
+				$"../tppivot/tppivot2/tpcam".position.z = 5
+				
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			if $camera.current:
+			if $camera.current || $"../tppivot/tppivot2/tpcam".current:
 				rotatecam(event.relative.x, event.relative.y)
+	if Input.is_action_just_pressed("emote"):
+		if is_on_floor() && !emoting && !dead && !slide && camera.current:
+			emoting = true
+			$"../tppivot/tppivot2/tpcam".current = true
+			$"../".tplock = $light
+			$anim.play("getfucked")
+			$"../tppivot".rotation.y = rotation.y+PI
+			$"../tppivot/tppivot2".rotation.x = 0
+		elif emoting && !dead:
+			emoting = false
+			camera.current = true
+				
+				
+	if Input.is_action_just_pressed("rightclick"):
+		if !dead && $camera.current:
+			var collider = $camera/raycast.get_collider()
+			if collider != null:
+				if collider.is_in_group("pipewheel"):
+					collider.get_parent().spin()
 	if Input.is_action_just_pressed("click"):
 		if !dead && $camera.current:
 			var collider = $camera/raycast.get_collider()
@@ -441,6 +521,12 @@ func _unhandled_input(event):
 					collider.playanim()
 				if collider.is_in_group("pipewheel"):
 					collider.get_parent().spin()
+				if collider.is_in_group("clickable"):
+					collider.get_parent().clicked()
+				if collider.is_in_group("poobottle"):
+					collider.get_parent().take()
+				if collider.is_in_group("acrylicpaint"):
+					collider.get_parent().takepaint()
 				if collider.is_in_group("difficultybutton"):
 					collider.get_parent().get_parent().get_parent().diffselect(collider.name)
 				if collider.is_in_group("talk"):
@@ -455,6 +541,12 @@ func _unhandled_input(event):
 					if collider.name == "paintingdoor":
 						$"../canvas/hud/transitionin".play()
 						$"../".transition = ["loadmap", "res://maps/artstoreinside.tscn", -1]
+					if collider.name == "exitpaintingdoor":
+						$"../canvas/hud/transitionin".play()
+						$"../".transition = ["loadmap", "res://maps/lobby.tscn", -1, "none", Vector3(0, 1, 10)]
+					if collider.name == "exitcreditsdoor":
+						$"../canvas/hud/transitionin".play()
+						$"../".transition = ["loadmap", "res://maps/lobby.tscn", -1, "none", Vector3(-7, 0, -4)]
 					if collider.name == "lobbydoor":
 						$"../canvas/hud/transitionin".play()
 						$"../".transition = ["loadmap", "res://maps/lobby.tscn", -1]
@@ -466,7 +558,7 @@ func _unhandled_input(event):
 func kill(effect):
 	print("died to death")
 	
-	hiteffect = 1
+	hiteffect = 0.5
 	
 	dead = true
 	$"../canvas/hud/died".play("start")
@@ -477,6 +569,8 @@ func kill(effect):
 	
 	$"../music".stream = load("res://audio/music/deathmusic.mp3")
 	$"../music".play()
+	
+	$"../canvas/hud/timer".hide()
 	
 	var currenthead = $Armature/Skeleton3D/headbone/offset.get_child(0)
 	if currenthead.has_meta("deathsound"):
@@ -574,20 +668,40 @@ func kill(effect):
 		ragdoll.position = position
 		$"../map".add_child(ragdoll)
 		$"../".tplock = ragdoll.get_child(0)
-	
-func hurt(dmg, effect):
+
+func heal(amount):
 	if !dead && $camera.current:
+		health += amount
+		if health > 100:
+			health = 100
+			
+		var hitaudio = load("res://tempaudio.tscn").instantiate()
+		add_child(hitaudio)
+		hitaudio.stream = load("res://audio/heal.mp3")
+		hitaudio.pitch_scale = randf_range(0.75, 1.25)
+		hitaudio.play()
+
+func hurt(dmg, effect):
+	if !dead && ($camera.current || emoting):
+		if emoting:
+			emoting = false
+			camera.current = true
+		
 		if $"../map/lobbyportal" != null:
 			health = 100
 			position = $"../map/lobbyportal".position
 		else:
 			health -= dmg
 			print("ow my balls: " + str(dmg))
-			hiteffect = float(dmg)/100
+			hiteffect += float(dmg)/100
+			$"../canvas/hud/healthparticles".restart()
+			for child in $"../canvas/hud/damageparticles".get_children():
+				child.restart()
+				$"../canvas/hud/damagegradient/anim".play("default")
 			
 			if health <= 0:
-					kill(effect)
-					health = 0
+				kill(effect)
+				health = 0
 			
 			if health > 0:
 				var hitaudio = load("res://tempaudio.tscn").instantiate()
@@ -606,7 +720,37 @@ func hurt(dmg, effect):
 				hitaudio.play()
 				
 func updatelook():
+	
+	var loadoutfit = load($"../".outfit).instantiate()
+	
+	for child in $Armature/Skeleton3D/headbone/attachments.get_children():
+		child.queue_free()
+		
+	if loadoutfit.has_node("Armature/Skeleton3D/head"):
+		var headattachments = loadoutfit.get_node("Armature/Skeleton3D/head")
+		for child in headattachments.get_children():
+			var gpos = headattachments.position
+			var grot = headattachments.rotation-$Armature/Skeleton3D/headbone.rotation
+			var gscl = headattachments.scale
+			#var gscl = global_scale()
+			child.reparent($Armature/Skeleton3D/headbone/attachments)
+			child.position = gpos
+			child.rotation = grot
+			child.scale = gscl
+	
+	var mainbody = loadoutfit.get_node("Armature/Skeleton3D/main")
+	$Armature/Skeleton3D/Cube.name = "deletebody"
+	$Armature/Skeleton3D/deletebody.queue_free()
+	mainbody.reparent($Armature/Skeleton3D)
+	mainbody.position = Vector3.ZERO
+	mainbody.rotation = Vector3.ZERO
+	mainbody.name = "Cube"
+	print($Armature/Skeleton3D/Cube)
+	
+	#loadoutfit.queue_free()
+	
 	$Armature/Skeleton3D/Cube.get_surface_override_material(0).albedo_color = $"../".bodycolor
+	
 	for child in $Armature/Skeleton3D/headbone/offset.get_children():
 		child.queue_free()
 	var loadhead = load($"../".head).instantiate()
@@ -616,4 +760,8 @@ func updatelook():
 		for childagain in child.get_children():
 			if childagain is MeshInstance3D:
 				childagain.layers = 32
+			for childagainagain in childagain.get_children():
+				if childagainagain is MeshInstance3D:
+					childagainagain.layers = 32
 	$Armature/Skeleton3D/headbone/offset.add_child(loadhead)
+	

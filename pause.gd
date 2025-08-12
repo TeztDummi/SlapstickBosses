@@ -58,6 +58,7 @@ func _on_pausebg_animation_finished():
 			get_tree().paused = false
 			$"../../..".save_game()
 			$"../../.."._on_options_back_pressed()
+			$shortcuts.hide()
 
 func _on_lobby_pressed():
 	_on_resume_pressed()
@@ -82,3 +83,7 @@ func _on_difficultyselect_item_selected(index: int) -> void:
 	_on_resume_pressed()
 	$"../../../canvas/hud/transitionin".play()
 	$"../../../".transition = ["loadmap", "res://maps/"+$"../../../map".get_child(0).name+".tscn", dildo]
+
+func _on_restart_pressed() -> void:
+	_on_resume_pressed()
+	$"../../../"._on_died_animation_finished(true)

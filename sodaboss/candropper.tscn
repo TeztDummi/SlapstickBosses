@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj3x1hg4owpob"]
+
+[ext_resource type="Script" uid="uid://dr8pr2svsjgxt" path="res://candropper.gd" id="1_mx4ec"]
+[ext_resource type="PackedScene" uid="uid://ccsi2lw8ve1l" path="res://spherewarning.tscn" id="2_nwcfs"]
+
+[node name="candropper" type="Node3D"]
+script = ExtResource("1_mx4ec")
+
+[node name="spherewarning" parent="." instance=ExtResource("2_nwcfs")]
+
+[node name="spawntimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="leavetimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="spawntimer" to="." method="_on_spawntimer_timeout"]
+[connection signal="timeout" from="leavetimer" to="." method="_on_leavetimer_timeout"]

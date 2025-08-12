@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://bsflfinl8wmvb"]
+[gd_scene load_steps=92 format=4 uid="uid://bsflfinl8wmvb"]
 
 [ext_resource type="Texture2D" uid="uid://bj02w0j2h5vf5" path="res://textures/concrete/Concrete031_2K-JPG_Color.jpg" id="1_xpa6e"]
 [ext_resource type="Texture2D" uid="uid://cxw2hwfkdcsu" path="res://textures/concrete/Concrete031_2K-JPG_NormalDX.jpg" id="2_bmc6r"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bulm5krgba2rr" path="res://textures/wood/WoodFloor040_1K-JPG_Color.jpg" id="15_8h6dp"]
 [ext_resource type="Texture2D" uid="uid://dtx706caxsc47" path="res://textures/wood/WoodFloor040_1K-JPG_NormalDX.jpg" id="16_65edm"]
 [ext_resource type="Texture2D" uid="uid://dm2crftre2cx6" path="res://textures/wood/WoodFloor040_1K-JPG_Roughness.jpg" id="17_nemlc"]
+[ext_resource type="PackedScene" uid="uid://m3q3qvf14dms" path="res://sodaboss/sodacan.tscn" id="18_qdvre"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n8els"]
 size = Vector2(8, 8)
@@ -1205,6 +1206,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_78s67")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hangingplat/chain/StaticBody3D"]
 transform = Transform3D(1, 7.10543e-15, -2.84217e-14, 3.55271e-15, 1, -1.49012e-08, 2.84217e-14, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_upjv5")
+disabled = true
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="chain_001" type="MeshInstance3D" parent="hangingplat"]
@@ -1218,6 +1220,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_78s67")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hangingplat/chain_001/StaticBody3D"]
 transform = Transform3D(1, 7.10543e-15, -2.84217e-14, 3.55271e-15, 1, -1.49012e-08, 2.84217e-14, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_upjv5")
+disabled = true
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="chain_002" type="MeshInstance3D" parent="hangingplat"]
@@ -1231,6 +1234,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_78s67")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hangingplat/chain_002/StaticBody3D"]
 transform = Transform3D(1, 7.10543e-15, -2.84217e-14, 3.55271e-15, 1, -1.49012e-08, 2.84217e-14, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_upjv5")
+disabled = true
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="chain_003" type="MeshInstance3D" parent="hangingplat"]
@@ -1244,6 +1248,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_iog74")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hangingplat/chain_003/StaticBody3D"]
 transform = Transform3D(1, 7.10543e-15, -2.84217e-14, 3.55271e-15, 1, -1.49012e-08, 2.84217e-14, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_upjv5")
+disabled = true
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="hangingplat"]
@@ -1254,7 +1259,6 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="sign" parent="." instance=ExtResource("14_pur0f")]
 transform = Transform3D(-0.25, 0, -0.433013, 0, 0.5, 0, 0.433013, 0, -0.25, 2.6, 0, 3.1)
-metadata/custom = "Slide and jump for a massive boost! Such realistic movement!"
 
 [node name="bottlemess" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.175618, 2.65176e-08, -0.0956985, 3.01992e-08, -0.2, 0, -0.0956985, -1.44501e-08, -0.175618, -4.47403, -7.80821e-06, 45.9055)
@@ -1595,6 +1599,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bigbox/StaticBody3D"]
 shape = SubResource("BoxShape3D_uqd46")
 debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="sodacan" parent="." instance=ExtResource("18_qdvre")]
+transform = Transform3D(-0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, -0.433013, -2.40161, -1.54882, 29.6681)
+metadata/hard = false
+
+[node name="sodacan4" parent="." instance=ExtResource("18_qdvre")]
+transform = Transform3D(-0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, -0.433013, -2.4, -1.5, 31)
+metadata/hard = false
+
+[node name="sodacan2" parent="." instance=ExtResource("18_qdvre")]
+transform = Transform3D(-0.482963, 0, -0.129409, 0, 0.5, 0, 0.129409, 0, -0.482963, 2.59839, -1.54882, 29.6681)
+metadata/hard = false
+
+[node name="sodacan3" parent="." instance=ExtResource("18_qdvre")]
+transform = Transform3D(-0.482963, 0, -0.129409, 0, 0.5, 0, 0.129409, 0, -0.482963, 2.4, -1.5, 31)
+metadata/hard = false
+
+[node name="sodacan5" parent="." instance=ExtResource("18_qdvre")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 6.17851, 0.25, 46.0394)
+metadata/hard = false
+
+[node name="sodacan6" parent="." instance=ExtResource("18_qdvre")]
+transform = Transform3D(6.55671e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.55671e-08, -4.82149, 0.25, 46.0394)
+metadata/hard = false
 
 [connection signal="body_entered" from="pipearea" to="pipearea" method="_on_body_entered"]
 [connection signal="body_entered" from="pipearea2" to="pipearea2" method="_on_body_entered"]

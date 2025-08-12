@@ -204,5 +204,8 @@ shape = SubResource("CylinderShape3D_atb6j")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ifiy4")
+&"": SubResource("AnimationLibrary_ifiy4")
 }
+
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)

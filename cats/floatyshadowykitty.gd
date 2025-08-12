@@ -109,4 +109,7 @@ func _on_shoottimer_timeout():
 			position = Vector3(player.position.x+sin(randdir)*12, 0, player.position.z+cos(randdir)*12)
 			$poof2.emitting = true
 			playsound("res://audio/darkteleport.mp3", 1)
-				
+			
+
+func _on_deathparticle_finished() -> void:
+	queue_free()

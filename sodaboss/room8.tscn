@@ -2065,6 +2065,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4
 transform = Transform3D(1.056, 0, 0, 0, 0.1, 0, 0, 0, 0.085, 0, -14.6, 6)
 mesh = SubResource("BoxMesh_o38x4")
 surface_material_override/0 = SubResource("StandardMaterial3D_djq56")
+metadata/nospeedrun = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D19"]
 

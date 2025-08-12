@@ -24,8 +24,11 @@ func _ready():
 	else:
 		if has_meta("price"):
 			$pricetag.show()
-			if $"../..".boughtitems.has(item):
+			if $"../..".boughtitems.has(item) && $"../..".itemdata.has(item):
 				queue_free()
+			elif $"../..".boughtitems.has(item):
+				$pricetag.hide()
+				remove_meta("price")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

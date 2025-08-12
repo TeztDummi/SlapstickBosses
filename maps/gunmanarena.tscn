@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=4 uid="uid://cbjbf4vmqutja"]
+[gd_scene load_steps=166 format=4 uid="uid://cbjbf4vmqutja"]
 
 [ext_resource type="Script" uid="uid://dgchgi1plwqsg" path="res://maps/gunmanarena.gd" id="1_ephll"]
 [ext_resource type="Texture2D" uid="uid://cqonc4ujyr2gr" path="res://textures/defaulttexture/defaulttexture.png" id="2_44s8l"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d2cav6bd58yq" path="res://addons/kenney_particle_pack/smoke_04.png" id="11_3lqy6"]
 [ext_resource type="Texture2D" uid="uid://t4yty1i72uao" path="res://objects/biggerboy_spinningblade.png" id="11_nwitt"]
 [ext_resource type="Texture2D" uid="uid://chu8qkqa43mwt" path="res://techincaldifficulties.png" id="12_mmyoj"]
+[ext_resource type="PackedScene" uid="uid://bdchdvx41e5v7" path="res://bitbag.tscn" id="13_bl458"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdhk4"]
 resource_name = "Material.008"
@@ -4223,7 +4224,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_kb7ed")
 
 [node name="anim" type="AnimationPlayer" parent="mapsoicanscaleit"]
 libraries = {
-"": SubResource("AnimationLibrary_sibit")
+&"": SubResource("AnimationLibrary_sibit")
 }
 
 [node name="glass0" type="Node3D" parent="."]
@@ -4637,6 +4638,10 @@ wait_time = 2.0
 transform = Transform3D(1.68668, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -5, -5.35)
 mesh = SubResource("PlaneMesh_g5qgg")
 surface_material_override/0 = SubResource("StandardMaterial3D_qugxy")
+
+[node name="bitbag" parent="." instance=ExtResource("13_bl458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 1, 49)
+metadata/id = "gunman"
 
 [connection signal="timeout" from="starttimer" to="." method="_on_starttimer_timeout"]
 [connection signal="animation_finished" from="mapsoicanscaleit/anim" to="." method="_on_anim_animation_finished"]

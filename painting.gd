@@ -13,46 +13,56 @@ var hoverhard = false
 var map = ""
 var diff = 1
 var ticks = -1
+
+func settexture(texture):
+	$painting.get_surface_override_material(1).albedo_texture = load(texture)
+	$painting.get_surface_override_material(1).next_pass.albedo_texture = load(texture)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	var dupe = $painting.get_surface_override_material(1).duplicate()
 	$painting.set_surface_override_material(1, dupe)
+	var dupebright = dupe.next_pass.duplicate()
+	dupe.next_pass = dupebright
 	var dupebrush = $brush.get_surface_override_material(0).duplicate()
 	$brush.set_surface_override_material(0, dupebrush)
 	var dupechal = $painting/challenge.get_surface_override_material(0).duplicate()
 	$painting/challenge.set_surface_override_material(0, dupechal)
+	var dupechalbright = dupechal.next_pass.duplicate()
+	dupechal.next_pass = dupechalbright
 	var painting = name
 	if has_meta("nameoverride"):
 		painting = get_meta("nameoverride")
 	if painting == "elevatorpainting":
 		map = "elevatorarena"
-		$painting.get_surface_override_material(1).albedo_texture = load("res://paintings/elevatorpainting.png")
+		settexture("res://paintings/elevatorpainting.png")
 		ticks = $"../../".beatelevator
 	if painting == "catpainting":
 		map = "catarena"
-		$painting.get_surface_override_material(1).albedo_texture = load("res://paintings/catpainting.png")
+		settexture("res://paintings/catpainting.png")
 		ticks = $"../../".beatcat
 	if painting == "wizardpainting":
 		map = "musicboss"
 		ticks = $"../../".beatwizard
-		$painting.get_surface_override_material(1).albedo_texture = load("res://paintings/wizardpainting.png")
+		settexture("res://paintings/wizardpainting.png")
 	if painting == "gunmanpainting":
 		map = "gunmanarena"
 		ticks = $"../../".beatgunman
-		$painting.get_surface_override_material(1).albedo_texture = load("res://paintings/gunmanpainting.png")
+		settexture("res://paintings/gunmanpainting.png")
 	if painting == "spacepainting":
 		map = "spaceboss"
 		ticks = 0
-		$painting.get_surface_override_material(1).albedo_texture = load("res://paintings/wippainting.png")
+		settexture("res://paintings/wippainting.png")
 	if painting == "sodapainting":
 		map = "sodaboss"
-		ticks = 0
-		$painting.get_surface_override_material(1).albedo_texture = load("res://paintings/wippainting.png")
+		ticks = $"../../".beatsoda
+		settexture("res://paintings/sodapainting.png")
 	if has_meta("challenge"):
 		if ticks <= 0: #easy or less
 			queue_free()
 		$painting/challenge.get_surface_override_material(0).albedo_texture = load("res://paintings/"+get_meta("challenge")+".png")
+		$painting/challenge.get_surface_override_material(0).next_pass.albedo_texture = load("res://paintings/"+get_meta("challenge")+".png")
 		$painting/chalbits.show()
 		$subview/bits.text = str($"../../".getchalbits(get_meta("challenge")))
 		$subview/bits/bitsoffset/bitssprite.position.x = $subview/bits.get_total_character_count()*40
@@ -77,7 +87,7 @@ func _process(delta):
 			camtween += delta*(PI/2)
 		var ct = sin(camtween)
 		camera.global_position = Vector3(spos.x*(1-ct)+pos.x*ct, spos.y*(1-ct)+pos.y*ct, spos.z*(1-ct)+pos.z*ct)
-		if $AnimationPlayer.current_animation != "secret":
+		if $AnimationPlayer.current_animation != "secret" && $AnimationPlayer.is_playing():
 			camera.global_rotation.x = lerp_angle(camera.global_rotation.x, rot.x, 4*delta)
 			camera.global_rotation.y = lerp_angle(camera.global_rotation.y, rot.y, 4*delta)
 			camera.global_rotation.z = lerp_angle(camera.global_rotation.z, rot.z, 4*delta)

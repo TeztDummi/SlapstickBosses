@@ -132,7 +132,7 @@ points = PackedVector3Array(-0.955342, -0.164357, -0.000187039, -0.922612, -0.16
 offsets = PackedFloat32Array(0, 0.364238, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 0.572549, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ldfh1"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sb5xc"]
 gradient = SubResource("Gradient_3gh1g")
 
 [sub_resource type="Curve" id="Curve_qssc8"]
@@ -140,7 +140,7 @@ _limits = [0.99, 5.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ry280"]
+[sub_resource type="CurveTexture" id="CurveTexture_q4wjc"]
 curve = SubResource("Curve_qssc8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i22tf"]
@@ -153,11 +153,11 @@ angular_velocity_min = -360.0
 angular_velocity_max = 360.0
 damping_min = 100.0
 damping_max = 100.0
-scale_curve = SubResource("CurveTexture_ry280")
+scale_curve = SubResource("CurveTexture_q4wjc")
 color = Color(1, 0.858824, 0.596078, 1)
-color_ramp = SubResource("GradientTexture1D_ldfh1")
+color_ramp = SubResource("GradientTexture1D_sb5xc")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1i87"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyf4v"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -169,7 +169,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fv2j1"]
-material = SubResource("StandardMaterial3D_o1i87")
+material = SubResource("StandardMaterial3D_yyf4v")
 size = Vector2(1, 1)
 orientation = 2
 
@@ -368,7 +368,7 @@ shape = SubResource("SphereShape3D_33fue")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qwtnc")
+&"": SubResource("AnimationLibrary_qwtnc")
 }
 autoplay = "start"
 

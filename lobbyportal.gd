@@ -21,7 +21,8 @@ func _process(delta):
 		
 	if player.position != position:
 		player.screenshake += delta*5*(1/(pow(position.x-player.position.x, 2) + pow(position.y-player.position.y, 2) + pow(position.z-player.position.z, 2)))
-
+		print(player.screenshake)
+		
 func _on_area_3d_body_entered(body):
 	print("buh")
 	if !done:

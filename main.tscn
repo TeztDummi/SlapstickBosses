@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=4 uid="uid://cobld5y5t30qb"]
+[gd_scene load_steps=266 format=4 uid="uid://cobld5y5t30qb"]
 
 [ext_resource type="Script" uid="uid://b4f7c2xgl12cp" path="res://main.gd" id="1_447ni"]
 [ext_resource type="PackedScene" uid="uid://chwr8oem503jp" path="res://player.tscn" id="4_7fi2g"]
@@ -9,22 +9,36 @@
 [ext_resource type="Texture2D" uid="uid://doykqcavibx1a" path="res://ui/easy.png" id="7_ypd12"]
 [ext_resource type="Texture2D" uid="uid://b7tc01lcslwf3" path="res://transitions/transitionin0001.png" id="8_uqnmv"]
 [ext_resource type="Texture2D" uid="uid://b5x37fa1npsuy" path="res://transitions/transitionin0002.png" id="9_8jept"]
+[ext_resource type="Texture2D" uid="uid://uw3kgdyx67uw" path="res://textures/catcount.png" id="9_s4o1y"]
+[ext_resource type="Texture2D" uid="uid://bebn63yptthv5" path="res://ui/gunmanhealthbarbottom.png" id="10_86lig"]
 [ext_resource type="Texture2D" uid="uid://crcbxeksfdt87" path="res://transitions/transitionin0003.png" id="10_urjvh"]
 [ext_resource type="Texture2D" uid="uid://be7sqf6040fn8" path="res://transitions/transitionin0004.png" id="11_2i5ao"]
+[ext_resource type="Texture2D" uid="uid://c0ga74gayhhuh" path="res://ui/gunmanhealthbar.png" id="11_ldnlw"]
 [ext_resource type="Texture2D" uid="uid://tpffi2djqqgx" path="res://transitions/transitionin0005.png" id="12_n5dex"]
+[ext_resource type="Texture2D" uid="uid://bdw0xo8e4oxwa" path="res://ui/gunmanicon0000.png" id="12_qe8ju"]
 [ext_resource type="Texture2D" uid="uid://pbh4sn6wm0wp" path="res://transitions/transitionin0006.png" id="13_40hr0"]
+[ext_resource type="Texture2D" uid="uid://ct383ma43uyi3" path="res://ui/gunmanicon0001.png" id="13_bnk2o"]
+[ext_resource type="Texture2D" uid="uid://dgs1it8ndphp4" path="res://ui/gunmanicon0002.png" id="14_oosfy"]
 [ext_resource type="Texture2D" uid="uid://qmfl75h53wvt" path="res://transitions/transitionin0007.png" id="14_w3pqo"]
+[ext_resource type="Texture2D" uid="uid://bd7s5oxofh668" path="res://ui/gunmanicon0005.png" id="14_xkvoa"]
 [ext_resource type="Script" uid="uid://dhsi4r8mxhvoy" path="res://talk.gd" id="15_3ftoy"]
 [ext_resource type="Texture2D" uid="uid://c67qikp7etdp3" path="res://transitions/transitionin0008.png" id="15_flsjw"]
 [ext_resource type="Texture2D" uid="uid://d2skn4pwu6ieo" path="res://ui/textbox0001.png" id="15_n4v2r"]
+[ext_resource type="Texture2D" uid="uid://cvsmhlns1d7ew" path="res://ui/gunmanicon0003.png" id="15_nf4f2"]
+[ext_resource type="Texture2D" uid="uid://ccg0kg7uqtmcb" path="res://ui/gunmanicon0006.png" id="15_t5kpo"]
 [ext_resource type="Texture2D" uid="uid://bvkpwtds484xq" path="res://ui/textbox0002.png" id="16_501ka"]
 [ext_resource type="Texture2D" uid="uid://d10ich4t5fhgn" path="res://transitions/transitionin0009.png" id="16_i6o34"]
+[ext_resource type="Texture2D" uid="uid://c4em6bdcsx7ib" path="res://ui/gunmanicon0007.png" id="16_pw0td"]
+[ext_resource type="Texture2D" uid="uid://dk5iono151ld8" path="res://ui/gunmanicon0004.png" id="16_xkvoa"]
 [ext_resource type="Texture2D" uid="uid://g1ngp7puhg1a" path="res://transitions/transitionin0010.png" id="17_3g6ev"]
+[ext_resource type="Texture2D" uid="uid://7js4asc4p5oc" path="res://ui/gunmanicon0008.png" id="17_37eu1"]
 [ext_resource type="Texture2D" uid="uid://76v0h7olg5vj" path="res://ui/textbox0003.png" id="17_u35ej"]
+[ext_resource type="Texture2D" uid="uid://c7rav5aen8vf5" path="res://ui/gunmanicon0009.png" id="18_0wkqm"]
 [ext_resource type="Texture2D" uid="uid://dqpvydam5okug" path="res://transitions/transitionin0011.png" id="18_3tx4l"]
 [ext_resource type="Texture2D" uid="uid://chjrjjx3wf8wo" path="res://transitions/transitionout0001.png" id="18_j28fl"]
 [ext_resource type="Shader" uid="uid://dknilm8411ytn" path="res://edgedetect.gdshader" id="18_kvdh6"]
 [ext_resource type="Texture2D" uid="uid://4uikjjoq87we" path="res://transitions/transitionout0002.png" id="19_f3r06"]
+[ext_resource type="Texture2D" uid="uid://dbkkmr7olgx8w" path="res://ui/gunmanicon0010.png" id="19_ve5sr"]
 [ext_resource type="Texture2D" uid="uid://bykrrt01t8mkv" path="res://ui/healthbottom.png" id="19_whb3t"]
 [ext_resource type="Texture2D" uid="uid://cl37ccx6ugiyo" path="res://transitions/transitionout0003.png" id="20_11evl"]
 [ext_resource type="Texture2D" uid="uid://nfu2bl87n367" path="res://ui/portraits/testportrait0000.png" id="20_nubqa"]
@@ -37,14 +51,17 @@
 [ext_resource type="Texture2D" uid="uid://bu12hu5gkfwc3" path="res://ui/portraits/canman0000.png" id="23_fkm32"]
 [ext_resource type="Texture2D" uid="uid://csjer0rhy7rin" path="res://ui/portraits/canmancross0000.png" id="23_i7g0u"]
 [ext_resource type="Texture2D" uid="uid://dawi0hhhn3ncq" path="res://ui/portraits/testportrait0003.png" id="23_n4o4l"]
+[ext_resource type="Texture2D" uid="uid://c8tu687uhoulc" path="res://textures/portalparticle.png" id="23_rx6mv"]
 [ext_resource type="Texture2D" uid="uid://tb8olhxs0ox1" path="res://transitions/transitionout0006.png" id="23_s0yi3"]
 [ext_resource type="Texture2D" uid="uid://c28lrten8ed0" path="res://ui/portraits/canmancross0001.png" id="24_f7erv"]
 [ext_resource type="Texture2D" uid="uid://568ql03te1rd" path="res://ui/portraits/gearmopoint0000.png" id="24_hi2st"]
 [ext_resource type="Texture2D" uid="uid://c2jlj4dn7hl7f" path="res://transitions/transitionout0007.png" id="24_pad31"]
+[ext_resource type="Texture2D" uid="uid://dd7sk5k5xkvtr" path="res://addons/kenney_particle_pack/flame_02.png" id="24_t5kpo"]
 [ext_resource type="Texture2D" uid="uid://8fdv2d4ewlvn" path="res://ui/portraits/canman0001.png" id="24_yq1vf"]
 [ext_resource type="Texture2D" uid="uid://blqg6o3xocrc7" path="res://ui/portraits/canman0002.png" id="25_2o8bp"]
 [ext_resource type="Texture2D" uid="uid://ivrf77qjaaxd" path="res://ui/portraits/gearmoarmscross0000.png" id="25_3ni0h"]
 [ext_resource type="Texture2D" uid="uid://cq0fo31naypkw" path="res://transitions/transitionout0008.png" id="25_b51p6"]
+[ext_resource type="AudioStream" uid="uid://by0jaylyshmj2" path="res://audio/timersound.mp3" id="25_pw0td"]
 [ext_resource type="Texture2D" uid="uid://mn06558gxu17" path="res://ui/portraits/gearmopoint0001.png" id="25_r7pkf"]
 [ext_resource type="Texture2D" uid="uid://cwivoamkyhx0q" path="res://ui/portraits/canmancross0002.png" id="25_vhnct"]
 [ext_resource type="Texture2D" uid="uid://cvoutupcn5nws" path="res://ui/portraits/canmancross0003.png" id="26_ishti"]
@@ -97,29 +114,85 @@
 [ext_resource type="Texture2D" uid="uid://csxodg3vgigab" path="res://pause/pause2.png" id="45_fqc78"]
 [ext_resource type="Texture2D" uid="uid://uctxkslvc1wo" path="res://pause/pause1.png" id="46_35apu"]
 [ext_resource type="Texture2D" uid="uid://bo3f10aravyy8" path="res://pause/pause0.png" id="47_g0x8i"]
+[ext_resource type="Texture2D" uid="uid://0vjtoxuororc" path="res://ui/portraits/crustycrazy0020.png" id="48_fe76k"]
+[ext_resource type="Texture2D" uid="uid://d121s8stg7j8a" path="res://ui/portraits/crustynormal1.png" id="48_ibca3"]
+[ext_resource type="Texture2D" uid="uid://7jxrljdiqs8i" path="res://ui/portraits/crustyangry0027.png" id="48_lxb2r"]
 [ext_resource type="Texture2D" uid="uid://bhsp2hgxuarsy" path="res://pause/pauseempty.png" id="48_ubrpp"]
+[ext_resource type="Texture2D" uid="uid://duuuy1gd0pwkm" path="res://ui/portraits/crustyangry0028.png" id="49_ceu5l"]
+[ext_resource type="Texture2D" uid="uid://b42ptqhe30p78" path="res://ui/portraits/crustynormal2.png" id="49_g3y5b"]
 [ext_resource type="Texture2D" uid="uid://b77xog622smfb" path="res://box.png" id="49_hgcff"]
+[ext_resource type="Texture2D" uid="uid://cwsu7f3j15vky" path="res://ui/portraits/crustycrazy0021.png" id="49_p5pln"]
+[ext_resource type="Texture2D" uid="uid://53j2snt8vhcl" path="res://ui/portraits/crustynormal3.png" id="50_1slqb"]
+[ext_resource type="Texture2D" uid="uid://c5qm2mmgge7c1" path="res://ui/portraits/crustyangry0029.png" id="50_lv1ug"]
+[ext_resource type="Texture2D" uid="uid://divvpi8sc1ivo" path="res://ui/portraits/crustycrazy0022.png" id="50_oiuw5"]
+[ext_resource type="Texture2D" uid="uid://c7cvmfupv6bbn" path="res://ui/portraits/crustycrazy0023.png" id="51_mldrc"]
+[ext_resource type="Texture2D" uid="uid://dcr0jad4v11pm" path="res://ui/portraits/crustyangry0030.png" id="51_mofpq"]
+[ext_resource type="Texture2D" uid="uid://bhvjuiisqbv2r" path="res://ui/portraits/crustynormal4.png" id="51_uo83y"]
+[ext_resource type="Texture2D" uid="uid://fgltlhgjchhq" path="res://ui/portraits/crustycrazy0024.png" id="52_1tiwm"]
+[ext_resource type="Texture2D" uid="uid://wmlmlxemowv0" path="res://ui/portraits/crustyangry0031.png" id="52_6kttw"]
 [ext_resource type="Texture2D" uid="uid://cxyo0bblxtvla" path="res://ui/portraits/lookupguy1.png" id="52_ppy6r"]
+[ext_resource type="Texture2D" uid="uid://3m4m5h4vhgtx" path="res://ui/portraits/crustysnort0007.png" id="52_x4ftd"]
+[ext_resource type="Texture2D" uid="uid://j7eum4402bcf" path="res://ui/portraits/crustysnort0008.png" id="53_arf1h"]
 [ext_resource type="Texture2D" uid="uid://pe0k05dfem6q" path="res://ui/portraits/lookupguy2.png" id="53_hfl3s"]
+[ext_resource type="Texture2D" uid="uid://bxb1ks171ugay" path="res://ui/portraits/crustyangry0032.png" id="53_oqmj5"]
+[ext_resource type="Texture2D" uid="uid://bm4olnidosc8b" path="res://ui/portraits/crustycrazystop0025.png" id="53_xxpw2"]
+[ext_resource type="Texture2D" uid="uid://cqq25a5fukloh" path="res://ui/portraits/crustysnort0009.png" id="54_s0om5"]
+[ext_resource type="Texture2D" uid="uid://ijju8ybflc36" path="res://ui/portraits/crustycrazystop0026.png" id="54_wghq8"]
+[ext_resource type="Texture2D" uid="uid://dlbklfqykc15k" path="res://ui/portraits/crustysnort0010.png" id="55_gkfde"]
+[ext_resource type="Texture2D" uid="uid://b8po5kdxttjut" path="res://ui/portraits/crustysnort0011.png" id="56_4qxq8"]
+[ext_resource type="Texture2D" uid="uid://d6rhktfhkf65" path="res://ui/portraits/crustysnort0012.png" id="57_ryg4g"]
+[ext_resource type="Texture2D" uid="uid://dms8xi1ejo51v" path="res://ui/portraits/crustythumb0001.png" id="58_oy6td"]
+[ext_resource type="Texture2D" uid="uid://dd47yu1ha37at" path="res://ui/portraits/crustythumb0002.png" id="59_fe76k"]
+[ext_resource type="Texture2D" uid="uid://btyexeyinxf6o" path="res://ui/portraits/crustythumb0003.png" id="60_p5pln"]
+[ext_resource type="Texture2D" uid="uid://bvtmuslrtvnfc" path="res://ui/portraits/crustythumb0004.png" id="61_oiuw5"]
+[ext_resource type="Texture2D" uid="uid://dxetpgxbawymr" path="res://ui/portraits/crustythumb0005.png" id="62_mldrc"]
+[ext_resource type="Texture2D" uid="uid://cs7k0u7da7ngo" path="res://ui/portraits/crustythumb0006.png" id="63_1tiwm"]
+[ext_resource type="Texture2D" uid="uid://cn0sw6j66rykk" path="res://ui/portraits/crustytweaking0014.png" id="64_xxpw2"]
+[ext_resource type="Texture2D" uid="uid://duefqw0uflmxk" path="res://ui/portraits/crustysketchy0037.png" id="65_afgqn"]
+[ext_resource type="Texture2D" uid="uid://cco3gxvgfsiho" path="res://ui/portraits/crustymaryjane0052.png" id="65_jegnu"]
+[ext_resource type="Texture2D" uid="uid://7xdxmb8r44c4" path="res://ui/portraits/crustytweaking0015.png" id="65_wghq8"]
+[ext_resource type="Texture2D" uid="uid://bj1latnc18qie" path="res://ui/portraits/crustysketchy0038.png" id="66_jvn2n"]
+[ext_resource type="Texture2D" uid="uid://4lhiw5cwv84d" path="res://ui/portraits/crustytweaking0016.png" id="66_k08w7"]
+[ext_resource type="Texture2D" uid="uid://cr72ocmg32x2g" path="res://ui/portraits/crustymaryjane0053.png" id="66_rx6mv"]
+[ext_resource type="Texture2D" uid="uid://di8shnpiailpk" path="res://ui/portraits/crustytweaking0017.png" id="67_hp4ct"]
+[ext_resource type="Texture2D" uid="uid://djpsgemxt3fbp" path="res://ui/portraits/crustysketchy0039.png" id="67_jegnu"]
+[ext_resource type="Texture2D" uid="uid://bu71r0icrjgx8" path="res://ui/portraits/crustysketchy0040.png" id="68_rx6mv"]
+[ext_resource type="Texture2D" uid="uid://b00j8b6xqr72f" path="res://ui/portraits/crustytweaking0018.png" id="68_suf1q"]
+[ext_resource type="Texture2D" uid="uid://dsk3ysbmsceyv" path="res://ui/portraits/crustysketchy0041.png" id="69_31js7"]
+[ext_resource type="Texture2D" uid="uid://d0eas5bmwrssj" path="res://ui/portraits/crustytweaking0019.png" id="69_lxb2r"]
+[ext_resource type="Texture2D" uid="uid://82rxtqotkyvi" path="res://ui/portraits/crustysketchy0042.png" id="70_0a4i0"]
+[ext_resource type="Texture2D" uid="uid://ccrxl3qexu4qb" path="res://ui/portraits/crustysketchy0043.png" id="71_i0xsp"]
+[ext_resource type="Texture2D" uid="uid://bblktnypbkhst" path="res://ui/portraits/crustysketchy0044.png" id="72_kll2q"]
+[ext_resource type="Texture2D" uid="uid://ctbv8bwb526uo" path="res://ui/portraits/crustysketchy0045.png" id="73_ft875"]
+[ext_resource type="Texture2D" uid="uid://dehcfmnvu06qa" path="res://ui/portraits/crustysketchy0046.png" id="74_6hmxt"]
 [ext_resource type="Texture2D" uid="uid://biytbtmevm8lg" path="res://ui/crosshair0001.png" id="75_ac7v4"]
-[ext_resource type="AudioStream" uid="uid://hfimk44nxpug" path="res://audio/music/lobbymusic.mp3" id="75_hvxpl"]
+[ext_resource type="Texture2D" uid="uid://ch5srk1gfegu1" path="res://ui/portraits/crustysketchy0047.png" id="75_rhlye"]
 [ext_resource type="Texture2D" uid="uid://cortpcy51m8i0" path="res://ui/medium.png" id="76_g5xqc"]
 [ext_resource type="Texture2D" uid="uid://b765eigkgqb87" path="res://ui/crosshair0002.png" id="76_osats"]
+[ext_resource type="Texture2D" uid="uid://bvvge5oo6elu0" path="res://ui/portraits/crustysketchy0048.png" id="76_pqvsh"]
+[ext_resource type="Texture2D" uid="uid://3bj0j7jre6b1" path="res://ui/portraits/crustysketchystop0049.png" id="77_3qj4k"]
 [ext_resource type="Texture2D" uid="uid://blwdrs6a4rkx2" path="res://ui/crosshair0003.png" id="77_6n3am"]
 [ext_resource type="Texture2D" uid="uid://d0mfpwxx257i6" path="res://ui/hard.png" id="77_s4o1y"]
+[ext_resource type="Texture2D" uid="uid://ptpign05aw1s" path="res://ui/portraits/crustysketchystop0050.png" id="78_mo8hc"]
 [ext_resource type="Script" uid="uid://cjaarb7u1v1wr" path="res://cosmetics.gd" id="79_f317l"]
+[ext_resource type="Texture2D" uid="uid://cd2cn71tk364" path="res://ui/portraits/crustysketchystop0051.png" id="79_gbg58"]
 [ext_resource type="FontFile" uid="uid://bl2v3t75lb0tl" path="res://RelapseRegular-G12G.ttf" id="80_2curj"]
 [ext_resource type="Texture2D" uid="uid://kfv131816ydq" path="res://ui/slider.png" id="81_b41fy"]
 [ext_resource type="Texture2D" uid="uid://b427mwmaox7i2" path="res://ui/valueslider.png" id="81_ktoh4"]
 [ext_resource type="Texture2D" uid="uid://bcm5r6woitdra" path="res://ui/saturationslider.png" id="83_0ecl8"]
 [ext_resource type="Texture2D" uid="uid://c0ace1citvfes" path="res://ui/hueslider.png" id="83_o1r26"]
+[ext_resource type="Texture2D" uid="uid://cb52natkb5e8f" path="res://ui/portraits/crustygun00320033.png" id="83_uor2d"]
+[ext_resource type="Texture2D" uid="uid://dyyj01jfdxw4b" path="res://ui/portraits/crustygun00320034.png" id="84_bdw5g"]
 [ext_resource type="Texture2D" uid="uid://clfyg3one3w" path="res://ui/jailbars0002.png" id="84_slthi"]
 [ext_resource type="Texture2D" uid="uid://f14esikalhp3" path="res://ui/jailbars0001.png" id="85_gsk0h"]
+[ext_resource type="Texture2D" uid="uid://b4srep7x4sfx1" path="res://ui/portraits/crustygun00320035.png" id="85_j6smb"]
 [ext_resource type="Texture2D" uid="uid://5sgqfc60t0kf" path="res://ui/jailbars0000.png" id="86_b6c8f"]
+[ext_resource type="Texture2D" uid="uid://btkxanbabb32j" path="res://ui/portraits/crustygun00320036.png" id="86_xp7cv"]
 [ext_resource type="Texture2D" uid="uid://2itu2r73kkn2" path="res://ui/jailbars0006.png" id="87_sxdea"]
 [ext_resource type="Texture2D" uid="uid://bpim8h3v20kpi" path="res://ui/jailbars0003.png" id="87_xpquy"]
 [ext_resource type="Texture2D" uid="uid://dtarwa1d2qljs" path="res://ui/jailbars0004.png" id="88_2xki3"]
 [ext_resource type="Texture2D" uid="uid://b4wn3ajdn8wb2" path="res://ui/jailbars0005.png" id="89_m2dsp"]
+[ext_resource type="Texture2D" uid="uid://dt73bvwrnoyvx" path="res://textures/thispaintstripe.png" id="95_37eu1"]
 [ext_resource type="Texture2D" uid="uid://cdnwsdapvr63q" path="res://bits.png" id="95_fycp4"]
 [ext_resource type="Script" uid="uid://bm3xxon6mhwu0" path="res://antipiracygag.gd" id="117_bbxhv"]
 [ext_resource type="Texture2D" uid="uid://otfxbyv43qui" path="res://ui/deathsoundicon.png" id="117_xgi3l"]
@@ -127,12 +200,440 @@
 [ext_resource type="AudioStream" uid="uid://cvc7xkrllb43g" path="res://audio/antipiracy.mp3" id="118_1ej55"]
 [ext_resource type="Script" uid="uid://b6e4h0sh4blb8" path="res://unpausedprocess.gd" id="122_aoika"]
 [ext_resource type="Shader" uid="uid://cuswjd8lm53mo" path="res://rimlight.gdshader" id="124_812ih"]
+[ext_resource type="AudioStream" uid="uid://dg6hex52noi3x" path="res://audio/music/lobbymusic.tres" id="151_rx6mv"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_oxspo"]
 data = PackedByteArray("zf/L/+7/7v9uAHAAfAB+AKn/p//R/9D/RwBJABQAFQC2/7T/BQAFADMANAD5//n/6v/q/9j/1/80ADUAwv/A/+r/6f/w//D/8//z/93/3P/o/+f/EwATACQAJQAcAB0A5//n/x0AHgAOAA8ADAANAPf/9//q/+n/HgAeAOP/4/+t/6v/x//F/4D/fv/E/8P/vv+8/8P/wf+n/6X/Yf9e//D/7//E/8L/sP+u/93/3P/c/9z/CwALAOj/6P/9//3/EgASABEAEQBKAEwAYABiAEIAQwBJAEsAlQCYAIEAhABuAHAAXgBgADgAOgA6ADsA0//R/9v/2//B/7//if+G/43/iv9L/0f/OP8z//X+7/7B/rr+gf54/kL+OP4B/vX99P3o/fn97f3S/cb9B/77/eH91P3s/eD9JP4Z/gT++f26/rP+qQ==")
 format = 1
 loop_mode = 1
 stereo = true
+
+[sub_resource type="Gradient" id="Gradient_rx6mv"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.800595, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_31js7"]
+gradient = SubResource("Gradient_rx6mv")
+width = 1280
+height = 720
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_0a4i0"]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i0xsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kll2q"]
+_data = {
+&"RESET": SubResource("Animation_i0xsp"),
+&"default": SubResource("Animation_0a4i0")
+}
+
+[sub_resource type="Curve" id="Curve_rx6mv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0454545, 1), 0.0, 0.0, 0, 0, Vector2(0.493506, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_31js7"]
+curve = SubResource("Curve_rx6mv")
+
+[sub_resource type="Curve" id="Curve_0a4i0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.273006, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_i0xsp"]
+curve = SubResource("Curve_0a4i0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kll2q"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(700, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 2000.0
+initial_velocity_max = 2000.0
+gravity = Vector3(0, -30, 0)
+damping_min = 5000.0
+damping_max = 5000.0
+damping_curve = SubResource("CurveTexture_31js7")
+scale_min = 0.5
+scale_max = 2.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_i0xsp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6hmxt"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(700, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 2000.0
+initial_velocity_max = 2000.0
+gravity = Vector3(0, 30, 0)
+damping_min = 5000.0
+damping_max = 5000.0
+damping_curve = SubResource("CurveTexture_31js7")
+scale_min = 0.5
+scale_max = 2.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_i0xsp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rhlye"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(700, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 2000.0
+initial_velocity_max = 2000.0
+gravity = Vector3(30, 0, 0)
+damping_min = 5000.0
+damping_max = 5000.0
+damping_curve = SubResource("CurveTexture_31js7")
+scale_min = 0.5
+scale_max = 2.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_i0xsp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rx6mv"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(700, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 2000.0
+initial_velocity_max = 2000.0
+gravity = Vector3(-30, 0, 0)
+damping_min = 5000.0
+damping_max = 5000.0
+damping_curve = SubResource("CurveTexture_31js7")
+scale_min = 0.5
+scale_max = 2.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_i0xsp")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5kpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_qe8ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bnk2o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_qe8ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qe8ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bnk2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bnk2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qe8ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qe8ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_t5kpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_t5kpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_t5kpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_t5kpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pw0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37eu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37eu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37eu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37eu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37eu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37eu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37eu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0wkqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ve5sr")
+}],
+"loop": false,
+"name": &"end",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_oosfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oosfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_nf4f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xkvoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bnk2o")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}]
+
+[sub_resource type="Curve" id="Curve_31js7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0a4i0"]
+curve = SubResource("Curve_31js7")
+
+[sub_resource type="Curve" id="Curve_i0xsp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0064935, 1), 0.0, 0.0, 0, 0, Vector2(0.600649, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.514847), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_kll2q"]
+curve = SubResource("Curve_i0xsp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ft875"]
+lifetime_randomness = 0.9
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(350, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 500, 0)
+damping_min = 2000.0
+damping_max = 2000.0
+damping_curve = SubResource("CurveTexture_0a4i0")
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_kll2q")
+
+[sub_resource type="Animation" id="Animation_t5kpo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(909, 604)]
+}
+
+[sub_resource type="Animation" id="Animation_xkvoa"]
+resource_name = "default"
+length = 8.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 7, 8),
+"transitions": PackedFloat32Array(0.406126, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(907, 740), Vector2(907, 604)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pw0td"]
+_data = {
+&"RESET": SubResource("Animation_t5kpo"),
+&"default": SubResource("Animation_xkvoa")
+}
+
+[sub_resource type="Gradient" id="Gradient_pw0td"]
+offsets = PackedFloat32Array(0, 0.238806, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_37eu1"]
+gradient = SubResource("Gradient_pw0td")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0wkqm"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 720.0
+gravity = Vector3(0, -980, 0)
+scale_min = 0.1
+scale_max = 0.4
+color = Color(1, 0, 0, 0.419608)
+color_ramp = SubResource("GradientTexture1D_37eu1")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6jmj7"]
 animations = [{
@@ -187,6 +688,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"end",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"nothing",
 "speed": 18.0
 }, {
 "frames": [{
@@ -274,6 +786,262 @@ animations = [{
 "loop": true,
 "name": &"canmannormal",
 "speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_lxb2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_ceu5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_lv1ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_mofpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_6kttw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_oqmj5")
+}],
+"loop": true,
+"name": &"crustyangry",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_fe76k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_p5pln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_oiuw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_mldrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_1tiwm")
+}],
+"loop": true,
+"name": &"crustycrazy",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("53_xxpw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_wghq8")
+}],
+"loop": true,
+"name": &"crustycrazystop",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("83_uor2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_bdw5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_j6smb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_xp7cv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_j6smb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_bdw5g")
+}],
+"loop": true,
+"name": &"crustygun",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("65_jegnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_rx6mv")
+}],
+"loop": true,
+"name": &"crustymaryjane",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_ibca3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_g3y5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_1slqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_uo83y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_1slqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_g3y5b")
+}],
+"loop": true,
+"name": &"crustynormal",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("65_afgqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_jvn2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_jegnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_rx6mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_31js7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_0a4i0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_i0xsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_kll2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_ft875")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_6hmxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_rhlye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_pqvsh")
+}],
+"loop": true,
+"name": &"crustysketchy",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("77_3qj4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_3qj4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_3qj4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_3qj4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_mo8hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_gbg58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_gbg58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_gbg58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_gbg58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_mo8hc")
+}],
+"loop": true,
+"name": &"crustysketchystop",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_x4ftd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_arf1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_s0om5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_gkfde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_4qxq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_ryg4g")
+}],
+"loop": true,
+"name": &"crustysnort",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("58_oy6td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_fe76k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_p5pln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_oiuw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_mldrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_1tiwm")
+}],
+"loop": true,
+"name": &"crustythumb",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("64_xxpw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_wghq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_k08w7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_hp4ct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_suf1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_lxb2r")
+}],
+"loop": true,
+"name": &"crustytweaking",
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -988,6 +1756,7 @@ process_mode = 3
 script = ExtResource("4_kbck3")
 
 [node name="cam" type="Camera3D" parent="freecam"]
+metadata/freecam = false
 
 [node name="conversations" type="Node" parent="."]
 
@@ -1004,102 +1773,102 @@ metadata/Portrait = "gearmoquestion"
 metadata/Sound = "gearmoquestion"
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this"]
-editor_description = "it's about fighting bosses and stuff i guess."
+editor_description = "it's about fighting bosses and stuff i guess, you're askin the wrong guy"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="it looks really bad" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]"]
-editor_description = "oh yeah, a friend told me to tell people that its a demo"
+[node name="is it good?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]"]
+editor_description = "idk, its made by one guy so probobly not"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad"]
-editor_description = "sounds like an excuse to me"
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?"]
+editor_description = "his brainrot ahh watches instergam reels"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]"]
 editor_description = "GYEAH"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 
-[node name="how do i play?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]"]
+[node name="how do i play?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]"]
 editor_description = "u see that store?"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?"]
 editor_description = "go in."
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="whats in there?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
+[node name="whats in there?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
 editor_description = "i dont have all day fat***, i gotta stand in this spot some more"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats in there?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats in there?"]
 editor_description = "bye gyeah"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats in there?/[NEXT]"]
+[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats in there?/[NEXT]"]
 editor_description = "[LEAVE]"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="whats this game about?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
+[node name="whats this game about?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
 editor_description = "i dont have all day fat***, i gotta stand in this spot some more"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats this game about?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats this game about?"]
 editor_description = "bye gyeah"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats this game about?/[NEXT]"]
+[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats this game about?/[NEXT]"]
 editor_description = "[LEAVE]"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="whats a store?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
+[node name="whats a store?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
 editor_description = "you dumb fat lard quit eating so much"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?"]
 editor_description = "probly got fat in yur brain"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]"]
 editor_description = "i can smell the fat, fat f***"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]/[NEXT]"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]/[NEXT]"]
 editor_description = "come back when u graduate preschool"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "come back when u graduate preschool"
+[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "[NOPROGRESS]"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="nah" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
+[node name="nah" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
 editor_description = "if u dont wanna play thats fine with me"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/nah"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/nah"]
 editor_description = "bye gyeah"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[QUIT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/it looks really bad/[NEXT]/[NEXT]/how do i play?/[NEXT]/nah/[NEXT]"]
-editor_description = "[QUIT]"
+[node name="[QUIT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/nah/[NEXT]"]
+editor_description = "[NOPROGRESS]"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
@@ -1114,7 +1883,7 @@ metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 
 [node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/bye dumb***/[NEXT]"]
-editor_description = "[LEAVE]"
+editor_description = "[NOPROGRESS]"
 metadata/Portrait = ""
 metadata/Sound = ""
 
@@ -1265,6 +2034,76 @@ metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
 [node name="[LEAVE]" type="Node" parent="conversations/gearmo/artstore/do you think those brushes are real?/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "gearmoarmscross"
+metadata/Sound = "gearmonormal"
+
+[node name="behindartstore" type="Node" parent="conversations/gearmo"]
+editor_description = "tf is this smile man."
+metadata/Portrait = "gearmopoint"
+metadata/Sound = "gearmonormal"
+
+[node name="i dunno" type="Node" parent="conversations/gearmo/behindartstore"]
+editor_description = "sh*t's creepy, but like in a fat way."
+metadata/Portrait = "gearmoarmscross"
+metadata/Sound = "gearmonormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/i dunno"]
+editor_description = "whoever made it's probably got grease falls pouring out of their fat f***ing rotund fat rolls.
+"
+metadata/Portrait = "gearmoarmscross"
+metadata/Sound = "gearmonormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/gearmo/behindartstore/i dunno/[NEXT]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "gearmopoint"
+metadata/Sound = "gearmonormal"
+
+[node name="kinda looks like you" type="Node" parent="conversations/gearmo/behindartstore"]
+editor_description = "WHY THE F*CK ARE YOU TALKING DON'T F*CKING TALK TO ME UNTIL YOU'RE NOT THE FATTEST F*CKING THING TO EVER WALK THE EARTH."
+metadata/Portrait = "gearmoscream"
+metadata/Sound = "gearmoloud"
+metadata/speed = 80.0
+
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you"]
+editor_description = "I CAN'T F*CKING TELL IF YOU'RE THE LARGEST FUCKING THING TO NOT FIT IN MY FIELD OF VIEW OR IF YOU'RE JUST PREGNANT WITH 415 F*CKING KIDS."
+metadata/Portrait = "gearmoscream"
+metadata/Sound = "gearmoloud"
+metadata/speed = 60.0
+
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]"]
+editor_description = "THE MOON AIN'T SH*T COMPARED TO YOU YOU'RE THE F*CKING REASON FOR TIDAL WAVES."
+metadata/Portrait = "gearmoscream"
+metadata/Sound = "gearmoloud"
+metadata/speed = 40.0
+
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]/[NEXT]"]
+editor_description = "EVERY TIME YOU BREATHE YOU MOVE TECTONIC PLATES YOU FAT"
+metadata/Portrait = "gearmoscream"
+metadata/Sound = "gearmoloud"
+metadata/speed = 30.0
+
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "FAT"
+metadata/Portrait = "gearmoscream"
+metadata/Sound = "gearmoloud"
+
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "FAT"
+metadata/Portrait = "gearmoscream"
+metadata/Sound = "gearmoloud"
+
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "F*CK!!"
+metadata/Portrait = "gearmoscream"
+metadata/Sound = "gearmoloud"
+
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "gyea"
+metadata/Portrait = "gearmoarmscross"
+metadata/Sound = "gearmonormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
 editor_description = "[LEAVE]"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
@@ -1887,6 +2726,56 @@ editor_description = "[LEAVE]"
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
+[node name="Artillertunk" type="Node" parent="conversations/canman/2nd/got any tips?"]
+editor_description = "Yeah, that freak of nature is pretty ruthless."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk"]
+editor_description = "He's always trying to get closer to you, he needs the accuracy."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]"]
+editor_description = "so its better to run away the whole time, plus the sniper does the most damage, so its good to reflect."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="anything else?" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]"]
+editor_description = "Sure, about the ending, y'know when he goes all crazy?"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/anything else?"]
+editor_description = "Try to hide behind as many walls and riot shields as you can,"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]"]
+editor_description = "but stay on your toes, because if you're not paying attention, the shrinking walls could mess with your movement."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]"]
+editor_description = "You're welcome."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/alright thanks"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]"]
+editor_description = "Uh huh."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/alright thanks"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
 [node name="can i have your head?" type="Node" parent="conversations/canman/2nd"]
 editor_description = "Hell no!"
 metadata/Portrait = "canmancross"
@@ -1987,6 +2876,21 @@ editor_description = "[LEAVE]"
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
+[node name="stealingpaint" type="Node" parent="conversations/canman"]
+editor_description = "Hey put that down!"
+metadata/Portrait = "canmancross"
+metadata/Sound = "canmanangry"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/stealingpaint"]
+editor_description = "Don't touch my supplies."
+metadata/Portrait = "canmancross"
+metadata/Sound = "canmannormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/canman/stealingpaint/[NEXT]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
 [node name="lookupguy" type="Node" parent="conversations"]
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
@@ -2069,6 +2973,447 @@ metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 5.0
 
+[node name="crusty" type="Node" parent="conversations"]
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="start" type="Node" parent="conversations/crusty"]
+editor_description = "hey kid, you're not workin for that paint bucket guy are ya?"
+metadata/Portrait = "crustysketchy"
+metadata/Sound = "crustynormal"
+
+[node name="yup" type="Node" parent="conversations/crusty/start"]
+editor_description = "I should've known, I can smell his lead paint fumes all over ya."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/yup"]
+editor_description = "Me and that f*cknut used to be buisness partners,"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/yup/[NEXT]"]
+editor_description = "right up until he kicked me out for snortin all his acrylic paints."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/yup/[NEXT]/[NEXT]"]
+editor_description = "Damn that cadmium red..."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/yup/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "Now I'm just tryin to make a livin off his success."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="what do you mean" type="Node" parent="conversations/crusty/start/yup/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "UHHHHHHhhhhh...."
+metadata/Portrait = "crustysketchy"
+metadata/Sound = "crustynormal"
+metadata/speed = 15.0
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/yup/[NEXT]/[NEXT]/[NEXT]/[NEXT]/what do you mean"]
+editor_description = "Sh*t, welp, i guess there's no use hiding it,"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[GOTO]" type="Node" parent="conversations/crusty/start/yup/[NEXT]/[NEXT]/[NEXT]/[NEXT]/what do you mean/[NEXT]"]
+editor_description = "crusty/start/nope/[NEXT]/[NEXT]/[NEXT]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="nope" type="Node" parent="conversations/crusty/start"]
+editor_description = "Oh, nevermind forget what I said."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope"]
+editor_description = "Man these paint fumes are meltin my head."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]"]
+editor_description = "Anyways heres a little secret..."
+metadata/Portrait = "crustysketchy"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]"]
+editor_description = "I nabbed some old copies of his and put my own spin on em."
+metadata/Portrait = "crustysketchy"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "It's a unique new way to play all of the bucket's works, some hard some not."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "So are ya up to the challenge kid?"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="yessir" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "That's the spirit."
+metadata/Portrait = "crustythumb"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/yessir"]
+editor_description = "Tell ya what, you get me some of the bucket's acrilyc paints, then ill let you in."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/yessir/[NEXT]"]
+editor_description = "I NEED ACRILYC PAINT!!!!"
+metadata/Portrait = "crustyangry"
+metadata/Sound = "crustyangry"
+
+[node name="alr damn" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/yessir/[NEXT]/[NEXT]"]
+editor_description = "You'll probobly find em around his shop."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/yessir/[NEXT]/[NEXT]/alr damn"]
+editor_description = "Just be sneaky about it."
+metadata/Portrait = "crustysketchy"
+metadata/Sound = "crustynormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/yessir/[NEXT]/[NEXT]/alr damn/[NEXT]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="2nd" type="Node" parent="conversations/crusty"]
+editor_description = "Hey kid, you got the stuff?"
+metadata/Portrait = "crustysketchy"
+metadata/Sound = "crustynormal"
+
+[node name="[PAINT]" type="Node" parent="conversations/crusty/2nd"]
+editor_description = "Hey thanks kid,"
+metadata/Portrait = "crustythumb"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]"]
+editor_description = "GIMME GIMME GIMME GIMME"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]"]
+editor_description = "intense snorting"
+metadata/Portrait = "crustysnort"
+metadata/Sound = "crustysnort"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]/[NEXT]"]
+editor_description = "GRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHH!!!!!!!!!!!"
+metadata/Portrait = "crustytweaking"
+metadata/Sound = "crustytweaking"
+metadata/speed = 20.0
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "THATS SOME GOOD SH*T!"
+metadata/Portrait = "crustytweaking"
+metadata/Sound = "crustytweaking"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "THANKS KID GET TF IN THERE YEEAAAAAHHHH!!!!!!"
+metadata/Portrait = "crustytweaking"
+metadata/Sound = "crustytweaking"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "[LEAVE]
+"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="nope" type="Node" parent="conversations/crusty/2nd"]
+editor_description = "THEN F*CK OFF!!"
+metadata/Portrait = "crustyangry"
+metadata/Sound = "crustyangry"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/2nd/nope"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="trespass" type="Node" parent="conversations/crusty"]
+editor_description = "HEY!!!!"
+metadata/Portrait = "crustyangry"
+metadata/Sound = "crustyangry"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/trespass"]
+editor_description = "NO TRESPASSING!!!"
+metadata/Portrait = "crustygun"
+metadata/Sound = "crustyangry"
+
+[node name="[SHOOT]" type="Node" parent="conversations/crusty/trespass/[NEXT]"]
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="1" type="Node" parent="conversations/crusty"]
+editor_description = "Hey kid, y-you ever snorted eraser shavings?"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="no, im not a psychopath" type="Node" parent="conversations/crusty/1"]
+editor_description = "You're sleepin on this sh*t, half my noggin is gone rn."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/1/no, im not a psychopath"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="2" type="Node" parent="conversations/crusty"]
+editor_description = "Phent gives me superpowers."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/2"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="3" type="Node" parent="conversations/crusty"]
+editor_description = "DAMN I love shootin up black tar herobrine."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/3"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="4" type="Node" parent="conversations/crusty"]
+editor_description = "Did you k-know vaping is bad for you?"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/4"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="5" type="Node" parent="conversations/crusty"]
+editor_description = "GOD I LOVE MOLLY!!!!"
+metadata/Portrait = "crustytweaking"
+metadata/Sound = "crustyangry"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/5"]
+editor_description = "I cant get enough of her, she's so sweet! 😊"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/5/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="6" type="Node" parent="conversations/crusty"]
+editor_description = "Hey kid, did ya know Soda Sola used to add sosaine in their drinks?"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/6"]
+editor_description = "the g-good old days..."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/6/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="7" type="Node" parent="conversations/crusty"]
+editor_description = "W-w-what year is it again?"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/7"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="8" type="Node" parent="conversations/crusty"]
+editor_description = "Hey kid, do ya know where I can find Mary Jane?"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/8"]
+editor_description = "My girlfriend, Mary, have ya seen her?"
+metadata/Portrait = "crustymaryjane"
+metadata/Sound = "crustynormal"
+
+[node name="no?" type="Node" parent="conversations/crusty/8/[NEXT]"]
+editor_description = "Aw damn, I was gonna try her on tonight if you know what I mean."
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/8/[NEXT]/no?"]
+editor_description = "HEH!"
+metadata/Portrait = "crustytweaking"
+metadata/Sound = "crustytweaking"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/8/[NEXT]/no?/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="9" type="Node" parent="conversations/crusty"]
+editor_description = "Is it s-safe to smoke chlorine through a bong pipe?"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/9"]
+editor_description = "Asking for a friend."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="you\'re f*cked up bro" type="Node" parent="conversations/crusty/9/[NEXT]"]
+editor_description = "NAAAAAHHHH!!!!"
+metadata/Portrait = "crustytweaking"
+metadata/Sound = "crustytweaking"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/9/[NEXT]/you\'re f*cked up bro"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="10" type="Node" parent="conversations/crusty"]
+editor_description = "I'll do a lot of things but n-not marijuana,"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/10"]
+editor_description = "smells bad."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/10/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="11" type="Node" parent="conversations/crusty"]
+editor_description = "b-believe it or not I love bathing,"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/11"]
+editor_description = "bath bombs"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/11/[NEXT]"]
+editor_description = " bath salts,"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/11/[NEXT]/[NEXT]"]
+editor_description = "the whole 9 yards."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/11/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="12" type="Node" parent="conversations/crusty"]
+editor_description = "Just because I like t-t-to get zooted doesn't m-mean I do alcohol,"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/12"]
+editor_description = "except for rubbing alcohol that sh*t's gas."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/12/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="13" type="Node" parent="conversations/crusty"]
+editor_description = "I shot ketamine the other day... 68 times to be exact,"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/13"]
+editor_description = "He was a good dog..."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/13/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="14" type="Node" parent="conversations/crusty"]
+editor_description = "I'm still smellin shapes dawg HELP ME."
+metadata/Portrait = "crustytweaking"
+metadata/Sound = "crustytweaking"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/14"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="15" type="Node" parent="conversations/crusty"]
+editor_description = "I w-was dropped as a baby yknow,"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/15"]
+editor_description = "and then punted into the ceiling fan."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/15/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="16" type="Node" parent="conversations/crusty"]
+editor_description = "You're real right?"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/16"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="17" type="Node" parent="conversations/crusty"]
+editor_description = "Yo, y-you got a lighter and a spoon?"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/17"]
+editor_description = "I'm tryna brew some shit with the leftover paint"
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/17/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
+[node name="18" type="Node" parent="conversations/crusty"]
+editor_description = "Yoooo I'm high as a mothaf*cka."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[NEXT]" type="Node" parent="conversations/crusty/18"]
+editor_description = "this store is wigglin like crazyyy."
+metadata/Portrait = "crustycrazy"
+metadata/Sound = "crustycrazy"
+
+[node name="[LEAVE]" type="Node" parent="conversations/crusty/18/[NEXT]"]
+editor_description = "[NOPROGRESS]"
+metadata/Portrait = "crustynormal"
+metadata/Sound = "crustynormal"
+
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 max_polyphony = 16
@@ -2100,6 +3445,74 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="damagegradient" type="Sprite2D" parent="canvas/hud"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(641, 360)
+texture = SubResource("GradientTexture2D_31js7")
+
+[node name="anim" type="AnimationPlayer" parent="canvas/hud/damagegradient"]
+libraries = {
+&"": SubResource("AnimationLibrary_kll2q")
+}
+autoplay = "RESET"
+
+[node name="damageparticles" type="Node2D" parent="canvas/hud"]
+
+[node name="particle" type="GPUParticles2D" parent="canvas/hud/damageparticles"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(634, -454)
+emitting = false
+amount = 12
+texture = ExtResource("23_rx6mv")
+lifetime = 10.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_kll2q")
+
+[node name="particle2" type="GPUParticles2D" parent="canvas/hud/damageparticles"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(634, 1174)
+rotation = 3.14159
+emitting = false
+amount = 12
+texture = ExtResource("23_rx6mv")
+lifetime = 10.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_6hmxt")
+
+[node name="particle3" type="GPUParticles2D" parent="canvas/hud/damageparticles"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1732, 360)
+rotation = 1.57079
+emitting = false
+amount = 12
+texture = ExtResource("23_rx6mv")
+lifetime = 10.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_rhlye")
+
+[node name="particle4" type="GPUParticles2D" parent="canvas/hud/damageparticles"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-468, 360)
+rotation = 4.71238
+emitting = false
+amount = 12
+texture = ExtResource("23_rx6mv")
+lifetime = 10.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_rx6mv")
 
 [node name="doublejump" type="TextureProgressBar" parent="canvas/hud"]
 layout_mode = 1
@@ -2146,7 +3559,80 @@ z_index = -1
 position = Vector2(342.667, 52)
 texture = ExtResource("19_whb3t")
 
+[node name="catcount" type="Sprite2D" parent="canvas/hud"]
+position = Vector2(1177, 158)
+scale = Vector2(0.493056, 0.493056)
+texture = ExtResource("9_s4o1y")
+
+[node name="current" type="Label" parent="canvas/hud/catcount"]
+offset_left = -154.141
+offset_top = -144.0
+offset_right = -24.1408
+offset_bottom = -22.0
+theme = ExtResource("6_ayt4i")
+theme_override_colors/font_color = Color(1, 0, 0.333333, 1)
+theme_override_font_sizes/font_size = 101
+text = "0"
+horizontal_alignment = 1
+
+[node name="upcoming" type="Label" parent="canvas/hud/catcount"]
+offset_left = 28.0
+offset_top = -146.0
+offset_right = 150.0
+offset_bottom = -24.0
+theme = ExtResource("6_ayt4i")
+theme_override_colors/font_color = Color(0.258824, 0.678431, 0.992157, 1)
+theme_override_font_sizes/font_size = 101
+text = "0"
+horizontal_alignment = 1
+
 [node name="gunmanbossbar" type="TextureProgressBar" parent="canvas/hud"]
+layout_mode = 1
+offset_left = 306.0
+offset_top = 11.0
+offset_right = 1637.0
+offset_bottom = 359.0
+scale = Vector2(0.5, 0.5)
+max_value = 1000.0
+value = 1000.0
+texture_under = ExtResource("10_86lig")
+texture_progress = ExtResource("11_ldnlw")
+tint_progress = Color(0.501961, 1, 0.501961, 1)
+
+[node name="healthlabel" type="Label" parent="canvas/hud/gunmanbossbar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.5
+offset_top = -112.0
+offset_right = -1.5
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 66
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="gunmanbossbarbg" type="Sprite2D" parent="canvas/hud/gunmanbossbar"]
+visible = false
+z_index = -1
+position = Vector2(666, 186)
+texture = ExtResource("10_86lig")
+
+[node name="gunmanicon" type="AnimatedSprite2D" parent="canvas/hud/gunmanbossbar"]
+position = Vector2(224, 232)
+sprite_frames = SubResource("SpriteFrames_t5kpo")
+animation = &"end"
+autoplay = "default"
+
+[node name="bossbar" type="TextureProgressBar" parent="canvas/hud"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -2162,7 +3648,7 @@ texture_under = ExtResource("19_whb3t")
 texture_progress = ExtResource("20_s8i3g")
 tint_progress = Color(0.501961, 1, 0.501961, 1)
 
-[node name="healthlabel" type="Label" parent="canvas/hud/gunmanbossbar"]
+[node name="healthlabel" type="Label" parent="canvas/hud/bossbar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2181,10 +3667,22 @@ text = "1000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="gunmanbossbarbg" type="Sprite2D" parent="canvas/hud/gunmanbossbar"]
+[node name="bossbar" type="Sprite2D" parent="canvas/hud/bossbar"]
 z_index = -1
 position = Vector2(342, 52)
 texture = ExtResource("19_whb3t")
+
+[node name="healthparticles" type="GPUParticles2D" parent="canvas/hud"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(263, 677)
+scale = Vector2(0.75, 0.75)
+emitting = false
+amount = 250
+texture = ExtResource("23_rx6mv")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ft875")
 
 [node name="healthbar" type="TextureProgressBar" parent="canvas/hud"]
 layout_mode = 1
@@ -2200,10 +3698,12 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
+step = 0.0
 value = 100.0
 texture_under = ExtResource("19_whb3t")
 texture_progress = ExtResource("20_s8i3g")
 tint_progress = Color(0.501961, 1, 0.501961, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="healthlabel" type="Label" parent="canvas/hud/healthbar"]
 layout_mode = 1
@@ -2229,8 +3729,66 @@ z_index = -1
 position = Vector2(342.087, 51.6333)
 texture = ExtResource("19_whb3t")
 
+[node name="recall" type="NinePatchRect" parent="canvas/hud"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 909.0
+offset_top = 604.0
+offset_right = 1591.0
+offset_bottom = 1304.0
+scale = Vector2(0.148262, 0.148262)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
+
+[node name="buttonlabel" type="Label" parent="canvas/hud/recall"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -50.0
+offset_right = 57.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_constants/shadow_offset_y = 35
+theme_override_font_sizes/font_size = 396
+text = "R"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="recalllabel" type="Label" parent="canvas/hud/recall"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 427.909
+offset_top = -235.338
+offset_right = 1976.91
+offset_bottom = 240.662
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_constants/shadow_offset_y = 35
+theme_override_font_sizes/font_size = 396
+text = "Recall"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="anim" type="AnimationPlayer" parent="canvas/hud/recall"]
+libraries = {
+&"": SubResource("AnimationLibrary_pw0td")
+}
+
 [node name="timer" type="Label" parent="canvas/hud"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2242,16 +3800,30 @@ offset_top = -102.0
 offset_right = 57.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset = Vector2(57, 51)
 theme = ExtResource("6_ayt4i")
 theme_override_font_sizes/font_size = 66
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="particles" type="GPUParticles2D" parent="canvas/hud/timer"]
+z_index = -1
+position = Vector2(58, 51)
+amount = 25
+texture = ExtResource("24_t5kpo")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_0wkqm")
+
+[node name="audio" type="AudioStreamPlayer" parent="canvas/hud/timer"]
+stream = ExtResource("25_pw0td")
+max_polyphony = 10
 
 [node name="died" type="AnimatedSprite2D" parent="canvas/hud"]
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_6jmj7")
-animation = &"start"
+animation = &"nothing"
 
 [node name="crosshair" type="AnimatedSprite2D" parent="canvas/hud"]
 position = Vector2(640, 360)
@@ -2275,6 +3847,12 @@ offset_right = 1282.0
 offset_bottom = 718.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.498039)
+
+[node name="portrait" type="AnimatedSprite2D" parent="canvas/hud/talk"]
+sprite_frames = SubResource("SpriteFrames_y4nvb")
+animation = &"crustymaryjane"
+autoplay = "default"
+centered = false
 
 [node name="talkoptions" type="Control" parent="canvas/hud/talk"]
 anchors_preset = 0
@@ -2397,12 +3975,6 @@ patch_margin_top = 136
 patch_margin_right = 146
 patch_margin_bottom = 162
 
-[node name="portrait" type="AnimatedSprite2D" parent="canvas/hud/talk"]
-sprite_frames = SubResource("SpriteFrames_y4nvb")
-animation = &"gearmonervousidle"
-autoplay = "default"
-centered = false
-
 [node name="talkbox" type="AnimatedSprite2D" parent="canvas/hud/talk"]
 position = Vector2(825, 553)
 scale = Vector2(0.888889, 0.888889)
@@ -2427,6 +3999,9 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="talksound" type="AudioStreamPlayer" parent="canvas/hud/talk"]
+max_polyphony = 3
+
+[node name="talksound2" type="AudioStreamPlayer" parent="canvas/hud/talk"]
 max_polyphony = 3
 
 [node name="cutscenetimer" type="Timer" parent="canvas/hud/talk"]
@@ -2457,6 +4032,9 @@ offset_top = 67.0
 offset_right = 1114.0
 offset_bottom = 223.0
 theme = ExtResource("6_ayt4i")
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 20
 theme_override_font_sizes/font_size = 121
 text = "Game Paused"
 horizontal_alignment = 1
@@ -2464,18 +4042,64 @@ vertical_alignment = 1
 
 [node name="Resume" type="Button" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = 108.0
+offset_left = 54.0
 offset_top = 260.0
-offset_right = 565.0
+offset_right = 370.0
 offset_bottom = 369.0
 theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 64
 text = "Resume"
 
 [node name="box" type="NinePatchRect" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = 94.0
+offset_left = 40.0
 offset_top = 246.0
-offset_right = 2594.0
+offset_right = 1830.0
+offset_bottom = 946.0
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
+
+[node name="Restart" type="Button" parent="canvas/hud/pause/text"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 260.0
+offset_right = 727.0
+offset_bottom = 369.0
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 54
+text = "Restart"
+
+[node name="box7" type="NinePatchRect" parent="canvas/hud/pause/text"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 246.0
+offset_right = 2187.0
+offset_bottom = 946.0
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
+
+[node name="Lobby" type="Button" parent="canvas/hud/pause/text"]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 262.0
+offset_right = 1082.0
+offset_bottom = 371.0
+theme = ExtResource("6_ayt4i")
+text = "Lobby"
+
+[node name="box4" type="NinePatchRect" parent="canvas/hud/pause/text"]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 246.0
+offset_right = 2542.0
 offset_bottom = 946.0
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("49_hgcff")
@@ -2486,41 +4110,19 @@ patch_margin_bottom = 162
 
 [node name="Options" type="Button" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = 605.0
-offset_top = 261.0
-offset_right = 1062.0
-offset_bottom = 370.0
+offset_left = 226.0
+offset_top = 437.0
+offset_right = 683.0
+offset_bottom = 546.0
 theme = ExtResource("6_ayt4i")
 text = "Options"
 
 [node name="box3" type="NinePatchRect" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = 591.0
-offset_top = 245.0
-offset_right = 3091.0
-offset_bottom = 945.0
-scale = Vector2(0.195, 0.195)
-texture = ExtResource("49_hgcff")
-patch_margin_left = 150
-patch_margin_top = 136
-patch_margin_right = 146
-patch_margin_bottom = 162
-
-[node name="Lobby" type="Button" parent="canvas/hud/pause/text"]
-layout_mode = 0
-offset_left = 226.0
-offset_top = 439.0
-offset_right = 685.0
-offset_bottom = 548.0
-theme = ExtResource("6_ayt4i")
-text = "Lobby"
-
-[node name="box4" type="NinePatchRect" parent="canvas/hud/pause/text"]
-layout_mode = 0
 offset_left = 212.0
-offset_top = 423.0
+offset_top = 421.0
 offset_right = 2712.0
-offset_bottom = 1123.0
+offset_bottom = 1121.0
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("49_hgcff")
 patch_margin_left = 150
@@ -2635,6 +4237,9 @@ offset_top = -4.0
 offset_right = 1093.0
 offset_bottom = 152.0
 theme = ExtResource("6_ayt4i")
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 20
 theme_override_font_sizes/font_size = 121
 text = "Options"
 horizontal_alignment = 1
@@ -2654,8 +4259,10 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
+min_value = 0.001
 max_value = 1.0
 step = 0.1
+value = 0.001
 
 [node name="Masterlabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
@@ -2684,8 +4291,10 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
+min_value = 0.001
 max_value = 1.0
 step = 0.1
+value = 0.001
 
 [node name="Musiclabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
@@ -2758,7 +4367,7 @@ offset_bottom = 354.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
 theme_override_font_sizes/font_size = 52
-text = "Useless slider"
+text = "Bumpscosity"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2766,16 +4375,40 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 119.0
 offset_top = 337.0
-offset_right = 1066.0
+offset_right = 594.0
 offset_bottom = 446.0
 theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 64
 text = "Fullscreen"
 
 [node name="box4" type="NinePatchRect" parent="canvas/hud/pause/options"]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 321.0
-offset_right = 5105.0
+offset_right = 2685.0
+offset_bottom = 1021.0
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
+
+[node name="Shortcuts" type="Button" parent="canvas/hud/pause/options"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 337.0
+offset_right = 1116.0
+offset_bottom = 446.0
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 64
+text = "Shortcuts"
+
+[node name="box6" type="NinePatchRect" parent="canvas/hud/pause/options"]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 321.0
+offset_right = 3207.0
 offset_bottom = 1021.0
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("49_hgcff")
@@ -2788,9 +4421,10 @@ patch_margin_bottom = 162
 layout_mode = 0
 offset_left = 252.0
 offset_top = 478.0
-offset_right = 1199.0
+offset_right = 1198.94
 offset_bottom = 587.0
 theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 64
 text = "Back"
 
 [node name="box5" type="NinePatchRect" parent="canvas/hud/pause/options"]
@@ -2810,8 +4444,104 @@ patch_margin_bottom = 162
 stream = ExtResource("22_y707n")
 
 [node name="musicpreview" type="AudioStreamPlayer" parent="canvas/hud/pause/options"]
-stream = ExtResource("75_hvxpl")
+stream = ExtResource("151_rx6mv")
 bus = &"Music"
+
+[node name="shortcuts" type="Control" parent="canvas/hud/pause"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="canvas/hud/pause/shortcuts"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -25.0
+offset_right = 1267.0
+offset_bottom = 708.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.521569)
+
+[node name="background" type="Sprite2D" parent="canvas/hud/pause/shortcuts"]
+modulate = Color(0.084, 0.123, 0.24, 1)
+position = Vector2(641, 360)
+rotation = -1.57079
+scale = Vector2(0.786, 1.903)
+texture = ExtResource("95_37eu1")
+
+[node name="shortcutlabel" type="Label" parent="canvas/hud/pause/shortcuts"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 477.0
+offset_top = 152.56
+offset_right = 777.0
+offset_bottom = 217.56
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("32_ci1pj")
+theme_override_font_sizes/font_size = 64
+text = "Shortcuts"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shortcuts" type="Label" parent="canvas/hud/pause/shortcuts"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 477.0
+offset_top = 253.0
+offset_right = 764.0
+offset_bottom = 526.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("32_ci1pj")
+theme_override_font_sizes/font_size = 42
+text = "F1 - Freecam
+F2 - Restart
+F3 - Hide HUD
+F11 - Fullscreen
+Z - Zoom
+B - Emote
+H - horn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shortcuts" type="Button" parent="canvas/hud/pause/shortcuts"]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 604.0
+offset_right = 998.0
+offset_bottom = 713.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[node name="box6" type="NinePatchRect" parent="canvas/hud/pause/shortcuts"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 596.0
+offset_right = 3094.0
+offset_bottom = 1296.0
+scale = Vector2(0.098, 0.098)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
 
 [node name="difficultylabel" type="Sprite2D" parent="canvas/hud"]
 position = Vector2(1110, 44)
@@ -3091,7 +4821,7 @@ handle_input_locally = false
 size = Vector2i(768, 1080)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="canvas/hud/cosmetics/cospreview"]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(0.866025, 0.433013, -0.25, 0, 0.5, 0.866025, 0.5, -0.75, 0.433013, 0, 0, 0)
 shadow_enabled = true
 
 [node name="cospeview" type="Node3D" parent="canvas/hud/cosmetics/cospreview"]
@@ -3104,10 +4834,10 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_hvjeb")
 
 [node name="headpivot" type="Marker3D" parent="canvas/hud/cosmetics/cospreview/cospeview"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, 0)
 
 [node name="tppivot" type="Marker3D" parent="canvas/hud/cosmetics/cospreview/cospeview"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, 0)
 
 [node name="tppivot2" type="Marker3D" parent="canvas/hud/cosmetics/cospreview/cospeview/tppivot"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0)
@@ -3117,6 +4847,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 environment = SubResource("Environment_ey4q4")
 current = true
 far = 100.0
+
+[node name="attachments" type="Marker3D" parent="canvas/hud/cosmetics/cospreview/cospeview"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 7.30301e-08)
 
 [node name="talkbox" type="AnimatedSprite2D" parent="canvas/hud/cosmetics"]
 visible = false
@@ -3331,6 +5064,10 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
 [node name="tpcam" type="Camera3D" parent="tppivot/tppivot2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
+[node name="tpraycast" type="RayCast3D" parent="tppivot/tppivot2"]
+target_position = Vector3(0, 0, 5)
+debug_shape_custom_color = Color(1, 1, 1, 1)
+
 [node name="lookat" type="Marker3D" parent="."]
 
 [node name="unpausedprocess" type="Node3D" parent="."]
@@ -3338,7 +5075,10 @@ process_mode = 3
 script = ExtResource("122_aoika")
 
 [connection signal="finished" from="music" to="." method="_on_music_finished"]
+[connection signal="animation_finished" from="canvas/hud/gunmanbossbar/gunmanicon" to="." method="_on_gunmanicon_animation_finished"]
+[connection signal="value_changed" from="canvas/hud/healthbar" to="." method="_on_healthbar_value_changed"]
 [connection signal="animation_finished" from="canvas/hud/died" to="." method="_on_died_animation_finished"]
+[connection signal="animation_looped" from="canvas/hud/talk/portrait" to="canvas/hud/talk" method="_on_portrait_animation_looped"]
 [connection signal="mouse_entered" from="canvas/hud/talk/talkoptions/0" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/talk/talkoptions/0" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/talk/talkoptions/0" to="canvas/hud/talk" method="_on_0_pressed"]
@@ -3351,18 +5091,20 @@ script = ExtResource("122_aoika")
 [connection signal="mouse_entered" from="canvas/hud/talk/talkoptions/3" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/talk/talkoptions/3" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/talk/talkoptions/3" to="canvas/hud/talk" method="_on_3_pressed"]
-[connection signal="animation_looped" from="canvas/hud/talk/portrait" to="canvas/hud/talk" method="_on_portrait_animation_looped"]
 [connection signal="timeout" from="canvas/hud/talk/cutscenetimer" to="canvas/hud/talk" method="_on_cutscenetimer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/pause/pausebg" to="canvas/hud/pause" method="_on_pausebg_animation_finished"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Resume" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Resume" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Resume" to="canvas/hud/pause" method="_on_resume_pressed"]
-[connection signal="mouse_entered" from="canvas/hud/pause/text/Options" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
-[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/pause/text/Restart" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/pause/text/Restart" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/text/Restart" to="canvas/hud/pause" method="_on_restart_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Lobby" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Lobby" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Lobby" to="canvas/hud/pause" method="_on_lobby_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/pause/text/Options" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Quit" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
@@ -3380,11 +5122,17 @@ script = ExtResource("122_aoika")
 [connection signal="value_changed" from="canvas/hud/pause/options/Sensitivity" to="." method="_on_sensitivity_value_changed"]
 [connection signal="drag_started" from="canvas/hud/pause/options/Useless" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Fullscreen" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
+[connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="animation_finished" from="canvas/hud/transitionin" to="." method="_on_transitionin_animation_finished"]
 [connection signal="animation_finished" from="canvas/hud/cosmetics/cosmeticbg" to="canvas/hud/cosmetics" method="_on_cosmeticbg_animation_finished"]
 [connection signal="mouse_entered" from="canvas/hud/cosmetics/text/Sprite2D/clickdetect" to="." method="anybuttonfocus"]

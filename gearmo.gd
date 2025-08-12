@@ -20,8 +20,8 @@ func _ready():
 func talk():
 	if delay <= 0:
 		if spot == "":
-			if time == 1: $"../../canvas/hud/talk".start("gearmo")
-			if time == 2: $"../../canvas/hud/talk".start("gearmo2nd")
+			if time == 1: $"../../canvas/hud/talk".start("gearmo", self)
+			if time == 2: $"../../canvas/hud/talk".start("gearmo2nd", self)
 			if time >= 3:
 				$"../../canvas/hud/talk".start("gearmo3rd")
 				run = true
@@ -49,4 +49,9 @@ func _process(delta):
 		var direction = Vector2(player.position.x-position.x, player.position.z-position.z).normalized()
 		position.x += direction.x*-10*delta
 		position.z += direction.y*-10*delta
+		
+func removetime():
+	print("remove time")
+	$"../../".gearmotime -= 1
+	time = $"../../".gearmotime
 	

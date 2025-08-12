@@ -579,7 +579,7 @@ autowrap_mode = 3
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qymhj")
+&"": SubResource("AnimationLibrary_qymhj")
 }
 autoplay = "move"
 

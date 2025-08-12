@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b7a5c4dx4lna5" path="res://objects/dummi.glb" id="1_or880"]
 
 [node name="dummi" instance=ExtResource("1_or880")]
+metadata/winsound = "dummi"
 
 [node name="dummi2" parent="." index="0"]
 transform = Transform3D(-0.533458, 0, -3.58742e-08, 0, 0.410353, 0, 4.66364e-08, 0, -0.410353, 0.00949423, 0.431595, -0.008981)

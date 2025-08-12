@@ -11,6 +11,8 @@ var rot = 0
 var distlimit = 1.5
 var power = 0
 var goingup = true
+var resting = true
+var prevvel = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,12 +20,65 @@ func _ready():
 		held = get_meta("held")
 	if held:
 		placed = load("res://items/placed/"+item+".tscn").instantiate()
+		#$"../../../../sfx".stream = load("res://audio/grab.mp3")
+		#$"../../../../sfx".play()
 	else:
 		if has_meta("price"):
 			$pricetag.show()
 			$RigidBody3D.freeze = true
-			if $"../..".boughtitems.has(item):
+			if $"../..".boughtitems.has(item) && $"../..".itemdata.has(item):
 				queue_free()
+			elif $"../..".boughtitems.has(item):
+				$pricetag.hide()
+				remove_meta("price")
+
+func _physics_process(delta: float) -> void:
+	if !held:
+		if $RigidBody3D.get_contact_count() >= 1:
+			for body in $RigidBody3D.get_colliding_bodies():
+				if body.is_in_group("playergroup"):
+					if $"../../".head != "res://objects/basketball.tscn":
+						if abs($RigidBody3D.linear_velocity.y) > 0.1 && $RigidBody3D.global_position.y > $"../../player".position.y+1.5:
+							$RigidBody3D.linear_velocity = Vector3.ZERO
+							if !$"../../".unlockedheads.has("basketball"):
+								var popup = load("res://popup.tscn").instantiate()
+								popup.cosmetic = true
+								$"../../".unlockedheads.append("basketball")
+								$"../../sfx".stream = load("res://audio/gaincosmetic.mp3")
+								$"../../sfx".play()
+								$"../../canvas/hud".add_child(popup)
+							$"../../".head = "res://objects/basketball.tscn"
+							body.updatelook()
+							
+							var tempaudio = load("res://tempaudio.tscn").instantiate()
+							$"../".add_child(tempaudio)
+							tempaudio.stream = load("res://audio/basketball/foomp.mp3")
+							tempaudio.volume_linear = 3
+							tempaudio.play()
+							
+							resting = true
+							
+							$RigidBody3D.position.y -= 6
+						
+			if !resting:
+				var currentvel = sqrt(pow($RigidBody3D.linear_velocity.x, 2)+pow($RigidBody3D.linear_velocity.y, 2)+pow($RigidBody3D.linear_velocity.z, 2))
+				var amount = prevvel-currentvel
+				amount /= 8
+				amount = clamp(amount, 0, 2)
+				print(amount)
+
+				if amount > 0.01:
+					$RigidBody3D/bounce.volume_linear = amount
+					$RigidBody3D/bounce.play()
+				
+				if amount > 1:
+					$RigidBody3D/audio.stream = load("res://audio/basketball/pain ("+str(randi_range(1, 7))+").wav")
+					$RigidBody3D/audio.play()
+				
+			resting = true
+		else:
+			resting = false
+		prevvel = sqrt(pow($RigidBody3D.linear_velocity.x, 2)+pow($RigidBody3D.linear_velocity.y, 2)+pow($RigidBody3D.linear_velocity.z, 2))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -93,7 +148,11 @@ func _unhandled_input(event):
 					"rot": 0
 				}
 				$"../../../../".save_game()
+				$"../../../../canvas/hud/recall/anim".play("default")
 				queue_free()
+	else:
+		if Input.is_action_just_pressed("r") && prevvel > 0.01:
+			pickup()
 func pickup():
 	if !held:
 		if delay <= 0:
@@ -126,8 +185,5 @@ func pickup():
 						$"../../".itemdata.erase(item)
 						$"../../".save_game()
 						$"../../player".scroll = 1
+						$"../../canvas/hud/recall/anim".play("RESET")
 						queue_free()
-
-func _on_rigid_body_3d_body_entered(body):
-	var amount = sqrt(pow($RigidBody3D.linear_velocity.x, 2)+pow($RigidBody3D.linear_velocity.y, 2)+pow($RigidBody3D.linear_velocity.z, 2))
-	print(amount)

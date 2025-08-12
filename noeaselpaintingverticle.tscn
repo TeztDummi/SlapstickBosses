@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://jaff3oe6ruvv"]
+[gd_scene load_steps=63 format=4 uid="uid://jaff3oe6ruvv"]
 
 [ext_resource type="Script" uid="uid://chotka6gb2wxm" path="res://painting.gd" id="1_tgis2"]
 [ext_resource type="Texture2D" uid="uid://db6ckjqgpii7a" path="res://ui/difficultytick.png" id="2_wr4cm"]
@@ -132,6 +132,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(0.466517, 1, 1, 1, 0.784584, 1.6245, 0.353553, 1),
 "update": 0,
 "values": [Vector3(0, 1.5, -0.04), Vector3(-1.01731e-08, 1.66239, -0.401741), Vector3(-1.01731e-08, 1.72087, -0.46037), Vector3(-1.01731e-08, 1.70179, -0.533299), Vector3(-1.01731e-08, 1.62437, -0.580274), Vector3(-1.01731e-08, 1.39602, -0.967391), Vector3(-5.08655e-09, 1.40235, -1.29923), Vector3(0, 1.5, -1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("painting:surface_material_override/1:next_pass:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("painting/challenge:surface_material_override/0:next_pass:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mo6ca"]
@@ -345,7 +369,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_liusg")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uulj8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfxif"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lntr"]
+next_pass = SubResource("StandardMaterial3D_bfxif")
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t1ea5"]
 size = Vector2(0.15, 0.27)
@@ -378,7 +410,14 @@ albedo_texture = ExtResource("2_wr4cm")
 [sub_resource type="PlaneMesh" id="PlaneMesh_ae6f7"]
 size = Vector2(1.92, 1.08)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nb5p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_et7o5"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = ExtResource("3_cbj0h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo2td"]
+next_pass = SubResource("StandardMaterial3D_et7o5")
 transparency = 1
 albedo_texture = ExtResource("3_cbj0h")
 
@@ -392,6 +431,7 @@ viewport_path = NodePath("subview")
 resource_local_to_scene = true
 render_priority = 1
 transparency = 1
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_llpwp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v62bm"]
@@ -722,14 +762,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_72of0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_brwvp")
+&"": SubResource("AnimationLibrary_brwvp")
 }
 
 [node name="painting" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.45515e-06, 0, 0.401975, 0, 0.401975, 0, -0.401975, 0, -1.45515e-06, 0, 1.5, -0.04)
 mesh = SubResource("ArrayMesh_o7um1")
 skeleton = NodePath("")
-surface_material_override/1 = SubResource("StandardMaterial3D_uulj8")
+surface_material_override/1 = SubResource("StandardMaterial3D_8lntr")
 
 [node name="easy" type="MeshInstance3D" parent="painting"]
 transform = Transform3D(1, 0, -2.27374e-13, 0, 1, -1.13687e-12, 5.91172e-12, -1.7053e-13, 1, 0.10174, 0.708454, -1.12457)
@@ -758,7 +798,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fc1pr")
 [node name="challenge" type="MeshInstance3D" parent="painting"]
 transform = Transform3D(7.04714e-06, 0.934, -7.21238e-08, 0, -4.08264e-08, -1.65, -1.659, 3.96747e-06, -3.06369e-13, 0.11, 0, 0)
 mesh = SubResource("PlaneMesh_ae6f7")
-surface_material_override/0 = SubResource("StandardMaterial3D_1nb5p")
+surface_material_override/0 = SubResource("StandardMaterial3D_fo2td")
 
 [node name="chalbits" type="MeshInstance3D" parent="painting"]
 transform = Transform3D(7.04714e-06, 0.934, -7.21197e-08, 0, -4.08263e-08, -1.65, -1.659, 3.96747e-06, -4.54747e-12, 0.12, 0.671, 0)

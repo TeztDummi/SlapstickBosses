@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://bg4e5akbhavdc"]
+[gd_scene load_steps=24 format=4 uid="uid://bg4e5akbhavdc"]
 
 [ext_resource type="Script" uid="uid://cvbm4diasadyy" path="res://items/held/basketball.gd" id="1_ekw7b"]
 [ext_resource type="Texture2D" uid="uid://di34h6lobls04" path="res://basketball_Untitled.png" id="2_7a21r"]
+[ext_resource type="AudioStream" uid="uid://c8kexr0myw4ga" path="res://audio/basketball/bounce.mp3" id="3_lgnqk"]
 [ext_resource type="Theme" uid="uid://cmewige4oh18h" path="res://theme.tres" id="4_mn2mf"]
 [ext_resource type="Texture2D" uid="uid://cdnwsdapvr63q" path="res://bits.png" id="5_7sxcy"]
 
@@ -189,6 +190,8 @@ metadata/held = false
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["basketball", "item"]]
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_caomm")
+contact_monitor = true
+max_contacts_reported = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -198,6 +201,14 @@ shape = SubResource("SphereShape3D_s6pxj")
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.5, 0)
 mesh = SubResource("ArrayMesh_6gru0")
 skeleton = NodePath("")
+
+[node name="audio" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="bounce" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+stream = ExtResource("3_lgnqk")
+max_polyphony = 50
 
 [node name="pricetag" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.15477, -9.31323e-10, -0.0211525, -0.0211525, -5.82077e-11, -0.15477, 1.16415e-09, 0.156208, -1.16415e-10, 0.901377, 1.14738, -9.31323e-10)

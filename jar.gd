@@ -18,9 +18,11 @@ func _ready():
 		held = get_meta("held")
 		
 	if extrainfo["haswizard"]:
-		$lilwizard.show()
-		$"../../../../".setAchievement("jarred")
+		if held:
+			$lilwizard.show()
+			$"../../../../".setAchievement("jarred")
 		if !held:
+			$lilwizard.show()
 			$anim.play("default")
 			
 	if held:
@@ -32,8 +34,11 @@ func _ready():
 	else:
 		if has_meta("price"):
 			$pricetag.show()
-			if $"../..".boughtitems.has(item):
+			if $"../..".boughtitems.has(item) && $"../..".itemdata.has(item):
 				queue_free()
+			elif $"../..".boughtitems.has(item):
+				$pricetag.hide()
+				remove_meta("price")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

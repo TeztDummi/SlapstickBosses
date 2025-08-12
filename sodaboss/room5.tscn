@@ -1184,12 +1184,14 @@ mesh = SubResource("ArrayMesh_4txrl")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tu8gg")
 surface_material_override/1 = SubResource("StandardMaterial3D_kpgk6")
+metadata/nospeedrun = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="bigbox2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bigbox2/StaticBody3D"]
 shape = SubResource("BoxShape3D_0c6cr")
+debug_color = Color(0, 0.595, 0.7, 0.0745098)
 
 [node name="bigboxopen2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 2, 4)
@@ -1201,6 +1203,14 @@ surface_material_override/3 = SubResource("ShaderMaterial_otyq7")
 surface_material_override/5 = SubResource("StandardMaterial3D_de446")
 surface_material_override/7 = SubResource("StandardMaterial3D_hdsie")
 surface_material_override/9 = SubResource("ShaderMaterial_32shn")
+metadata/nospeedrun = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bigboxopen2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bigboxopen2/StaticBody3D"]
+shape = SubResource("BoxShape3D_0c6cr")
+debug_color = Color(0, 0.595, 0.7, 0.0745098)
 
 [node name="boxopen" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
@@ -1210,6 +1220,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ql8wx")
 surface_material_override/1 = SubResource("StandardMaterial3D_uftru")
 surface_material_override/3 = SubResource("ShaderMaterial_dnebh")
 surface_material_override/5 = SubResource("StandardMaterial3D_xrok2")
+metadata/nospeedrun = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="boxopen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -1317,5 +1328,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4yft5")
 
 [node name="smallhole" parent="." groups=["pipehole"] instance=ExtResource("15_skr46")]
 transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, -11.4, 47)
+
+[node name="popcop7" parent="." instance=ExtResource("5_ac585")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1.43804, 0.107234, 6.02264)
+metadata/hard = false
 
 [connection signal="body_entered" from="pipearea" to="pipearea" method="_on_body_entered"]

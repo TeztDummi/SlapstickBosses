@@ -1,6 +1,8 @@
 extends Node3D
 var diff = -1
-@onready var player = $"../player"
+@onready var main = get_node("/root").get_node("main")
+@onready var player = main.get_node("player")
+@onready var map = main.get_node("map")
 
 var unroundedbeat = 0
 var beat = 0
@@ -16,6 +18,7 @@ var startdelay = 0.2
 var wizarddown = 0
 var hasgreenbeam = Steam.getAchievement("greenbeam")["achieved"]
 var chal = "none"
+var kickparticlehue = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if chal != "pimpleremix": $"../music".stream = load("res://audio/music/musicbosswait.mp3")
@@ -86,6 +89,8 @@ func _process(delta):
 		
 		if beforebeat != beat:
 			beatfunc()
+			
+	$wizard/particlepivot.look_at(player.position)
 		
 	if player.dead:
 		if started:
@@ -96,6 +101,9 @@ func _process(delta):
 			$music2.stop()
 			$music3.stop()
 			$wizard.get_surface_override_material(0).albedo_texture = load("res://characters/wizard.tres")
+	
+	kickparticlehue += delta/5
+	$wizard/particlepivot/kicks.process_material.color = Color.from_hsv(kickparticlehue, 1, 1)
 		
 func beatfunc():
 	var thewhammy = 1
@@ -259,10 +267,37 @@ func roundtoseconds(audio, sec):
 	if audio.is_playing():
 		var playback = audio.get_playback_position()
 		audio.seek(round(playback/sec)*sec)
+		
+func particles(command):
+	if command == "stop":
+		$wizard/particlepivot/kicks.emitting = false
+		$wizard/particlepivot/kicks2.emitting = false
+		$wizard/particlepivot/hats.emitting = false
+		$wizard/particlepivot/hats2.emitting = false
+		$wizard/particlepivot/variety.emitting = false
+		$wizard/particlepivot/variety2.emitting = false
+		$wizard/particlepivot/bassline.emitting = false
+		$wizard/particlepivot/bassline2.emitting = false
+		
+	if command == "kicks":
+		$wizard/particlepivot/kicks.emitting = true
+		$wizard/particlepivot/kicks2.emitting = true
+	if command == "hats":
+		$wizard/particlepivot/hats.emitting = true
+		$wizard/particlepivot/hats2.emitting = true
+	if command == "variety":
+		$wizard/particlepivot/variety.emitting = true
+		$wizard/particlepivot/variety2.emitting = true
+	if command == "bassline":
+		$wizard/particlepivot/bassline.emitting = true
+		$wizard/particlepivot/bassline2.emitting = true
 
 func choosenewattack(amount):
+	particles("stop")
+	
 	curattacks = []
 	var attacks = ["hats", "kicks", "variety", "bassline"]
+	
 	for i in range(amount):
 		var attacknum = randi_range(0, attacks.size()-1)
 		var attack = attacks[attacknum]
@@ -280,6 +315,8 @@ func choosenewattack(amount):
 		elif chal == "pimpleremix":
 			audio.stream = load("res://audio/music/remix"+attack+".mp3")
 			audio.play()
+			
+		particles(attack)
 
 
 func _on_startarea_body_entered(body):
@@ -308,6 +345,7 @@ func _on_wizardarea_body_entered(body):
 					$music1.stop()
 					$music2.stop()
 					$music3.stop()
+					particles("stop")
 					if chal != "pimpleremix": $mainmusic.stream = load("res://audio/music/musicbossend.mp3")
 					if chal == "pimpleremix": $mainmusic.stream = load("res://audio/music/remixend.mp3")
 					$mainmusic.play()
@@ -353,7 +391,17 @@ func _on_animation_player_animation_finished(anim_name):
 			$"../sfx".play()
 			$"../canvas/hud".add_child(popup)
 		if diff == 1:
-			if ceil(beat/128) < 4: $"../".setAchievement("potionofswiftness")
+			if ceil(beat/128) < 4:
+				$"../".setAchievement("potionofswiftness")
+				if !$"../../".beatchallenges.has("potionofswiftness"):
+					$"../../".beatchallenges["potionofswiftness"] = true
+					var popup = load("res://popup.tscn").instantiate()
+					popup.bits = $"../../".getchalbits("potionofswiftness")
+					$"../../".bits += $"../../".getchalbits("potionofswiftness")
+					$"../../sfx".stream = load("res://audio/gainbits.mp3")
+					$"../../sfx".play()
+					$"../../canvas/hud".add_child(popup)
+					
 		if diff > $"../".beatwizard: $"../".beatwizard = diff
 	else:
 		if !$"../".beatchallenges.has(chal):

@@ -1716,7 +1716,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="motionblur" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.82441e-08, -1.26821, 9.12471e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
+transform = Transform3D(-4.82441e-08, -1.26821, 9.12398e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_48kxf")

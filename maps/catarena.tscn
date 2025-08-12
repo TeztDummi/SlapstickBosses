@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://e2sp3irjmm2r"]
+[gd_scene load_steps=89 format=4 uid="uid://e2sp3irjmm2r"]
 
 [ext_resource type="Script" uid="uid://btleh6gysphkt" path="res://maps/catarena.gd" id="1_4f233"]
 [ext_resource type="Texture2D" uid="uid://dpnww6u6466yi" path="res://textures/sand/Ground054_2K-JPG_Color.jpg" id="1_kcpoy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dtx706caxsc47" path="res://textures/wood/WoodFloor040_1K-JPG_NormalDX.jpg" id="2_j1wc3"]
 [ext_resource type="Texture2D" uid="uid://dm2crftre2cx6" path="res://textures/wood/WoodFloor040_1K-JPG_Roughness.jpg" id="3_m44ej"]
 [ext_resource type="Texture2D" uid="uid://qgvcoxmkdjt1" path="res://textures/sand/Ground054_2K-JPG_Roughness.jpg" id="3_wklxr"]
+[ext_resource type="Shader" uid="uid://cjhx2l58h2p0r" path="res://maps/proxwall.gdshader" id="8_8islh"]
 [ext_resource type="PackedScene" uid="uid://bdchdvx41e5v7" path="res://bitbag.tscn" id="8_b245n"]
 [ext_resource type="Texture2D" uid="uid://bgpjqid0yod06" path="res://textures/sandparticle.png" id="9_r3f1b"]
 [ext_resource type="Shader" uid="uid://kfoqpdypnpj4" path="res://hologram.gdshader" id="10_6yjma"]
@@ -516,6 +517,15 @@ data = PackedVector3Array(-44.1874, -3.5, 66.754, -43.7253, -3.5, 66.4611, -44.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_xr4lg"]
 size = Vector3(231, 100, 26.365)
 
+[sub_resource type="BoxMesh" id="BoxMesh_dcsmt"]
+size = Vector3(231, 100, 26.365)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gld8b"]
+render_priority = 0
+shader = ExtResource("8_8islh")
+shader_parameter/_color = Color(0, 1, 1, 0.498039)
+shader_parameter/sphere_size = 3.0
+
 [sub_resource type="Gradient" id="Gradient_qkhc1"]
 offsets = PackedFloat32Array(0, 0.0833333, 0.9375, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
@@ -922,12 +932,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 102)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 46, 0)
 shape = SubResource("BoxShape3D_xr4lg")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="jakeproofing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 46, 0)
+mesh = SubResource("BoxMesh_dcsmt")
+surface_material_override/0 = SubResource("ShaderMaterial_gld8b")
+
 [node name="jakeproofing2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, -102)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="jakeproofing2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 46, 0)
 shape = SubResource("BoxShape3D_xr4lg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="jakeproofing2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 46, 0)
+mesh = SubResource("BoxMesh_dcsmt")
+surface_material_override/0 = SubResource("ShaderMaterial_gld8b")
 
 [node name="jakeproofing3" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102, 25, 0)
@@ -936,12 +956,22 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 46, 0)
 shape = SubResource("BoxShape3D_xr4lg")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="jakeproofing3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 46, 0)
+mesh = SubResource("BoxMesh_dcsmt")
+surface_material_override/0 = SubResource("ShaderMaterial_gld8b")
+
 [node name="jakeproofing4" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102, 25, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="jakeproofing4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 46, 0)
 shape = SubResource("BoxShape3D_xr4lg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="jakeproofing4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 46, 0)
+mesh = SubResource("BoxMesh_dcsmt")
+surface_material_override/0 = SubResource("ShaderMaterial_gld8b")
 
 [node name="starttimer" type="Timer" parent="."]
 one_shot = true

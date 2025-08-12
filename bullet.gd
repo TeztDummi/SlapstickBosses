@@ -37,7 +37,7 @@ func _on_area_body_entered(body):
 				if player.camera.current:
 					body.hurt(10*damagemult*scale.x, "ragdoll")
 	if body.is_in_group("gunman"):
-		if fromplayer:
+		if fromplayer && !$hit.visible:
 			body.hurt(50*scale.x)
 	if body.is_in_group("glasswall"):
 		body.get_parent().get_parent().hit(50*scale.x)
@@ -53,7 +53,7 @@ func _on_area_body_entered(body):
 	for bodyguh in $area.get_overlapping_bodies():
 		if bodyguh.is_in_group("riotshield"):
 			onriot = true
-	if (!body.is_in_group("gunman") && !fromplayer) || (!body.is_in_group("playergroup") && fromplayer):
+	if (!body.is_in_group("gunman") && !fromplayer) || (body.is_in_group("gunman") && fromplayer):
 		if !onriot:
 			$hit.show()
 			$Icosphere.hide()

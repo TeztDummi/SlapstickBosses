@@ -25,12 +25,14 @@ var billboards = ["res://textures/billboard/ardoniasrock.png",
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	print(%player)
+	
 	if $"../".lobbypower.has("slide"):
 		player.cancrouch = true
 		
-		var gun = load("res://bitchslapper.tscn").instantiate()
-		$"../player/camera/gun".add_child(gun)
-		$"../player".scroll = 1
+		#var gun = load("res://bitchslapper.tscn").instantiate()
+		#$"../player/camera/gun".add_child(gun)
+		#$"../player".scroll = 1
 	
 	if $"../".bits <= 0 || $"../".freebits:
 		$funnysigns.queue_free()
@@ -46,7 +48,11 @@ func _ready():
 	
 	if $"../".bitbags.has("basketball"):
 		$bballbitsarea.queue_free()
-
+		
+	if !$"../".beatsomethingnormal:
+		$alleytrespass.queue_free()
+		$"challenge guy".queue_free()
+		
 func _process(delta):
 	if !$"../".didintro:
 		if Input.is_action_just_pressed("click"):
@@ -119,3 +125,18 @@ func _on_bballarea_body_entered(body):
 						$basketballparticle.emitting = true
 						$"../".bitbags["basketball"] = true
 				#$"../".setAchievement("thanksfatso")
+
+func _on_alleytrespass_body_entered(body: Node3D) -> void:
+	if body.is_in_group("playergroup"):
+		if !body.dead:
+			if player.position.x < -1:
+				if $"../".crustytime <= 2:
+					print("crusty kill em!!")
+					$"../canvas/hud/talk".start("crustytrespass")
+
+
+func _on_pssttimer_timeout() -> void:
+	if $"../".beatsomethingnormal && $"../".crustytime == 1:
+		$psstaudio.play()
+		$psst.show()
+		$psst.play("default")

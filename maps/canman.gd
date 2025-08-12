@@ -5,6 +5,8 @@ var savedatadelay = 0.2
 var time = 1
 var delay = 0
 
+func _ready() -> void:
+	$mesh.get_surface_override_material(0).albedo_texture = load("res://characters/canmaneyeshidden.tres")
 # Called when the node enters the scene tree for the first time.
 func talk():
 	if delay <= 0:
@@ -22,7 +24,10 @@ func _process(delta):
 		savedatadelay = -10
 	if delay > 0: delay -= delta
 	var dist = sqrt(pow(position.x-player.position.x, 2)+pow(position.z-player.position.z, 2))
-	if dist <= 5:
+	var totalvel = sqrt(pow(player.velocity.x, 2)+pow(player.velocity.y, 2)+pow(player.velocity.z, 2))
+	
+	if dist <= 7 && totalvel >= 7:
+		print(totalvel)
 		if !eyesshown:
 			$mesh.get_surface_override_material(0).albedo_texture = load("res://characters/canmaneyeup.tres")
 			$Timer.start()

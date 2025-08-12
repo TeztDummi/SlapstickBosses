@@ -8,6 +8,8 @@ func _on_starttimer_timeout():
 	$"../music".stream = load("res://audio/music/catboss.mp3")
 	$"../music".play()
 	
+	$"../canvas/hud/catcount".show()
+	
 	var boss = load("res://catspawner.tscn").instantiate()
 	boss.diff = diff
 	boss.wave = wave

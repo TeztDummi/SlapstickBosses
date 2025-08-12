@@ -21,6 +21,8 @@ func spin():
 	if spun <= 0:
 		spun = 0.2
 		$anim.play("default")
+		$audio.stream = load("res://audio/valveturn.mp3")
+		$audio.play()
 		print(get_meta("pipes"))
 		for pipe in get_meta("pipes"):
 			get_node(pipe).reverse()

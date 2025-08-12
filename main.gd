@@ -1,17 +1,22 @@
 extends Node3D
 var transition = [""]
 var timer = 0
+@onready var timerpos = $canvas/hud/timer.position
+var timershake = 0
 var tplock = null
-
 var AppID = "3082220"
 
 var head = "res://objects/bowlingball.tscn"
 var bodycolor = Color(96.0/255.0, 104.0/255.0, 149.0/255.0)
+var outfit = "res://outfits/defaultplayer.tscn"
 
 var beatelevator = -1
 var beatcat = -1
 var beatwizard = -1
 var beatgunman = -1
+var beatsoda = -1
+
+var beatsomethingnormal = false
 
 var beatchallenges = {}
 
@@ -28,6 +33,8 @@ var gearmotime = 1
 var tedtime = 1
 var lilwizardtime = 1
 var canmantime = 1
+var crustytime = 1
+var haspaint = false
 
 var deadboing = false
 var freebits = false
@@ -108,11 +115,48 @@ func setStat(stat, amount):
 func _process(delta):
 	if $canvas/hud/timer.visible:
 		timer -= delta
+		var prevtext = $canvas/hud/timer.text
 		$canvas/hud/timer.text = str(int(ceil(timer)))
+		if prevtext != $canvas/hud/timer.text:
+			if timer-2 != 0:
+				var intensity = 8.0/(timer+2.0)-0.4
+				if intensity >= 0:
+					timershake += intensity*10
+					
+					$canvas/hud/timer/audio.pitch_scale = 0.5+timershake/20
+					$canvas/hud/timer/audio.volume_linear = timershake/20
+					$canvas/hud/timer/audio.play()
+				else:
+					timershake = 0
+			
+		timershake = lerpf(timershake, 0, delta*4)
+		$canvas/hud/timer.position.x = randf_range(-1, 1)*timershake+timerpos.x
+		$canvas/hud/timer.position.y = randf_range(-1, 1)*timershake+timerpos.y
+		$canvas/hud/timer.modulate = Color(1, (1-timershake), (1-timershake))
+		$canvas/hud/timer/particles.modulate = Color(1, 1, 1, (timershake))
+		$canvas/hud/timer.scale = Vector2.ONE*(1+(timershake/10))
+		
 		#fuckass godot update made me do this nightmare nightmare
-	$canvas/hud/healthbar.value = $player.health
-	$canvas/hud/healthbar/healthlabel.text = str(round($player.health))
-	$canvas/hud/healthbar.tint_progress = Color.from_hsv($player.health*0.003, 0.5, 1)
+	var healthvalue = lerpf($canvas/hud/healthbar.value, $player.health, delta*8)
+	$canvas/hud/healthbar.value = healthvalue
+	if $canvas/hud/healthbar.value < $player.health+0.5 && $canvas/hud/healthbar.value > $player.health-0.5:
+		$canvas/hud/healthbar.value = $player.health
+	$canvas/hud/healthbar/healthlabel.text = str(int(ceil($canvas/hud/healthbar.value)))
+	$canvas/hud/healthbar.tint_progress = Color.from_hsv($canvas/hud/healthbar.value*0.003, 0.5, 1)
+	
+	var dangerhealth = 20
+	var audioeffect = 1-clamp(healthvalue/dangerhealth, 0, 1)
+	if $player.dead || get_tree().paused:
+		audioeffect = 0
+	
+	var distort = 40
+	AudioServer.get_bus_effect(0, 0).pre_gain = audioeffect*distort
+	AudioServer.get_bus_effect(0, 0).post_gain = audioeffect*(-distort)*0.6
+	AudioServer.get_bus_effect(0, 1).pitch_scale = 1-audioeffect*0.5
+	AudioServer.get_bus_effect(0, 2).cutoff_hz = 20500*(1-audioeffect)+50
+	
+	if $player.hiteffect < audioeffect*0.1: $player.hiteffect = audioeffect*0.1
+	if $player.screenshake < audioeffect*0.05: $player.screenshake = audioeffect*0.05
 	
 	if tplock != null:
 		$tppivot.position = tplock.global_position
@@ -121,8 +165,9 @@ func _process(delta):
 	
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("f2"):
-		_on_died_animation_finished(true)
-		#$player.hurt(100, "ragdoll")
+		#_on_died_animation_finished(true)
+		$player.hurt(2, "ragdoll")
+		#$player.hiteffect = 1
 	if Input.is_action_just_pressed("f3"):
 		$canvas.visible = !$canvas.visible
 		if $"player/camera/gun".get_children().size() >= 1:
@@ -149,6 +194,12 @@ func _unhandled_input(event):
 				$canvas/hud/pause/options/Music.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 				$canvas/hud/pause/options/Sensitivity.value = sensitivity
 				$music.stream_paused = true
+				
+				AudioServer.get_bus_effect(0, 0).pre_gain = 0
+				AudioServer.get_bus_effect(0, 0).post_gain = 0
+				AudioServer.get_bus_effect(0, 1).pitch_scale = 1
+				AudioServer.get_bus_effect(0, 2).cutoff_hz = 20500
+				
 				get_tree().paused = true
 	if Input.is_action_just_pressed("x"):
 		if $canvas/hud/steamdisconnect.visible:
@@ -190,17 +241,30 @@ func _unhandled_input(event):
 				unlockedheads.append("wizardhat")
 				beatgunman = 2
 				unlockedheads.append("gunman")
+				beatsoda = 2
 				loadmap("res://maps/lobby.tscn", -1, "none")
 
-func loadmap(mappath, diff, chal):
+func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
+	if !beatsomethingnormal:
+		if beatelevator >= 1: beatsomethingnormal = true
+		if beatcat >= 1: beatsomethingnormal = true
+		if beatwizard >= 1: beatsomethingnormal = true
+		if beatgunman >= 1: beatsomethingnormal = true
+		if beatsoda >= 1: beatsomethingnormal = true
+	
 	if $map != null:
 		$map.name = "deletemap"
 		$deletemap.queue_free()
-	$player.position = Vector3.ZERO
+	$player.position = playerpos
 	if mappath == "res://maps/elevatorarena.tscn":
 		$player.position = Vector3(-10, 0, 0)
 	if mappath == "res://maps/gunmanarena.tscn":
 		$player.position = Vector3(8, 0, -8)
+	if mappath == "res://maps/sodaboss.tscn":
+		$player.position = Vector3(0, 0, 8)
+		$player.rotation = Vector3(0, 0, 0)
+		$player.camera.rotation = Vector3(PI/12, 0, 0)
+		
 	$player.dead = false
 	$player.health = 100
 	$player.camera.current = true
@@ -212,11 +276,12 @@ func loadmap(mappath, diff, chal):
 	$player.camlock = false
 	$player.cancrouch = false
 	$player.falloff = true
-	$canvas/hud/died.animation = "start"
-	$canvas/hud/died.frame = 0
+	$canvas/hud/died.play("nothing")
 	timer = 100
 	$canvas/hud/timer.hide()
 	$canvas/hud/gunmanbossbar.hide()
+	$canvas/hud/bossbar.hide()
+	$canvas/hud/catcount.hide()
 	for child in $"player/camera/gun".get_children():
 		if !child.has_meta("held"):
 			child.queue_free()
@@ -271,6 +336,8 @@ func _on_transitionin_animation_finished():
 			loadmap(transition[1], -1, "none")
 		elif transition.size() == 4:
 			loadmap(transition[1], transition[2], transition[3])
+		elif transition.size() == 5:
+			loadmap(transition[1], transition[2], transition[3], transition[4])
 		else:
 			loadmap(transition[1], transition[2], "none")
 	if transition[0] == "quit":
@@ -289,11 +356,14 @@ func _on_died_animation_finished(manual = false):
 			chal = $map.chal
 		transition = ["loadmap", "res://maps/"+$map.get_child(0).name+".tscn", dildo, chal]
 		
-func spawnlobbyportal():
+func spawnlobbyportal(custompos = Vector3.ZERO):
 	var randangle = randf_range(0, PI*2)
 	var portal = load("res://lobbyportal.tscn").instantiate()
 	portal.name = "lobbyportal"
-	portal.position = Vector3($player.position.x+sin(randangle)*15, $player.position.y ,$player.position.z+cos(randangle)*15)
+	if custompos == Vector3.ZERO:
+		portal.position = Vector3($player.position.x+sin(randangle)*15, $player.position.y ,$player.position.z+cos(randangle)*15)
+	else:
+		portal.position = custompos
 	$map.add_child(portal)
 	
 	var currenthead = $"player/Armature/Skeleton3D/headbone/offset".get_child(0)
@@ -348,6 +418,7 @@ func save_game():
 		"beatcat" : beatcat,
 		"beatwizard" : beatwizard,
 		"beatgunman" : beatgunman,
+		"beatsoda" : beatsoda,
 		"beatchallenges" : beatchallenges,
 		"catwaveeasy" : catwaveeasy,
 		"catwavemedium" : catwavemedium,
@@ -360,6 +431,8 @@ func save_game():
 		"tedtime" : tedtime,
 		"lilwizardtime" : lilwizardtime,
 		"canmantime" : canmantime,
+		"crustytime" : crustytime,
+		"haspaint" : haspaint,
 		"deadboing" : deadboing,
 		"freebits" : freebits,
 		"itemdata" : itemdata,
@@ -383,12 +456,12 @@ func load_game():
 		json.parse(save_game.get_line())
 		var data = json.get_data()
 		
-		if data.has("master"): AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), data["master"])
-		if data.has("music"): AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), data["music"])
-		if data.has("sensitivity"): sensitivity = data["sensitivity"]
-
 		print("Save Data: ")
 		print(data)
+		
+		if data.has("master"): AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), data["master"])
+		if data.has("music"): AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), data["music"])
+		if data.has("sensitivity"): _on_sensitivity_value_changed(data["sensitivity"])
 
 		if data.has("head"): head = data["head"]
 		if data.has("bodycolor_r"): bodycolor = Color(data["bodycolor_r"], data["bodycolor_g"], data["bodycolor_b"])
@@ -398,6 +471,7 @@ func load_game():
 		if data.has("beatcat"): beatcat = data["beatcat"]
 		if data.has("beatwizard"): beatwizard = data["beatwizard"]
 		if data.has("beatgunman"): beatgunman = data["beatgunman"]
+		if data.has("beatsoda"): beatsoda = data["beatsoda"]
 		if data.has("catwaveeasy"): catwaveeasy = data["catwaveeasy"]
 		if data.has("catwavemedium"): catwavemedium = data["catwavemedium"]
 		if data.has("catwavehard"): catwavehard = data["catwavehard"]
@@ -420,6 +494,8 @@ func load_game():
 		if data.has("tedtime"): tedtime = data["tedtime"]
 		if data.has("lilwizardtime"): lilwizardtime = data["lilwizardtime"]
 		if data.has("canmantime"): canmantime = data["canmantime"]
+		if data.has("crustytime"): crustytime = data["crustytime"]
+		if data.has("haspaint"): haspaint = data["haspaint"]
 		if data.has("deadboing"): deadboing = data["deadboing"]
 		if data.has("freebits"): freebits = data["freebits"]
 		if data.has("itemdata"): itemdata = data["itemdata"]
@@ -446,8 +522,12 @@ func getchalbits(chal):
 	if chal == "catrpg": returnbits = 250
 	if chal == "timedwizard": returnbits = 250
 	if chal == "pimpleremix": returnbits = 1000
+	if chal == "potionofswiftness": returnbits = 500
 	if chal == "gunmanfast": returnbits = 750
 	if chal == "gunmanrockets": returnbits = 750
+	if chal == "sodaspeedrun": returnbits = 750
+	if chal == "slidejitzumaster": returnbits = 750
+	if chal == "justbox": returnbits = 750
 	return returnbits
 	
 func _on_quit_pressed():
@@ -508,4 +588,12 @@ func _on_outlineshadertimer_timeout():
 func _on_sensitivity_value_changed(value):
 	sensitivity = value
 	if sensitivity == 5: $canvas/hud/pause/options/Sensitivity.modulate = Color(0.9, 0.9, 1)
-	else: $canvas/hud/pause/options/Sensitivity.modulate = Color.WHITE
+	else: $canvas/hud/pause/options/Sensitivifty.modulate = Color.WHITE
+
+
+func _on_gunmanicon_animation_finished() -> void:
+	if $canvas/hud/gunmanbossbar/gunmanicon.animation == "hurt":
+		$canvas/hud/gunmanbossbar/gunmanicon.play("default")
+		
+func _on_shortcuts_pressed() -> void:
+	$canvas/hud/pause/shortcuts.visible = !$canvas/hud/pause/shortcuts.visible

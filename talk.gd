@@ -16,14 +16,22 @@ var clickdelay = 0
 var talkcam = false
 var song = "guh"
 var playtime = 0
+var characterobject = null
+var soundalternate = false
 
-func start(thething):
+func start(thething, characterobjfunc = null):
 	clickdelay = 0.1 
 	show()
+	
+	characterobject = characterobjfunc
+	
+	conv = null
+	
 	if thething == "gearmo": conv = $"../../../conversations/gearmo/start"
 	if thething == "gearmo2nd": conv = $"../../../conversations/gearmo/2nd"
 	if thething == "gearmo3rd": conv = $"../../../conversations/gearmo/3rd"
 	if thething == "gearmoartstore": conv = $"../../../conversations/gearmo/artstore"
+	if thething == "gearmobehindartstore": conv = $"../../../conversations/gearmo/behindartstore"
 	if thething == "gearmofathotel": conv = $"../../../conversations/gearmo/fathotel"
 	if thething == "gearmofountain": conv = $"../../../conversations/gearmo/fountain"
 	if thething == "gearmoalley": conv = $"../../../conversations/gearmo/alley"
@@ -44,6 +52,14 @@ func start(thething):
 	if thething == "lookupguy1": conv = $"../../../conversations/lookupguy/2"
 	if thething == "lookupguy2": conv = $"../../../conversations/lookupguy/3"
 	if thething == "lookupguy3": conv = $"../../../conversations/lookupguy/4"
+	if thething == "crustystart": conv = $"../../../conversations/crusty/start"
+	if thething == "crusty2nd": conv = $"../../../conversations/crusty/2nd"
+	if thething == "crustytrespass": conv = $"../../../conversations/crusty/trespass"
+	if thething == "canmanstealingpaint": conv = $"../../../conversations/canman/stealingpaint"
+	
+	if conv == null:
+		conv = $"../../../conversations".get_node(thething)
+	
 	decode()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
@@ -86,13 +102,16 @@ func _process(delta):
 		if $talklabel.visible_ratio < 1:
 			if soundtimer > soundletters:
 				if sound != "":
+					var soundplayer = $talksound
+					#if soundalternate: soundplayer = $talksound2
+					#soundalternate = !soundalternate 
 					if $talklabel.text[$talklabel.visible_characters] != "*":
 						if $talklabel.text[$talklabel.visible_characters] != " ":
-							$talksound.stream = load("res://audio/characters/"+sound+"_"+str(randi_range(0, 2))+".mp3")
-							$talksound.play()
+							soundplayer.stream = load("res://audio/characters/"+sound+"_"+str(randi_range(0, 2))+".mp3")
+							soundplayer.play()
 					else:
-						$talksound.stream = load("res://audio/characters/censortext.mp3")
-						$talksound.play()
+						soundplayer.stream = load("res://audio/characters/censortext.mp3")
+						soundplayer.play()
 					soundtimer = 0 
 		spokentext += delta*talkspeed
 		if $talklabel.visible_ratio < 1:
@@ -107,13 +126,21 @@ func _process(delta):
 					for num in range(conv.get_child_count()):
 						var option = get_node("talkoptions/"+str(num))
 						if option.size.x > 539:
-							var extra = option.size.x - 539
-							option.add_theme_font_size_override("font_size", (539/option.size.x)*70)
+							for i in range(100):
+								if (option.size.x > 539):
+									var fontsize = option.get_theme_font_size("font_size")
+									option.add_theme_font_size_override("font_size", fontsize-1)
+									option.size.x = 539
+								else:
+									var fontsize = option.get_theme_font_size("font_size")
+									option.add_theme_font_size_override("font_size", fontsize-2)
+									break
 						if option.size.x != 539 && option.get_theme_font_size("font_size") != 76:
 							option.size.x = 539
 				optionsappear = true
 		if $talklabel.size.y > 231:
-			$talklabel.add_theme_font_size_override("font_size", (231/$talklabel.size.y)*70)
+			var fontsize = $talklabel.get_theme_font_size("font_size")
+			$talklabel.add_theme_font_size_override("font_size", fontsize-200*delta)
 	
 func _on_portrait_animation_looped():
 	if $talklabel.visible_ratio >= 1:
@@ -121,7 +148,14 @@ func _on_portrait_animation_looped():
 			$portrait.play("gearmoscreamstop")
 		elif $portrait.animation == "gearmonervous":
 			$portrait.play("gearmonervousidle")
+		elif $portrait.animation == "crustycrazy":
+			$portrait.play("crustycrazystop")
+		elif $portrait.animation == "crustysketchy":
+			$portrait.play("crustysketchystop")
 		elif $portrait.animation == "gearmonervousidle": pass
+		elif $portrait.animation == "crustytweaking": pass
+		elif $portrait.animation == "crustycrazystop": pass
+		elif $portrait.animation == "crustysketchystop": pass
 		else:
 			print("stoppy")
 			$portrait.stop()
@@ -150,20 +184,32 @@ func decode():
 	$talklabel.visible_characters = 0
 	$talklabel.visible_ratio = 0
 	
+	$talklabel.add_theme_font_size_override("font_size", 76)
+	
 	$talkoptions.hide()
 	optionsappear = false
-	if conv.get_meta("Speed") != null:
-		talkspeed = conv.get_meta("Speed")
+	if conv.has_meta("speed"):
+		talkspeed = conv.get_meta("speed")
 	else: talkspeed = 20
 	for num in range(4):
 		if conv.get_child(num) != null:
 			var option = get_node("talkoptions/"+str(num))
 			option.show()
-			if conv.get_child(num).name == "[NEXT]" || conv.get_child(num).name == "[LEAVE]" || conv.get_child(num).name == "[COSMETICS]" || conv.get_child(num).name == "[CUTSCENE]" || conv.get_child(num).name == "[QUIT]":
-				option.hide()
+			
+			if conv.get_child(num).name == "[NEXT]": option.hide()
+			if conv.get_child(num).name == "[LEAVE]": option.hide()
+			if conv.get_child(num).name == "[COSMETICS]": option.hide()
+			if conv.get_child(num).name == "[CUTSCENE]": option.hide()
+			if conv.get_child(num).name == "[QUIT]": option.hide()
+			if conv.get_child(num).name == "[GOTO]": option.hide()
+			if conv.get_child(num).name == "[SHOOT]": option.hide()
+			if conv.get_child(num).name == "[PAINT]":
+				if $"../../../".haspaint:
+					conv.get_child(num).name = "yes"
+				else: option.hide()
+			
 			option.text = conv.get_child(num).name
 			option.add_theme_font_size_override("font_size", 76)
-			$talklabel.add_theme_font_size_override("font_size", 76)
 			$talklabel.size.y = 231
 		else:
 			var option = get_node("talkoptions/"+str(num))
@@ -193,10 +239,27 @@ func option_press(num):
 	if clickdelay <= 0:
 		clickdelay = 0.5
 		var option = conv.get_child(num)
+		if option.name == "[LEAVE]" || option.name == "[QUIT]" || option.name == "[SHOOT]":
+			if option.editor_description == "[NOPROGRESS]":
+				if characterobject != null:
+					characterobject.removetime()
+					print("no progress")
+				print(characterobject)
 		if num == -1:
 			conv = option
 			decode()
 		elif option.name == "[LEAVE]":
+			end()
+		elif option.name == "[GOTO]":
+			print(option.editor_description)
+			option = $"../../../conversations".get_node(option.editor_description)
+			print(option)
+			conv = option
+			decode()
+		elif option.name == "[SHOOT]":
+			$"../../../player".hurt(100, "ragdoll")
+			$"../../../sfx2".stream = load("res://audio/shoot.wav")
+			$"../../../sfx2".play()
 			end()
 		elif option.name == "[COSMETICS]":
 			if !$"../cosmetics".visible:

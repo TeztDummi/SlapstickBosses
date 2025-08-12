@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://dtvcfo7v7tepr"]
+[gd_scene load_steps=14 format=4 uid="uid://dtvcfo7v7tepr"]
 
 [ext_resource type="Texture2D" uid="uid://jevcloj8u8bw" path="res://mrheeh_Untitled.png" id="1_etx08"]
+[ext_resource type="Texture2D" uid="uid://fr1er32jve6" path="res://textures/defaulttexture/defaulttexturenormal.png" id="2_0qf0s"]
 [ext_resource type="Texture2D" uid="uid://l8581klx7k8c" path="res://mrheeh_Untitled_1.png" id="2_6nmmd"]
 [ext_resource type="Texture2D" uid="uid://j04pcmosn0f5" path="res://heeheyesclosed.png" id="3_jd2ml"]
 
@@ -9,6 +10,12 @@ resource_name = "Material.052"
 cull_mode = 2
 albedo_texture = ExtResource("1_etx08")
 roughness = 0.5
+normal_texture = ExtResource("2_0qf0s")
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+subsurf_scatter_transmittance_enabled = true
+subsurf_scatter_transmittance_depth = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yy1ty"]
 resource_name = "Material.062"
@@ -26,6 +33,7 @@ roughness = 0.35443
 resource_name = "Material.064"
 cull_mode = 2
 albedo_texture = ExtResource("2_6nmmd")
+metallic_specular = 1.0
 roughness = 0.14557
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b4gfu"]
@@ -184,6 +192,6 @@ surface_material_override/3 = SubResource("StandardMaterial3D_ns5kp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_d5c7v")
+&"": SubResource("AnimationLibrary_d5c7v")
 }
 autoplay = "default"

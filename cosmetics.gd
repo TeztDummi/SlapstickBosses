@@ -3,7 +3,7 @@ const objects = ["bowlingball", "car", "moyai", "glasses",
 "excord", "biggerboy", "eye", "socialcredit",
 "skull", "fatman", "lightbulb", "menger",
 "stickbug", "mememan", "maxwell", "dummi",
-"distressed", "mrheeh", "elevator", "catsoldier", "wizardhat", "gunman"]
+"distressed", "mrheeh", "elevator", "catsoldier", "wizardhat", "gunman", "sodacan", "basketball"]
 
 const titledesc = [["Bowling Ball", "Bowl a turkey", 0],
 ["Racecar", "Go 90 mph in a school zone", 0],
@@ -26,7 +26,9 @@ const titledesc = [["Bowling Ball", "Bowl a turkey", 0],
 ["Elevator", "Beat The Elevator on Hard", -1],
 ["Cat Soldier", "Beat The Cat Batallion on Hard", -1],
 ["Pimpledump's Hat", "Beat Pimpledump Kinkledorf Dingledale on Hard", -1],
-["Artillertunk's Head", "Beat Artillertunk on Hard", -1]]
+["Artillertunk's Head", "Beat Artillertunk on Hard", -1],
+["Soda Sola Can", "Beat Soda Sola on Hard", -1],
+["Basketball", "Its a secret, shh", -1]]
 
 #"companion", "breadbug", "durrburger", "flashlighttiddy"]
 var choice = 0
@@ -188,6 +190,32 @@ func start():
 	$text/hue.value = color.x
 	$text/saturation.value = color.y
 	$text/value.value = color.z
+	
+	var loadoutfit = load($"../../..".outfit).instantiate()
+	
+	for child in $cospreview/cospeview/attachments.get_children():
+		child.queue_free()
+		
+	if loadoutfit.has_node("Armature/Skeleton3D/head"):
+		var headattachments = loadoutfit.get_node("Armature/Skeleton3D/head")
+		for child in headattachments.get_children():
+			var gpos = headattachments.position-$cospreview/cospeview/attachments.position
+			var grot = headattachments.rotation
+			var gscl = headattachments.scale
+			#var gscl = global_scale()
+			child.reparent($cospreview/cospeview/attachments)
+			child.position = gpos
+			child.rotation = grot
+			child.scale = gscl
+	
+	var mainbody = loadoutfit.get_node("Armature/Skeleton3D/main")
+	print($cospreview/cospeview/body)
+	$cospreview/cospeview/body.name = "deletebody"
+	$cospreview/cospeview/deletebody.queue_free()
+	mainbody.reparent($cospreview/cospeview)
+	mainbody.position = Vector3.ZERO
+	mainbody.rotation = Vector3.ZERO
+	mainbody.name = "body"
 
 func _on_save_pressed():
 	if visible:

@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
-@onready var player = $"../../player"
+@onready var main = get_node("/root").get_node("main")
+@onready var player = main.get_node("player")
+@onready var map = main.get_node("map")
+
 @onready var eyes = $Armature/Skeleton3D/eyes
 
 var sawplayer = false
@@ -8,10 +11,9 @@ var speed = 12
 
 var dead = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	if player == null:
-		player = $"../../../player"
+func _ready() -> void:
+	if map.diff <= 1:
+		speed = 8
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,7 +31,7 @@ func _process(delta):
 					if body.is_in_group("playergroup"):
 						if $anim.current_animation != "attack" || !$anim.is_playing():
 							$anim.play("attack")
-							$audio.stream = load("res://audio/popcophit.tres")
+							$audio.stream = load("res://audio/popcophit.wav")
 							$audio.play()
 		
 		if !is_on_floor():
@@ -63,7 +65,10 @@ func _process(delta):
 func damage():
 	for body in $damage.get_overlapping_bodies():
 		if body.is_in_group("playergroup"):
-			body.hurt(10, "ragdoll")
+			if map.diff == 0:
+				body.hurt(3, "ragdoll")
+			else:
+				body.hurt(5, "ragdoll")
 		
 func die():
 	if !dead:
@@ -73,10 +78,9 @@ func die():
 		$CollisionShape3D.disabled = true
 		dead = true
 			
-func smack(side):
+func smack(side, strength = 15):
 	var direction = Vector2(player.position.x-global_position.x, player.position.z-global_position.z).normalized()
-	
-	var strength = 15
+
 	velocity.x = 0
 	velocity.z = 0
 	if side == "left":
@@ -85,6 +89,9 @@ func smack(side):
 	if side == "right":
 		velocity.x += (direction.y-direction.x/2)*strength
 		velocity.z += (-direction.x-direction.y/2)*strength
+	if side == "center":
+		velocity.x += (-direction.x)*strength
+		velocity.z += (-direction.y)*strength
 	$audio.stop()
 	$anim.play("hit")
 	velocity.y += strength/2

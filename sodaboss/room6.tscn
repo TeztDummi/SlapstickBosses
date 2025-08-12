@@ -645,7 +645,7 @@ shape = SubResource("BoxShape3D_mp2eo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27)
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.85, 6.5, 3, 9.6)
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.85, 6, 3, 9.6)
 mesh = SubResource("BoxMesh_o5aqb")
 surface_material_override/0 = SubResource("StandardMaterial3D_uh5mp")
 
@@ -685,7 +685,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_uh5mp")
 shape = SubResource("BoxShape3D_icr8c")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.85, -6.5, 3, 19)
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.85, -6, 3, 19)
 mesh = SubResource("BoxMesh_o5aqb")
 surface_material_override/0 = SubResource("StandardMaterial3D_uh5mp")
 
@@ -882,11 +882,17 @@ transform = Transform3D(0.490037, 0, 0.0993162, 0, 0.5, 0, -0.0993162, 0, 0.4900
 [node name="popcop2" parent="." instance=ExtResource("9_j3qji")]
 transform = Transform3D(0.481647, 0, -0.134225, 0, 0.5, 0, 0.134225, 0, 0.481647, -2, 0, 25)
 
+[node name="popcop5" parent="." instance=ExtResource("9_j3qji")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 7)
+metadata/hard = true
+
 [node name="popcop3" parent="." instance=ExtResource("9_j3qji")]
 transform = Transform3D(-0.0232482, 0, 0.499459, 0, 0.5, 0, -0.499459, 0, -0.0232482, 5.73577, 2.64228, 14.4852)
+metadata/hard = true
 
 [node name="popcop4" parent="." instance=ExtResource("9_j3qji")]
 transform = Transform3D(-0.0171706, 0, -0.499705, 0, 0.5, 0, 0.499705, 0, -0.0171706, -5.34871, 2.51556, 23.5292)
+metadata/hard = true
 
 [node name="seam" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.48139, -1.13137, -1.00486e-14, 1.48139, 1.13137, 1.00486e-14, 7.09814e-21, -1.42109e-14, 1.6, 4.36547, 0.911984, 4.33336)

@@ -81,6 +81,8 @@ vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_q56a8")
 
 [node name="gunman" type="Node3D"]
+metadata/deathsound = "gunman"
+metadata/winsound = "gunman"
 
 [node name="deadhead" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)

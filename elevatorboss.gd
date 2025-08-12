@@ -131,6 +131,7 @@ func _on_anim_animation_finished(anim_name):
 		$"../../".save_game()
 	
 	if !dead:
+		if (time < 50 || diff == 2) && diff != 0 && $slamtimer.wait_time != 0.9: $slamtimer.wait_time = 0.9
 		if (time < 30 || diff == 2) && diff != 0 && $slamtimer.wait_time != 0.6: $slamtimer.wait_time = 0.6
 		
 		if anim_name == "goupcomedown":
@@ -139,9 +140,12 @@ func _on_anim_animation_finished(anim_name):
 			else:
 				slams = randi_range(0, 1)
 			if player.dead: queue_free()
-			if (time >= 30 && diff != 2) || diff == 0:
+			if (time >= 50 && diff != 2) || diff == 0:
 				$anim.play("comedown")
 				playsound("res://audio/elevator/comedown.mp3")
+			elif (time >= 30 && diff != 2) || diff == 0:
+				$anim.play("comedownsemifast")
+				playsound("res://audio/elevator/comedownsemifast.mp3")
 			else:
 				if diff == 2:
 					$anim.play("comedownhitfloorfast")
@@ -150,18 +154,21 @@ func _on_anim_animation_finished(anim_name):
 				else:
 					$anim.play("comedownfast")
 					playsound("res://audio/elevator/comedownfast.mp3")
-			if randf() >= 0.5 && time >= 30 && diff != 2:
+			if randf() >= 0.5 && time >= 50 && diff != 2:
 				position = Vector3(player.position.x+randf_range(-3, 3), 0, player.position.z+randf_range(-3, 3))
 			else:
 				position = Vector3(player.position.x+player.velocity.x*0.9, 0, player.position.z+player.velocity.z*0.9)
 			$slamtimer.start()
 			
-		if anim_name == "comedown" || anim_name == "comedownfast":
+		if anim_name == "comedown" || anim_name == "comedownfast" || anim_name == "comedownsemifast":
 			if slams > 0:
 				slams -= 1
-				if (time >= 30 && diff != 2) || diff == 0:
+				if (time >= 50 && diff != 2) || diff == 0:
 					$anim.play("comedown")
 					playsound("res://audio/elevator/comedown.mp3")
+				elif (time >= 30 && diff != 2) || diff == 0:
+					$anim.play("comedownsemifast")
+					playsound("res://audio/elevator/comedownsemifast.mp3")
 				else:
 					$anim.play("comedownfast")
 					playsound("res://audio/elevator/comedownfast.mp3")
@@ -174,13 +181,16 @@ func _on_anim_animation_finished(anim_name):
 				rotation_degrees.y = randi_range(0, 3)*90
 				$slamtimer.start()
 			else:
-				if (time >= 30 && diff != 2) || diff == 0:
+				if (time >= 50 && diff != 2) || diff == 0:
 					$anim.play("comedownhitfloor")
 					playsound("res://audio/elevator/comedownhitfloor.mp3")
+				elif (time >= 30 && diff != 2) || diff == 0:
+					$anim.play("comedownhitfloorsemifast")
+					playsound("res://audio/elevator/comedownhitfloorsemifast.mp3")
 				else:
 					$anim.play("comedownhitfloorfast")
 					playsound("res://audio/elevator/comedownhitfloorfast.mp3")
-				if randf() >= 0.5 && time >= 30 && diff != 2:
+				if randf() >= 0.5 && time >= 50 && diff != 2:
 					position = Vector3(player.position.x+randf_range(-3, 3), 0, player.position.z+randf_range(-3, 3))
 				else:
 					position = Vector3(player.position.x+player.velocity.x*0.9, 0, player.position.z+player.velocity.z*0.9)
@@ -305,7 +315,7 @@ func spawnenemy(anim, rand):
 func launchup():
 	for body in $launchup.get_overlapping_bodies():
 		if body.is_in_group("playergroup"):
-			body.position.y += 10
-			body.velocity.y = 40
+			body.position.y += 30
+			body.velocity.y = 100
 			body.hurt(30, "ragdoll")
 			print("diddy party")

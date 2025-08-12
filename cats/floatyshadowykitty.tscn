@@ -333,7 +333,7 @@ autowrap_mode = 3
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qymhj")
+&"": SubResource("AnimationLibrary_qymhj")
 }
 autoplay = "move"
 
@@ -364,5 +364,6 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_r53gt")
 draw_pass_1 = SubResource("PlaneMesh_rkend")
 
+[connection signal="finished" from="visual/deathparticle" to="." method="_on_deathparticle_finished"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="shoottimer" to="." method="_on_shoottimer_timeout"]

@@ -6,6 +6,8 @@ var multiplier = 1
 var amountofwaves
 var spawnedportal = false
 var chal = "none"
+var maxenemys = 5
+var enemyqueue = []
 
 var diff = 1
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +29,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$"../../canvas/hud/catcount/current".text = str(get_child_count()-startingchildren)
+	$"../../canvas/hud/catcount/upcoming".text = str(enemyqueue.size())
+	
 	if get_child_count()-startingchildren == 0 && !spawnedportal:
 		if chal == "none":
 			if diff == 0:
@@ -45,32 +50,38 @@ func _process(delta):
 			spawnflagcat(getrandompos(), wave)
 			if chal == "none":
 				if wave == 1:
+					maxenemys = 100
 					for i in range(ceil(4*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/oneofthem.tscn")
+						#spawnenemy(getrandompos(), "res://cats/oneofthem.tscn")
+						enemyqueue.append("res://cats/oneofthem.tscn")
 					for i in range(ceil(1*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/lilwhisker.tscn")
+						enemyqueue.append("res://cats/lilwhisker.tscn")
 				if wave == 2:
+					maxenemys = 100
 					for i in range(ceil(8*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/oneofthem.tscn")
+						enemyqueue.append("res://cats/oneofthem.tscn")
 					for i in range(ceil(2*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/lilwhisker.tscn")
+						enemyqueue.append("res://cats/lilwhisker.tscn")
 					for i in range(ceil(1*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/floatyshadowykitty.tscn")
+						enemyqueue.append("res://cats/floatyshadowykitty.tscn")
 				if wave == 3:
+					maxenemys = (ceil(4*multiplier)+ceil(2*multiplier))/2
 					for i in range(ceil(4*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/lilwhisker.tscn")
+						enemyqueue.append("res://cats/lilwhisker.tscn")
 					for i in range(ceil(2*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/floatyshadowykitty.tscn")
+						enemyqueue.append("res://cats/floatyshadowykitty.tscn")
 				if wave == 4:
+					maxenemys = 100
 					for i in range(ceil(2*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/lilwhisker.tscn")
+						enemyqueue.append("res://cats/lilwhisker.tscn")
 					for i in range(ceil(1*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/roobeer.tscn")
+						enemyqueue.append("res://cats/roobeer.tscn")
 				if wave == 5:
+					maxenemys = (ceil(2*multiplier)+ceil(2*multiplier))*0.6
 					for i in range(ceil(2*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/floatyshadowykitty.tscn")
+						enemyqueue.append("res://cats/floatyshadowykitty.tscn")
 					for i in range(ceil(2*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/roobeer.tscn")
+						enemyqueue.append("res://cats/roobeer.tscn")
 				if wave == 6:
 					if $"../../music".stream.resource_path.get_file() != "spicycatboss.mp3":
 						var playtime = $"../../music".get_playback_position()
@@ -84,38 +95,43 @@ func _process(delta):
 						$"../../music".stream = load("res://audio/music/spicycatboss.mp3")
 						$"../../music".play()
 						$"../../music".seek(playtime)
+					maxenemys = (ceil(8*multiplier)+ceil(4*multiplier)+ceil(2*multiplier)+ceil(2*multiplier))*0.75
 					for i in range(ceil(8*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/oneofthem.tscn")
+						enemyqueue.append("res://cats/oneofthem.tscn")
 					for i in range(ceil(4*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/lilwhisker.tscn")
+						enemyqueue.append("res://cats/lilwhisker.tscn")
 					for i in range(ceil(2*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/floatyshadowykitty.tscn")
+						enemyqueue.append("res://cats/floatyshadowykitty.tscn")
 					for i in range(ceil(2*multiplier)):
-						spawnenemy(getrandompos(), "res://cats/roobeer.tscn")
+						enemyqueue.append("res://cats/roobeer.tscn")
 			elif chal == "6pack":
 				if wave == 1:
+					maxenemys = 4
 					for i in range(ceil(6)):
-						spawnenemy(getrandompos(), "res://cats/roobeer.tscn")
+						enemyqueue.append("res://cats/roobeer.tscn")
 			elif chal == "catrpg":
 				if wave == 1:
+					maxenemys = 100
 					for i in range(ceil(64)):
-						spawnenemy(getrandompos(), "res://cats/oneofthem.tscn")
+						enemyqueue.append("res://cats/oneofthem.tscn")
 					for i in range(ceil(8)):
-						spawnenemy(getrandompos(), "res://cats/floatyshadowykitty.tscn")
+						enemyqueue.append("res://cats/floatyshadowykitty.tscn")
 				if wave == 2:
+					maxenemys = 100
 					for i in range(ceil(12)):
-						spawnenemy(getrandompos(), "res://cats/lilwhisker.tscn")
+						enemyqueue.append("res://cats/lilwhisker.tscn")
 					for i in range(ceil(6)):
-						spawnenemy(getrandompos(), "res://cats/floatyshadowykitty.tscn")
+						enemyqueue.append("res://cats/floatyshadowykitty.tscn")
 				if wave == 3:
+					maxenemys = (18+12+8+1)*0.75
 					for i in range(ceil(18)):
-							spawnenemy(getrandompos(), "res://cats/oneofthem.tscn")
+						enemyqueue.append("res://cats/oneofthem.tscn")
 					for i in range(ceil(12)):
-						spawnenemy(getrandompos(), "res://cats/lilwhisker.tscn")
+						enemyqueue.append("res://cats/lilwhisker.tscn")
 					for i in range(ceil(8)):
-						spawnenemy(getrandompos(), "res://cats/floatyshadowykitty.tscn")
+						enemyqueue.append("res://cats/floatyshadowykitty.tscn")
 					for i in range(ceil(1)):
-						spawnenemy(getrandompos(), "res://cats/roobeer.tscn")
+						enemyqueue.append("res://cats/roobeer.tscn")
 		else:
 			$"../../".spawnlobbyportal()
 			if chal == "none":
@@ -155,6 +171,12 @@ func _process(delta):
 			$"../../".save_game()
 			spawnedportal = true
 			$"../../music".stop()
+	elif get_child_count()-startingchildren < maxenemys && !spawnedportal:
+		var enemystospawn = maxenemys-(get_child_count()-startingchildren)
+		for i in range(enemystospawn):
+			if enemyqueue.size() > 0:
+				spawnenemy(getrandompos(), enemyqueue[0])
+				enemyqueue.pop_front()
 			
 func getrandompos() -> Vector3:
 	var rand = randi_range(0, 3)

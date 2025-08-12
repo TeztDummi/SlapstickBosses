@@ -34,7 +34,7 @@ func _ready():
 	$"../".phasechange(phase)
 	$"../../canvas/hud/gunmanbossbar".max_value = health
 	$"../../canvas/hud/gunmanbossbar".value = health
-	$"../../canvas/hud/gunmanbossbar"/healthlabel.text = str(round(health))
+	$"../../canvas/hud/gunmanbossbar/healthlabel".text = str(round(health))
 	$"../../canvas/hud/gunmanbossbar".tint_progress = Color.from_hsv(health*0.003*(100/$"../../canvas/hud/gunmanbossbar".max_value), 0.5, 1)
 	$anim.play("intro")
 	$introcam/cutsceneaudio.stream = load("res://audio/gunman/intro.mp3")
@@ -51,6 +51,9 @@ func _ready():
 		$audio.pitch_scale = fastspeed
 		$gunman/torso/shotgun/anim.speed_scale = fastspeed
 		$introcam/cutsceneaudio.pitch_scale = fastspeed
+		
+	$"../../canvas/hud/gunmanbossbar/gunmanicon".play("default")
+	$"../../canvas/hud/gunmanbossbar/gunmanicon".frame = 0
 
 func dothewallthingy():
 	phase += 1
@@ -60,7 +63,7 @@ func dothewallthingy():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !isdead:
-		if health <= 50 && diff >= 1:
+		if health <= 50:
 			if $anim.current_animation != "death":
 				turntoplayer = false
 				$anim.play("death")
@@ -68,6 +71,7 @@ func _process(delta):
 				$audio.play()
 				$introcam.current = true
 				isdead = true
+				$CollisionShape3D.disabled = true
 				hurttime = 0
 				$gunman/torso.get_surface_override_material(0).emission = Color(0, 0, 0)
 				$gunman/torso/shotgun/anim.play("RESET")
@@ -103,9 +107,9 @@ func _process(delta):
 			$audio.play()
 			turntoplayer = true
 		
-		shotgunoff.x = lerp(shotgunoff.x, randf_range(shotgunoff.x-1.5, 0.5-shotgunoff.x)*delta*50, delta*10)
-		shotgunoff.y = lerp(shotgunoff.y, randf_range(shotgunoff.y-1, 1-shotgunoff.y)*delta*50, delta*20)
-		shotgunoff.z = lerp(shotgunoff.z, randf_range(shotgunoff.z-1, 1-shotgunoff.z)*delta*50, delta*20)
+		shotgunoff.x = randf_range(shotgunoff.x-1.5, 0.5-shotgunoff.x)*0.2
+		shotgunoff.y = randf_range(shotgunoff.y-1, 1-shotgunoff.y)*0.2
+		shotgunoff.z = randf_range(shotgunoff.z-1, 1-shotgunoff.z)*0.2
 		
 		if turntoplayer:
 			$"../../lookat".look_at_from_position(position, player.position)
@@ -113,7 +117,7 @@ func _process(delta):
 			if walking: turnspeed = delta*4
 			rotation.y = lerp_angle(rotation.y, $"../../lookat".rotation.y, turnspeed)
 		
-		if !is_on_floor():
+		if !is_on_floor() && !isdead:
 			velocity.y -= 30*delta
 		
 		if walking:
@@ -232,27 +236,33 @@ func smgshoot():
 			$"../".add_child(bullet)
 	else:
 		for i in range(range):
-			var bullet = load("res://bullet.tscn").instantiate()
-			bullet.rotation = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_rotation
-			bullet.rotation.x *= 2.2
-			if health <= 50:
-				bullet.rotation_degrees.y += ((i+1)-range/2)*360*(1/range)
-			else:
-				bullet.rotation_degrees.y += (i-0.5)*randf_range(5, 20)
-				
-			if randf() < 0.5:
-				bullet.rotation.y = atan2(player.position.x-global_position.x, player.position.z-global_position.z)+PI+randf_range(-PI/8, PI/8)
-			bullet.scale *= 0.2
-			bullet.position = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_position
-			if diff == 0:
-				bullet.damagemult = easydmg
-				bullet.speed *= easyspeed
-			if diff == 2:
-				bullet.damagemult = harddmg
-				bullet.speed *= hardspeed
-			if chal == "gunmanfast": bullet.scale *= 0.75
-			$"../".add_child(bullet)
+			var path = "res://bullet.tscn"
+			ResourceLoader.load_threaded_request(path)
 			
+			var progress = []
+			ResourceLoader.load_threaded_get_status(path, progress)
+			if progress[0] == 1:
+				var bullet = ResourceLoader.load_threaded_get(path).instantiate()
+				bullet.rotation = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_rotation
+				bullet.rotation.x *= 2.2
+				if health <= 50:
+					bullet.rotation_degrees.y += ((i+1)-range/2)*360*(1/range)
+				else:
+					bullet.rotation_degrees.y += (i-0.5)*randf_range(5, 20)
+					
+				if randf() < 0.5:
+					bullet.rotation.y = atan2(player.position.x-global_position.x, player.position.z-global_position.z)+PI+randf_range(-PI/8, PI/8)
+				bullet.scale *= 0.2
+				bullet.position = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_position
+				if diff == 0:
+					bullet.damagemult = easydmg
+					bullet.speed *= easyspeed
+				if diff == 2:
+					bullet.damagemult = harddmg
+					bullet.speed *= hardspeed
+				if chal == "gunmanfast": bullet.scale *= 0.75
+				$"../".add_child(bullet)
+				
 func shootrocket(rocket):
 	var target = get_node(rocket)
 	var bullet = load("res://gunmanrocket.tscn").instantiate()
@@ -273,7 +283,6 @@ func snipershoot():
 		#bullet.speed *= easyspeed
 	if diff == 2:
 		bullet.damagemult = harddmg
-		bullet.speed *= hardspeed
 	if chal == "gunmanfast": bullet.scale *= 0.75
 	$"../".add_child(bullet)
 	
@@ -419,6 +428,9 @@ func hurt(amount):
 		health -= amount
 		if health < 50:
 			health = 50
+		else:
+			$"../../canvas/hud/gunmanbossbar/gunmanicon".play("hurt")
+			$"../../canvas/hud/gunmanbossbar/gunmanicon".frame = 0
 		hurttime = 1
 		
 		$"../../canvas/hud/gunmanbossbar".value = health
@@ -559,12 +571,16 @@ func makecamplayercam(string):
 			position = Vector3(0,0,0)
 			player.rotation.y = atan2(player.position.x-global_position.x, player.position.z-global_position.z)
 			if chal == "gunmanrockets": $"../rockets".stop()
+			$"../../canvas/hud/gunmanbossbar/gunmanicon".play("end")
+			$"../../canvas/hud/gunmanbossbar/gunmanicon".frame = 0
 	if string == "end":
 		player.camera.current = true
 		$introcam.current = false
 		$"../../music".stop()
 func remove10health():
 	health -= 10
+	$"../../canvas/hud/gunmanbossbar/gunmanicon".play("hurt")
+	$"../../canvas/hud/gunmanbossbar/gunmanicon".frame = 0
 	
 	$"../../canvas/hud/gunmanbossbar".value = health
 	$"../../canvas/hud/gunmanbossbar"/healthlabel.text = str(round(health))

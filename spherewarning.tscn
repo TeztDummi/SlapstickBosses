@@ -68,7 +68,7 @@ script = ExtResource("1_jwhvu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_duxya")
+&"": SubResource("AnimationLibrary_duxya")
 }
 
 [node name="warning" type="MeshInstance3D" parent="."]
