@@ -1,4 +1,4 @@
-[gd_scene load_steps=266 format=4 uid="uid://cobld5y5t30qb"]
+[gd_scene load_steps=339 format=4 uid="uid://cobld5y5t30qb"]
 
 [ext_resource type="Script" uid="uid://b4f7c2xgl12cp" path="res://main.gd" id="1_447ni"]
 [ext_resource type="PackedScene" uid="uid://chwr8oem503jp" path="res://player.tscn" id="4_7fi2g"]
@@ -200,13 +200,60 @@
 [ext_resource type="AudioStream" uid="uid://cvc7xkrllb43g" path="res://audio/antipiracy.mp3" id="118_1ej55"]
 [ext_resource type="Script" uid="uid://b6e4h0sh4blb8" path="res://unpausedprocess.gd" id="122_aoika"]
 [ext_resource type="Shader" uid="uid://cuswjd8lm53mo" path="res://rimlight.gdshader" id="124_812ih"]
+[ext_resource type="Texture2D" uid="uid://c7o0ybr6cl3rj" path="res://ui/portraits/lips0021.png" id="131_61bol"]
+[ext_resource type="Texture2D" uid="uid://ipjprw3s7v11" path="res://ui/portraits/lips0022.png" id="132_lix4w"]
+[ext_resource type="Texture2D" uid="uid://dmhvqomj3shmr" path="res://ui/portraits/lips0023.png" id="133_kmrid"]
+[ext_resource type="Texture2D" uid="uid://cucv15wq6my5c" path="res://ui/portraits/lips0024.png" id="134_c6fgv"]
+[ext_resource type="Texture2D" uid="uid://be2ptoa5ngfqo" path="res://ui/portraits/lips0025.png" id="135_fd6dt"]
+[ext_resource type="Texture2D" uid="uid://beltnoiqsq6m1" path="res://ui/portraits/lips0026.png" id="136_gttkg"]
+[ext_resource type="Texture2D" uid="uid://cimhtn4lq1rot" path="res://ui/portraits/lips0015.png" id="137_hiwvf"]
+[ext_resource type="Texture2D" uid="uid://cj170mni2fmfh" path="res://ui/portraits/lips0016.png" id="138_ed5de"]
+[ext_resource type="Texture2D" uid="uid://dtjiorxckpa6v" path="res://ui/portraits/lips0017.png" id="139_e31mi"]
+[ext_resource type="Texture2D" uid="uid://dthdrbt3m1off" path="res://ui/portraits/lips0018.png" id="140_mq14a"]
+[ext_resource type="Texture2D" uid="uid://dqmwakwwpnbxt" path="res://ui/portraits/lips0019.png" id="141_yf6j3"]
+[ext_resource type="Texture2D" uid="uid://de4tvvpsg7l2g" path="res://ui/portraits/lips0020.png" id="142_e4ynb"]
+[ext_resource type="Texture2D" uid="uid://dpcq6dy673rmu" path="res://ui/portraits/lips0003.png" id="143_a1n43"]
+[ext_resource type="Texture2D" uid="uid://v72rpwsiwt3u" path="res://ui/portraits/lips0027.png" id="143_hiwvf"]
+[ext_resource type="Texture2D" uid="uid://4563ab2s4pum" path="res://ui/portraits/lips0004.png" id="144_dfxmq"]
+[ext_resource type="Texture2D" uid="uid://cahet07gx82x0" path="res://ui/portraits/lips0028.png" id="144_ed5de"]
+[ext_resource type="Texture2D" uid="uid://d1mn5cxu2ibew" path="res://ui/portraits/lips0029.png" id="145_e31mi"]
+[ext_resource type="Texture2D" uid="uid://b7xdpas5kuhfo" path="res://ui/portraits/lips0005.png" id="145_kcoi7"]
+[ext_resource type="Texture2D" uid="uid://b0kyi6g8rknyl" path="res://ui/portraits/lips0030.png" id="146_mq14a"]
+[ext_resource type="Texture2D" uid="uid://chy6wnt4h75sc" path="res://ui/portraits/lips0006.png" id="146_rkju4"]
+[ext_resource type="Texture2D" uid="uid://b6v0wj4clyy22" path="res://ui/portraits/lips0007.png" id="147_um25j"]
+[ext_resource type="Texture2D" uid="uid://cwdip2xiuhjik" path="res://ui/portraits/lips0031.png" id="147_yf6j3"]
+[ext_resource type="Texture2D" uid="uid://728awuc7yo3l" path="res://ui/portraits/lips0008.png" id="148_7dysq"]
+[ext_resource type="Texture2D" uid="uid://dye8rwo3en233" path="res://ui/portraits/lips0032.png" id="148_e4ynb"]
+[ext_resource type="Texture2D" uid="uid://cwnx5rh0iqx1x" path="res://ui/portraits/lips0009.png" id="149_0abf2"]
+[ext_resource type="Texture2D" uid="uid://2nbsxiqjh6dv" path="res://ui/portraits/lips0010.png" id="150_7b48j"]
+[ext_resource type="Texture2D" uid="uid://rt6idgcaohad" path="res://ui/portraits/lips0011.png" id="151_8tqy7"]
 [ext_resource type="AudioStream" uid="uid://dg6hex52noi3x" path="res://audio/music/lobbymusic.tres" id="151_rx6mv"]
-
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_oxspo"]
-data = PackedByteArray("zf/L/+7/7v9uAHAAfAB+AKn/p//R/9D/RwBJABQAFQC2/7T/BQAFADMANAD5//n/6v/q/9j/1/80ADUAwv/A/+r/6f/w//D/8//z/93/3P/o/+f/EwATACQAJQAcAB0A5//n/x0AHgAOAA8ADAANAPf/9//q/+n/HgAeAOP/4/+t/6v/x//F/4D/fv/E/8P/vv+8/8P/wf+n/6X/Yf9e//D/7//E/8L/sP+u/93/3P/c/9z/CwALAOj/6P/9//3/EgASABEAEQBKAEwAYABiAEIAQwBJAEsAlQCYAIEAhABuAHAAXgBgADgAOgA6ADsA0//R/9v/2//B/7//if+G/43/iv9L/0f/OP8z//X+7/7B/rr+gf54/kL+OP4B/vX99P3o/fn97f3S/cb9B/77/eH91P3s/eD9JP4Z/gT++f26/rP+qQ==")
-format = 1
-loop_mode = 1
-stereo = true
+[ext_resource type="Texture2D" uid="uid://dyo5hygl1twyi" path="res://ui/portraits/lips0012.png" id="152_faa31"]
+[ext_resource type="Texture2D" uid="uid://dtkee3gw5nxax" path="res://ui/portraits/lips0013.png" id="153_acld0"]
+[ext_resource type="Texture2D" uid="uid://dlq7o5kyha23p" path="res://ui/portraits/lips0014.png" id="154_kc3cm"]
+[ext_resource type="Script" uid="uid://c31v2lnbfnaov" path="res://outfits.gd" id="197_31js7"]
+[ext_resource type="Texture2D" uid="uid://8dribtrm0ha6" path="res://textures/cardboardbg.png" id="213_kc3cm"]
+[ext_resource type="Texture2D" uid="uid://c0piejqe0grdi" path="res://textures/cardboardbutton.png" id="214_utcts"]
+[ext_resource type="FontFile" uid="uid://6oquj8m68w6l" path="res://FingerPaint-Regular.ttf" id="215_2pm5r"]
+[ext_resource type="Texture2D" uid="uid://qbk6qmxfwc0g" path="res://ui/cbsliderdotunhovered.png" id="216_38n85"]
+[ext_resource type="Texture2D" uid="uid://34elyn7bmlcf" path="res://ui/cbsliderdot.png" id="217_nkmqd"]
+[ext_resource type="Texture2D" uid="uid://dk6pkixypnk1t" path="res://ui/cbvalueslider.png" id="218_4b624"]
+[ext_resource type="Texture2D" uid="uid://cg7noxau58mmn" path="res://ui/cbslider.png" id="219_0li47"]
+[ext_resource type="Texture2D" uid="uid://11jctvc34vwj" path="res://ui/cbsaturationslider.png" id="220_idhsh"]
+[ext_resource type="Texture2D" uid="uid://ccko0ulvhk3v6" path="res://ui/cbhueslider.png" id="221_piefl"]
+[ext_resource type="Texture2D" uid="uid://d3tpwsckvah13" path="res://ui/cbjailbars0002.png" id="222_asb44"]
+[ext_resource type="Texture2D" uid="uid://dy1c2fwuiuyel" path="res://ui/cbjailbars0001.png" id="223_v4ssx"]
+[ext_resource type="Texture2D" uid="uid://dc7yt4npwkmur" path="res://ui/cbjailbars0000.png" id="224_ec14y"]
+[ext_resource type="Texture2D" uid="uid://c0m1nxxpqhtq0" path="res://ui/cbjailbars0003.png" id="225_q0hco"]
+[ext_resource type="Texture2D" uid="uid://beq3pgewdb0s7" path="res://ui/cbjailbars0004.png" id="226_g65e0"]
+[ext_resource type="Texture2D" uid="uid://c2p30flyj8frv" path="res://ui/cbjailbars0005.png" id="227_yjv7m"]
+[ext_resource type="Texture2D" uid="uid://s8xxx2i115ft" path="res://textures/cardboardbuttonsquare.png" id="228_xaqn1"]
+[ext_resource type="Texture2D" uid="uid://b8jyfmfs0n0gt" path="res://textures/cardboardbuttonlong.png" id="230_etly8"]
+[ext_resource type="Texture2D" uid="uid://wd72c6svneps" path="res://ui/discordbutton.png" id="231_4b624"]
+[ext_resource type="Texture2D" uid="uid://dsqkp6qg1e8wo" path="res://textures/tedsthumbshadow.png" id="233_2pm5r"]
+[ext_resource type="Texture2D" uid="uid://be7st61a1yayq" path="res://textures/tedsthumb.png" id="234_38n85"]
+[ext_resource type="Texture2D" uid="uid://byhre74v1klkx" path="res://ui/saveicon.png" id="249_nkmqd"]
+[ext_resource type="Shader" uid="uid://cf4yiu32gwaxd" path="res://inwater.gdshader" id="251_38n85"]
 
 [sub_resource type="Gradient" id="Gradient_rx6mv"]
 interpolation_mode = 2
@@ -219,6 +266,21 @@ width = 1280
 height = 720
 fill = 2
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_i0xsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_0a4i0"]
 resource_name = "default"
@@ -234,21 +296,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_i0xsp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kll2q"]
@@ -1206,6 +1253,121 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("131_61bol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_lix4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_kmrid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_c6fgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_fd6dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_gttkg")
+}],
+"loop": true,
+"name": &"lipsangry",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("137_hiwvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_ed5de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_e31mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_mq14a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_yf6j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_e4ynb")
+}],
+"loop": true,
+"name": &"lipsconfused",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("143_hiwvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_ed5de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_e31mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_mq14a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_yf6j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_e4ynb")
+}],
+"loop": true,
+"name": &"lipsmmhmm",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("143_a1n43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_dfxmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_kcoi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_rkju4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_um25j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_7dysq")
+}],
+"loop": true,
+"name": &"lipsnormal",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("149_0abf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_7b48j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_8tqy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_faa31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_acld0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_kc3cm")
+}],
+"loop": true,
+"name": &"lipsside",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("52_ppy6r")
 }, {
 "duration": 1.0,
@@ -1346,6 +1508,67 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="Animation" id="Animation_asb44"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tip:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_piefl"]
+resource_name = "default"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 0.55, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tip:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4ssx"]
+_data = {
+&"RESET": SubResource("Animation_asb44"),
+&"default": SubResource("Animation_piefl")
+}
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gcgba"]
 animations = [{
 "frames": [{
@@ -1405,23 +1628,250 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="Animation" id="Animation_nkmqd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("text:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("text:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("text:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tedsthumb:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Tedsthumb:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1110, 957)]
+}
+
+[sub_resource type="Animation" id="Animation_4b624"]
+resource_name = "end"
+length = 1.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tedsthumb:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.5, 0.65, 1),
+"transitions": PackedFloat32Array(0.5, 2, -2, -2, 1, 1),
+"update": 0,
+"values": [0.794125, 0.274912, -0.036762, -0.0122173, -0.0203989, -0.248663]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tedsthumb:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.35, 0.5, 0.65, 1),
+"transitions": PackedFloat32Array(0.5, 2, 2, -2, -2, 2, 1),
+"update": 0,
+"values": [Vector2(1333, 789), Vector2(1219, 562), Vector2(1194, 534), Vector2(1041, 559), Vector2(1022, 584), Vector2(1028.33, 575.667), Vector2(1036, 1500)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("text:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.5, 0.65, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15),
+"transitions": PackedFloat32Array(1, -2, -2, 2, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(640, 360), Vector2(640, 360), Vector2(621, 384), Vector2(627.333, 376), Vector2(747, 457), Vector2(831, 582), Vector2(947, 745), Vector2(1099, 970), Vector2(1152, 1149), Vector2(1136, 1393), Vector2(1148, 1523)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("text:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.5, 0.65, 1, 1.1),
+"transitions": PackedFloat32Array(1, -2, -2, 2, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0418042, 0.0278695, 1.11331, 1.29923]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("text:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("text:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ctf6b"]
+resource_name = "start"
+length = 0.75
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.75),
+"transitions": PackedFloat32Array(2, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(1052, -444), Vector2(795, -38), Vector2(692, 209), Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("text:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [0.366519, 0.106128, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("text:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(2, 0.5, 2, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1.06, 1.06), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("text:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(0.48, 0.48, 0.48, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_va5bq"]
+_data = {
+&"RESET": SubResource("Animation_nkmqd"),
+&"end": SubResource("Animation_4b624"),
+&"start": SubResource("Animation_ctf6b")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwkyu"]
+texture = ExtResource("218_4b624")
+texture_margin_top = 76.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qtkil"]
+texture = ExtResource("220_idhsh")
+texture_margin_top = 76.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pk1l5"]
+texture = ExtResource("221_piefl")
+texture_margin_top = 76.0
+draw_center = false
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_qbvsi"]
 viewport_path = NodePath("canvas/hud/cosmetics/cospreview")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_l1all"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8kc55"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("84_slthi")
+"texture": ExtResource("222_asb44")
 }, {
 "duration": 1.0,
-"texture": ExtResource("85_gsk0h")
+"texture": ExtResource("223_v4ssx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("86_b6c8f")
+"texture": ExtResource("224_ec14y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("87_sxdea")
+"texture": null
 }],
 "loop": false,
 "name": &"end",
@@ -1429,22 +1879,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("86_b6c8f")
+"texture": ExtResource("224_ec14y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("85_gsk0h")
+"texture": ExtResource("223_v4ssx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("84_slthi")
+"texture": ExtResource("222_asb44")
 }, {
 "duration": 1.0,
-"texture": ExtResource("87_xpquy")
+"texture": ExtResource("225_q0hco")
 }, {
 "duration": 1.0,
-"texture": ExtResource("88_2xki3")
+"texture": ExtResource("226_g65e0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("89_m2dsp")
+"texture": ExtResource("227_yjv7m")
 }],
 "loop": false,
 "name": &"start",
@@ -1457,20 +1907,9 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eovqa"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ius5"]
-texture = ExtResource("81_ktoh4")
-texture_margin_top = 70.0
-draw_center = false
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ok4n"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57bec"]
-texture = ExtResource("83_0ecl8")
-texture_margin_top = 70.0
-draw_center = false
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i00me"]
-texture = ExtResource("83_o1r26")
-texture_margin_top = 70.0
-draw_center = false
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ti3u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aj65a"]
 sky_top_color = Color(0.54902, 0.384314, 0.384314, 1)
@@ -1581,6 +2020,72 @@ sky = SubResource("Sky_dk0oi")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_61bol"]
+viewport_path = NodePath("canvas/hud/outfits/cospreview")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1all"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("84_slthi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_gsk0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_b6c8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_sxdea")
+}],
+"loop": false,
+"name": &"end",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("86_b6c8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_gsk0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_slthi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_xpquy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_2xki3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_m2dsp")
+}],
+"loop": false,
+"name": &"start",
+"speed": 18.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ius5"]
+texture = ExtResource("81_ktoh4")
+texture_margin_top = 70.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57bec"]
+texture = ExtResource("83_0ecl8")
+texture_margin_top = 70.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i00me"]
+texture = ExtResource("83_o1r26")
+texture_margin_top = 70.0
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_2pm5r"]
+default_font = ExtResource("32_ci1pj")
+default_font_size = 42
+TextEdit/fonts/font = ExtResource("32_ci1pj")
 
 [sub_resource type="Animation" id="Animation_wenpv"]
 length = 0.001
@@ -1696,11 +2201,114 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0aw2c"]
 bg_color = Color(0, 0, 0, 0.556863)
 
+[sub_resource type="Animation" id="Animation_idhsh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.501518]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1241, 683)]
+}
+
+[sub_resource type="Animation" id="Animation_0li47"]
+resource_name = "default"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.501518, 12.8875]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 2),
+"transitions": PackedFloat32Array(3.03143, 0.535887, 2.92817, 0.535887, 2.92817, 0.535887, 2.92817, 0.535887, 2.92817),
+"update": 0,
+"values": [Vector2(1241, 650), Vector2(1241, 683), Vector2(1241, 669.49), Vector2(1241, 683), Vector2(1241, 669.49), Vector2(1241, 683), Vector2(1241, 669.49), Vector2(1241, 683), Vector2(1241, 650)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_piefl"]
+_data = {
+&"RESET": SubResource("Animation_idhsh"),
+&"default": SubResource("Animation_0li47")
+}
+
 [sub_resource type="QuadMesh" id="QuadMesh_tldwp"]
 lightmap_size_hint = Vector2i(12, 12)
 flip_faces = true
 size = Vector2(2, 2)
 center_offset = Vector3(0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_38n85"]
+offsets = PackedFloat32Array(0, 0.142322)
+colors = PackedColorArray(1, 1, 1, 0, 0.16446, 0.16446, 0.16446, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_38n85"]
+gradient = SubResource("Gradient_38n85")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkmqd"]
+render_priority = 0
+shader = ExtResource("251_38n85")
+shader_parameter/gradient = SubResource("GradientTexture1D_38n85")
+shader_parameter/fogcolor = Color(0.5, 0, 0, 1)
+shader_parameter/fog_strength = 1.0
+shader_parameter/fog_amount = 0.15
+shader_parameter/fog_near = 0.0
+shader_parameter/fog_far = 100.0
 
 [sub_resource type="Gradient" id="Gradient_6kvph"]
 
@@ -1788,7 +2396,7 @@ metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]"]
-editor_description = "GYEAH"
+editor_description = "[shake rate=40.0 level=40 connected=1]GYEAH[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 
@@ -1878,7 +2486,7 @@ metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/start/bye dumb***"]
-editor_description = "GYEAH"
+editor_description = "[shake rate=40.0 level=40 connected=1]GYEAH[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 
@@ -1908,19 +2516,19 @@ metadata/Portrait = "gearmoquestion"
 metadata/Sound = "gearmonormal"
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/2nd/tell me more/[NEXT]/is that it?"]
-editor_description = "NOOOOOOOOOOOO S*** YOURSELF GRAAAAAAAAAH"
+editor_description = "[shake rate=40.0 level=40 connected=1]NOOOOOOOOOOOO S*** YOURSELF GRAAAAAAAAAH[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/2nd/tell me more/[NEXT]/is that it?/[NEXT]"]
-editor_description = "FAT F*** OOOOOHMAHHGNYEEAAAAAHHHHD NO!"
+editor_description = "[shake rate=40.0 level=40 connected=1]FAT F*** OOOOOHMAHHGNYEEAAAAAHHHHD NO![/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/2nd/tell me more/[NEXT]/is that it?/[NEXT]/[NEXT]"]
-editor_description = "GETTHEF***OUTAHERE GYEEEEEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhhhAAAhhhhAAAAhhhhAAAAAAAH!!"
+editor_description = "[shake rate=40.0 level=40 connected=1]GETTHEF***OUTAHERE GYEEEEEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhhhAAAhhhhAAAAhhhhAAAAAAAH!![/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
@@ -1931,37 +2539,37 @@ metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
 [node name="why are you so fat" type="Node" parent="conversations/gearmo/2nd"]
-editor_description = "YOU FAT F*** YOU WANT A BEEF TACO DONT YOU FAT***"
+editor_description = "[shake rate=40.0 level=40 connected=1]YOU FAT F*** YOU WANT A BEEF TACO DONT YOU FAT***[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/2nd/why are you so fat"]
-editor_description = "YOU WANT THE IIIIICE CREAM!?!?!?"
+editor_description = "[shake rate=40.0 level=40 connected=1]YOU WANT THE IIIIICE CREAM!?!?!?[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/2nd/why are you so fat/[NEXT]"]
-editor_description = "EVERY DAY YOU WANT A PIZZA SLICE YOU FAT"
+editor_description = "[shake rate=40.0 level=40 connected=1]EVERY DAY YOU WANT A PIZZA SLICE YOU FAT[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/2nd/why are you so fat/[NEXT]/[NEXT]"]
-editor_description = "FAT"
+editor_description = "[shake rate=40.0 level=40 connected=1]FAT[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 10.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/2nd/why are you so fat/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "FAT F***"
+editor_description = "[shake rate=40.0 level=40 connected=1]FAT F***[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 10.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/2nd/why are you so fat/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "GYEEEAAHAHHHMHMMMNMMNMMM!!"
+editor_description = "[shake rate=40.0 level=40 connected=1]GYEEEAAHAHHHMHMMMNMMNMMM!![/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
@@ -1977,7 +2585,7 @@ metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
 [node name="3rd" type="Node" parent="conversations/gearmo"]
-editor_description = "GYYEEEEEAH"
+editor_description = "[shake rate=40.0 level=40 connected=1]GYYEEEEEAH[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 10.0
@@ -1998,7 +2606,7 @@ metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
 [node name="you\'re just coping" type="Node" parent="conversations/gearmo/artstore/you ever use those paintings in there?"]
-editor_description = "GNO"
+editor_description = "[shake rate=40.0 level=40 connected=1]GNO[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
@@ -2060,25 +2668,25 @@ metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
 [node name="kinda looks like you" type="Node" parent="conversations/gearmo/behindartstore"]
-editor_description = "WHY THE F*CK ARE YOU TALKING DON'T F*CKING TALK TO ME UNTIL YOU'RE NOT THE FATTEST F*CKING THING TO EVER WALK THE EARTH."
+editor_description = "[shake rate=40.0 level=40 connected=1]WHY THE F*CK ARE YOU TALKING DON'T F*CKING TALK TO ME UNTIL YOU'RE NOT THE FATTEST F*CKING THING TO EVER WALK THE EARTH.[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/speed = 80.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you"]
-editor_description = "I CAN'T F*CKING TELL IF YOU'RE THE LARGEST FUCKING THING TO NOT FIT IN MY FIELD OF VIEW OR IF YOU'RE JUST PREGNANT WITH 415 F*CKING KIDS."
+editor_description = "[shake rate=40.0 level=40 connected=1]I CAN'T F*CKING TELL IF YOU'RE THE LARGEST FUCKING THING TO NOT FIT IN MY FIELD OF VIEW OR IF YOU'RE JUST PREGNANT WITH 415 F*CKING KIDS.[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/speed = 60.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]"]
-editor_description = "THE MOON AIN'T SH*T COMPARED TO YOU YOU'RE THE F*CKING REASON FOR TIDAL WAVES."
+editor_description = "[shake rate=40.0 level=40 connected=1]THE MOON AIN'T SH*T COMPARED TO YOU YOU'RE THE F*CKING REASON FOR TIDAL WAVES.[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/speed = 40.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]/[NEXT]"]
-editor_description = "EVERY TIME YOU BREATHE YOU MOVE TECTONIC PLATES YOU FAT"
+editor_description = "[shake rate=40.0 level=40 connected=1]EVERY TIME YOU BREATHE YOU MOVE TECTONIC PLATES YOU FAT[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/speed = 30.0
@@ -2094,7 +2702,7 @@ metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/behindartstore/kinda looks like you/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "F*CK!!"
+editor_description = "[shake rate=60.0 level=40 connected=1]F*CK!![/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 
@@ -2124,37 +2732,37 @@ metadata/Portrait = "gearmonervous"
 metadata/Sound = "gearmonormal"
 
 [node name="you live at the fat hotel lol" type="Node" parent="conversations/gearmo/fathotel/whatchu doin at the fat hotel/[NEXT]"]
-editor_description = "I DONT LIVE AT A FAT HOTEL YOU LIVE AT FAT HOTELS YOUVE PROBLY BEEN TO EVERY FAT F*** HOTEL ON EARTH"
+editor_description = "[shake rate=40.0 level=40 connected=1]I DONT LIVE AT A FAT HOTEL YOU LIVE AT FAT HOTELS YOUVE PROBLY BEEN TO EVERY FAT F*** HOTEL ON EARTH[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/fathotel/whatchu doin at the fat hotel/[NEXT]/you live at the fat hotel lol"]
-editor_description = "YOU BREATH FATLY DID YOU KNOW THAT YOU BREATH FATLY I CAN SMELL YOUR FATNESS FROM ACROSS THE MAP"
+editor_description = "[shake rate=40.0 level=40 connected=1]YOU BREATH FATLY DID YOU KNOW THAT YOU BREATH FATLY I CAN SMELL YOUR FATNESS FROM ACROSS THE MAP[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 50.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/fathotel/whatchu doin at the fat hotel/[NEXT]/you live at the fat hotel lol/[NEXT]"]
-editor_description = "YOU HAVE GRAVITATIONAL FATNESS YOU HAVE FOUR FAT SEASONS YOU ORBIT A FAT SUN FAT F*** PLANET F***"
+editor_description = "[shake rate=40.0 level=40 connected=1]YOU HAVE GRAVITATIONAL FATNESS YOU HAVE FOUR FAT SEASONS YOU ORBIT A FAT SUN FAT F*** PLANET F***[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 60.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/fathotel/whatchu doin at the fat hotel/[NEXT]/you live at the fat hotel lol/[NEXT]/[NEXT]"]
-editor_description = "F***ING S*** YOU F*** A** B**** NO F***ING HUMAN COULD F***ING DREAM OF BEING AS H U M O N G U S AS YOU FAT A** FAT B*** A** FAT"
+editor_description = "[shake rate=40.0 level=40 connected=1]F***ING S*** YOU F*** A** B**** NO F***ING HUMAN COULD F***ING DREAM OF BEING AS H U M O N G U S AS YOU FAT A** FAT B*** A** FAT[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 70.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/fathotel/whatchu doin at the fat hotel/[NEXT]/you live at the fat hotel lol/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "FAT TUBBY LARDY CHUBBY BLUBBERY CHUNKY MONKEY ROUND F*** YOU MAKE EAR SHATTERING SOUND WHEN YOU WALK HEAD A*** B****"
+editor_description = "[shake rate=40.0 level=40 connected=1]FAT TUBBY LARDY CHUBBY BLUBBERY CHUNKY MONKEY ROUND F*** YOU MAKE EAR SHATTERING SOUND WHEN YOU WALK HEAD A*** B****[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 80.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/fathotel/whatchu doin at the fat hotel/[NEXT]/you live at the fat hotel lol/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "HOLY F*** MY HEART"
+editor_description = "[shake rate=40.0 level=40 connected=1]HOLY F*** MY HEART[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 80.0
@@ -2185,7 +2793,7 @@ metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 
 [node name="true" type="Node" parent="conversations/gearmo/fountain"]
-editor_description = "YOU'RE A DUMB FOUNTAIN AEAEAEAEEAAAAHAHAGAGAGAAAAA"
+editor_description = "[shake rate=40.0 level=40 connected=1]YOU'RE A DUMB FOUNTAIN AEAEAEAEEAAAAHAHAGAGAGAAAAA[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 40.0
@@ -2222,13 +2830,13 @@ metadata/Portrait = "gearmonervous"
 metadata/Sound = "gearmoquestion"
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/alley/[NEXT]/now that you mention it yeah what/[NEXT]/[NEXT]"]
-editor_description = "IS THAT A CAMERA!?!?!? IS EVERYTHING A CAMERA?!?!??!?!??!!??!!?!"
+editor_description = "[shake rate=40.0 level=40 connected=1]IS THAT A CAMERA!?!?!? IS EVERYTHING A CAMERA?!?!??!?!??!!??!!?![/shake]"
 metadata/Portrait = "gearmonervous"
 metadata/Sound = "gearmoquestion"
 metadata/Speed = 40.0
 
 [node name="[NEXT]" type="Node" parent="conversations/gearmo/alley/[NEXT]/now that you mention it yeah what/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+editor_description = "[shake rate=40.0 level=40 connected=1]AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 metadata/Speed = 60.0
@@ -2726,58 +3334,143 @@ editor_description = "[LEAVE]"
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="Artillertunk" type="Node" parent="conversations/canman/2nd/got any tips?"]
+[node name="next" type="Node" parent="conversations/canman/2nd/got any tips?"]
+editor_description = " "
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="Artillertunk" type="Node" parent="conversations/canman/2nd/got any tips?/next"]
 editor_description = "Yeah, that freak of nature is pretty ruthless."
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk"]
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk"]
 editor_description = "He's always trying to get closer to you, he needs the accuracy."
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]"]
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk/[NEXT]"]
 editor_description = "so its better to run away the whole time, plus the sniper does the most damage, so its good to reflect."
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="anything else?" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]"]
+[node name="anything else?" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk/[NEXT]/[NEXT]"]
 editor_description = "Sure, about the ending, y'know when he goes all crazy?"
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/anything else?"]
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk/[NEXT]/[NEXT]/anything else?"]
 editor_description = "Try to hide behind as many walls and riot shields as you can,"
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]"]
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]"]
 editor_description = "but stay on your toes, because if you're not paying attention, the shrinking walls could mess with your movement."
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]"]
+[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]"]
 editor_description = "You're welcome."
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/alright thanks"]
+[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/alright thanks"]
 editor_description = "[LEAVE]"
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]"]
+[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk/[NEXT]/[NEXT]"]
 editor_description = "Uh huh."
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
-[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/Artillertunk/[NEXT]/[NEXT]/alright thanks"]
+[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Artillertunk/[NEXT]/[NEXT]/alright thanks"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="Soda Sola" type="Node" parent="conversations/canman/2nd/got any tips?/next"]
+editor_description = "Theres lots more nuance to this one, so liten up."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola"]
+editor_description = "Using both hands is CRUCIAL! For one, you must slap a bottle towards a strait wall to kill it."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]"]
+editor_description = "On top of that, both hands are needed to get the most cans possible out of the box of 256 when he releases em."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]"]
+editor_description = "That's your queue to dash in to grab and throw, you should be able to get 4 hits in if you're quick."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="anything else?" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "Sure, here's some tips about sliding in general,"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?"]
+editor_description = "Slide jumping, ground slamming, and bunny hopping are your 3 best friends."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]"]
+editor_description = "Ground slamming well is the hardest to master, because its not just used for large falls and crushing enemys."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]"]
+editor_description = "About to overshoot a jump? About to hit a low pipe? Thats what ground slamming is really good for, dodging these situations."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="anything else?" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "One more thing I guess."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/[NEXT]/anything else?"]
+editor_description = "You probobly know that jumping while sliding increases your speed, aka bunny hopping, but so does jumping out of a ground slam."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]"]
+editor_description = "You're welcome, and that last bit is really just a speedrunning tactic, it only cuts a bit of time. Anyway see ya."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]/alright thanks"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "You're welcome."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/anything else?/[NEXT]/[NEXT]/[NEXT]/alright thanks"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="alright thanks" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]"]
+editor_description = "Uh huh."
+metadata/Portrait = "canmannormal"
+metadata/Sound = "canmannormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/canman/2nd/got any tips?/next/Soda Sola/[NEXT]/[NEXT]/[NEXT]/alright thanks"]
 editor_description = "[LEAVE]"
 metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
 [node name="can i have your head?" type="Node" parent="conversations/canman/2nd"]
-editor_description = "Hell no!"
+editor_description = "[shake rate=40.0 level=40 connected=1]Hell no![/shake]"
 metadata/Portrait = "canmancross"
 metadata/Sound = "canmanangry"
 
@@ -2877,7 +3570,7 @@ metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
 [node name="stealingpaint" type="Node" parent="conversations/canman"]
-editor_description = "Hey put that down!"
+editor_description = "[shake rate=40.0 level=40 connected=1]Hey put that down![/shake]"
 metadata/Portrait = "canmancross"
 metadata/Sound = "canmanangry"
 
@@ -2896,25 +3589,25 @@ metadata/Portrait = "canmannormal"
 metadata/Sound = "canmannormal"
 
 [node name="start" type="Node" parent="conversations/lookupguy"]
-editor_description = "wow, thats a big building"
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]wow, thats a big building[/wave]"
 metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 8.0
 
 [node name="[NEXT]" type="Node" parent="conversations/lookupguy/start"]
-editor_description = "yup"
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]yup[/wave]"
 metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 8.0
 
 [node name="[NEXT]" type="Node" parent="conversations/lookupguy/start/[NEXT]"]
-editor_description = "sure is tall"
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]sure is tall[/wave]"
 metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 8.0
 
 [node name="[NEXT]" type="Node" parent="conversations/lookupguy/start/[NEXT]/[NEXT]"]
-editor_description = "..."
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]...[/wave]"
 metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 8.0
@@ -2926,7 +3619,7 @@ metadata/Sound = "lookupguy"
 metadata/Speed = 5.0
 
 [node name="1" type="Node" parent="conversations/lookupguy"]
-editor_description = "yup"
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]yup[/wave]"
 metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 8.0
@@ -2938,7 +3631,7 @@ metadata/Sound = "lookupguy"
 metadata/Speed = 5.0
 
 [node name="2" type="Node" parent="conversations/lookupguy"]
-editor_description = "real big building here"
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]real big building here[/wave]"
 metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 8.0
@@ -2950,7 +3643,7 @@ metadata/Sound = "lookupguy"
 metadata/Speed = 5.0
 
 [node name="3" type="Node" parent="conversations/lookupguy"]
-editor_description = "i bet the top of the building is high"
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]i bet the top of the building is high[/wave]"
 metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 8.0
@@ -2962,7 +3655,7 @@ metadata/Sound = "lookupguy"
 metadata/Speed = 5.0
 
 [node name="4" type="Node" parent="conversations/lookupguy"]
-editor_description = "seems big to me"
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]seems big to me[/wave]"
 metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 8.0
@@ -3008,7 +3701,7 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="what do you mean" type="Node" parent="conversations/crusty/start/yup/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "UHHHHHHhhhhh...."
+editor_description = "[shake rate=20.0 level=20 connected=1]UHHHHHHhhhhh....[/shake]"
 metadata/Portrait = "crustysketchy"
 metadata/Sound = "crustynormal"
 metadata/speed = 15.0
@@ -3064,7 +3757,7 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/yessir/[NEXT]"]
-editor_description = "I NEED ACRILYC PAINT!!!!"
+editor_description = "[shake rate=40.0 level=40 connected=1]I NEED ACRILYC PAINT!!!![/shake]"
 metadata/Portrait = "crustyangry"
 metadata/Sound = "crustyangry"
 
@@ -3074,7 +3767,7 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/yessir/[NEXT]/[NEXT]/alr damn"]
-editor_description = "Just be sneaky about it."
+editor_description = "Just [color=#0d5220]be sneaky[/color] about it."
 metadata/Portrait = "crustysketchy"
 metadata/Sound = "crustynormal"
 
@@ -3094,28 +3787,28 @@ metadata/Portrait = "crustythumb"
 metadata/Sound = "crustynormal"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]"]
-editor_description = "GIMME GIMME GIMME GIMME"
+editor_description = "[shake rate=40.0 level=40 connected=1]GIMME GIMME GIMME GIMME[/shake]"
 metadata/Portrait = "crustycrazy"
 metadata/Sound = "crustycrazy"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]"]
-editor_description = "intense snorting"
+editor_description = "[tornado radius=5.0 freq=5.0 connected=1]intense snorting[/tornado]"
 metadata/Portrait = "crustysnort"
 metadata/Sound = "crustysnort"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]/[NEXT]"]
-editor_description = "GRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHH!!!!!!!!!!!"
+editor_description = "[shake rate=60.0 level=60 connected=1]GRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHH!!!!!!!!!!![/shake]"
 metadata/Portrait = "crustytweaking"
 metadata/Sound = "crustytweaking"
 metadata/speed = 20.0
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "THATS SOME GOOD SH*T!"
+editor_description = "[shake rate=40.0 level=40 connected=1]THATS SOME GOOD SH*T![/shake]"
 metadata/Portrait = "crustytweaking"
 metadata/Sound = "crustytweaking"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/2nd/[PAINT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]"]
-editor_description = "THANKS KID GET TF IN THERE YEEAAAAAHHHH!!!!!!"
+editor_description = "[shake rate=40.0 level=40 connected=1]THANKS KID GET TF IN THERE YEEAAAAAHHHH!!!!!![/shake]"
 metadata/Portrait = "crustytweaking"
 metadata/Sound = "crustytweaking"
 
@@ -3126,7 +3819,7 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="nope" type="Node" parent="conversations/crusty/2nd"]
-editor_description = "THEN F*CK OFF!!"
+editor_description = "[shake rate=40.0 level=40 connected=1]THEN F*CK OFF!![/shake]"
 metadata/Portrait = "crustyangry"
 metadata/Sound = "crustyangry"
 
@@ -3136,12 +3829,12 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="trespass" type="Node" parent="conversations/crusty"]
-editor_description = "HEY!!!!"
+editor_description = "[shake rate=40.0 level=40 connected=1]HEY!!!![/shake]"
 metadata/Portrait = "crustyangry"
 metadata/Sound = "crustyangry"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/trespass"]
-editor_description = "NO TRESPASSING!!!"
+editor_description = "[shake rate=40.0 level=40]NO TRESPASSING![/shake]"
 metadata/Portrait = "crustygun"
 metadata/Sound = "crustyangry"
 
@@ -3175,7 +3868,7 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="3" type="Node" parent="conversations/crusty"]
-editor_description = "DAMN I love shootin up black tar herobrine."
+editor_description = "[shake rate=40.0 level=40 connected=1]DAMN[/shake] I love shootin up black tar herobrine."
 metadata/Portrait = "crustycrazy"
 metadata/Sound = "crustycrazy"
 
@@ -3195,7 +3888,7 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="5" type="Node" parent="conversations/crusty"]
-editor_description = "GOD I LOVE MOLLY!!!!"
+editor_description = "[shake rate=40.0 level=40 connected=1]GOD I LOVE MOLLY!!!![/shake]"
 metadata/Portrait = "crustytweaking"
 metadata/Sound = "crustyangry"
 
@@ -3250,7 +3943,7 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/8/[NEXT]/no?"]
-editor_description = "HEH!"
+editor_description = "[shake rate=20.0 level=20 connected=1]HEH![/shake]"
 metadata/Portrait = "crustytweaking"
 metadata/Sound = "crustytweaking"
 
@@ -3270,7 +3963,7 @@ metadata/Portrait = "crustycrazy"
 metadata/Sound = "crustycrazy"
 
 [node name="you\'re f*cked up bro" type="Node" parent="conversations/crusty/9/[NEXT]"]
-editor_description = "NAAAAAHHHH!!!!"
+editor_description = "[shake rate=20.0 level=20 connected=1]NAAAAAHHHH!!!![/shake]"
 metadata/Portrait = "crustytweaking"
 metadata/Sound = "crustytweaking"
 
@@ -3350,7 +4043,7 @@ metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
 [node name="14" type="Node" parent="conversations/crusty"]
-editor_description = "I'm still smellin shapes dawg HELP ME."
+editor_description = "[shake rate=20.0 level=20 connected=1]I'm still smellin shapes dawg[/shake] [shake rate=60.0 level=60 connected=1]HELP ME.[/shake]"
 metadata/Portrait = "crustytweaking"
 metadata/Sound = "crustytweaking"
 
@@ -3414,6 +4107,185 @@ editor_description = "[NOPROGRESS]"
 metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
+[node name="lips" type="Node" parent="conversations"]
+
+[node name="start" type="Node" parent="conversations/lips"]
+editor_description = "hey baby, you is lookin kinda bare right now"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="what\'s it to you?" type="Node" parent="conversations/lips/start"]
+editor_description = "well im sellin all the fashion round here, you wanna look gud or nah?"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="yes" type="Node" parent="conversations/lips/start/what\'s it to you?"]
+editor_description = "mmmmhmm i thought so."
+metadata/Portrait = "lipsmmhmm"
+metadata/Sound = "lipsnormal"
+metadata/firstsound = "lipsmmhmm"
+metadata/speed = 10.0
+
+[node name="yes" type="Node" parent="conversations/lips/start/what\'s it to you?/yes"]
+editor_description = "get cho ass in there baby!"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="[OUTFITS]" type="Node" parent="conversations/lips/start/what\'s it to you?/yes/yes"]
+editor_description = "cya baby!"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/start/what\'s it to you?/yes/yes/[OUTFITS]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="nah" type="Node" parent="conversations/lips/start/what\'s it to you?"]
+editor_description = "fr?"
+metadata/Portrait = "lipsconfused"
+metadata/Sound = "lipsnormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/lips/start/what\'s it to you?/nah"]
+editor_description = "well screw ya then!"
+metadata/Portrait = "lipsangry"
+metadata/Sound = "lipsangry"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/start/what\'s it to you?/nah/[NEXT]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="1" type="Node" parent="conversations/lips"]
+editor_description = "whats gud baby u want in?"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="i\'ll buy something" type="Node" parent="conversations/lips/1"]
+editor_description = "mmmmhmm"
+metadata/Portrait = "lipsmmhmm"
+metadata/Sound = "lipsnormal"
+metadata/firstsound = "lipsmmhmm"
+metadata/speed = 10.0
+
+[node name="[OUTFITS]" type="Node" parent="conversations/lips/1/i\'ll buy something"]
+editor_description = "have yoself a gud day"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/1/i\'ll buy something/[OUTFITS]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="nevermind" type="Node" parent="conversations/lips/1"]
+editor_description = "well dont leave me hangin!"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/1/nevermind"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="2" type="Node" parent="conversations/lips"]
+editor_description = "f*ck you lookin at? my fits?"
+metadata/Portrait = "lipsangry"
+metadata/Sound = "lipsangry"
+
+[node name="i\'ll buy something" type="Node" parent="conversations/lips/2"]
+editor_description = "damn right"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+metadata/firstsound = "lipsnormal"
+
+[node name="[OUTFITS]" type="Node" parent="conversations/lips/2/i\'ll buy something"]
+editor_description = "i know you'll be back"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/2/i\'ll buy something/[OUTFITS]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="nevermind" type="Node" parent="conversations/lips/2"]
+editor_description = "don't lie now"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/2/nevermind"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="3" type="Node" parent="conversations/lips"]
+editor_description = "couldn't get enough hm?"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="i\'ll buy something" type="Node" parent="conversations/lips/3"]
+editor_description = "thats what i thought"
+metadata/Portrait = "lipsmmhmm"
+metadata/Sound = "lipsnormal"
+metadata/firstsound = "lipsnormal"
+
+[node name="[OUTFITS]" type="Node" parent="conversations/lips/3/i\'ll buy something"]
+editor_description = "you know where to find me if you need sum mo"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/3/i\'ll buy something/[OUTFITS]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="nevermind" type="Node" parent="conversations/lips/3"]
+editor_description = "such a tease"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/3/nevermind"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="4" type="Node" parent="conversations/lips"]
+editor_description = "couldn't get enough hm?"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="i\'ll buy something" type="Node" parent="conversations/lips/4"]
+editor_description = "hurry yo *ss up"
+metadata/Portrait = "lipsmmhmm"
+metadata/Sound = "lipsnormal"
+metadata/firstsound = "lipsnormal"
+
+[node name="[OUTFITS]" type="Node" parent="conversations/lips/4/i\'ll buy something"]
+editor_description = "my name aint Brit by the way, it's Wookisha"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="[NEXT]" type="Node" parent="conversations/lips/4/i\'ll buy something/[OUTFITS]"]
+editor_description = "call me."
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/4/i\'ll buy something/[OUTFITS]/[NEXT]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="nevermind" type="Node" parent="conversations/lips/4"]
+editor_description = "come again, I won't bite"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/4/nevermind"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 max_polyphony = 16
@@ -3428,7 +4300,11 @@ stream = ExtResource("22_y707n")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = SubResource("AudioStreamWAV_oxspo")
+bus = &"Music"
+
+[node name="musictransition" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+volume_db = -80.0
 bus = &"Music"
 
 [node name="trainhorn" type="AudioStreamPlayer" parent="."]
@@ -3534,6 +4410,7 @@ value = 1.0
 texture_under = ExtResource("19_whb3t")
 texture_progress = ExtResource("20_s8i3g")
 tint_progress = Color(0.776471, 0.776471, 0.776471, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="label" type="Label" parent="canvas/hud/doublejump"]
 layout_mode = 1
@@ -3555,6 +4432,52 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="doublejumpbg" type="Sprite2D" parent="canvas/hud/doublejump"]
+z_index = -1
+position = Vector2(342.667, 52)
+texture = ExtResource("19_whb3t")
+
+[node name="dash" type="TextureProgressBar" parent="canvas/hud"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -631.0
+offset_top = -157.0
+offset_right = 53.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = ExtResource("19_whb3t")
+texture_progress = ExtResource("20_s8i3g")
+tint_progress = Color(1, 0.5, 0.5, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="Label" parent="canvas/hud/dash"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -50.0
+offset_right = 57.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 66
+text = "Dash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="dash" type="Sprite2D" parent="canvas/hud/dash"]
 z_index = -1
 position = Vector2(342.667, 52)
 texture = ExtResource("19_whb3t")
@@ -3833,6 +4756,20 @@ autoplay = "default"
 frame = 2
 frame_progress = 0.146291
 
+[node name="fps" type="Label" parent="canvas/hud"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 74.0
+offset_bottom = 28.0
+theme = ExtResource("6_ayt4i")
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("32_ci1pj")
+theme_override_font_sizes/font_size = 20
+text = "FPS: 60"
+
 [node name="talk" type="Control" parent="canvas/hud"]
 process_mode = 3
 visible = false
@@ -3850,7 +4787,7 @@ color = Color(0, 0, 0, 0.498039)
 
 [node name="portrait" type="AnimatedSprite2D" parent="canvas/hud/talk"]
 sprite_frames = SubResource("SpriteFrames_y4nvb")
-animation = &"crustymaryjane"
+animation = &"lipsmmhmm"
 autoplay = "default"
 centered = false
 
@@ -3982,23 +4919,24 @@ sprite_frames = SubResource("SpriteFrames_bfi1e")
 autoplay = "default"
 frame_progress = 0.543841
 
-[node name="talklabel" type="Label" parent="canvas/hud/talk"]
+[node name="talklabel" type="RichTextLabel" parent="canvas/hud/talk"]
 layout_mode = 0
 offset_left = 526.0
 offset_top = 440.0
 offset_right = 1222.0
 offset_bottom = 671.0
 theme = ExtResource("6_ayt4i")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 0
-theme_override_fonts/font = ExtResource("32_ci1pj")
-theme_override_font_sizes/font_size = 66
-text = "sup fat nigga"
-autowrap_mode = 3
-visible_characters = 0
-visible_ratio = 0.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("32_ci1pj")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "sup fatass"
+scroll_following = true
 
 [node name="talksound" type="AudioStreamPlayer" parent="canvas/hud/talk"]
+max_polyphony = 3
+
+[node name="firstsound" type="AudioStreamPlayer" parent="canvas/hud/talk"]
 max_polyphony = 3
 
 [node name="talksound2" type="AudioStreamPlayer" parent="canvas/hud/talk"]
@@ -4283,10 +5221,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 22.0
-offset_top = 192.0
-offset_right = 682.0
-offset_bottom = 310.0
+offset_left = 556.0
+offset_top = 116.0
+offset_right = 1216.0
+offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
@@ -4298,10 +5236,10 @@ value = 0.001
 
 [node name="Musiclabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 207.0
-offset_top = 198.0
-offset_right = 427.0
-offset_bottom = 354.0
+offset_left = 741.0
+offset_top = 122.0
+offset_right = 961.0
+offset_bottom = 278.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
 theme_override_font_sizes/font_size = 64
@@ -4315,10 +5253,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 556.0
-offset_top = 115.0
-offset_right = 1216.0
-offset_bottom = 233.0
+offset_left = 19.0
+offset_top = 196.0
+offset_right = 679.0
+offset_bottom = 314.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
@@ -4330,10 +5268,10 @@ value = 5.0
 
 [node name="Sensitivitylabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 697.0
-offset_top = 121.0
-offset_right = 1063.0
-offset_bottom = 277.0
+offset_left = 160.0
+offset_top = 202.0
+offset_right = 526.0
+offset_bottom = 358.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
 theme_override_font_sizes/font_size = 64
@@ -4348,9 +5286,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 558.0
-offset_top = 192.0
+offset_top = 269.0
 offset_right = 1218.0
-offset_bottom = 310.0
+offset_bottom = 387.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
@@ -4361,9 +5299,9 @@ step = 0.1
 [node name="Uselesslabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
 offset_left = 617.0
-offset_top = 198.0
+offset_top = 275.0
 offset_right = 1204.0
-offset_bottom = 354.0
+offset_bottom = 431.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
 theme_override_font_sizes/font_size = 52
@@ -4371,23 +5309,87 @@ text = "Bumpscosity"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="FOV" type="HSlider" parent="canvas/hud/pause/options"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 269.0
+offset_right = 684.0
+offset_bottom = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("6_ayt4i")
+min_value = 30.0
+max_value = 120.0
+step = 5.0
+value = 75.0
+
+[node name="FOVlabel" type="Label" parent="canvas/hud/pause/options"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 275.0
+offset_right = 704.0
+offset_bottom = 431.0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 52
+text = "FOV"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quality" type="HSlider" parent="canvas/hud/pause/options"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 558.0
+offset_top = 192.0
+offset_right = 1218.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("6_ayt4i")
+min_value = -1.0
+max_value = 3.0
+value = 2.0
+
+[node name="Qualitylabel" type="Label" parent="canvas/hud/pause/options"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 198.0
+offset_right = 1204.0
+offset_bottom = 354.0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 52
+text = "Quality: hot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Fullscreen" type="Button" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 119.0
-offset_top = 337.0
-offset_right = 594.0
-offset_bottom = 446.0
+offset_left = 151.0
+offset_top = 406.0
+offset_right = 740.0
+offset_bottom = 502.0
+scale = Vector2(0.808816, 0.808816)
 theme = ExtResource("6_ayt4i")
 theme_override_font_sizes/font_size = 64
 text = "Fullscreen"
 
 [node name="box4" type="NinePatchRect" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 105.0
-offset_top = 321.0
-offset_right = 2685.0
-offset_bottom = 1021.0
-scale = Vector2(0.195, 0.195)
+offset_left = 137.0
+offset_top = 390.0
+offset_right = 3326.0
+offset_bottom = 1090.0
+scale = Vector2(0.157719, 0.157719)
 texture = ExtResource("49_hgcff")
 patch_margin_left = 150
 patch_margin_top = 136
@@ -4396,21 +5398,22 @@ patch_margin_bottom = 162
 
 [node name="Shortcuts" type="Button" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 641.0
-offset_top = 337.0
-offset_right = 1116.0
-offset_bottom = 446.0
+offset_left = 673.0
+offset_top = 406.0
+offset_right = 1263.0
+offset_bottom = 502.0
+scale = Vector2(0.808816, 0.808816)
 theme = ExtResource("6_ayt4i")
 theme_override_font_sizes/font_size = 64
 text = "Shortcuts"
 
 [node name="box6" type="NinePatchRect" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 627.0
-offset_top = 321.0
-offset_right = 3207.0
-offset_bottom = 1021.0
-scale = Vector2(0.195, 0.195)
+offset_left = 659.0
+offset_top = 390.0
+offset_right = 3861.0
+offset_bottom = 1090.0
+scale = Vector2(0.157719, 0.157719)
 texture = ExtResource("49_hgcff")
 patch_margin_left = 150
 patch_margin_top = 136
@@ -4419,21 +5422,22 @@ patch_margin_bottom = 162
 
 [node name="optionsBack" type="Button" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 252.0
-offset_top = 478.0
-offset_right = 1198.94
-offset_bottom = 587.0
+offset_left = 284.0
+offset_top = 541.0
+offset_right = 1428.0
+offset_bottom = 637.0
+scale = Vector2(0.808816, 0.808816)
 theme = ExtResource("6_ayt4i")
 theme_override_font_sizes/font_size = 64
 text = "Back"
 
 [node name="box5" type="NinePatchRect" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 238.0
-offset_top = 462.0
-offset_right = 5238.0
-offset_bottom = 1162.0
-scale = Vector2(0.195, 0.195)
+offset_left = 270.0
+offset_top = 525.0
+offset_right = 6312.0
+offset_bottom = 1225.0
+scale = Vector2(0.157719, 0.157719)
 texture = ExtResource("49_hgcff")
 patch_margin_left = 150
 patch_margin_top = 136
@@ -4551,6 +5555,34 @@ texture = ExtResource("7_ypd12")
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_lp6vd")
 
+[node name="tip" type="RichTextLabel" parent="canvas/hud/transitionin"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+clip_contents = false
+offset_left = -595.0
+offset_top = -312.0
+offset_right = 590.0
+offset_bottom = 315.0
+mouse_filter = 2
+theme = ExtResource("6_ayt4i")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/normal_font = ExtResource("32_ci1pj")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "Tip: suck a nigga diiiick, suck a nigga diiick
+"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="tipanim" type="AnimationPlayer" parent="canvas/hud/transitionin"]
+libraries = {
+&"": SubResource("AnimationLibrary_v4ssx")
+}
+
 [node name="transitionout" type="AnimatedSprite2D" parent="canvas/hud"]
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_gcgba")
@@ -4573,7 +5605,13 @@ offset_top = -1.0
 offset_right = 1278.0
 offset_bottom = 722.0
 
-[node name="cosmeticbg" type="AnimatedSprite2D" parent="canvas/hud/cosmetics"]
+[node name="cosmeticbg" type="AnimationPlayer" parent="canvas/hud/cosmetics"]
+libraries = {
+&"": SubResource("AnimationLibrary_va5bq")
+}
+
+[node name="cosmeticbgold" type="AnimatedSprite2D" parent="canvas/hud/cosmetics"]
+visible = false
 modulate = Color(0.890196, 1, 0.4, 1)
 position = Vector2(640, 360)
 rotation = -0.729789
@@ -4585,18 +5623,38 @@ frame_progress = 1.0
 
 [node name="text" type="Control" parent="canvas/hud/cosmetics"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 680.0
+offset_bottom = 400.0
+
+[node name="cardboardbg" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+position = Vector2(0.213379, -0.191071)
+scale = Vector2(0.665207, 0.665207)
+texture = ExtResource("213_kc3cm")
+
+[node name="Cardboardbutton2" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+modulate = Color(0.36, 0.31464, 0.2592, 1)
+position = Vector2(336.213, 71.0747)
+scale = Vector2(0.620227, 1.02763)
+texture = ExtResource("214_utcts")
+
+[node name="Cardboardbutton3" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+position = Vector2(-281.787, -181.872)
+scale = Vector2(0.876161, 0.722349)
+texture = ExtResource("214_utcts")
 
 [node name="name" type="Label" parent="canvas/hud/cosmetics/text"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 34.0
-offset_right = 670.0
-offset_bottom = 234.0
+offset_left = -618.787
+offset_top = -387.872
+offset_right = 50.2134
+offset_bottom = -137.872
 theme = ExtResource("6_ayt4i")
 theme_override_constants/line_spacing = -38
-theme_override_font_sizes/font_size = 97
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("215_2pm5r")
+theme_override_font_sizes/font_size = 86
 text = "Bowling balllllll"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -4605,19 +5663,97 @@ justification_flags = 3
 
 [node name="desc" type="Label" parent="canvas/hud/cosmetics/text"]
 layout_mode = 0
-offset_top = 230.0
-offset_right = 668.0
-offset_bottom = 382.0
+offset_left = -620.0
+offset_top = -158.0
+offset_right = 48.0
+offset_bottom = 11.0
 theme = ExtResource("6_ayt4i")
-theme_override_fonts/font = ExtResource("32_ci1pj")
-theme_override_font_sizes/font_size = 46
-text = "Strike fear in your enemies"
+theme_override_constants/line_spacing = -20
+theme_override_fonts/font = ExtResource("215_2pm5r")
+theme_override_font_sizes/font_size = 36
+text = "If the ball is round, how come the ball aint goin nowhere?"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Cardboardbutton" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+position = Vector2(-282.287, 185.447)
+scale = Vector2(0.876161, 0.722349)
+texture = ExtResource("214_utcts")
+
+[node name="saturationcolor" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+position = Vector2(-600.786, 162)
+scale = Vector2(0.417862, 1)
+texture = ExtResource("219_0li47")
+centered = false
+
+[node name="value" type="HSlider" parent="canvas/hud/cosmetics/text"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -600.787
+offset_top = 204.128
+offset_right = 0.21344
+offset_bottom = 322.128
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_icons/grabber = ExtResource("216_38n85")
+theme_override_icons/grabber_highlight = ExtResource("217_nkmqd")
+theme_override_styles/slider = SubResource("StyleBoxTexture_pwkyu")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="saturation" type="HSlider" parent="canvas/hud/cosmetics/text"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -599.787
+offset_top = 121.128
+offset_right = 1.21344
+offset_bottom = 239.128
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_icons/grabber = ExtResource("216_38n85")
+theme_override_icons/grabber_highlight = ExtResource("217_nkmqd")
+theme_override_styles/slider = SubResource("StyleBoxTexture_qtkil")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="hue" type="HSlider" parent="canvas/hud/cosmetics/text"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -600.787
+offset_top = 29.1277
+offset_right = 0.21344
+offset_bottom = 147.128
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_icons/grabber = ExtResource("216_38n85")
+theme_override_icons/grabber_highlight = ExtResource("217_nkmqd")
+theme_override_styles/slider = SubResource("StyleBoxTexture_pk1l5")
+max_value = 1.0
+step = 0.01
+
+[node name="Cbslider" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+modulate = Color(0.79, 0.581835, 0.3871, 1)
+position = Vector2(-282.786, 1.62769)
+scale = Vector2(0.485007, 0.986842)
+texture = ExtResource("219_0li47")
+
 [node name="Sprite2D" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
-position = Vector2(958, 360)
-scale = Vector2(0.677, 0.677)
+position = Vector2(338.214, 44.809)
+scale = Vector2(0.337, 0.337)
 texture = SubResource("ViewportTexture_qbvsi")
 
 [node name="clickdetect" type="Button" parent="canvas/hud/cosmetics/text/Sprite2D"]
@@ -4630,30 +5766,29 @@ mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="bars" type="AnimatedSprite2D" parent="canvas/hud/cosmetics/text"]
-position = Vector2(959, 380.5)
+position = Vector2(339, 69)
 scale = Vector2(0.669445, 0.669445)
-sprite_frames = SubResource("SpriteFrames_l1all")
+sprite_frames = SubResource("SpriteFrames_8kc55")
 animation = &"end"
 frame = 3
 frame_progress = 1.0
 
-[node name="buttons" type="Label" parent="canvas/hud/cosmetics/text"]
-layout_mode = 0
-offset_left = 660.0
-offset_top = 368.0
-offset_right = 1259.0
-offset_bottom = 865.0
-theme = ExtResource("6_ayt4i")
-theme_override_fonts/font = ExtResource("80_2curj")
-theme_override_font_sizes/font_size = 411
-text = "< >"
+[node name="leftbutton" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+position = Vector2(152.076, 248.696)
+scale = Vector2(0.353246, 0.353246)
+texture = ExtResource("228_xaqn1")
+
+[node name="rightbutton" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+position = Vector2(528.073, 248.696)
+scale = Vector2(0.353246, 0.353246)
+texture = ExtResource("228_xaqn1")
 
 [node name="left" type="Button" parent="canvas/hud/cosmetics/text"]
 layout_mode = 0
-offset_left = 659.0
-offset_top = 525.0
-offset_right = 832.0
-offset_bottom = 702.0
+offset_left = 69.0
+offset_top = 169.0
+offset_right = 237.0
+offset_bottom = 329.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
@@ -4661,26 +5796,67 @@ text_overrun_behavior = 4
 
 [node name="right" type="Button" parent="canvas/hud/cosmetics/text"]
 layout_mode = 0
-offset_left = 1079.0
-offset_top = 528.0
-offset_right = 1252.0
-offset_bottom = 705.0
+offset_left = 445.0
+offset_top = 169.0
+offset_right = 612.0
+offset_bottom = 329.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
 text_overrun_behavior = 4
 
-[node name="Save" type="Button" parent="canvas/hud/cosmetics/text"]
+[node name="lefttext" type="Label" parent="canvas/hud/cosmetics/text"]
+modulate = Color(0, 0, 0, 0.592157)
 layout_mode = 0
-offset_left = 725.0
-offset_top = 110.0
-offset_right = 1182.0
-offset_bottom = 174.0
+offset_left = 68.0754
+offset_top = 6.69531
+offset_right = 667.075
+offset_bottom = 503.695
 theme = ExtResource("6_ayt4i")
-theme_override_font_sizes/font_size = 41
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("80_2curj")
+theme_override_font_sizes/font_size = 411
+text = "<"
+
+[node name="righttext" type="Label" parent="canvas/hud/cosmetics/text"]
+modulate = Color(0, 0, 0, 0.592157)
+layout_mode = 0
+offset_left = 447.073
+offset_top = -40.3048
+offset_right = 637.073
+offset_bottom = 453.695
+scale = Vector2(0.893, 1.138)
+theme = ExtResource("6_ayt4i")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("80_2curj")
+theme_override_font_sizes/font_size = 411
+text = ">"
+
+[node name="savebutton" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+position = Vector2(334.213, -219.872)
+scale = Vector2(0.28, 0.218)
+texture = ExtResource("230_etly8")
+
+[node name="Save" type="Button" parent="canvas/hud/cosmetics/text"]
+modulate = Color(1, 1, 1, 0.807843)
+layout_mode = 0
+offset_left = 96.2134
+offset_top = -268.872
+offset_right = 572.213
+offset_bottom = -166.872
+theme = ExtResource("6_ayt4i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 84
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4ok4n")
 text = "Save"
 
 [node name="box" type="NinePatchRect" parent="canvas/hud/cosmetics/text"]
+visible = false
 layout_mode = 0
 offset_left = 711.0
 offset_top = 87.0
@@ -4693,71 +5869,64 @@ patch_margin_top = 136
 patch_margin_right = 146
 patch_margin_bottom = 162
 
-[node name="value" type="HSlider" parent="canvas/hud/cosmetics/text"]
+[node name="bits2" type="Label" parent="canvas/hud/cosmetics/text"]
+layout_mode = 0
+offset_left = 131.213
+offset_top = -361.191
+offset_right = 524.213
+offset_bottom = -270.191
+theme = ExtResource("6_ayt4i")
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "0"
+horizontal_alignment = 2
+
+[node name="bitssprite" type="Sprite2D" parent="canvas/hud/cosmetics/text/bits2"]
+position = Vector2(450, 45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("95_fycp4")
+
+[node name="buybutton" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
+position = Vector2(337.213, 259.128)
+scale = Vector2(0.313726, 0.210526)
+texture = ExtResource("214_utcts")
+
+[node name="discordcode" type="TextEdit" parent="canvas/hud/cosmetics/text"]
+layout_mode = 0
+offset_left = -616.0
+offset_top = -26.0
+offset_right = -376.0
+offset_bottom = 33.0
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 46
+placeholder_text = "enter code"
+scroll_fit_content_height = true
+
+[node name="discordbutton" type="Button" parent="canvas/hud/cosmetics/text"]
+clip_contents = true
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 19.0
-offset_top = 576.0
-offset_right = 620.0
-offset_bottom = 694.0
+offset_left = -353.0
+offset_top = -50.0
+offset_right = -88.9996
+offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_ayt4i")
-theme_override_styles/slider = SubResource("StyleBoxTexture_6ius5")
-max_value = 1.0
-step = 0.05
-value = 1.0
-
-[node name="saturationcolor" type="Sprite2D" parent="canvas/hud/cosmetics/text"]
-position = Vector2(19, 513)
-scale = Vector2(0.417862, 1)
-texture = ExtResource("81_b41fy")
-centered = false
-
-[node name="saturation" type="HSlider" parent="canvas/hud/cosmetics/text"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 19.0
-offset_top = 469.0
-offset_right = 620.0
-offset_bottom = 587.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("6_ayt4i")
-theme_override_styles/slider = SubResource("StyleBoxTexture_57bec")
-max_value = 1.0
-step = 0.05
-value = 1.0
-
-[node name="hue" type="HSlider" parent="canvas/hud/cosmetics/text"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 19.0
-offset_top = 359.0
-offset_right = 620.0
-offset_bottom = 477.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("6_ayt4i")
-theme_override_styles/slider = SubResource("StyleBoxTexture_i00me")
-max_value = 1.0
-step = 0.01
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("231_4b624")
+flat = true
+icon_alignment = 1
 
 [node name="bits" type="Label" parent="canvas/hud/cosmetics/text"]
 layout_mode = 0
-offset_left = 786.635
-offset_top = 580.0
-offset_right = 1040.16
-offset_bottom = 671.0
+offset_left = 173.0
+offset_top = 214.0
+offset_right = 426.525
+offset_bottom = 305.0
 theme = ExtResource("6_ayt4i")
 theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
 theme_override_font_sizes/font_size = 72
@@ -4774,51 +5943,63 @@ offset_bottom = 84.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("95_fycp4")
 
-[node name="bits2" type="Label" parent="canvas/hud/cosmetics/text"]
-layout_mode = 0
-offset_left = 770.0
-offset_right = 1163.0
-offset_bottom = 91.0
-theme = ExtResource("6_ayt4i")
-theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
-theme_override_font_sizes/font_size = 72
-text = "0"
-horizontal_alignment = 2
-
-[node name="bitssprite" type="Sprite2D" parent="canvas/hud/cosmetics/text/bits2"]
-position = Vector2(450, 45)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("95_fycp4")
-
 [node name="buy" type="Button" parent="canvas/hud/cosmetics/text"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.835294)
 layout_mode = 0
-offset_left = 838.0
-offset_top = 574.0
-offset_right = 1077.0
-offset_bottom = 670.0
+offset_left = 218.213
+offset_top = 211.128
+offset_right = 457.213
+offset_bottom = 308.128
 theme = ExtResource("6_ayt4i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ti3u")
 text = "BUY?"
 
-[node name="box2" type="NinePatchRect" parent="canvas/hud/cosmetics/text/buy"]
-layout_mode = 0
-offset_left = -20.0
-offset_top = -19.0
-offset_right = 1395.0
-offset_bottom = 663.0
-scale = Vector2(0.195, 0.195)
-texture = ExtResource("49_hgcff")
-patch_margin_left = 150
-patch_margin_top = 136
-patch_margin_right = 146
-patch_margin_bottom = 162
+[node name="deathsound" type="Button" parent="canvas/hud/cosmetics/text"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.787
+offset_top = -49.8723
+offset_right = -123.787
+offset_bottom = 214.128
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("117_xgi3l")
+flat = true
+icon_alignment = 1
+
+[node name="winsound" type="Button" parent="canvas/hud/cosmetics/text"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.787
+offset_top = -49.8723
+offset_right = -53.7866
+offset_bottom = 214.128
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("118_0kiu2")
+flat = true
+icon_alignment = 1
 
 [node name="cospreview" type="SubViewport" parent="canvas/hud/cosmetics"]
 own_world_3d = true
 world_3d = SubResource("World3D_iowjr")
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(768, 1080)
+size = Vector2i(1365, 1920)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="canvas/hud/cosmetics/cospreview"]
 transform = Transform3D(0.866025, 0.433013, -0.25, 0, 0.5, 0.866025, 0.5, -0.75, 0.433013, 0, 0, 0)
@@ -4871,7 +6052,7 @@ theme = ExtResource("6_ayt4i")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 0
 theme_override_fonts/font = ExtResource("32_ci1pj")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 42
 autowrap_mode = 3
 visible_characters = 0
 visible_ratio = 0.0
@@ -4889,45 +6070,436 @@ wait_time = 0.2
 wait_time = 30.0
 autostart = true
 
-[node name="deathsound" type="Button" parent="canvas/hud/cosmetics"]
-clip_contents = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 232.0
-offset_top = 317.0
-offset_right = 496.0
-offset_bottom = 581.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.25, 0.25)
-icon = ExtResource("117_xgi3l")
-flat = true
-icon_alignment = 1
-
-[node name="winsound" type="Button" parent="canvas/hud/cosmetics"]
-clip_contents = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 302.0
-offset_top = 317.0
-offset_right = 566.0
-offset_bottom = 581.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.25, 0.25)
-icon = ExtResource("118_0kiu2")
-flat = true
-icon_alignment = 1
-
 [node name="sounds" type="AudioStreamPlayer" parent="canvas/hud/cosmetics"]
+
+[node name="zorbus" type="Timer" parent="canvas/hud/cosmetics"]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Tedsthumbshadow" type="Sprite2D" parent="canvas/hud/cosmetics"]
+visible = false
+position = Vector2(1047, 584)
+rotation = -0.0331613
+texture = ExtResource("233_2pm5r")
+
+[node name="Tedsthumb" type="Sprite2D" parent="canvas/hud/cosmetics"]
+position = Vector2(1110, 957)
+texture = ExtResource("234_38n85")
+
+[node name="outfits" type="Control" parent="canvas/hud"]
+process_mode = 3
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("197_31js7")
+
+[node name="stopmouse" type="Control" parent="canvas/hud/outfits"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1278.0
+offset_bottom = 722.0
+
+[node name="cosmeticbg" type="AnimatedSprite2D" parent="canvas/hud/outfits"]
+modulate = Color(1, 0.54, 0.616667, 1)
+position = Vector2(640, 360)
+rotation = -0.729789
+scale = Vector2(1.11815, 1.94013)
+sprite_frames = SubResource("SpriteFrames_syujt")
+animation = &"start"
+frame = 4
+frame_progress = 1.0
+
+[node name="text" type="Control" parent="canvas/hud/outfits"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="name" type="Label" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 34.0
+offset_right = 670.0
+offset_bottom = 234.0
+theme = ExtResource("6_ayt4i")
+theme_override_constants/line_spacing = -38
+theme_override_font_sizes/font_size = 97
+text = "Bowling balllllll"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+justification_flags = 3
+
+[node name="desc" type="Label" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_top = 230.0
+offset_right = 668.0
+offset_bottom = 382.0
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("32_ci1pj")
+theme_override_font_sizes/font_size = 46
+text = "Strike fear in your enemies"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="canvas/hud/outfits/text"]
+position = Vector2(958, 360)
+scale = Vector2(0.337, 0.337)
+texture = SubResource("ViewportTexture_61bol")
+
+[node name="clickdetect" type="Button" parent="canvas/hud/outfits/text/Sprite2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -250.0
+offset_top = -360.0
+offset_right = 250.0
+offset_bottom = 360.0
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="bars" type="AnimatedSprite2D" parent="canvas/hud/outfits/text"]
+position = Vector2(959, 380.5)
+scale = Vector2(0.669445, 0.669445)
+sprite_frames = SubResource("SpriteFrames_l1all")
+animation = &"end"
+frame = 3
+frame_progress = 1.0
+
+[node name="buttons" type="Label" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 368.0
+offset_right = 1259.0
+offset_bottom = 865.0
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("80_2curj")
+theme_override_font_sizes/font_size = 411
+text = "< >"
+
+[node name="left" type="Button" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 525.0
+offset_right = 832.0
+offset_bottom = 702.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+text_overrun_behavior = 4
+
+[node name="colorbuttons" type="Label" parent="canvas/hud/outfits/text"]
+visible = false
+layout_mode = 0
+offset_left = 144.0
+offset_top = 189.0
+offset_right = 517.0
+offset_bottom = 497.0
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("80_2curj")
+theme_override_font_sizes/font_size = 256
+text = "< >"
+
+[node name="colornum" type="Label" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 289.0
+offset_right = 414.0
+offset_bottom = 411.0
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("80_2curj")
+theme_override_font_sizes/font_size = 64
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="colorleft" type="Button" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 298.0
+offset_right = 245.0
+offset_bottom = 390.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+text_overrun_behavior = 4
+
+[node name="label" type="Label" parent="canvas/hud/outfits/text/colorleft"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -109.0
+offset_right = 98.0
+offset_bottom = 199.0
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("80_2curj")
+theme_override_font_sizes/font_size = 256
+text = "<"
+
+[node name="colorright" type="Button" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 306.0
+offset_right = 510.0
+offset_bottom = 392.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+text_overrun_behavior = 4
+
+[node name="label" type="Label" parent="canvas/hud/outfits/text/colorright"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -117.0
+offset_right = 104.0
+offset_bottom = 191.0
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("80_2curj")
+theme_override_font_sizes/font_size = 256
+text = ">"
+
+[node name="right" type="Button" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 1079.0
+offset_top = 528.0
+offset_right = 1252.0
+offset_bottom = 705.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+text_overrun_behavior = 4
+
+[node name="Save" type="Button" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 110.0
+offset_right = 1182.0
+offset_bottom = 174.0
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 41
+text = "Save"
+
+[node name="box" type="NinePatchRect" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 87.0
+offset_right = 3211.0
+offset_bottom = 646.0
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
+
+[node name="value" type="HSlider" parent="canvas/hud/outfits/text"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = 576.0
+offset_right = 620.0
+offset_bottom = 694.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_styles/slider = SubResource("StyleBoxTexture_6ius5")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="saturationcolor" type="Sprite2D" parent="canvas/hud/outfits/text"]
+position = Vector2(19, 513)
+scale = Vector2(0.417862, 1)
+texture = ExtResource("81_b41fy")
+centered = false
+
+[node name="saturation" type="HSlider" parent="canvas/hud/outfits/text"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = 469.0
+offset_right = 620.0
+offset_bottom = 587.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_styles/slider = SubResource("StyleBoxTexture_57bec")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="hue" type="HSlider" parent="canvas/hud/outfits/text"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = 359.0
+offset_right = 620.0
+offset_bottom = 477.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_styles/slider = SubResource("StyleBoxTexture_i00me")
+max_value = 1.0
+step = 0.01
+
+[node name="bits" type="Label" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 786.635
+offset_top = 580.0
+offset_right = 1040.16
+offset_bottom = 671.0
+theme = ExtResource("6_ayt4i")
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+
+[node name="bitsoffset" type="Control" parent="canvas/hud/outfits/text/bits"]
+anchors_preset = 0
+offset_left = 177.435
+offset_top = 44.0
+offset_right = 217.435
+offset_bottom = 84.0
+
+[node name="bitssprite" type="Sprite2D" parent="canvas/hud/outfits/text/bits/bitsoffset"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("95_fycp4")
+
+[node name="bits2" type="Label" parent="canvas/hud/outfits/text"]
+layout_mode = 0
+offset_left = 770.0
+offset_right = 1163.0
+offset_bottom = 91.0
+theme = ExtResource("6_ayt4i")
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "0"
+horizontal_alignment = 2
+
+[node name="bitssprite" type="Sprite2D" parent="canvas/hud/outfits/text/bits2"]
+position = Vector2(450, 45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("95_fycp4")
+
+[node name="buy" type="Button" parent="canvas/hud/outfits/text"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 838.0
+offset_top = 574.0
+offset_right = 1077.0
+offset_bottom = 670.0
+theme = ExtResource("6_ayt4i")
+text = "BUY?"
+
+[node name="box2" type="NinePatchRect" parent="canvas/hud/outfits/text/buy"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 1395.0
+offset_bottom = 663.0
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
+
+[node name="cospreview" type="SubViewport" parent="canvas/hud/outfits"]
+own_world_3d = true
+world_3d = SubResource("World3D_iowjr")
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1365, 1920)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="canvas/hud/outfits/cospreview"]
+transform = Transform3D(0.866025, 0.433013, -0.25, 0, 0.5, 0.866025, 0.5, -0.75, 0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="cospeview" type="Node3D" parent="canvas/hud/outfits/cospreview"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+
+[node name="body" type="MeshInstance3D" parent="canvas/hud/outfits/cospreview/cospeview"]
+mesh = SubResource("ArrayMesh_u1jlm")
+skin = SubResource("Skin_7jp4a")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_hvjeb")
+
+[node name="headpivot" type="Marker3D" parent="canvas/hud/outfits/cospreview/cospeview"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, 0)
+
+[node name="tppivot" type="Marker3D" parent="canvas/hud/outfits/cospreview/cospeview"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.1, 0)
+
+[node name="tppivot2" type="Marker3D" parent="canvas/hud/outfits/cospreview/cospeview/tppivot"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="canvas/hud/outfits/cospreview/cospeview/tppivot/tppivot2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2.645)
+environment = SubResource("Environment_ey4q4")
+current = true
+far = 100.0
+
+[node name="attachments" type="Marker3D" parent="canvas/hud/outfits/cospreview/cospeview"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 7.30301e-08)
+
+[node name="talkbox" type="AnimatedSprite2D" parent="canvas/hud/outfits"]
+visible = false
+position = Vector2(299, 119)
+scale = Vector2(0.576023, 0.637566)
+sprite_frames = SubResource("SpriteFrames_bfi1e")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0931575
+
+[node name="talklabel" type="Label" parent="canvas/hud/outfits"]
+visible = false
+layout_mode = 0
+offset_left = 90.0
+offset_top = 41.0
+offset_right = 553.0
+offset_bottom = 200.0
+theme = ExtResource("6_ayt4i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("32_ci1pj")
+theme_override_font_sizes/font_size = 42
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="talksound" type="AudioStreamPlayer3D" parent="canvas/hud/outfits"]
+
+[node name="talktimer" type="Timer" parent="canvas/hud/outfits"]
+wait_time = 0.5
+one_shot = true
+
+[node name="talktimer2" type="Timer" parent="canvas/hud/outfits"]
+wait_time = 0.2
+
+[node name="randomspeak" type="Timer" parent="canvas/hud/outfits"]
+wait_time = 30.0
+autostart = true
+
+[node name="sounds" type="AudioStreamPlayer" parent="canvas/hud/outfits"]
+
+[node name="textedit" type="TextEdit" parent="canvas/hud/outfits"]
+visible = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 676.0
+offset_bottom = 61.0
+theme = SubResource("Theme_2pm5r")
+placeholder_text = "Custom Text"
+scroll_fit_content_height = true
 
 [node name="antipiracygag" type="Control" parent="canvas/hud"]
 process_mode = 3
@@ -5038,14 +6610,36 @@ text = "steam overlay active"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="saveicon" type="Sprite2D" parent="canvas/hud"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1241, 683)
+rotation = -0.501518
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("249_nkmqd")
+
+[node name="anim" type="AnimationPlayer" parent="canvas/hud/saveicon"]
+libraries = {
+&"": SubResource("AnimationLibrary_piefl")
+}
+
 [node name="transition" type="Timer" parent="."]
 
-[node name="outlineshader2" type="MeshInstance3D" parent="."]
+[node name="water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 300)
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_tldwp")
+surface_material_override/0 = SubResource("ShaderMaterial_nkmqd")
+
+[node name="distanceblurshader" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 300)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_tldwp")
 surface_material_override/0 = SubResource("ShaderMaterial_vdyvh")
 
 [node name="outlineshader" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 300)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_tldwp")
 surface_material_override/0 = SubResource("ShaderMaterial_6csnn")
@@ -5074,7 +6668,12 @@ debug_shape_custom_color = Color(1, 1, 1, 1)
 process_mode = 3
 script = ExtResource("122_aoika")
 
+[node name="qualityupdate" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="finished" from="music" to="." method="_on_music_finished"]
+[connection signal="finished" from="musictransition" to="." method="_on_music_finished"]
 [connection signal="animation_finished" from="canvas/hud/gunmanbossbar/gunmanicon" to="." method="_on_gunmanicon_animation_finished"]
 [connection signal="value_changed" from="canvas/hud/healthbar" to="." method="_on_healthbar_value_changed"]
 [connection signal="animation_finished" from="canvas/hud/died" to="." method="_on_died_animation_finished"]
@@ -5106,8 +6705,8 @@ script = ExtResource("122_aoika")
 [connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Quit" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Difficulty" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="canvas/hud/pause" method="_on_difficulty_pressed"]
@@ -5121,20 +6720,30 @@ script = ExtResource("122_aoika")
 [connection signal="drag_started" from="canvas/hud/pause/options/Sensitivity" to="." method="anybutton"]
 [connection signal="value_changed" from="canvas/hud/pause/options/Sensitivity" to="." method="_on_sensitivity_value_changed"]
 [connection signal="drag_started" from="canvas/hud/pause/options/Useless" to="." method="anybutton"]
+[connection signal="drag_started" from="canvas/hud/pause/options/FOV" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/pause/options/FOV" to="." method="_on_fov_value_changed"]
+[connection signal="drag_started" from="canvas/hud/pause/options/Quality" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/pause/options/Quality" to="." method="_on_quality_value_changed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Fullscreen" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="animation_finished" from="canvas/hud/transitionin" to="." method="_on_transitionin_animation_finished"]
 [connection signal="animation_finished" from="canvas/hud/cosmetics/cosmeticbg" to="canvas/hud/cosmetics" method="_on_cosmeticbg_animation_finished"]
+[connection signal="drag_started" from="canvas/hud/cosmetics/text/value" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/cosmetics/text/value" to="canvas/hud/cosmetics" method="_on_value_value_changed"]
+[connection signal="drag_started" from="canvas/hud/cosmetics/text/saturation" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/cosmetics/text/saturation" to="canvas/hud/cosmetics" method="_on_saturation_value_changed"]
+[connection signal="drag_started" from="canvas/hud/cosmetics/text/hue" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/cosmetics/text/hue" to="canvas/hud/cosmetics" method="_on_hue_value_changed"]
 [connection signal="mouse_entered" from="canvas/hud/cosmetics/text/Sprite2D/clickdetect" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/cosmetics/text/Sprite2D/clickdetect" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/cosmetics/text/left" to="." method="anybuttonfocus"]
@@ -5146,20 +6755,49 @@ script = ExtResource("122_aoika")
 [connection signal="mouse_entered" from="canvas/hud/cosmetics/text/Save" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/cosmetics/text/Save" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/cosmetics/text/Save" to="canvas/hud/cosmetics" method="_on_save_pressed"]
-[connection signal="drag_started" from="canvas/hud/cosmetics/text/value" to="." method="anybutton"]
-[connection signal="value_changed" from="canvas/hud/cosmetics/text/value" to="canvas/hud/cosmetics" method="_on_value_value_changed"]
-[connection signal="drag_started" from="canvas/hud/cosmetics/text/saturation" to="." method="anybutton"]
-[connection signal="value_changed" from="canvas/hud/cosmetics/text/saturation" to="canvas/hud/cosmetics" method="_on_saturation_value_changed"]
-[connection signal="drag_started" from="canvas/hud/cosmetics/text/hue" to="." method="anybutton"]
-[connection signal="value_changed" from="canvas/hud/cosmetics/text/hue" to="canvas/hud/cosmetics" method="_on_hue_value_changed"]
+[connection signal="text_changed" from="canvas/hud/cosmetics/text/discordcode" to="canvas/hud/cosmetics" method="_on_discordcode_text_changed"]
+[connection signal="pressed" from="canvas/hud/cosmetics/text/discordbutton" to="canvas/hud/cosmetics" method="_on_discordbutton_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/cosmetics/text/buy" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/cosmetics/text/buy" to="canvas/hud/cosmetics" method="_on_buy_pressed"]
+[connection signal="pressed" from="canvas/hud/cosmetics/text/deathsound" to="canvas/hud/cosmetics" method="_on_deathsound_pressed"]
+[connection signal="pressed" from="canvas/hud/cosmetics/text/winsound" to="canvas/hud/cosmetics" method="_on_winsound_pressed"]
 [connection signal="timeout" from="canvas/hud/cosmetics/talktimer" to="canvas/hud/cosmetics" method="_on_talktimer_timeout"]
 [connection signal="timeout" from="canvas/hud/cosmetics/talktimer2" to="canvas/hud/cosmetics" method="_on_talktimer_2_timeout"]
 [connection signal="timeout" from="canvas/hud/cosmetics/randomspeak" to="canvas/hud/cosmetics" method="_on_randomspeak_timeout"]
-[connection signal="pressed" from="canvas/hud/cosmetics/deathsound" to="canvas/hud/cosmetics" method="_on_deathsound_pressed"]
-[connection signal="pressed" from="canvas/hud/cosmetics/winsound" to="canvas/hud/cosmetics" method="_on_winsound_pressed"]
 [connection signal="finished" from="canvas/hud/cosmetics/sounds" to="canvas/hud/cosmetics" method="_on_sounds_finished"]
+[connection signal="timeout" from="canvas/hud/cosmetics/zorbus" to="canvas/hud/cosmetics" method="_on_zorbus_timeout"]
+[connection signal="animation_finished" from="canvas/hud/outfits/cosmeticbg" to="canvas/hud/outfits" method="_on_cosmeticbg_animation_finished"]
+[connection signal="mouse_entered" from="canvas/hud/outfits/text/Sprite2D/clickdetect" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/outfits/text/Sprite2D/clickdetect" to="." method="anybutton"]
+[connection signal="mouse_entered" from="canvas/hud/outfits/text/left" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/outfits/text/left" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/outfits/text/left" to="canvas/hud/outfits" method="_on_left_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/outfits/text/colorleft" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/outfits/text/colorleft" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/outfits/text/colorleft" to="canvas/hud/outfits" method="_on_colorleft_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/outfits/text/colorright" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/outfits/text/colorright" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/outfits/text/colorright" to="canvas/hud/outfits" method="_on_colorright_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/outfits/text/right" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/outfits/text/right" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/outfits/text/right" to="canvas/hud/outfits" method="_on_right_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/outfits/text/Save" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/outfits/text/Save" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/outfits/text/Save" to="canvas/hud/outfits" method="_on_save_pressed"]
+[connection signal="drag_started" from="canvas/hud/outfits/text/value" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/outfits/text/value" to="canvas/hud/outfits" method="_on_value_value_changed"]
+[connection signal="drag_started" from="canvas/hud/outfits/text/saturation" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/outfits/text/saturation" to="canvas/hud/outfits" method="_on_saturation_value_changed"]
+[connection signal="drag_started" from="canvas/hud/outfits/text/hue" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/outfits/text/hue" to="canvas/hud/outfits" method="_on_hue_value_changed"]
+[connection signal="mouse_entered" from="canvas/hud/outfits/text/buy" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/outfits/text/buy" to="canvas/hud/outfits" method="_on_buy_pressed"]
+[connection signal="timeout" from="canvas/hud/outfits/talktimer" to="canvas/hud/outfits" method="_on_talktimer_timeout"]
+[connection signal="timeout" from="canvas/hud/outfits/talktimer2" to="canvas/hud/outfits" method="_on_talktimer_2_timeout"]
+[connection signal="timeout" from="canvas/hud/outfits/randomspeak" to="canvas/hud/outfits" method="_on_randomspeak_timeout"]
+[connection signal="finished" from="canvas/hud/outfits/sounds" to="canvas/hud/outfits" method="_on_sounds_finished"]
+[connection signal="text_changed" from="canvas/hud/outfits/textedit" to="canvas/hud/outfits" method="_on_textedit_text_changed"]
 [connection signal="timeout" from="canvas/hud/antipiracygag/timer" to="canvas/hud/antipiracygag" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/antipiracygag/anim" to="canvas/hud/antipiracygag" method="_on_anim_animation_finished"]
 [connection signal="timeout" from="outlineshadertimer" to="." method="_on_outlineshadertimer_timeout"]
+[connection signal="timeout" from="qualityupdate" to="." method="_on_qualityupdate_timeout"]

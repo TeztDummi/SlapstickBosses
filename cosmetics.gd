@@ -1,11 +1,11 @@
 extends Control
-const objects = ["bowlingball", "car", "moyai", "glasses",
+var objects = ["bowlingball", "car", "moyai", "glasses",
 "excord", "biggerboy", "eye", "socialcredit",
 "skull", "fatman", "lightbulb", "menger",
 "stickbug", "mememan", "maxwell", "dummi",
-"distressed", "mrheeh", "elevator", "catsoldier", "wizardhat", "gunman", "sodacan", "basketball"]
+"distressed", "mrheeh", "kbcrown", "elevator", "catsoldier", "wizardhat", "gunman", "sodacan", "bioplasm", "basketball", "discord"]
 
-const titledesc = [["Bowling Ball", "Bowl a turkey", 0],
+var titledesc = [["Bowling Ball", "Bowl a turkey", 0],
 ["Racecar", "Go 90 mph in a school zone", 0],
 ["Moyai", "You're gonna use all the f***n' hot water", 1000],
 ["Glasses", "erm, actually", 0],
@@ -23,19 +23,21 @@ const titledesc = [["Bowling Ball", "Bowl a turkey", 0],
 ["Dummi", "A handsome fella", 500],
 ["Distressed Red Ball", "If the earth is round, how come the ball aint goin nowhere?", 1000],
 ["Mr Heeh", "Some guy, probobly related to Ted", 2000],
+["Kurger Bing Crown", "Just makes you wanna get on an airplane", 500],
 ["Elevator", "Beat The Elevator on Hard", -1],
 ["Cat Soldier", "Beat The Cat Batallion on Hard", -1],
 ["Pimpledump's Hat", "Beat Pimpledump Kinkledorf Dingledale on Hard", -1],
 ["Artillertunk's Head", "Beat Artillertunk on Hard", -1],
 ["Soda Sola Can", "Beat Soda Sola on Hard", -1],
-["Basketball", "Its a secret, shh", -1]]
+["Bioplasm Chunk", "Beat The Epidermal Bioplasm on Hard", -1],
+["Basketball", "Its a secret, shh", -1],
+["Discord", "Find the code on the discord server, aw dont cwy you can handwle it", -1]]
 
 #"companion", "breadbug", "durrburger", "flashlighttiddy"]
 var choice = 0
 @onready var headpivot = $cospreview/cospeview/headpivot
 @onready var color = Vector3($"../../..".bodycolor.h, $"../../..".bodycolor.s, $"../../..".bodycolor.v)
 
-var alpha = 0
 var isin = true
 
 var unlocked = true
@@ -50,14 +52,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	if isin:
-		if alpha < 1:
-			alpha += delta*4
-	else:
-		if alpha > 0:
-			alpha -= delta*4
-	
-	$text.modulate = Color(1, 1, 1, alpha)
 	
 	if visible:
 		if $text/Sprite2D/clickdetect.button_pressed:
@@ -65,11 +59,9 @@ func _process(delta):
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-		$text/value.modulate = Color.from_hsv(color.x, color.y, 1)
-
-		$text/saturation.modulate = Color.from_hsv(color.x, 1, color.z)
+		$text/value["theme_override_styles/slider"].modulate_color = Color.from_hsv(color.x, color.y, 1)
+		$text/saturation["theme_override_styles/slider"].modulate_color = Color.from_hsv(color.x, 1, color.z)
 		$text/saturationcolor.modulate = Color.from_hsv(0, 0, color.z)
-
 		$text/hue.modulate = Color.from_hsv(0, 0, 1)
 			
 		$"../../..".bodycolor = Color.from_hsv(color.x, color.y, color.z)
@@ -77,13 +69,16 @@ func _process(delta):
 		
 		if titledesc[choice][2] > 0 && !unlocked && $"../../..".bits >= titledesc[choice][2]:
 			$text/buy.show()
+			$text/buybutton.show()
 			if $text/buy.is_hovered():
 				$text/buy.modulate = Color(1, 1, 1, 1)
 				$text/bits.hide()
 			else:
 				$text/buy.modulate = Color(1, 1, 1, 0)
 				$text/bits.show()
-		else: $text/buy.hide()
+		else:
+			$text/buy.hide()
+			$text/buybutton.hide()
 		
 		if $text/Sprite2D/clickdetect.button_pressed:
 			$text/bars.modulate = Color(1, 1, 1, 0.2)
@@ -96,9 +91,15 @@ func _process(delta):
 		$text/bits2.text = str(int(round(bitstext)))
 	
 	if !$talktimer.is_stopped():
-		$talklabel.visible_ratio += delta*(1/$talktimer.wait_time)*2
+		$talklabel.visible_ratio += delta*(1/$talktimer.wait_time)*4
 	else:
 		$talklabel.visible_ratio = 0
+		
+	if $text/left.is_hovered(): $text/lefttext.modulate.v = 1
+	else: $text/lefttext.modulate.v = 0
+	
+	if $text/right.is_hovered(): $text/righttext.modulate.v = 1
+	else: $text/righttext.modulate.v = 0
 func _input(event):
 	if visible:
 		if event is InputEventMouseMotion:
@@ -123,6 +124,14 @@ func loadhead():
 		if objects[choice] == i:
 			unlocked = true
 			break
+			
+	if (objects[choice] == "discord"):
+		$text/discordbutton.show()
+		if !$"../../..".unlockedheads.has("discord"): $text/discordcode.show()
+		else: $text/discordcode.hide()
+	else:
+		$text/discordcode.hide()
+		$text/discordbutton.hide()
 	
 	if titledesc[choice][2] != 0 && !unlocked:
 		if $text/bars.animation != "start":
@@ -144,17 +153,17 @@ func loadhead():
 		$text/bits.hide()
 		
 	if object.has_meta("deathsound"):
-		$deathsound.show()
+		$text/deathsound.show()
 		deathsound = object.get_meta("deathsound")
 	else:
-		$deathsound.hide()
+		$text/deathsound.hide()
 		deathsound = "none"
 		
 	if object.has_meta("winsound"):
-		$winsound.show()
+		$text/winsound.show()
 		winsound = object.get_meta("winsound")
 	else:
-		$winsound.hide()
+		$text/winsound.hide()
 		winsound = "none"
 
 func _on_left_pressed():
@@ -232,7 +241,7 @@ func _on_save_pressed():
 				if rand == 1: tedtalk("You go play games first!!")
 				if rand == 2: tedtalk("Do hard games!")
 				if rand == 3: tedtalk("No buy, play game!")
-				if rand == 4: tedtalk("Specialty! Kill boss!")
+				if rand == 4: tedtalk("Specialty! No buy ok!")
 			else:
 				var rand = randi_range(1, 8)
 				if rand == 1: tedtalk("It costs bits!")
@@ -244,9 +253,9 @@ func _on_save_pressed():
 				if rand == 7: tedtalk("You give Ted bits, Ted give you heads.")
 				if rand == 8: tedtalk("Come back when richer!")
 
-func _on_cosmeticbg_animation_finished():
+func _on_cosmeticbg_animation_finished(animation):
 	if visible:
-		if $cosmeticbg.animation == "end":
+		if animation == "end":
 			hide()
 			$"../talk".option_press(-1)
 			$"../../..".save_game()
@@ -280,7 +289,7 @@ func _on_buy_pressed():
 		
 func tedtalk(text):
 	if $talktimer.is_stopped():
-		$talktimer.wait_time = text.length()*0.1
+		$talktimer.wait_time = text.length()*0.1+1
 		$talktimer.start()
 		$talkbox.show()
 		$talklabel.show()
@@ -296,9 +305,10 @@ func _on_talktimer_timeout():
 	$talktimer2.stop()
 
 func _on_talktimer_2_timeout():
-	if $talklabel.visible_ratio < 1:
-		$talksound.stream = load("res://audio/characters/tednormal_"+str(randi_range(0, 2))+".mp3")
-		$talksound.play()
+	if visible:
+		if $talklabel.visible_ratio < 1:
+			$talksound.stream = load("res://audio/characters/tednormal_"+str(randi_range(0, 2))+".mp3")
+			$talksound.play()
 
 func _on_randomspeak_timeout():
 	if visible:
@@ -306,8 +316,8 @@ func _on_randomspeak_timeout():
 		if rand == 1: tedtalk("You like my heads!")
 		if rand == 2: tedtalk("That one is a head!")
 		if rand == 3: tedtalk("So uhhh... how day?")
-		if rand == 4: tedtalk("You "+str($"../../..".bits)+" bits by the way")
-		if rand == 5: tedtalk("You is having bits of "+str($"../../..".bits))
+		if rand == 4: tedtalk("You "+str(int($"../../..".bits))+" bits by the way")
+		if rand == 5: tedtalk("You is having bits of "+str(int($"../../..".bits)))
 		if rand == 6: tedtalk("You like the my stand? Ted made with tape and myself!")
 
 
@@ -325,3 +335,23 @@ func _on_winsound_pressed():
 
 func _on_sounds_finished():
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), false)
+
+func _on_zorbus_timeout() -> void:
+	if $"../../..".zorbus == "borbus":
+		objects.append_array(["companion", "breadbug", "durrburger", "flashlighttiddy"])
+		titledesc.append_array([
+			["Accompanying Cube", "How comforting", 200],
+			["Breadbug", "Gluten full", 500],
+			["Duhh burger", "Clog your arteries", 200],
+			["Red Eye", "Glowy", 2000]
+		])
+
+func _on_discordcode_text_changed() -> void:
+	if !$"../../..".unlockedheads.has("discord"):
+		if $text/discordcode.text == "made you look":
+			$text/discordcode.text = ""
+			$"../../..".unlockedheads.append("discord")
+			loadhead()
+
+func _on_discordbutton_pressed() -> void:
+	OS.shell_open("https://discord.gg/7ESSbwmTDy")

@@ -15,7 +15,7 @@ var dead = false
 
 func _ready() -> void:
 	if map.diff <= 1:
-		speed = 30
+		speed = 40
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !dead:

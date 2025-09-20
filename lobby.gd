@@ -5,6 +5,8 @@ var suntimer = false
 var suntime = 0
 var basketdelay = 0
 var cloudstime = 0
+var boingchallenge = 0
+var currentlevel = "none"
 
 var billboards = ["res://textures/billboard/ardoniasrock.png",
 	"res://textures/billboard/gambling.png",
@@ -22,23 +24,36 @@ var billboards = ["res://textures/billboard/ardoniasrock.png",
 	"res://textures/billboard/outerwilds.png",
 	"res://textures/billboard/balatro.png"]
 
+func lobbypower(val):
+	if val:
+		player.falloff = true
+		for child in $"../player/camera/gun".get_children():
+			if !child.has_meta("held"):
+				child.queue_free()
+		if $"../".lobbypower.has("slide"):
+			player.cancrouch = true
+		if $"../".lobbypower.has("doublejump"):
+			player.candoublejump = true
+			player.djseconds = 0.25
+		if $"../".lobbypower.has("dash"):
+			player.candash = true
+			player.dashseconds = 2
+	else:
+		player.cancrouch = false
+		player.candoublejump = false
+		player.candash = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	print(%player)
-	
-	if $"../".lobbypower.has("slide"):
-		player.cancrouch = true
+	lobbypower(true)
 		
-		#var gun = load("res://bitchslapper.tscn").instantiate()
-		#$"../player/camera/gun".add_child(gun)
-		#$"../player".scroll = 1
 	
 	if $"../".bits <= 0 || $"../".freebits:
 		$funnysigns.queue_free()
-	
 	if !$"../".didintro:
 		$introstuff/introcam/introcam.current = true
+		#$introstuff/introcam/introcam/blackfade.show()
+		#$introstuff/introcam/introcam/clicktobegin.show()
 	else:
 		$cube/cube/cubeparticles.emitting = false
 		$introstuff/introcam/introcam/blackfade.hide()
@@ -53,21 +68,29 @@ func _ready():
 		$alleytrespass.queue_free()
 		$"challenge guy".queue_free()
 		
+	
+	if $"../".didintro:
+		_on_updateday_timeout()
+		$updateday.start()
+		
 func _process(delta):
+	
 	if !$"../".didintro:
 		if Input.is_action_just_pressed("click"):
 			$introstuff/anim.play("default")
 			$"../".didintro = true
 	$DirectionalLight3D.position = player.position
-	if suntimer: suntime += delta
-	else: suntime = 0
-	suntimer = false
 	
+	if $DirectionalLight3D/sun.transparency <= 0:
+		if suntimer: suntime += delta
+		else: suntime = 0
+		suntimer = false
+	
+		if suntime >= 5:
+			if $DirectionalLight3D/sun/anim.is_playing() && $DirectionalLight3D/sun/anim.current_animation != "shoot":
+				$DirectionalLight3D/sun/anim.play("shoot")
+			
 	if basketdelay > 0: basketdelay -= delta
-	
-	if suntime >= 5:
-		if $DirectionalLight3D/sun/anim.is_playing() && $DirectionalLight3D/sun/anim.current_animation != "shoot":
-			$DirectionalLight3D/sun/anim.play("shoot")
 			
 	if $bballbitsarea != null:
 		for body in $bballbitsarea.get_overlapping_bodies():
@@ -77,6 +100,16 @@ func _process(delta):
 	cloudstime += delta*0.2
 	$platform/platformclouds.position.y = sin(cloudstime)*50
 	$platform/platformclouds.rotation.y += 0.0005
+	
+	if boingchallenge > 0:
+		if player.is_on_floor():
+			var doit = false
+			for i in player.get_slide_collision_count():
+				if !player.get_slide_collision(i).get_collider().name.begins_with("boing"):
+					doit = true
+					break
+			if doit:
+				setboingchallenge(0)
 	
 func _on_removesignplat_body_entered(body):
 	if body.is_in_group("playergroup"):
@@ -140,3 +173,52 @@ func _on_pssttimer_timeout() -> void:
 		$psstaudio.play()
 		$psst.show()
 		$psst.play("default")
+
+func _on_updateday_timeout() -> void:
+	if $"../".didintro:
+		var time = float(Time.get_datetime_dict_from_system(0)["second"])
+		time += Time.get_datetime_dict_from_system(0)["minute"]*60
+		time += Time.get_datetime_dict_from_system(0)["hour"]*60*24
+		#print("Lobby Seconds: "+str(time))
+		time /= (1.0/$daycycle.speed_scale)
+		time = wrap(time, 0, 24)
+		#print("Lobby Hour: "+str(time))
+		$daycycle.play("cycle")
+		$daycycle.seek(time)
+		
+func setboingchallenge(num):
+	if $"../".lobbypower.has("slide") && $"../".lobbypower.has("doublejump"):
+		boingchallenge = num
+		if num == 9:
+			$"../".transitionmusic("res://audio/music/maingamegood.mp3", 4, false)
+		if num == 1:
+			$"../".transitionmusic("res://audio/music/maingametheme.mp3", 4, true)
+		if num == 0 || num == 10:
+			$"../".transitionmusic("res://audio/music/lobbymusic.mp3", 2, true)
+		if num == 10:
+			boingchallenge = 0
+			$"../sfx2".stream = load("res://audio/goalreached.mp3")
+			$"../sfx2".play()
+			
+			$"../".setAchievement("boingchallenge")
+			
+			if !$"../".beatchallenges.has("boingchallenge"):
+				$"../".beatchallenges["boingchallenge"] = true
+				var popup = load("res://popup.tscn").instantiate()
+				popup.bits = $"../".getchalbits("boingchallenge")
+				$"../".bits += $"../".getchalbits("boingchallenge")
+				$"../sfx".stream = load("res://audio/gainbits.mp3")
+				$"../sfx".play()
+				$"../canvas/hud".add_child(popup)
+				
+				$boingwinner/winparticle.emitting = true
+			else:
+				$boingwinner/winparticleconfetti.emitting = true
+				
+		for child in get_children():
+			if child.name.begins_with("boing"):
+				if child.has_meta("boingchallenge"):
+					if child.get_meta("boingchallenge") == num:
+						child.get_node("boingchallenge").show()
+					else:
+						child.get_node("boingchallenge").hide()

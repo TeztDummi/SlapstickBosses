@@ -1,4 +1,4 @@
-[gd_scene load_steps=287 format=4 uid="uid://dffiokfwgml48"]
+[gd_scene load_steps=289 format=4 uid="uid://dffiokfwgml48"]
 
 [ext_resource type="Texture2D" uid="uid://nr10ur8k2qng" path="res://textures/Wood060_2K-JPG/Wood060_2K-JPG_Color.jpg" id="1_jvr6d"]
 [ext_resource type="Texture2D" uid="uid://dc2h1yqwxlv8f" path="res://textures/Paint004_2K-JPG/Paint004_2K-JPG_Color.jpg" id="1_lrylp"]
@@ -38,7 +38,10 @@ background_mode = 2
 background_energy_multiplier = 2.0
 sky = SubResource("Sky_uo7df")
 tonemap_mode = 2
+ssao_enabled = true
+ssao_power = 5.5
 ssil_enabled = true
+sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8q4g"]
@@ -338,6 +341,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r2is0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xdkp"]
+albedo_color = Color(0.306923, 0.306923, 0.306923, 1)
+metallic = 1.0
+roughness = 0.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0a82d"]
+albedo_color = Color(1, 0.775, 0.55, 1)
+emission_enabled = true
+emission = Color(1, 0.466667, 0, 1)
+emission_energy_multiplier = 3.0
+disable_receive_shadows = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gort"]
 resource_name = "FFFFFF"
@@ -5116,8 +5131,11 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 4, 7.5, 0)
 
 [node name="Light_Chandelier" type="MeshInstance3D" parent="RootNode_007"]
 transform = Transform3D(120, 0, 0, 0, -4.29153e-05, 120, 0, -120, -4.29153e-05, 0, -0.4, 0)
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_u8be3")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4xdkp")
+surface_material_override/1 = SubResource("StandardMaterial3D_0a82d")
 
 [node name="Blackboard_01_004_Cube_040" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.3, 0, -8.9407e-08, 0, 0.3, 0, 8.9407e-08, 0, -0.3, 4, 1, 9.97094)
@@ -5307,7 +5325,8 @@ shape = SubResource("ConcavePolygonShape3D_w0q0y")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.99072, 0)
-light_energy = 3.545
+light_color = Color(1, 0.935, 0.87, 1)
+light_energy = 2.0
 shadow_enabled = true
 omni_range = 26.0748
 
@@ -5477,5 +5496,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.958988, -0.452304, 0)
 mesh = SubResource("ArrayMesh_fl0w7")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_fl0w7")
+
+[node name="horrorpainting" parent="." instance=ExtResource("14_5y226")]
+transform = Transform3D(1, 0, 4.37114e-08, 0, 1, 0, -4.37114e-08, 0, 1, 6, 0, 9)
 
 [connection signal="timeout" from="canman/Timer" to="canman" method="_on_timer_timeout"]

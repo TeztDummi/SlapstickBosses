@@ -81,7 +81,7 @@ collision_mask = 5
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 0.6, 0)
 
-[node name="mesh" type="MeshInstance3D" parent="body"]
+[node name="Cube" type="MeshInstance3D" parent="body"]
 mesh = SubResource("ArrayMesh_p7n6w")
 skin = SubResource("Skin_0dkf7")
 skeleton = NodePath("")
@@ -89,6 +89,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_pxud7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="body"]
 shape = SubResource("ConvexPolygonShape3D_yemsy")
+
+[node name="attachments" type="Marker3D" parent="body"]
 
 [node name="head" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

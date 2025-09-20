@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dtvcfo7v7tepr"]
+[gd_scene load_steps=15 format=4 uid="uid://dtvcfo7v7tepr"]
 
 [ext_resource type="Texture2D" uid="uid://jevcloj8u8bw" path="res://mrheeh_Untitled.png" id="1_etx08"]
 [ext_resource type="Texture2D" uid="uid://fr1er32jve6" path="res://textures/defaulttexture/defaulttexturenormal.png" id="2_0qf0s"]
@@ -11,7 +11,6 @@ cull_mode = 2
 albedo_texture = ExtResource("1_etx08")
 roughness = 0.5
 normal_texture = ExtResource("2_0qf0s")
-subsurf_scatter_enabled = true
 subsurf_scatter_strength = 1.0
 subsurf_scatter_skin_mode = true
 subsurf_scatter_transmittance_enabled = true
@@ -142,6 +141,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b4gfu")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qf0s"]
+resource_name = "Material.052"
+cull_mode = 2
+albedo_texture = ExtResource("1_etx08")
+roughness = 0.5
+normal_texture = ExtResource("2_0qf0s")
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+subsurf_scatter_transmittance_enabled = true
+subsurf_scatter_transmittance_depth = 2.0
+
 [sub_resource type="Animation" id="Animation_86dma"]
 length = 0.001
 tracks/0/type = "value"
@@ -188,6 +198,7 @@ metadata/winsound = "mrheeh"
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3hkxj")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_0qf0s")
 surface_material_override/3 = SubResource("StandardMaterial3D_ns5kp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

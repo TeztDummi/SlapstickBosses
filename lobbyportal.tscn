@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dnbxiioqxpkpg"]
+[gd_scene load_steps=29 format=3 uid="uid://dnbxiioqxpkpg"]
 
 [ext_resource type="Script" uid="uid://chds7ph0vihjc" path="res://lobbyportal.gd" id="1_brurh"]
 [ext_resource type="Texture2D" uid="uid://b2dm1gneloqmv" path="res://textures/portal/portal0000.png" id="2_2q1rj"]
@@ -42,7 +42,7 @@ radius = 2.5
 offsets = PackedFloat32Array(0, 0.273333, 0.8, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.474833, 1, 1, 1, 0.0866666, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_y7j8f"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_klnbc"]
 gradient = SubResource("Gradient_5d7iy")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -53,7 +53,7 @@ render_priority = -1
 transparency = 1
 cull_mode = 2
 albedo_color = Color(1, 1, 1, 0.219608)
-albedo_texture = SubResource("GradientTexture2D_y7j8f")
+albedo_texture = SubResource("GradientTexture2D_klnbc")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 1.47
@@ -126,6 +126,16 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_curve = SubResource("CurveTexture_i5ska")
 color_ramp = SubResource("GradientTexture1D_avuq2")
+
+[sub_resource type="Gradient" id="Gradient_doafp"]
+offsets = PackedFloat32Array(0, 0.273333, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.474833, 1, 1, 1, 0.0866666, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y7j8f"]
+gradient = SubResource("Gradient_doafp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="lobbyportal" type="Node3D"]
 script = ExtResource("1_brurh")

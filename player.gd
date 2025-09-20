@@ -31,6 +31,13 @@ var slidefallpos = 0
 var falldamagemult = 0
 var falloff = true
 var emoting = false
+var candash = false
+var dashdelay = 0
+var dashseconds = 1
+var walljumpvel = Vector3.ZERO
+var inwater = false
+var jetpack = false
+var physicsscale = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -64,11 +71,13 @@ func _process(delta):
 				$"../sfx".play()
 				djdelay = -10
 		$"../canvas/hud/doublejump".show()
+		$"../canvas/hud/dash".position.y = 563.0-78
 		
 		$"../canvas/hud/doublejump".value = (1-djdelay)
 	else:
 		pass
 		$"../canvas/hud/doublejump".hide()
+		$"../canvas/hud/dash".position.y = 563.0
 	
 	if position.y <= -20 && falloff:
 		hurt(100, "fall")
@@ -99,8 +108,10 @@ func _process(delta):
 		$camera/gun.hide()
 		$Armature.hide()
 		$light.hide()
-		if !$"../tppivot/tppivot2/tpcam".current:
+		if !$"../tppivot/tppivot2/tpcam".current && !$"../canvas/hud/transitionin".is_playing():
 			$"../canvas/hud".hide()
+		if $"../canvas/hud/transitionin".is_playing():
+			$"../canvas/hud".show()
 	else:
 		$camera/gun.show()
 		$Armature.show()
@@ -115,7 +126,22 @@ func _process(delta):
 		$camera/gun.hide()
 		$"../canvas/hud".show()
 		
+		
 	var windspeed = totalvel
+	
+	if inwater:
+		windspeed *= 3
+		$bubbles.emitting = totalvel > 2
+		$bubbles.show()
+		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")*0.35
+		$"../".setwater(true)
+		inwater = false
+	else:
+		$bubbles.emitting = false
+		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+		$"../".setwater(false)
+		$bubbles.hide()
+	
 	if dead || !camera.current: windspeed = 0
 	var windpitch = clampf(windspeed/SPEED/6, 0.65, 3)
 	var windvol = -80+clampf(windspeed/SPEED*6, 0, 80)
@@ -212,7 +238,7 @@ func _process(delta):
 			if sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 25:
 				$camera/slidething.transparency = lerpf($camera/slidething.transparency, 0.95, delta*3)
 			else:
-				$camera/slidething.transparency = lerpf($camera/slidething.transparency, clampf(1.1-(extra)*delta*5, 0, 1), delta*10)
+				$camera/slidething.transparency = lerpf($camera/slidething.transparency, clampf(1.1-(extra)*delta*5, 0.75, 1), delta*10)
 			if $camera/slidething.transparency < 0: $camera/slidething.transparency = 0
 			$camera/slidething.get_surface_override_material(0).uv2_offset.x -= (extra)*delta*0.1+delta*0.5
 			$camera/slidething.get_surface_override_material(0).uv2_offset.z -= (extra)*delta*0.1+delta*0.5
@@ -222,13 +248,20 @@ func _process(delta):
 		$camera/slidething.get_surface_override_material(0).uv2_offset.x -= (extra)*delta*0.1+delta*0.2
 		$camera/slidething.get_surface_override_material(0).uv2_offset.z -= (extra)*delta*0.1+delta*0.2
 		$camera/slidething.global_rotation.x = 0
+		$camera/slidething.rotation.y = 0
+		#$slidepivot.global_rotation.y = atan2(velocity.x, velocity.z)
 		$camera/slidething.scale = Vector3.ONE*3
 	else:
 		$camera/slidething.transparency = 1
 
 func _physics_process(delta):
+	
+	delta *= physicsscale
+	
 	if !dead && ($camera.current || emoting):
 		
+		if candash:
+			$walljump.global_rotation = Vector3.ZERO
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y -= gravity * delta
@@ -241,8 +274,9 @@ func _physics_process(delta):
 				add_child(tempaudio)
 				tempaudio.stream = load("res://audio/land.wav")
 				tempaudio.volume_db = clampf(-20-falldamagemult, -5, 25)
-				print(tempaudio.volume_db)
 				tempaudio.play()
+				moveeffect("land")
+				
 			falldamagemult = 0
 			
 		if shockwavedmgdelay > 0:
@@ -259,6 +293,10 @@ func _physics_process(delta):
 						velocity.z += cos(direction)*30
 						shockwavedmgdelay = 1
 						hurt(20, "ragdoll")
+				if collision.is_in_group("spike"):
+					if shockwavedmgdelay <= 0:
+						hurt(100, "ragdoll")
+						shockwavedmgdelay = 1
 						
 		if cancrouch:
 			if !$canuncrouch.is_colliding():
@@ -276,7 +314,7 @@ func _physics_process(delta):
 			if ($camera.position.y < 1.02): $camera.position.y = 1.0
 		$stand.disabled = slide
 		$crouch.disabled = !slide
-			
+		
 		if is_on_floor():
 			if !slide:
 				velocity.x *= 1-(floorfriction*delta)
@@ -286,9 +324,56 @@ func _physics_process(delta):
 				velocity.z *= 1-(slidefriction*delta)
 		else:
 			if !slide:
-				velocity.x *= 1-(airfriction*delta)
-				velocity.z *= 1-(airfriction*delta)
-
+				var totelvel = sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))
+				var frict = airfriction
+				totelvel /= 10
+				if totelvel >= 1 && candash && !cancrouch:
+					frict *= 1/totelvel
+				velocity.x *= 1-(frict*delta)
+				velocity.z *= 1-(frict*delta)
+				
+		if candash:
+			var iscol = false
+			for ray in $walljump.get_children():
+				if ray.is_colliding():
+					iscol = true
+					break
+			if iscol && !is_on_floor():
+				walljumpvel.x = lerpf(walljumpvel.x, velocity.x, delta*1)
+				walljumpvel.z = lerpf(walljumpvel.z, velocity.z, delta*1)
+				var totalwallvel = sqrt(pow(walljumpvel.x, 2) + pow(walljumpvel.z, 2))
+				if totalwallvel > 8*SPEED: totalwallvel = 8*SPEED
+				var pitch = clampf((totalwallvel/SPEED)/2, 0.65, 3)
+				var vol = -80+clampf((totalwallvel/SPEED)*20, 50, 80)  
+				if $audio.stream.resource_path.get_file() != "wallslide.tres" || !$audio.playing:
+					playaudio("res://audio/wallslide.tres")
+					print("play wallslide sound")
+					var tempaudio = load("res://tempaudio.tscn").instantiate()
+					add_child(tempaudio)
+					tempaudio.stream = load("res://audio/walllatch.mp3")
+					tempaudio.pitch_scale = pitch
+					tempaudio.volume_db = vol
+					tempaudio.play()
+				#$audio.pitch_scale = lerpf($audio.pitch_scale, pitch, delta*2)
+				$audio.pitch_scale = pitch
+				$audio.volume_db = vol
+			else:
+				if $audio.stream.resource_path.get_file() == "wallslide.tres":
+					$audio.stop()
+				#walljumpvel.x = lerpf(walljumpvel.x, velocity.x, delta)
+				#walljumpvel.z = lerpf(walljumpvel.z, velocity.z, delta)
+				var totalwallvel = sqrt(pow(walljumpvel.x, 2) + pow(walljumpvel.z, 2))
+				var totalvel = sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))
+				walljumpvel = velocity
+				
+		#var ee = sqrt(pow(walljumpvel.x, 2) + pow(walljumpvel.z, 2))
+		#print(ee)
+		
+		if jetpack:
+			if Input.is_action_pressed("jump"):
+				if !is_on_floor() && !is_on_wall():
+					velocity.y += delta*70
+			
 		# Handle Jump.
 		if Input.is_action_just_pressed("jump"):
 			doajump = 1
@@ -297,26 +382,112 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("jump"):
 			doajump -= delta*10 #early jump press
 		if Input.is_action_pressed("zoom"):
-			$camera.fov = 30
+			$camera.fov = $"../".fov*(30.0/75.0)
 		else:
-			$camera.fov = 75
+			$camera.fov = $"../".fov
 		if doajump > 0 && (is_on_floor() || coyote > 0):
 			velocity.y = JUMP_VELOCITY
 			coyote = 0
 			playaudio("res://audio/jump.wav")
+			moveeffect("jump")
 			doajump = 0
 			doublejump = 1
+		if candash:
+			if !cancrouch:
+				if Input.is_action_pressed("crouch"):
+					if velocity.y > -50:
+						velocity.x = lerpf(velocity.x, 0, delta*4)
+						velocity.y -= delta*250
+						velocity.z = lerpf(velocity.z, 0, delta*4)
+		
+			if dashdelay > 0: dashdelay -= delta/dashseconds
+			else:
+				if dashdelay != -10:
+					$"../sfx".stream = load("res://audio/dashcharged.mp3")
+					$"../sfx".play()
+					dashdelay = -10
+			$"../canvas/hud/dash".show()
+			$"../canvas/hud/dash".value = (1-dashdelay)
+			var iscol = false
+			for ray in $walljump.get_children():
+				if ray.is_colliding():
+					iscol = true
+					break
+			if doajump > 0 && iscol:
+				var closest = 0
+				var closestdist = 100
+				for ray in $walljump.get_children():
+					if ray.is_colliding():
+						var pos = ray.global_position-ray.get_collision_point()
+						if sqrt(pow(pos.x, 2) + pow(pos.z, 2)) < closestdist:
+							closestdist = sqrt(pow(pos.x, 2) + pow(pos.z, 2))
+							closest = ray
+				var angle = Vector3(-sin(closest.rotation.y), 0, -cos(closest.rotation.y))
+				var xwall = 1-abs(-sin(rotation.y)-angle.x)/2
+				var zwall = 1-abs(-cos(rotation.y)-angle.z)/2
+				angle.x = lerpf(angle.x, -sin(rotation.y), xwall)
+				angle.z = lerpf(angle.z, -cos(rotation.y), zwall)
+				var totalwallvel = sqrt(pow(walljumpvel.x, 2) + pow(walljumpvel.z, 2))
+				if totalwallvel > 8*SPEED: totalwallvel = 8*SPEED
+				var power = 15
+				velocity.x += angle.x*totalwallvel+angle.x*power
+				velocity.y = JUMP_VELOCITY
+				velocity.z += angle.z*totalwallvel+angle.z*power
+				doajump = 0
+				
+				var pitch = clampf($audio.pitch_scale/2, 0.75, 1.5)
+				var vol = $audio.volume_db
+				var tempaudio = load("res://tempaudio.tscn").instantiate()
+				add_child(tempaudio)
+				tempaudio.stream = load("res://audio/walljump.mp3")
+				tempaudio.pitch_scale = pitch
+				tempaudio.volume_db = vol
+				tempaudio.play()
+		else:
+			$"../canvas/hud/dash".hide()
+				
 		if candoublejump:
-			if doajump > 0 && doublejump > 0 && djdelay <= 0 && velocity.y < JUMP_VELOCITY*0.54 && !$djumpaccidentproofing.is_colliding():
-				velocity.y = JUMP_VELOCITY*1.5
-				playaudio("res://audio/doublejump.wav")
-				doublejump -= 1
-				djdelay = 1
+			if doublejump > 0 && djdelay <= 0 && velocity.y < JUMP_VELOCITY*0.54 && !$djumpaccidentproofing.is_colliding():
+				$"../canvas/hud/doublejump".modulate.v = 1
+				if doajump > 0:
+					velocity.y = JUMP_VELOCITY*1.5
+					playaudio("res://audio/doublejump.wav")
+					doublejump -= 1
+					djdelay = 1
+			else:
+				$"../canvas/hud/doublejump".modulate.v = 0.75
+				
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir = Input.get_vector("left", "right", "up", "down")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		
+		if Input.is_action_pressed("dash"):
+			if candash:
+				var totalvel = sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))
+				if totalvel < 1000 && dashdelay <= 0 && !is_on_floor():
+					dashdelay = 1
+					var power = 30
+					if dashseconds < 0.2: power = 5
+					if direction == Vector3.ZERO:
+						if dashseconds < 0.2: velocity.y -= power*2
+						else:
+							velocity.x /= 5
+							velocity.y -= power*0.3
+							velocity.z /= 5
+					else:
+						velocity.x = totalvel*direction.x+direction.x*power
+						if dashseconds < 0.2: velocity.y += power*2
+						else: velocity.y = power*0.2
+						velocity.z = totalvel*direction.z+direction.z*power
+					var tempaudio = load("res://tempaudio.tscn").instantiate()
+					add_child(tempaudio)
+					if direction != Vector3.ZERO:
+						tempaudio.stream = load("res://audio/dash.mp3")
+					else:
+						tempaudio.stream = load("res://audio/dashstop.mp3")
+					tempaudio.play()
 		
 		if cancrouch:
 			if !is_on_floor() && Input.is_action_just_pressed("crouch"):
@@ -396,6 +567,7 @@ func _physics_process(delta):
 			if direction != Vector3.ZERO && is_on_floor():
 				if $walktimer.is_stopped() && sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 0.5*SPEED:
 					playaudio("res://audio/walk ("+str(randi_range(1, 4))+").wav")
+					moveeffect("run")
 					$walktimer.wait_time = 0.4/SPEED
 					$walktimer.start()
 				if $anim.current_animation != "move": $anim.play("move")
@@ -437,22 +609,40 @@ func _physics_process(delta):
 			$Armature/Skeleton3D.global_rotation.y = lerp_angle($Armature/Skeleton3D.global_rotation.y, atan2(skeldir.x, skeldir.y), delta*4)
 		else:
 			$Armature/Skeleton3D.rotation.y = 0
-					
-		if $djumpaccidentproofing.get_collider() != null:
-			if $djumpaccidentproofing.get_collider().is_in_group("sand"):
-				if sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 0.1 && is_on_floor():
-					$sand.emitting = true
-				else:
-					$sand.emitting = false
-					
+			
+		var djap = $djumpaccidentproofing.get_collider();
+		
+		if djap != null && sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 0.1 && is_on_floor():
+			$sand.emitting = djap.is_in_group("sand")
+			var slideeffect = clamp((sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))-15)/25, 0, 1)
+			if !slide: slideeffect = 0
+			$slidepivot/slideparticle.transparency = lerpf($slidepivot/slideparticle.transparency, 1-slideeffect, delta*5)
+			$walkparticle.emitting = true
+			$slidepivot/slideparticle.emitting = true
+		else:
+			$sand.emitting = false
+			$slidepivot/slideparticle.transparency = lerpf($slidepivot/slideparticle.transparency, 1, delta*20)
+			$walkparticle.emitting = false
+				
 		if !is_on_floor():
 			if $anim.is_playing() || slide:
 				if $anim.current_animation != "jump": $anim.play("jump")
 				
+		velocity *= physicsscale
 		move_and_slide()
+		velocity /= physicsscale
 	else:
 		if $audio.stream.resource_path.get_file() == "slide.tres":
 			$audio.stop()
+		if $audio.stream.resource_path.get_file() == "wallslide.tres":
+			$audio.stop()
+			
+func moveeffect(anim):
+	var effect = load("res://moveeffects.tscn").instantiate()
+	effect.effect = anim
+	effect.position = position
+	effect.rotation = Vector3(0, atan2(-velocity.x, -velocity.z), 0)
+	get_parent().add_child(effect)
 		
 func playaudio(stream, pitch = 1, vol = 5):
 	$audio.stream = load(stream)
@@ -539,20 +729,15 @@ func _unhandled_input(event):
 				if collider.is_in_group("door"):
 					collider.get_child(0).play("open")
 					if collider.name == "paintingdoor":
-						$"../canvas/hud/transitionin".play()
-						$"../".transition = ["loadmap", "res://maps/artstoreinside.tscn", -1]
+						$"../".transitionfunc(["loadmap", "res://maps/artstoreinside.tscn", -1])
 					if collider.name == "exitpaintingdoor":
-						$"../canvas/hud/transitionin".play()
-						$"../".transition = ["loadmap", "res://maps/lobby.tscn", -1, "none", Vector3(0, 1, 10)]
+						$"../".transitionfunc(["loadmap", "res://maps/lobby.tscn", -1, "none", Vector3(0, 1, 10)])
 					if collider.name == "exitcreditsdoor":
-						$"../canvas/hud/transitionin".play()
-						$"../".transition = ["loadmap", "res://maps/lobby.tscn", -1, "none", Vector3(-7, 0, -4)]
+						$"../".transitionfunc(["loadmap", "res://maps/lobby.tscn", -1, "none", Vector3(-7, 0, -4)])
 					if collider.name == "lobbydoor":
-						$"../canvas/hud/transitionin".play()
-						$"../".transition = ["loadmap", "res://maps/lobby.tscn", -1]
+						$"../".transitionfunc(["loadmap", "res://maps/lobby.tscn", -1])
 					if collider.name == "creditsdoor":
-						$"../canvas/hud/transitionin".play()
-						$"../".transition = ["loadmap", "res://maps/credits.tscn", -1]
+						$"../".transitionfunc(["loadmap", "res://maps/credits.tscn", -1])
 				if collider.is_in_group("item"):
 					collider.get_parent().pickup()
 func kill(effect):
@@ -688,20 +873,33 @@ func hurt(dmg, effect):
 			camera.current = true
 		
 		if $"../map/lobbyportal" != null:
-			health = 100
-			position = $"../map/lobbyportal".position
+			pass
 		else:
 			health -= dmg
 			print("ow my balls: " + str(dmg))
 			hiteffect += float(dmg)/100
+			$"../".audioeffectcool = 1
 			$"../canvas/hud/healthparticles".restart()
 			for child in $"../canvas/hud/damageparticles".get_children():
 				child.restart()
 				$"../canvas/hud/damagegradient/anim".play("default")
 			
 			if health <= 0:
-				kill(effect)
-				health = 0
+				if $"../map/lobbyportal" != null:
+					health = 100
+					position = $"../map/lobbyportal".position
+				elif $"../map/lobby" != null:
+					if $"../map/".currentlevel != "none":
+						health = 100
+						var point = $"../map/".get_node("levelrespawn")
+						position = point.position
+						velocity = Vector3.ZERO
+					else:
+						kill(effect)
+						health = 0
+				else:
+					kill(effect)
+					health = 0
 			
 			if health > 0:
 				var hitaudio = load("res://tempaudio.tscn").instantiate()
@@ -722,22 +920,15 @@ func hurt(dmg, effect):
 func updatelook():
 	
 	var loadoutfit = load($"../".outfit).instantiate()
-	
 	for child in $Armature/Skeleton3D/headbone/attachments.get_children():
 		child.queue_free()
-		
 	if loadoutfit.has_node("Armature/Skeleton3D/head"):
 		var headattachments = loadoutfit.get_node("Armature/Skeleton3D/head")
 		for child in headattachments.get_children():
-			var gpos = headattachments.position
-			var grot = headattachments.rotation-$Armature/Skeleton3D/headbone.rotation
-			var gscl = headattachments.scale
-			#var gscl = global_scale()
 			child.reparent($Armature/Skeleton3D/headbone/attachments)
-			child.position = gpos
-			child.rotation = grot
-			child.scale = gscl
-	
+			child.position = headattachments.position
+			child.rotation = headattachments.rotation-$Armature/Skeleton3D/headbone.rotation
+			child.scale = headattachments.scale
 	var mainbody = loadoutfit.get_node("Armature/Skeleton3D/main")
 	$Armature/Skeleton3D/Cube.name = "deletebody"
 	$Armature/Skeleton3D/deletebody.queue_free()
@@ -745,8 +936,15 @@ func updatelook():
 	mainbody.position = Vector3.ZERO
 	mainbody.rotation = Vector3.ZERO
 	mainbody.name = "Cube"
-	print($Armature/Skeleton3D/Cube)
-	
+	if $"../".outfitcolors.has($"../".outfit):
+		if mainbody.has_meta("extracolors"):
+			for i in range(1, mainbody.get_meta("extracolors")+1):
+				var curcolorrgb = $"../".outfitcolors[$"../".outfit][str(i)]
+				var curcolor = Color(curcolorrgb["r"], curcolorrgb["g"], curcolorrgb["b"])
+				mainbody.get_surface_override_material(i).albedo_color = curcolor
+	if mainbody.has_meta("textedit"):
+		var text = mainbody.get_node("text/text")
+		text.text = $"../".outfittext
 	#loadoutfit.queue_free()
 	
 	$Armature/Skeleton3D/Cube.get_surface_override_material(0).albedo_color = $"../".bodycolor
@@ -765,3 +963,7 @@ func updatelook():
 					childagainagain.layers = 32
 	$Armature/Skeleton3D/headbone/offset.add_child(loadhead)
 	
+func setshaders(val):
+	for child in $camera.get_children():
+		if child is ColorRect:
+			child.visible = val

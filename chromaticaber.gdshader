@@ -18,15 +18,15 @@ uniform float blur_outer : hint_range(0, 1) = 0.66; // Outer edge of the blur ef
 void fragment() {
 	vec2 uvs = SCREEN_UV * scale;
 	vec4 final_texture  = texture(screen_texture, uvs);
-	
+
 	float distance = length(UV - vec2(0.5, 0.5));
 
     float blur = smoothstep(blur_inner, blur_outer, distance);
-	
+
 	float r = texture(screen_texture, uvs + vec2(SCREEN_PIXEL_SIZE*red_shift), 0.0).r * red_mult;
 	float g = texture(screen_texture, uvs + vec2(SCREEN_PIXEL_SIZE*green_shift), 0.0).g;
 	float b = texture(screen_texture, uvs + vec2(SCREEN_PIXEL_SIZE*blue_shift), 0.0).b;
 	float a = blur;
-	
+
 	COLOR = vec4(r, g, b, alpha-(blur*blur_effect));
 }

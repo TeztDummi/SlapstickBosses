@@ -410,9 +410,34 @@ func hurt(amount):
 			position = mark.global_position
 			rotation = mark.global_rotation
 			
+			var loadoutfit = load($"../../".outfit).instantiate()
+			for child in $cameraplayer/Skeleton3D/headbone/attachments.get_children():
+				child.queue_free()
+			if loadoutfit.has_node("Armature/Skeleton3D/head"):
+				var headattachments = loadoutfit.get_node("Armature/Skeleton3D/head")
+				for child in headattachments.get_children():
+					child.reparent($cameraplayer/Skeleton3D/headbone/attachments)
+					child.position = headattachments.position
+					child.rotation = headattachments.rotation-$cameraplayer/Skeleton3D/headbone.rotation
+					child.scale = headattachments.scale
+			var mainbody = loadoutfit.get_node("Armature/Skeleton3D/main")
+			$cameraplayer/Skeleton3D/Cube.name = "deletebody"
+			$cameraplayer/Skeleton3D/deletebody.queue_free()
+			mainbody.reparent($cameraplayer/Skeleton3D)
+			mainbody.position = Vector3.ZERO
+			mainbody.rotation = Vector3.ZERO
+			mainbody.name = "Cube"
+			if $"../../".outfitcolors.has($"../../".outfit):
+				if mainbody.has_meta("extracolors"):
+					for i in range(1, mainbody.get_meta("extracolors")+1):
+						var curcolorrgb = $"../../".outfitcolors[$"../../".outfit][str(i)]
+						var curcolor = Color(curcolorrgb["r"], curcolorrgb["g"], curcolorrgb["b"])
+						mainbody.get_surface_override_material(i).albedo_color = curcolor
+			
 			$cameraplayer/Skeleton3D/Cube.get_surface_override_material(0).albedo_color = $"../../".bodycolor
 			var loadhead = load($"../../".head).instantiate()
 			$cameraplayer/Skeleton3D/headbone/offset.add_child(loadhead)
+			
 			
 			dead = true
 			$"../../canvas/hud/bossbar".hide()

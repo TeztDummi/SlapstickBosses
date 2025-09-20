@@ -1,4 +1,8 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://bavmsfpi6mbo2"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://bavmsfpi6mbo2"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
+resource_name = "Limiter"
+soft_clip_db = 0.0
 
 [sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
 resource_name = "Distortion"
@@ -12,14 +16,29 @@ resource_name = "LowPassFilter"
 cutoff_hz = 20500.0
 db = 3
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+room_size = 0.0
+damping = 1.0
+dry = 0.3
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_g28q7"]
+resource_name = "LowPassFilter"
+
 [resource]
 bus/0/volume_db = 0.00282288
-bus/0/effect/0/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")
 bus/0/effect/0/enabled = true
-bus/0/effect/1/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/0/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
 bus/0/effect/1/enabled = true
-bus/0/effect/2/effect = SubResource("AudioEffectLowPassFilter_j3pel")
+bus/0/effect/2/effect = SubResource("AudioEffectPitchShift_j3pel")
 bus/0/effect/2/enabled = true
+bus/0/effect/3/effect = SubResource("AudioEffectLowPassFilter_j3pel")
+bus/0/effect/3/enabled = true
+bus/0/effect/4/effect = SubResource("AudioEffectReverb_j3pel")
+bus/0/effect/4/enabled = false
+bus/0/effect/5/effect = SubResource("AudioEffectLowPassFilter_g28q7")
+bus/0/effect/5/enabled = false
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false

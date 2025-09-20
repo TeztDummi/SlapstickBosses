@@ -221,7 +221,6 @@ func slap(side):
 func _on_timestop_timeout():
 	get_tree().paused = false
 
-
 func leftanim(anim_name: StringName) -> void:
 	if anim_name == "left/grab":
 		$leftcan/can/anim.play("left/idle")

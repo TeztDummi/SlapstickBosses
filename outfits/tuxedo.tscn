@@ -292,7 +292,7 @@ bones/12/rotation = Quaternion(-0.458783, -0.538069, 0.458783, 0.538069)
 bones/12/scale = Vector3(1, 1, 1)
 
 [node name="head" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(1, 1.42108e-14, 0, -1.42108e-14, 1, 1.42109e-14, -1.42109e-14, -1.42109e-14, 1, 4.91402e-15, 4.76837e-07, 4.12218e-08)
+transform = Transform3D(1, 1.42108e-14, 9.9476e-14, -1.42108e-14, 1, 7.10543e-15, -9.9476e-14, -7.10543e-15, 1, 4.914e-15, 9.53674e-07, 4.12217e-08)
 bone_name = "Cube.001"
 bone_idx = 4
 
@@ -308,3 +308,4 @@ skin = SubResource("Skin_p4wr3")
 surface_material_override/0 = SubResource("StandardMaterial3D_hmrlq")
 surface_material_override/1 = SubResource("StandardMaterial3D_n3teu")
 surface_material_override/2 = SubResource("StandardMaterial3D_gvh32")
+metadata/extracolors = 2

@@ -10,7 +10,6 @@ var damagemult = 1
 func _ready():
 	var dir = (global_position-$direction.global_position).normalized()
 	position += dir*1
-	print(rotation.x)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

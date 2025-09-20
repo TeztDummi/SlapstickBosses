@@ -30,6 +30,10 @@ func _on_start_body_entered(body: Node3D) -> void:
 			$"../../music".play()
 			$intro.play("default")
 			$introcam.current = true
+			for child in $"../../map".get_children():
+				for roomchild in child.get_children():
+					if roomchild.is_in_group("popcop"):
+						roomchild.queue_free()
 			player.health = 100
 		else:
 			$sodabox._on_anim_animation_finished("intro")

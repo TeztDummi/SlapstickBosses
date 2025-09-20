@@ -55,6 +55,7 @@ func _on_pausebg_animation_finished():
 			hide()
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			$"../../../music".stream_paused = false
+			$"../../../musictransition".stream_paused = false
 			get_tree().paused = false
 			$"../../..".save_game()
 			$"../../.."._on_options_back_pressed()
@@ -63,8 +64,7 @@ func _on_pausebg_animation_finished():
 func _on_lobby_pressed():
 	_on_resume_pressed()
 	if $"../../../map".get_child(0).name != "lobby":
-		$"../../../canvas/hud/transitionin".play()
-		$"../../../".transition = ["loadmap", "res://maps/lobby.tscn", -1]
+		$"../../../".transitionfunc(["loadmap", "res://maps/lobby.tscn", -1])
 		$"../../../".save_game()
 
 
@@ -81,8 +81,7 @@ func _on_difficulty_pressed() -> void:
 func _on_difficultyselect_item_selected(index: int) -> void:
 	var dildo = index
 	_on_resume_pressed()
-	$"../../../canvas/hud/transitionin".play()
-	$"../../../".transition = ["loadmap", "res://maps/"+$"../../../map".get_child(0).name+".tscn", dildo]
+	$"../../../".transitionfunc(["loadmap", "res://maps/"+$"../../../map".get_child(0).name+".tscn", dildo])
 
 func _on_restart_pressed() -> void:
 	_on_resume_pressed()

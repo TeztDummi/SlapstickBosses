@@ -198,3 +198,4 @@ mesh = SubResource("ArrayMesh_u5a8a")
 skin = SubResource("Skin_hj8vu")
 surface_material_override/0 = SubResource("StandardMaterial3D_m1prp")
 surface_material_override/1 = SubResource("StandardMaterial3D_2ujyt")
+metadata/extracolors = 1

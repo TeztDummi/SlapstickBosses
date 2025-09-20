@@ -65,24 +65,20 @@ func start(thething, characterobjfunc = null):
 	get_tree().paused = true
 	playtime = $"../../../music".get_playback_position()
 	song = $"../../../music".stream.resource_path.get_file()
-	$"../../../music".stream = load("res://audio/music/talkymusic.mp3")
 	if (conv.get_parent() == $"../../../conversations/ted"):
-		$"../../../music".stream = load("res://audio/music/tedmusic.mp3")
-	$"../../../music".play()
-	if song == "lobbymusic.mp3":
-		$"../../../music".seek(playtime)
-	
+		$"../../../".transitionmusic("res://audio/music/tedmusic.mp3", 1, !(song == "lobbymusic.mp3"))
+	elif (conv.get_parent() == $"../../../conversations/lips"):
+		$"../../../".transitionmusic("res://audio/music/outfittheme.mp3", 1, !(song == "lobbymusic.mp3"))
+	else:
+		$"../../../".transitionmusic("res://audio/music/talkymusic.mp3", 1, !(song == "lobbymusic.mp3"))
+		
 func end():
 	hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
 	$"../../../".save_game()
 	#print(song)
-	var newplaytime = $"../../../music".get_playback_position()
-	$"../../../music".stream = load("res://audio/music/"+str(song))
-	$"../../../music".play()
-	if song == "lobbymusic.mp3": $"../../../music".seek(newplaytime)
-	else: $"../../../music".seek(playtime)
+	$"../../../".transitionmusic("res://audio/music/"+str(song), 1, !(song == "lobbymusic.mp3"))
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -105,14 +101,15 @@ func _process(delta):
 					var soundplayer = $talksound
 					#if soundalternate: soundplayer = $talksound2
 					#soundalternate = !soundalternate 
-					if $talklabel.text[$talklabel.visible_characters] != "*":
-						if $talklabel.text[$talklabel.visible_characters] != " ":
-							soundplayer.stream = load("res://audio/characters/"+sound+"_"+str(randi_range(0, 2))+".mp3")
+					if !$firstsound.playing:
+						if $talklabel.text[$talklabel.visible_characters] != "*":
+							if $talklabel.text[$talklabel.visible_characters] != " ":
+								soundplayer.stream = load("res://audio/characters/"+sound+"_"+str(randi_range(0, 2))+".mp3")
+								soundplayer.play()
+						else:
+							soundplayer.stream = load("res://audio/characters/censortext.mp3")
 							soundplayer.play()
-					else:
-						soundplayer.stream = load("res://audio/characters/censortext.mp3")
-						soundplayer.play()
-					soundtimer = 0 
+						soundtimer = 0 
 		spokentext += delta*talkspeed
 		if $talklabel.visible_ratio < 1:
 			$talklabel.visible_characters = round(spokentext)
@@ -191,6 +188,12 @@ func decode():
 	if conv.has_meta("speed"):
 		talkspeed = conv.get_meta("speed")
 	else: talkspeed = 20
+	
+	
+	if conv.has_meta("firstsound"):
+		$firstsound.stream = load("res://audio/characters/"+conv.get_meta("firstsound")+".mp3")
+		$firstsound.play()
+	
 	for num in range(4):
 		if conv.get_child(num) != null:
 			var option = get_node("talkoptions/"+str(num))
@@ -199,6 +202,7 @@ func decode():
 			if conv.get_child(num).name == "[NEXT]": option.hide()
 			if conv.get_child(num).name == "[LEAVE]": option.hide()
 			if conv.get_child(num).name == "[COSMETICS]": option.hide()
+			if conv.get_child(num).name == "[OUTFITS]": option.hide()
 			if conv.get_child(num).name == "[CUTSCENE]": option.hide()
 			if conv.get_child(num).name == "[QUIT]": option.hide()
 			if conv.get_child(num).name == "[GOTO]": option.hide()
@@ -267,8 +271,15 @@ func option_press(num):
 					$"../cosmetics/cosmeticbg".play("start")
 					$"../cosmetics".show()
 					$"../cosmetics".start()
-					$"../cosmetics".alpha = 0
 					$"../cosmetics".isin = true
+		elif option.name == "[OUTFITS]":
+			if !$"../outfits".visible:
+				if !$"../outfits/cosmeticbg".is_playing():
+					$"../outfits/cosmeticbg".play("start")
+					$"../outfits".show()
+					$"../outfits".start()
+					$"../outfits".alpha = 0
+					$"../outfits".isin = true
 		elif option.name == "[CUTSCENE]":
 			if $"../../../map/talkcam" != null:
 				camera = $"../../../map/talkcam"

@@ -41,4 +41,4 @@ func _on_timer_timeout():
 	if time < dietime:
 		for person in $radiation.get_overlapping_bodies():
 			if person.is_in_group("playergroup"):
-				person.hurt(5, "radiation")
+				person.hurt(3, "radiation")

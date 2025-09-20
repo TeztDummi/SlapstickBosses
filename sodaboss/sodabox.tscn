@@ -6538,7 +6538,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_ar8h8")
 surface_material_override/2 = SubResource("StandardMaterial3D_gnfhn")
 
 [node name="toprightmouth" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.707108, -0.707106, 7.41429e-16, 0.707106, 0.707108, -7.41432e-16, 6.08805e-22, 1.04854e-15, 1, -0.521067, 6, -1)
+transform = Transform3D(0.707108, -0.707106, 7.41429e-16, 0.707106, 0.707108, -7.41432e-16, 7.14684e-22, 1.04854e-15, 1, -0.521067, 6, -1)
 bone_name = "toprightmouth"
 bone_idx = 14
 
@@ -6759,6 +6759,9 @@ bone_idx = 1
 
 [node name="offset" type="Marker3D" parent="cameraplayer/Skeleton3D/headbone"]
 transform = Transform3D(-1, 7.05768e-09, 8.00937e-08, 4.48199e-09, 0.999466, -0.0326306, -8.75443e-08, -0.0326305, -0.999467, 1.1996e-09, 0.399946, -0.00652698)
+
+[node name="attachments" type="Marker3D" parent="cameraplayer/Skeleton3D/headbone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)
 
 [node name="audio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)

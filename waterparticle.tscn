@@ -1,0 +1,183 @@
+[gd_scene load_steps=14 format=3 uid="uid://if6t4ad5canv"]
+
+[ext_resource type="Texture2D" uid="uid://d0sqr3ekfr1hf" path="res://ui/splatterparticle.png" id="1_845m3"]
+[ext_resource type="Texture2D" uid="uid://dnq7ku8owlbdu" path="res://textures/circle.png" id="2_r1vdp"]
+[ext_resource type="AudioStream" uid="uid://c6slyu2l6out5" path="res://audio/splash.mp3" id="3_r1vdp"]
+
+[sub_resource type="Curve" id="Curve_w8n40"]
+_data = [Vector2(0, 0.418584), 0.0, 0.0, 0, 0, Vector2(0.376307, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f3mof"]
+curve = SubResource("Curve_w8n40")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tv2mx"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.2
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 1.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_f3mof")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_teim6"]
+transparency = 4
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.31, 0.0372, 0.0372, 1)
+albedo_texture = ExtResource("1_845m3")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t10rh"]
+material = SubResource("StandardMaterial3D_teim6")
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rupe3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyh0f"]
+transparency = 4
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.34, 0, 0, 1)
+albedo_texture = ExtResource("2_r1vdp")
+
+[sub_resource type="Animation" id="Animation_qlrhd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blood:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ripple:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ripple:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_ckl2y"]
+resource_name = "default"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blood:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ripple:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2),
+"transitions": PackedFloat32Array(0.267943, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ripple:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.392292, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(6, 6, 6)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l15ep"]
+_data = {
+&"RESET": SubResource("Animation_qlrhd"),
+&"default": SubResource("Animation_ckl2y")
+}
+
+[node name="waterparticle" type="Node3D"]
+
+[node name="blood" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 10
+lifetime = 2.2
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-53.3298, -26.2898, -35.9962, 106.66, 52.5795, 71.9924)
+process_material = SubResource("ParticleProcessMaterial_tv2mx")
+draw_pass_1 = SubResource("PlaneMesh_t10rh")
+
+[node name="ripple" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
+transparency = 1.0
+mesh = SubResource("PlaneMesh_rupe3")
+surface_material_override/0 = SubResource("StandardMaterial3D_tyh0f")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_l15ep")
+}
+autoplay = "default"
+
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_r1vdp")
+autoplay = true

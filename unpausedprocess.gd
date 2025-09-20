@@ -2,11 +2,20 @@ extends Node3D
 
 var pausedcuzoverlay = false
 
+var musictransition = 1.0
+var musictransspeed = 1
+
 func _ready():
 	Steam.overlay_toggled.connect(_on_overlay_toggled)
 
 func _process(delta):
 	Steam.run_callbacks()
+
+	if musictransition < 1: musictransition += delta/musictransspeed
+	else: musictransition = 1
+	
+	$"../music".volume_linear = musictransition
+	$"../musictransition".volume_linear = 1-musictransition
 				
 func _on_overlay_toggled(param1, param2, param3):
 	if param1:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=166 format=4 uid="uid://cbjbf4vmqutja"]
+[gd_scene load_steps=167 format=4 uid="uid://cbjbf4vmqutja"]
 
 [ext_resource type="Script" uid="uid://dgchgi1plwqsg" path="res://maps/gunmanarena.gd" id="1_ephll"]
 [ext_resource type="Texture2D" uid="uid://cqonc4ujyr2gr" path="res://textures/defaulttexture/defaulttexture.png" id="2_44s8l"]
+[ext_resource type="Texture2D" uid="uid://01y67n6x6gey" path="res://textures/techlogo.png" id="4_a0cls"]
 [ext_resource type="Texture2D" uid="uid://fr1er32jve6" path="res://textures/defaulttexture/defaulttexturenormal.png" id="4_k501v"]
 [ext_resource type="Texture2D" uid="uid://dc2h1yqwxlv8f" path="res://textures/Paint004_2K-JPG/Paint004_2K-JPG_Color.jpg" id="5_f3vvd"]
 [ext_resource type="PackedScene" uid="uid://imvrtuo3xy2d" path="res://glasswall.tscn" id="5_w17rb"]
@@ -2292,7 +2293,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cy2n2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtkqp"]
-albedo_color = Color(0.8, 0.664, 0.664, 1)
+albedo_color = Color(0.8, 0.576, 0.576, 1)
 albedo_texture = ExtResource("5_f3vvd")
 roughness_texture = ExtResource("7_mqb0u")
 normal_enabled = true
@@ -3471,6 +3472,8 @@ background_color = Color(0.303112, 0.205541, 0.225147, 1)
 sky = SubResource("Sky_vwhee")
 tonemap_mode = 2
 ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_min_cell_size = 3.0
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6nj1"]
@@ -3490,7 +3493,7 @@ albedo_color = Color(0.473121, 0.565728, 0.618031, 1)
 resource_name = "mat15"
 albedo_color = Color(0.815251, 0.854306, 0.865042, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_smqij"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_bl458"]
 _surfaces = [{
 "aabb": AABB(-2.39715, -0.760251, 0.171825, 3.93003, 2.27001, 1.09971e-05),
 "format": 34896613377,
@@ -3586,18 +3589,18 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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1kiskTPN3y9s2Z4WM83fL23ZnhatESk3Gs8bTzPN3y+tESk31kiskRrPG08zzd8v1kiskf4mgb2+ITDc1kiskf////9s2Z4WWEbVqF3omTEazxtPXeiZMf////+s0Fkh/////6zQWSFJNvQYGs8bT6zQWSFJNvQYGs8bTxsFgb9JNvQYWEbVqG8l38r/////byXfyhrPG08bBYG/XeiZMRrPG0+s0FkhWEbVqG8l38oazxtPbyXfyv////8bBYG//////xsFgb9JNvQYWEbVqF3omTH/////WEbVqF3omTH/////XeiZMf////+s0Fkh/////6zQWSFJNvQYXeiZMRrPG0+s0FkhGs8bT6zQWSFJNvQY/////xsFgb9JNvQYbyXfyv////8bBYG/byXfyhvPG08bBYG/L9qp2CrqqLU+E8aVNcw89z4TxpUgmdBTPhPGlcnnRHXKti1hafGkAsnnRHXKti1hWEbVqF3omTEazxtPKuqotWnxpALJ50R1KuqotT4TxpXJ50R1Gs8bTxsFgb9JNvQYPhPGlSCZ0FPKti1hWEbVqG8l38oazxtPWEbVqG8l38r/////afGkAiCZ0FPKti1hNcw892nxpAIgmdBTL9qp2DXMPPdp8aQCL9qp2DXMPPc+E8aVL9qp2CrqqLVp8aQC")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_smqij")
+shadow_mesh = SubResource("ArrayMesh_bl458")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0mjgc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_a0cls"]
 viewport_path = NodePath("drone4/viewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yvn5"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_0mjgc")
+albedo_texture = SubResource("ViewportTexture_a0cls")
 metallic_specular = 1.0
 roughness = 0.0
 emission_energy_multiplier = 0.1
-emission_texture = SubResource("ViewportTexture_0mjgc")
+emission_texture = SubResource("ViewportTexture_a0cls")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_32goy"]
 viewport_path = NodePath("drone/viewport")
@@ -3909,8 +3912,19 @@ metadata/discdiff = true
 
 [node name="light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 7, 0)
-light_energy = 0.75
-light_angular_distance = 1.5
+light_energy = 0.4
+shadow_enabled = true
+shadow_opacity = 0.6
+
+[node name="light2" type="DirectionalLight3D" parent="light"]
+transform = Transform3D(-0.707107, 0.5, 0.5, -0.5, 0.146447, -0.853553, -0.5, -0.853553, 0.146447, 0, 0, 0)
+light_energy = 0.4
+shadow_enabled = true
+shadow_opacity = 0.6
+
+[node name="light3" type="DirectionalLight3D" parent="light"]
+transform = Transform3D(-0.707107, -0.5, -0.5, 0.5, 0.146447, -0.853553, 0.5, -0.853553, 0.146447, 0, 0, 0)
+light_energy = 0.4
 shadow_enabled = true
 shadow_opacity = 0.6
 
@@ -4201,6 +4215,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mapsoicanscaleit/wall_003/jakeproofing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.363, 0)
 shape = SubResource("BoxShape3D_e01wg")
+
+[node name="Decal" type="Decal" parent="mapsoicanscaleit/wall_003"]
+transform = Transform3D(1.35103e-07, -1, -2.6558e-14, -1.35103e-07, 0, -1, 1, 1.35103e-07, -1.35103e-07, -3.7, 12, 0)
+size = Vector3(10, 0.05, 10)
+texture_albedo = ExtResource("4_a0cls")
 
 [node name="Cube" type="MeshInstance3D" parent="mapsoicanscaleit"]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)

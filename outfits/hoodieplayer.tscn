@@ -6,6 +6,7 @@
 resource_name = "Material.005"
 cull_mode = 2
 vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
 albedo_texture = ExtResource("1_5sgyd")
 roughness = 0.5
 
@@ -252,15 +253,18 @@ bones/12/rotation = Quaternion(-0.458783, -0.538069, 0.458783, 0.538069)
 bones/12/scale = Vector3(1, 1, 1)
 
 [node name="head" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.499954, -7.52773e-11, -0.00681487, 0.000111202, 0.499933, 0.00815801, 0.00681396, -0.00815877, 0.499887, -0.00141871, 1.29234, -0.0858053)
+transform = Transform3D(0.499954, -7.52738e-11, -0.00681487, 0.000111202, 0.499933, 0.00815801, 0.00681397, -0.00815877, 0.499887, -0.00141871, 1.29234, -0.0858053)
 bone_name = "Cube.001"
 bone_idx = 4
 
 [node name="Cube_001" type="MeshInstance3D" parent="Armature/Skeleton3D/head"]
 mesh = SubResource("ArrayMesh_5sgyd")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_vgh3v")
 
 [node name="main" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_7pwwi")
 skin = SubResource("Skin_wogpo")
 surface_material_override/0 = SubResource("StandardMaterial3D_5sgyd")
+surface_material_override/1 = SubResource("StandardMaterial3D_vgh3v")
+metadata/extracolors = 1

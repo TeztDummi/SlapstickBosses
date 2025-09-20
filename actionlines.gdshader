@@ -60,5 +60,5 @@ void fragment() {
     vec4 tex = texture(SCREEN_TEXTURE, SCREEN_UV);
     vec3 color = mix(tex.rgb, LineColor.rgb, value * LineColor.a);
 	
-    COLOR = vec4(color, 1.0);
+    COLOR = vec4(color, value * LineColor.a);
 }

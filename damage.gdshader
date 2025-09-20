@@ -53,5 +53,5 @@ void fragment() {
 	
 	//color.s *= 2.0;
 
-    COLOR = color;
+    COLOR = vec4(color.rgb, sqrt(amount));
 }

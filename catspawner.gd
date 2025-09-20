@@ -84,17 +84,7 @@ func _process(delta):
 						enemyqueue.append("res://cats/roobeer.tscn")
 				if wave == 6:
 					if $"../../music".stream.resource_path.get_file() != "spicycatboss.mp3":
-						var playtime = $"../../music".get_playback_position()
-						playtime -= 2.82
-						for i in range(10):
-							if playtime > 22.58:
-								playtime -= 22.58
-							else:
-								break
-						
-						$"../../music".stream = load("res://audio/music/spicycatboss.mp3")
-						$"../../music".play()
-						$"../../music".seek(playtime)
+						$"../../".transitionmusic("res://audio/music/spicycatboss.mp3", 1, true, 22.58, -2.82)
 					maxenemys = (ceil(8*multiplier)+ceil(4*multiplier)+ceil(2*multiplier)+ceil(2*multiplier))*0.75
 					for i in range(ceil(8*multiplier)):
 						enemyqueue.append("res://cats/oneofthem.tscn")

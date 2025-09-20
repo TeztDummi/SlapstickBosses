@@ -9,21 +9,19 @@ func _process(delta):
 		if sin(boinging) < 0:
 			boinging = 0
 			get_parent().playanim()
-	if $fuckukevin == null: print(name)
 	for body in $fuckukevin.get_overlapping_bodies():
 		if body.is_in_group("playergroup"):
 			if body.velocity.y > 30:
 				body.velocity.y = 30
-				print("goink gloink kevin a bitchass")
 
 func _ready():
 	if has_meta("boinging"): boinging = get_meta("boinging")
-	if name != "boingtard":
+	if $mesh.get_surface_override_material(0).albedo_color == Color.WHITE:
 		var dupe = $mesh.get_surface_override_material(0).duplicate()
 		$mesh.set_surface_override_material(0, dupe)
 		
 		$mesh.get_surface_override_material(0).albedo_color = Color.from_hsv(randf_range(0.333, 0.666), 0.5, 1)
-	else:
+	elif name == "boingtard":
 		if $"../../".deadboing:
 			$CollisionShape3D.disabled = true
 			$mesh.get_surface_override_material(0).albedo_texture = load("res://characters/boingdead.png")
@@ -32,6 +30,13 @@ func _on_area_body_entered(body):
 		if name != "boingtard":
 			body.velocity.y = 30
 			body.position.y += 1
+			body.doublejump = 1
+			if has_meta("boingchallenge"):
+				if $"../".boingchallenge == get_meta("boingchallenge") || $"../".boingchallenge-1 == get_meta("boingchallenge"):
+					$"../".setboingchallenge(get_meta("boingchallenge")+1)
+				else:
+					$"../".setboingchallenge(0)
+					print("lostchallengeboing")
 			playanim()
 		else:
 			if !$"../../".deadboing:

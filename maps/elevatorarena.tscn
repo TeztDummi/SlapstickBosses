@@ -79,12 +79,12 @@ size = Vector3(40, 40, 40)
 shading_mode = 0
 albedo_color = Color(0.00784314, 0, 0.0901961, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17u3k"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awgnp"]
 shading_mode = 0
 albedo_texture = ExtResource("2_vicvr")
 
 [sub_resource type="SphereMesh" id="SphereMesh_r3mul"]
-material = SubResource("StandardMaterial3D_17u3k")
+material = SubResource("StandardMaterial3D_awgnp")
 flip_faces = true
 
 [sub_resource type="Gradient" id="Gradient_t72t2"]

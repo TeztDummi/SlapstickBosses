@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://db2y2cyhnpmv" path="res://ui/sliderdotunhovered.png" id="2_dnr1t"]
 [ext_resource type="Texture2D" uid="uid://e7f3tmeesr0" path="res://ui/sliderdot.png" id="3_mwsqg"]
 [ext_resource type="Texture2D" uid="uid://kfv131816ydq" path="res://ui/slider.png" id="4_xl7oo"]
-[ext_resource type="FontFile" uid="uid://dmbh6ql3grduq" path="res://BieksaFreeTrial-RpdWE.otf" id="5_agh4v"]
+[ext_resource type="FontFile" uid="uid://bhrnhb6hijffl" path="res://Invade-eZBZ6.otf" id="5_05tig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41ngh"]
 bg_color = Color(1, 1, 1, 0)
@@ -48,5 +48,6 @@ Label/colors/font_shadow_color = Color(0, 0, 0, 1)
 Label/constants/shadow_offset_y = 5
 Label/constants/shadow_outline_size = 1
 Label/fonts/font = ExtResource("1_d4qmt")
-RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
-RichTextLabel/fonts/normal_font = ExtResource("5_agh4v")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/fonts/normal_font = ExtResource("1_d4qmt")
+TextEdit/fonts/font = ExtResource("5_05tig")

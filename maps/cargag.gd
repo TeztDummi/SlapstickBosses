@@ -40,10 +40,14 @@ func togglelight():
 		red = true
 		$trafficlight/redlight.get_surface_override_material(0).emission_energy_multiplier = 1
 		$trafficlight/greenlight.get_surface_override_material(0).emission_energy_multiplier = 0
+		$trafficlight/redlight/red.show()
+		$trafficlight/greenlight/green.hide()
 	elif red == true:
 		red = false
 		$trafficlight/redlight.get_surface_override_material(0).emission_energy_multiplier = 0
 		$trafficlight/greenlight.get_surface_override_material(0).emission_energy_multiplier = 1
+		$trafficlight/redlight/red.hide()
+		$trafficlight/greenlight/green.show()
 
 func _on_redlightarea_body_entered(body):
 	if body.is_in_group("playergroup"):

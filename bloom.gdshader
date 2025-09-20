@@ -17,19 +17,19 @@ void fragment() {
 	float r = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE), 0.0).r;
 	float g = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE), 0.0).g;
 	float b = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE), 0.0).b;
-	
+
 	vec4 col = texture(SCREEN_TEXTURE, SCREEN_UV);
-	
+
 	vec3 hsvcol = rgb_to_hsv(vec3(col.r, col.g, col.b));
-	
+
 	float y = texture(noise_texture, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE), 0.0).s;
-	
+
 	float a = hsvcol.y*hsvcol.z;
 	float reala = pow(a,2);
-	
-	
+
+
 	col.rgb = mix(col.rgb, vec3(1.0), alpha);
-	
+
 	COLOR = vec4(col.rgb, reala-y);
 	//COLOR = vec4(a, a, a, 1.0);
 }

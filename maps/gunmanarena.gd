@@ -31,7 +31,8 @@ func _on_starttimer_timeout():
 		player.djseconds = 8
 
 func _process(delta):
-	$light.rotation.y += delta*0.5
+	if $"../".quality >= 2:
+		$light.rotation.y += delta*0.5
 	
 	if !dronesdestroyed:
 		if $drone.dead:

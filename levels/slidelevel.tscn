@@ -1,0 +1,850 @@
+[gd_scene load_steps=8 format=3 uid="uid://bne5ytud44s0p"]
+
+[ext_resource type="PackedScene" uid="uid://8d1eknlhik60" path="res://9patch.tscn" id="1_03q6v"]
+[ext_resource type="PackedScene" uid="uid://d34snuweg0es8" path="res://sodaboss/springmachine.tscn" id="2_poj10"]
+[ext_resource type="PackedScene" uid="uid://dhrd6vn43dy4r" path="res://spike.tscn" id="3_t47cv"]
+[ext_resource type="Script" uid="uid://c0yabslkk3r1p" path="res://fall.gd" id="4_t47cv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ye72"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.137255)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ruudk"]
+material = SubResource("StandardMaterial3D_4ye72")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_poj10"]
+size = Vector3(324.657, 1, 755.399)
+
+[node name="slidelevel" type="Node3D"]
+
+[node name="9patch4" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(2.5, 0, 0, 0, 3.25, 0, 0, 0, 17.5, 0, -9, -17.5833)
+
+[node name="9patch5" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(2.5, 0, 0, 0, 3.25, 0, 0, 0, 10, 0, -16, -95.8446)
+
+[node name="9patch12" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 15.4116, -6.78771, -131.806)
+
+[node name="9patch22" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 10.9445, -14.7849, -186.034)
+
+[node name="9patch44" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 7, -7, -250)
+
+[node name="9patch45" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -2.58819, 0, 0.258819, 9.65926, 7, -7, -267)
+
+[node name="9patch46" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -5, 0, 0.5, 8.66025, 7, -7, -276)
+
+[node name="9patch47" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -7.07107, 0, 0.707107, 7.07107, 7, -7, -282.3)
+
+[node name="9patch48" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 0.5, -8.66025, 0, 0.866025, 5, 7, -7, -287.6)
+
+[node name="9patch49" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(0.997092, -0.0726388, -0.230681, -0.00262115, 0.269813, -9.62909, 0.0761687, 0.960169, 2.68838, 7, -7, -292.2)
+
+[node name="9patch50" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(0.997092, -0.0726388, -0.230681, -0.0222457, 0.0121097, -9.99679, 0.0728949, 0.997285, 0.104586, 7, -7, -296.7)
+
+[node name="9patch53" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-1, -4.37114e-08, -7.57103e-07, 0, 0.866025, -5, 8.74228e-08, -0.5, -8.66025, 7, -11, -318.657)
+
+[node name="9patch54" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-1, -6.18172e-08, -6.18172e-07, 0, 0.707107, -7.07107, 8.74228e-08, -0.707107, -7.07107, 7, -11, -312.357)
+
+[node name="9patch55" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-1, -7.57103e-08, -4.37114e-07, 0, 0.5, -8.66025, 8.74228e-08, -0.866025, -5, 7, -9, -306.057)
+
+[node name="9patch56" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-0.997092, 0.0726388, 0.23068, -0.00262115, 0.269813, -9.62909, -0.0761686, -0.960169, -2.68838, 7, -8, -301.457)
+
+[node name="9patch28" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 10.9445, -31.9097, -169.972)
+
+[node name="9patch13" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, -11.0829, -2.25875, -117.845)
+
+[node name="9patch14" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, -11.9887, -18.1101, -151.768)
+
+[node name="9patch15" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 10.4297, -23.3184, -117.845)
+
+[node name="9patch21" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 8.84459, -5.65547, -160.842)
+
+[node name="9patch6" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 3, 0, -21.5494, -139.162)
+
+[node name="9patch8" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(2.12132, -2.12132, 0, 2.12132, 2.12132, 0, 0, 0, 3.15272, 0, -24.3867, -139.162)
+
+[node name="9patch7" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(2.5, 0, 0, 0, 3.5, 0, 0, 0, 11.5, 0, -26.0706, -213.388)
+
+[node name="9patch40" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-2.5, -7.91934e-08, 2.95554e-07, 0, 3.38074, 0.905867, -2.18557e-07, 0.905867, -3.38074, -8.62873e-07, -33.7876, -206.414)
+
+[node name="9patch41" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-2.5, -2.64986e-07, 1.5299e-07, 0, 1.75, 3.03109, -2.18557e-07, 3.03109, -1.75, -3.77255e-07, -40.9955, -211.968)
+
+[node name="9patch42" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-2.5, -2.95554e-07, -3.95967e-08, 0, -0.905867, 1.69037, -2.18557e-07, 3.38074, 0.452933, 3.78984e-07, -40.4376, -220.619)
+
+[node name="9patch43" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-2.5, -1.5299e-07, -7.57103e-08, 0, -3.03109, 0.5, -2.18557e-07, 1.75, 0.866026, 8.61147e-07, -35.2936, -226.134)
+
+[node name="9patch20" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-8.5852, -1.69037e-07, 0, 7.50542e-07, -1.93356, 0, 0, 0, 4.34193, 0, -29.7024, -235.994)
+
+[node name="9patch38" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(11.3325, 0, 0, 0, 7.73424, 0, 0, 0, 1.09248, 0, 18.929, -223.372)
+
+[node name="9patch23" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(9.44372, 0, 0, 0, 2.91689, 0.531231, 0, -1.68407, 0.920118, 0, 17.8421, -225.051)
+
+[node name="9patch24" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(10.3022, 9.63604e-08, 2.00746e-08, -3.41715e-07, 2.36569, 0.655008, 4.49877e-08, -4.09749, 0.378169, 0, 20.7551, -229.785)
+
+[node name="9patch25" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(11.1608, 9.90834e-08, 7.73071e-16, -2.27303e-07, 4.86507, 0, -9.93573e-15, -4.26326e-14, 0.868387, 0, 27.1193, -234.061)
+
+[node name="9patch9" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(6, 0, 0, 0, 3.23763, 3.96559, 0, -0.283256, 45.3269, 0, -14, -285.202)
+
+[node name="9patch10" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(9, 0, 0, 0, 1, -1.66893e-07, 0, 9.16994e-09, 18.2, 0, -13.8, -312.602)
+
+[node name="9patch18" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-1.31134e-07, 0, 15, 0, 3, 0, -3, 0, -6.55671e-07, -44.9491, -38, -624.949)
+
+[node name="9patch19" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(-1.31134e-07, 0, 15, 0, 12, 0, -3, 0, -6.55671e-07, -44.9491, -22.9749, -630.771)
+
+[node name="9patch16" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(2.89778, 0, 7.04318, 0, 3.2, 0, -0.776457, 0, 26.2855, -14, -25, -393.333)
+
+[node name="9patch36" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(3.34991, -0.8, 1.86995, 0.929271, 3.09096, 0, -0.897607, 0.214359, 6.97875, -3.44214, -24.1768, -375.576)
+
+[node name="9patch37" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(3.5662, -1.54548, 0.562352, 2.13158, 2.77128, 2.98023e-08, -0.955561, 0.41411, 2.09873, 4.0604, -21.6498, -372.378)
+
+[node name="9patch17" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(3.46377, 0, 4.44494, 0, 3.2, 0, -0.303041, 0, 50.8059, -35.2592, -33, -524.865)
+
+[node name="9patch26" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(1.99239, 0, 2.9633, 0, 2, 0, -0.174312, 0, 33.8706, -38.9633, -31.8717, -567.204)
+
+[node name="9patch29" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(4.88195, 0, 2.03948, 0, 1.92, 0, -0.427115, 0, 23.3114, -39.8918, -23.6852, -577.728)
+
+[node name="bounds" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 637.19, 0, -12.9523, -320.005)
+visible = false
+mesh = SubResource("BoxMesh_ruudk")
+
+[node name="end" type="Marker3D" parent="."]
+transform = Transform3D(2.51765, 0, 0, 0, 1.00706, 0, 0, 0, 1.00706, -52.1443, -33.0264, -621.951)
+
+[node name="springmachine" parent="." instance=ExtResource("2_poj10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.835, -227.953)
+
+[node name="spike" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.475377, -10.8858, -230.463)
+
+[node name="spike2" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -0.540432, -10.8858, -230.491)
+
+[node name="spike3" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -0.512601, -10.8858, -231.521)
+
+[node name="spike4" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.517124, -10.8858, -231.493)
+
+[node name="9patch11" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(5.0694, 0, 0, 0, 6.11423, 0, 0, 0, 1.06445, 0, -17, -231)
+
+[node name="spike5" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.475377, -10.8858, -230.463)
+
+[node name="spike6" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -0.540432, -10.8858, -230.491)
+
+[node name="spike7" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.517124, -10.8858, -231.493)
+
+[node name="spike8" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 1.4874, -10.8858, -231.521)
+
+[node name="spike9" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 2.47538, -10.8858, -230.463)
+
+[node name="spike10" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 1.45957, -10.8858, -230.491)
+
+[node name="spike11" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 2.51712, -10.8858, -231.493)
+
+[node name="spike12" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -2.5126, -10.8858, -231.521)
+
+[node name="spike13" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -1.52462, -10.8858, -230.463)
+
+[node name="spike26" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -1.85087, -5.78576, -18.7619)
+
+[node name="spike27" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -0.85087, -5.78576, -18.7619)
+
+[node name="spike28" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.14913, -5.78576, -18.7619)
+
+[node name="spike29" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 1.14913, -5.78576, -18.7619)
+
+[node name="spike30" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 2.14913, -5.78576, -18.7619)
+
+[node name="spike31" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -1.85087, -5.78576, -32.7619)
+
+[node name="spike83" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -41.6583, -25.4852, -555.693)
+
+[node name="spike84" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -41.8675, -25.4852, -558.084)
+
+[node name="spike85" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.0767, -25.4852, -560.475)
+
+[node name="spike86" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.2858, -25.4852, -562.866)
+
+[node name="spike87" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.2858, -25.4852, -562.866)
+
+[node name="spike88" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.495, -25.4852, -565.257)
+
+[node name="spike89" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.7042, -25.4852, -567.648)
+
+[node name="spike90" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.9134, -25.4852, -570.038)
+
+[node name="spike91" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -43.1225, -25.4852, -572.429)
+
+[node name="spike92" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -43.3317, -25.4852, -574.82)
+
+[node name="spike93" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -43.5409, -25.4852, -577.211)
+
+[node name="spike94" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -43.7501, -25.4852, -579.602)
+
+[node name="spike95" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -43.9592, -25.4852, -581.993)
+
+[node name="spike96" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -44.1684, -25.4852, -584.384)
+
+[node name="spike97" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -44.3776, -25.4852, -586.775)
+
+[node name="spike98" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -44.5868, -25.4852, -589.165)
+
+[node name="spike99" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -44.7959, -25.4852, -591.556)
+
+[node name="spike100" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -45.0051, -25.4852, -593.947)
+
+[node name="spike101" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -45.2143, -25.4852, -596.338)
+
+[node name="spike102" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -45.4235, -25.4852, -598.729)
+
+[node name="spike103" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.2675, -25.4852, -555.902)
+
+[node name="spike104" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.4766, -25.4852, -558.293)
+
+[node name="spike105" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.6858, -25.4852, -560.684)
+
+[node name="spike106" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.895, -25.4852, -563.075)
+
+[node name="spike107" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.895, -25.4852, -563.075)
+
+[node name="spike108" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.1042, -25.4852, -565.466)
+
+[node name="spike109" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.3133, -25.4852, -567.857)
+
+[node name="spike110" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.5225, -25.4852, -570.248)
+
+[node name="spike111" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.7317, -25.4852, -572.638)
+
+[node name="spike112" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.9408, -25.4852, -575.029)
+
+[node name="spike113" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -41.15, -25.4852, -577.42)
+
+[node name="spike114" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -41.3592, -25.4852, -579.811)
+
+[node name="spike115" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -41.5684, -25.4852, -582.202)
+
+[node name="spike116" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -41.7775, -25.4852, -584.593)
+
+[node name="spike117" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -41.9867, -25.4852, -586.984)
+
+[node name="spike118" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.1959, -25.4852, -589.375)
+
+[node name="spike119" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.4051, -25.4852, -591.765)
+
+[node name="spike120" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.6142, -25.4852, -594.156)
+
+[node name="spike121" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -42.8234, -25.4852, -596.547)
+
+[node name="spike122" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -43.0326, -25.4852, -598.938)
+
+[node name="spike123" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.8766, -25.4852, -556.112)
+
+[node name="spike124" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.0858, -25.4852, -558.502)
+
+[node name="spike125" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.2949, -25.4852, -560.893)
+
+[node name="spike126" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.5041, -25.4852, -563.284)
+
+[node name="spike127" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.5041, -25.4852, -563.284)
+
+[node name="spike128" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.7133, -25.4852, -565.675)
+
+[node name="spike129" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.9225, -25.4852, -568.066)
+
+[node name="spike130" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.1316, -25.4852, -570.457)
+
+[node name="spike131" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.3408, -25.4852, -572.848)
+
+[node name="spike132" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.55, -25.4852, -575.239)
+
+[node name="spike133" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.7592, -25.4852, -577.629)
+
+[node name="spike134" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.9683, -25.4852, -580.02)
+
+[node name="spike135" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.1775, -25.4852, -582.411)
+
+[node name="spike136" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.3867, -25.4852, -584.802)
+
+[node name="spike137" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.5958, -25.4852, -587.193)
+
+[node name="spike138" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.805, -25.4852, -589.584)
+
+[node name="spike139" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.0142, -25.4852, -591.975)
+
+[node name="spike140" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.2234, -25.4852, -594.365)
+
+[node name="spike141" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.4325, -25.4852, -596.756)
+
+[node name="spike142" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.6417, -25.4852, -599.147)
+
+[node name="spike143" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.4857, -25.4852, -556.321)
+
+[node name="spike144" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.6949, -25.4852, -558.712)
+
+[node name="spike145" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.9041, -25.4852, -561.103)
+
+[node name="spike146" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.1132, -25.4852, -563.493)
+
+[node name="spike147" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.1132, -25.4852, -563.493)
+
+[node name="spike148" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.3224, -25.4852, -565.884)
+
+[node name="spike149" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.5316, -25.4852, -568.275)
+
+[node name="spike150" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.7408, -25.4852, -570.666)
+
+[node name="spike151" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.9499, -25.4852, -573.057)
+
+[node name="spike152" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.1591, -25.4852, -575.448)
+
+[node name="spike153" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.3683, -25.4852, -577.839)
+
+[node name="spike154" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.5775, -25.4852, -580.229)
+
+[node name="spike155" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.7866, -25.4852, -582.62)
+
+[node name="spike156" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.9958, -25.4852, -585.011)
+
+[node name="spike157" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.205, -25.4852, -587.402)
+
+[node name="spike158" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.4142, -25.4852, -589.793)
+
+[node name="spike159" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.6233, -25.4852, -592.184)
+
+[node name="spike160" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.8325, -25.4852, -594.575)
+
+[node name="spike161" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.0417, -25.4852, -596.966)
+
+[node name="spike162" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.2509, -25.4852, -599.356)
+
+[node name="9patch31" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(4.88195, 0, 2.03948, 0, 1.92, 0, -0.427115, 0, 23.3114, -35.6607, -23.6852, -529.919)
+
+[node name="9patch32" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(4.81437, 0, 1.593, 0, 1.92, 0, -0.421203, 0, 18.2081, -35.2643, -20.1555, -524.667)
+
+[node name="9patch33" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(4.84149, 0, 0.587858, 0, 1.92, 0, -0.423575, 0, 6.71925, -34.3174, -16.3505, -513.304)
+
+[node name="9patch34" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(4.83088, 0, 0.175712, 0, 1.92, 0, -0.422647, 0, 2.00839, -33.9613, -12.5416, -508.684)
+
+[node name="9patch35" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(2.10789, -2.11325, 0.102348, 2.11594, 2.12132, 0, -0.184416, 0.184885, 1.16984, -33.4923, -20.0593, -505.433)
+
+[node name="spike163" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.4272, -25.4852, -507.884)
+
+[node name="spike164" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.6363, -25.4852, -510.275)
+
+[node name="spike165" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.8455, -25.4852, -512.666)
+
+[node name="spike166" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.0547, -25.4852, -515.057)
+
+[node name="spike167" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.0547, -25.4852, -515.057)
+
+[node name="spike168" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.2639, -25.4852, -517.448)
+
+[node name="spike169" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.473, -25.4852, -519.839)
+
+[node name="spike170" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.6822, -25.4852, -522.229)
+
+[node name="spike171" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.8914, -25.4852, -524.62)
+
+[node name="spike172" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.1005, -25.4852, -527.011)
+
+[node name="spike173" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.3097, -25.4852, -529.402)
+
+[node name="spike174" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.5189, -25.4852, -531.793)
+
+[node name="spike175" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.7281, -25.4852, -534.184)
+
+[node name="spike176" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -39.9372, -25.4852, -536.575)
+
+[node name="spike177" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.1464, -25.4852, -538.966)
+
+[node name="spike178" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.3556, -25.4852, -541.356)
+
+[node name="spike179" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.5648, -25.4852, -543.747)
+
+[node name="spike180" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.7739, -25.4852, -546.138)
+
+[node name="spike181" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -40.9831, -25.4852, -548.529)
+
+[node name="spike182" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -41.1923, -25.4852, -550.92)
+
+[node name="spike183" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.0363, -25.4852, -508.093)
+
+[node name="spike184" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.2455, -25.4852, -510.484)
+
+[node name="spike185" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.4546, -25.4852, -512.875)
+
+[node name="spike186" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.6638, -25.4852, -515.266)
+
+[node name="spike187" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.6638, -25.4852, -515.266)
+
+[node name="spike188" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.873, -25.4852, -517.657)
+
+[node name="spike189" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.0822, -25.4852, -520.048)
+
+[node name="spike190" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.2913, -25.4852, -522.439)
+
+[node name="spike191" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.5005, -25.4852, -524.829)
+
+[node name="spike192" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.7097, -25.4852, -527.22)
+
+[node name="spike193" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.9189, -25.4852, -529.611)
+
+[node name="spike194" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.128, -25.4852, -532.002)
+
+[node name="spike195" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.3372, -25.4852, -534.393)
+
+[node name="spike196" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.5464, -25.4852, -536.784)
+
+[node name="spike197" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.7556, -25.4852, -539.175)
+
+[node name="spike198" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -37.9647, -25.4852, -541.566)
+
+[node name="spike199" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.1739, -25.4852, -543.956)
+
+[node name="spike200" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.3831, -25.4852, -546.347)
+
+[node name="spike201" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.5922, -25.4852, -548.738)
+
+[node name="spike202" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -38.8014, -25.4852, -551.129)
+
+[node name="spike203" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -32.6454, -25.4852, -508.303)
+
+[node name="spike204" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -32.8546, -25.4852, -510.693)
+
+[node name="spike205" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.0638, -25.4852, -513.084)
+
+[node name="spike206" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.2729, -25.4852, -515.475)
+
+[node name="spike207" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.2729, -25.4852, -515.475)
+
+[node name="spike208" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.4821, -25.4852, -517.866)
+
+[node name="spike209" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.6913, -25.4852, -520.257)
+
+[node name="spike210" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.9005, -25.4852, -522.648)
+
+[node name="spike211" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.1096, -25.4852, -525.039)
+
+[node name="spike212" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.3188, -25.4852, -527.43)
+
+[node name="spike213" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.528, -25.4852, -529.82)
+
+[node name="spike214" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.7372, -25.4852, -532.211)
+
+[node name="spike215" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.9463, -25.4852, -534.602)
+
+[node name="spike216" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.1555, -25.4852, -536.993)
+
+[node name="spike217" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.3647, -25.4852, -539.384)
+
+[node name="spike218" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.5739, -25.4852, -541.775)
+
+[node name="spike219" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.783, -25.4852, -544.166)
+
+[node name="spike220" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -35.9922, -25.4852, -546.556)
+
+[node name="spike221" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.2014, -25.4852, -548.947)
+
+[node name="spike222" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -36.4106, -25.4852, -551.338)
+
+[node name="spike223" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -30.2546, -25.4852, -508.512)
+
+[node name="spike224" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -30.4637, -25.4852, -510.903)
+
+[node name="spike225" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -30.6729, -25.4852, -513.294)
+
+[node name="spike226" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -30.8821, -25.4852, -515.684)
+
+[node name="spike227" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -30.8821, -25.4852, -515.684)
+
+[node name="spike228" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -31.0913, -25.4852, -518.075)
+
+[node name="spike229" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -31.3004, -25.4852, -520.466)
+
+[node name="spike230" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -31.5096, -25.4852, -522.857)
+
+[node name="spike231" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -31.7188, -25.4852, -525.248)
+
+[node name="spike232" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -31.9279, -25.4852, -527.639)
+
+[node name="spike233" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -32.1371, -25.4852, -530.03)
+
+[node name="spike234" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -32.3463, -25.4852, -532.42)
+
+[node name="spike235" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -32.5555, -25.4852, -534.811)
+
+[node name="spike236" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -32.7646, -25.4852, -537.202)
+
+[node name="spike237" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -32.9738, -25.4852, -539.593)
+
+[node name="spike238" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.183, -25.4852, -541.984)
+
+[node name="spike239" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.3922, -25.4852, -544.375)
+
+[node name="spike240" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.6013, -25.4852, -546.766)
+
+[node name="spike241" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -33.8105, -25.4852, -549.156)
+
+[node name="spike242" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-1.19543, 7.95727e-08, 0.104587, -1.04907e-07, -1.2, -2.86102e-07, 0.104587, -2.94157e-07, 1.19543, -34.0197, -25.4852, -551.547)
+
+[node name="spike44" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-2, 1.74846e-07, 2.64009e-14, 1.74846e-07, 2, 3.01992e-07, 0, 3.01992e-07, -2, 6, -27.773, -238.042)
+
+[node name="spike45" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-2, 1.74846e-07, 2.64009e-14, 1.74846e-07, 2, 3.01992e-07, 0, 3.01992e-07, -2, 2, -27.773, -238.042)
+
+[node name="spike46" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-2, 1.74846e-07, 2.64009e-14, 1.74846e-07, 2, 3.01992e-07, 0, 3.01992e-07, -2, -2, -27.773, -238.042)
+
+[node name="spike47" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-2, 1.74846e-07, 2.64009e-14, 1.74846e-07, 2, 3.01992e-07, 0, 3.01992e-07, -2, -6, -27.773, -238.042)
+
+[node name="spike48" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-2, 1.74846e-07, 2.64009e-14, 1.74846e-07, 2, 3.01992e-07, 0, 3.01992e-07, -2, 6, -27.773, -234.042)
+
+[node name="spike49" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-2, 1.74846e-07, 2.64009e-14, 1.74846e-07, 2, 3.01992e-07, 0, 3.01992e-07, -2, 2, -27.773, -234.042)
+
+[node name="spike50" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-2, 1.74846e-07, 2.64009e-14, 1.74846e-07, 2, 3.01992e-07, 0, 3.01992e-07, -2, -2, -27.773, -234.042)
+
+[node name="spike51" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(-2, 1.74846e-07, 2.64009e-14, 1.74846e-07, 2, 3.01992e-07, 0, 3.01992e-07, -2, -6, -27.773, -234.042)
+
+[node name="spike32" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -0.85087, -5.78576, -32.7619)
+
+[node name="spike33" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.14913, -5.78576, -32.7619)
+
+[node name="spike34" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 1.14913, -5.78576, -32.7619)
+
+[node name="spike35" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 2.14913, -5.78576, -32.7619)
+
+[node name="9patch30" parent="." instance=ExtResource("1_03q6v")]
+transform = Transform3D(2.5, 0, 0, 0, 3.25, 0, 0, 0, 17.5, 0, -16, -60.5833)
+
+[node name="spike68" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -1.85087, -12.7858, -60.7619)
+
+[node name="spike69" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -0.85087, -12.7858, -60.7619)
+
+[node name="spike70" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.14913, -12.7858, -60.7619)
+
+[node name="spike71" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 1.14913, -12.7858, -60.7619)
+
+[node name="spike72" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 2.14913, -12.7858, -60.7619)
+
+[node name="spike78" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -1.85087, -12.7858, -44.7619)
+
+[node name="spike79" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -0.85087, -12.7858, -44.7619)
+
+[node name="spike80" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.14913, -12.7858, -44.7619)
+
+[node name="spike81" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 1.14913, -12.7858, -44.7619)
+
+[node name="spike82" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 2.14913, -12.7858, -44.7619)
+
+[node name="spike73" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -1.85087, -12.7858, -105.762)
+
+[node name="spike74" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -0.85087, -12.7858, -105.762)
+
+[node name="spike75" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 0.14913, -12.7858, -105.762)
+
+[node name="spike76" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 1.14913, -12.7858, -105.762)
+
+[node name="spike77" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 2.14913, -12.7858, -105.762)
+
+[node name="spike14" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -2.54043, -10.8858, -230.491)
+
+[node name="spike15" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -1.48288, -10.8858, -231.493)
+
+[node name="spike16" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -4.5126, -10.8858, -231.521)
+
+[node name="spike17" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -3.52462, -10.8858, -230.463)
+
+[node name="spike18" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -4.54043, -10.8858, -230.491)
+
+[node name="spike19" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, -3.48288, -10.8858, -231.493)
+
+[node name="spike20" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 3.4874, -10.8858, -231.521)
+
+[node name="spike21" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 4.47538, -10.8858, -230.463)
+
+[node name="spike24" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, -2.18006e-08, 0.498739, 0, -0.498739, -2.18006e-08, 0, -23.4, -224.7)
+
+[node name="spike25" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, -2.18006e-08, 0.498739, 0, -0.498739, -2.18006e-08, -1, -23.4, -224.7)
+
+[node name="spike243" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, -2.18006e-08, 0.498739, 0, -0.498739, -2.18006e-08, -2, -23.4, -224.7)
+
+[node name="spike244" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, -2.18006e-08, 0.498739, 0, -0.498739, -2.18006e-08, 1, -23.4, -224.7)
+
+[node name="spike245" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, -2.18006e-08, 0.498739, 0, -0.498739, -2.18006e-08, 2, -23.4, -224.7)
+
+[node name="spike22" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 3.45957, -10.8858, -230.491)
+
+[node name="spike23" parent="." instance=ExtResource("3_t47cv")]
+transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 4.51712, -10.8858, -231.493)
+
+[node name="fall" type="Area3D" parent="."]
+collision_mask = 2
+script = ExtResource("4_t47cv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5607, -60.1948, -377.2)
+shape = SubResource("BoxShape3D_poj10")
+debug_color = Color(0, 0.198333, 0.7, 0.14902)
+
+[connection signal="body_entered" from="fall" to="fall" method="_on_body_entered"]

@@ -5,7 +5,12 @@ uniform vec4 highlight_color : source_color = vec4(1.0, 1.0, 0.0, 1.0);
 uniform float highlight_power : hint_range(0.0, 10.0) = 3.0;
 uniform float highlight_intensity : hint_range(0.0, 1.0) = 1.0;
 uniform float rim_power : hint_range(1.0, 10.0) = 3.0;
+uniform float grow : hint_range(0.0, 10.0) = 0.0;
 uniform sampler2D texture_albedo : source_color;
+
+void vertex(){
+	VERTEX += NORMAL * grow;
+}
 
 void fragment() {
     vec4 albedo_tex = texture(texture_albedo, UV);

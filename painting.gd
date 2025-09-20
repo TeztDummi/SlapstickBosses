@@ -58,6 +58,10 @@ func _ready():
 		map = "sodaboss"
 		ticks = $"../../".beatsoda
 		settexture("res://paintings/sodapainting.png")
+	if painting == "horrorpainting":
+		map = "horrorbossarena"
+		ticks = $"../../".beathorror
+		settexture("res://paintings/horrorpainting.png")
 	if has_meta("challenge"):
 		if ticks <= 0: #easy or less
 			queue_free()
@@ -128,10 +132,18 @@ func playanim():
 	showoutline = false
 	camera.current = true
 	camera.global_rotation = srot
-	if randf() <= 0.1 && $palette.visible:
-		$AnimationPlayer.play("secret")
+	$"../../".transitionmusic("none", 2)
+	if map != "horrorbossarena":
+		if randf() <= 0.1 && $palette.visible:
+			$AnimationPlayer.play("secret")
+		else:
+			$AnimationPlayer.play("default")
 	else:
-		$AnimationPlayer.play("default")
+		$AnimationPlayer.play("horror")
+		var tempaudio = load("res://tempaudio.tscn").instantiate()
+		add_child(tempaudio)
+		tempaudio.stream = load("res://audio/horror/horrorpainting.mp3")
+		tempaudio.play()
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name != "select":
@@ -141,3 +153,5 @@ func _on_animation_player_animation_finished(anim_name):
 			$"../../".transition.append(get_meta("challenge"))
 			if get_meta("challenge") == "pimpleremix": $"../../".transition[1] = "res://maps/remixmusicboss.tscn"
 		if has_meta("diffoverride"): $"../../".transition[2] = get_meta("diffoverride")
+		
+		$"../../".transitionfunc($"../../".transition)

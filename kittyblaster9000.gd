@@ -29,6 +29,7 @@ func shoot(raycast):
 			
 			$kb9kparticlespivot.look_at(pos, Vector3.UP)
 			$kb9kparticlespivot/kb9kparticles.emitting = true
+			$pivot/shot.play("default")
 			$AnimationPlayer.play("shoot")
 			$audio.play()
 			

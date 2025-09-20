@@ -19,8 +19,7 @@ var chalroom = 0
 var noenemyroomstotal = 4
 var enemyroomstotal = 10
 var noenemyrooms = enemyroomstotal
-
-#30 second record
+var startrooms = 0
 
 #github test edit again lol mwah
 
@@ -56,17 +55,7 @@ func _on_startdelay_timeout() -> void:
 	
 func changemusic(from, to):
 	if $"../music".stream.resource_path.get_file() == from+".mp3":
-		var playtime = $"../music".get_playback_position()
-		#playtime -= 1.6
-		for i in range(100):
-			if playtime > 12:
-				playtime -= 12
-			else:
-				break
-		
-		$"../music".stream = load("res://audio/music/"+to+".mp3")
-		$"../music".play()
-		$"../music".seek(playtime)
+		$"../".transitionmusic("res://audio/music/"+to+".mp3", 1, true, 12, 0)
 	
 func start():	
 	$audio.stream = load("res://audio/wallexplode.mp3")
@@ -94,10 +83,10 @@ func startmixing():
 		addroom("roomtutorial")
 	elif testroom == "0" && diff != 2:
 		addroom("roomtutorial")
-		$waittoload.start()
+		startrooms = 4
 	elif chal != "justbox":
 		addroom()
-		$waittoload.start()
+		startrooms = 4
 	
 	#print("whaat")
 	
@@ -115,13 +104,7 @@ func givebitchslapper():
 	$"../player/camera/gun".add_child(gun)
 	$"../player".scroll = 1
 	
-	$fakehall.queue_free()
-	
 	changemusic("factoryescapepolice", "factoryescape")
-	
-	if chal == "sodaspeedrun":
-		$"../".timer = 50
-		$"../canvas/hud/timer".show()
 		
 func addroom(custom = "none"):
 	if !over:
@@ -164,6 +147,10 @@ func finishloading(roompath):
 	
 	for child in room.get_children():
 		if chal == "sodaspeedrun" || noenemyrooms <= 0:
+			if chal == "sodaspeedrun":
+				if !$"../canvas/hud/timer".visible:
+					$"../".timer = 50
+					$"../canvas/hud/timer".show()
 			if child.is_in_group("popcop") || child.is_in_group("sodacan") || child.has_meta("nospeedrun"):
 				child.queue_free()
 		if diff != 2:
@@ -198,8 +185,12 @@ func finishloading(roompath):
 			addroom("room"+str(chalroom))
 		else:
 			addroom("roomsimpleend")
-			
-	if chal == "justbox":
+	
+	if startrooms > 0:
+		startrooms -= 1;
+		addroom()
+	
+	if $fakehall != null:
 		$fakehall.queue_free()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -236,7 +227,3 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "start":
 		$anim.play("Animation")
 		player.screenshake += 1
-
-func _on_waittoload_timeout() -> void:
-	for i in range(4):
-		addroom()

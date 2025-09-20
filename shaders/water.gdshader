@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode cull_disabled, depth_draw_always;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest;
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_nearest;

@@ -37,8 +37,6 @@ func _ready():
 	$"../../canvas/hud/gunmanbossbar/healthlabel".text = str(round(health))
 	$"../../canvas/hud/gunmanbossbar".tint_progress = Color.from_hsv(health*0.003*(100/$"../../canvas/hud/gunmanbossbar".max_value), 0.5, 1)
 	$anim.play("intro")
-	$introcam/cutsceneaudio.stream = load("res://audio/gunman/intro.mp3")
-	$introcam/cutsceneaudio.play()
 	$"../../music".stop()
 	$introcam.current = true
 	turntoplayer = false
@@ -411,10 +409,39 @@ func chooseattack():
 				if !gun.has_meta("held"):
 					gun.queue_free()
 			$introcam.current = true
+			
+			var loadoutfit = load($"../../".outfit).instantiate()
+			if loadoutfit.has_node("Armature/Skeleton3D/head"):
+				var headattachments = loadoutfit.get_node("Armature/Skeleton3D/head")
+				for child in headattachments.get_children():
+					print("load attachments")
+					child.reparent($Armature/Skeleton3D/headbone/attachments)
+					child.position = headattachments.position
+					child.rotation = headattachments.rotation-$Armature/Skeleton3D/headbone.rotation
+					child.scale = headattachments.scale
+			var mainbody = loadoutfit.get_node("Armature/Skeleton3D/main")
+			$Armature/Skeleton3D/Cube.name = "deletebody"
+			$Armature/Skeleton3D/deletebody.queue_free()
+			mainbody.reparent($Armature/Skeleton3D)
+			mainbody.position = Vector3.ZERO
+			mainbody.rotation = Vector3.ZERO
+			mainbody.scale = Vector3.ONE
+			mainbody.name = "Cube"
+			if $"../../".outfitcolors.has($"../../".outfit):
+				if mainbody.has_meta("extracolors"):
+					for i in range(1, mainbody.get_meta("extracolors")+1):
+						var curcolorrgb = $"../../".outfitcolors[$"../../".outfit][str(i)]
+						var curcolor = Color(curcolorrgb["r"], curcolorrgb["g"], curcolorrgb["b"])
+						mainbody.get_surface_override_material(i).albedo_color = curcolor
+			
+			print("loaded outfit")
+			
 			$Armature/Skeleton3D/Cube.get_surface_override_material(0).albedo_color = $"../../".bodycolor
 			var loadhead = load($"../../".head).instantiate()
 			$Armature/Skeleton3D/headbone/offset.add_child(loadhead)
 			turntoplayer = false
+			
+			print("loaded head")
 	else:
 		$anim.play("realidle")
 		turntoplayer = false
@@ -550,18 +577,8 @@ func makecamplayercam(string):
 	if string == "start":
 		player.camera.current = true
 		$introcam.current = false
-		
 		if $"../../music".stream.resource_path.get_file() == "gunmanmusic.mp3":
-			var playtime = $"../../music".get_playback_position()
-			playtime -= 0
-			for i in range(10):
-				if playtime > 48:
-					playtime -= 48
-				else:
-					break
-			$"../../music".stream = load("res://audio/music/spicygunmanmusic.mp3")
-			$"../../music".play()
-			$"../../music".seek(playtime)
+			$"../../".transitionmusic("res://audio/music/spicygunmanmusic.mp3", 1, true, 48, 0)
 	if string == "endcut":
 		if !player.dead:
 			player.camera.current = false

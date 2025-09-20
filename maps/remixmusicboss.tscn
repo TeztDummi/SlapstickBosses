@@ -1768,13 +1768,8 @@ mesh = SubResource("ArrayMesh_mplby")
 skin = SubResource("Skin_owha3")
 surface_material_override/0 = SubResource("StandardMaterial3D_ir06o")
 
-[node name="headbone" type="BoneAttachment3D" parent="wizard/Armature/Skeleton3D"]
-transform = Transform3D(0.999907, 0.000222405, 0.0136282, 0.00653381, -0.885317, -0.464942, 0.0119618, 0.464988, -0.885236, 0.0161254, 2.51828, 1.54261)
-bone_name = "Bone.003"
-bone_idx = 1
-
 [node name="hand" type="BoneAttachment3D" parent="wizard/Armature/Skeleton3D"]
-transform = Transform3D(-0.0126664, -0.776003, -0.630602, 0.369303, -0.589694, 0.718245, -0.929223, -0.223786, 0.29405, -0.399963, 0.950356, 0.005452)
+transform = Transform3D(0.607226, -0.293251, -0.738431, -0.742598, 0.121019, -0.658713, 0.282533, 0.948345, -0.144282, -0.383837, 2.51567, 1.53783)
 bone_name = "Bone"
 bone_idx = 7
 
@@ -1787,6 +1782,17 @@ surface_material_override/1 = SubResource("StandardMaterial3D_pscym")
 surface_material_override/2 = SubResource("StandardMaterial3D_kykmv")
 surface_material_override/3 = SubResource("StandardMaterial3D_s658p")
 surface_material_override/4 = SubResource("StandardMaterial3D_6eijr")
+
+[node name="headbone" type="BoneAttachment3D" parent="wizard/Armature/Skeleton3D"]
+transform = Transform3D(0.999907, 0.000222404, 0.0136282, 2.92059e-09, 0.999867, -0.0163175, -0.01363, 0.016316, 0.999774, 0, 1.1, 0)
+bone_name = "Bone.003"
+bone_idx = 1
+
+[node name="attachments" type="Marker3D" parent="wizard/Armature/Skeleton3D/headbone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)
+
+[node name="offset" type="Marker3D" parent="wizard/Armature/Skeleton3D/headbone"]
+transform = Transform3D(-1, 7.02858e-09, 7.91624e-08, 4.46744e-09, 0.999466, -0.0326306, -8.75443e-08, -0.0326305, -0.999467, 1.2009e-09, 0.399946, -0.00652698)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wizard"]
 libraries = {

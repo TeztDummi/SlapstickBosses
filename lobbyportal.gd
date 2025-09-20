@@ -33,5 +33,4 @@ func _on_area_3d_body_entered(body):
 				grow = true
 				$audio.stream = load("res://audio/portalenter.mp3")
 				$audio.play()
-				$"../../canvas/hud/transitionin".play()
-				$"../../".transition = ["loadmap", "res://maps/lobby.tscn"]
+				$"../../".transitionfunc(["loadmap", "res://maps/lobby.tscn"])

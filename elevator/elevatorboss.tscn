@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=4 uid="uid://vwjp8py4666w"]
+[gd_scene load_steps=128 format=4 uid="uid://vwjp8py4666w"]
 
 [ext_resource type="Script" uid="uid://k05p2t1rdobn" path="res://elevatorboss.gd" id="1_46ylg"]
 [ext_resource type="Texture2D" uid="uid://cqonc4ujyr2gr" path="res://textures/defaulttexture/defaulttexture.png" id="2_crlra"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://fq3o343f5ftn" path="res://elevator/elevatorrats.png" id="4_m72qx"]
 [ext_resource type="Texture2D" uid="uid://dh3yqb0xgej02" path="res://elevator/elevatorwheelchair.png" id="5_ej7rq"]
 [ext_resource type="Texture2D" uid="uid://bj02w0j2h5vf5" path="res://textures/concrete/Concrete031_2K-JPG_Color.jpg" id="5_lhr58"]
+[ext_resource type="Shader" uid="uid://b0mj05dyr72dj" path="res://fire.gdshader" id="5_olwkn"]
 [ext_resource type="Texture2D" uid="uid://bg80a5mhdaj8" path="res://elevator/elevatordeath.png" id="6_8t4su"]
 [ext_resource type="Texture2D" uid="uid://4e4q86h5renw" path="res://elevator/elevatorup.png" id="6_c1br2"]
 [ext_resource type="Texture2D" uid="uid://cxw2hwfkdcsu" path="res://textures/concrete/Concrete031_2K-JPG_NormalDX.jpg" id="6_ry5xk"]
@@ -19,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c8dp4mc7fni8d" path="res://elevator/elevatorsplashback.png" id="10_80boe"]
 [ext_resource type="Texture2D" uid="uid://jffn5erfmvv5" path="res://addons/kenney_particle_pack/smoke_07.png" id="15_8rmtm"]
 [ext_resource type="Texture2D" uid="uid://2fond66xqoct" path="res://elevator/elevatordummi.png" id="16_7bfdg"]
+[ext_resource type="Texture2D" uid="uid://dsbht3cmab8yf" path="res://textures/9patch/target.png" id="18_c08c7"]
 [ext_resource type="Texture2D" uid="uid://dqjtc6xm2oudq" path="res://elevator/elevatorsplashextra.png" id="19_j1mu0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5iqk"]
@@ -554,6 +556,57 @@ height = 0.2
 radial_segments = 8
 rings = 4
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_0lgc6"]
+lightmap_size_hint = Vector2i(190, 74)
+flip_faces = true
+top_radius = 6.0
+bottom_radius = 3.2
+height = 6.0
+radial_segments = 4
+rings = 64
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="Gradient" id="Gradient_oyl78"]
+colors = PackedColorArray(0.54, 1, 0.954, 1, 0, 1, 0.95, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dt72e"]
+gradient = SubResource("Gradient_oyl78")
+fill_from = Vector2(1, 0.538776)
+
+[sub_resource type="Gradient" id="Gradient_tc5wt"]
+offsets = PackedFloat32Array(0, 0.557047)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d3kto"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3c7y7"]
+width = 2000
+height = 100
+seamless = true
+color_ramp = SubResource("Gradient_tc5wt")
+noise = SubResource("FastNoiseLite_d3kto")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5xvq"]
+render_priority = 0
+shader = ExtResource("5_olwkn")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_3c7y7")
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0.5, 2)
+shader_parameter/fire_aperture = 0.209
+shader_parameter/burn_color = Color(0, 1, 0.983333, 1)
+shader_parameter/pixel_size = Vector2(0.001, 0.001)
+shader_parameter/albedo_tex = SubResource("GradientTexture2D_dt72e")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t0ana"]
+lightmap_size_hint = Vector2i(190, 74)
+top_radius = 6.0
+bottom_radius = 3.2
+height = 6.0
+radial_segments = 4
+rings = 64
+cap_top = false
+cap_bottom = false
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3l4w"]
 transparency = 1
 cull_mode = 1
@@ -588,21 +641,21 @@ size = Vector3(2, 0.1, 0.1)
 offsets = PackedFloat32Array(0, 0.235772, 0.504065, 0.764228, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gg4vb"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w150h"]
 gradient = SubResource("Gradient_84aq2")
 
 [sub_resource type="Curve" id="Curve_8f4pf"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.149351, 0.957895), 0.0, 0.0, 0, 0, Vector2(0.376623, 1), 0.0, 0.0, 0, 0, Vector2(0.603896, 0.957895), 0.0, 0.0, 0, 0, Vector2(0.818182, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.947368), 0.0, 0.0, 0, 0]
 point_count = 6
 
-[sub_resource type="CurveTexture" id="CurveTexture_rg7yu"]
+[sub_resource type="CurveTexture" id="CurveTexture_wyr1j"]
 curve = SubResource("Curve_8f4pf")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fikiy"]
 scale_min = 5.0
 scale_max = 5.0
-scale_curve = SubResource("CurveTexture_rg7yu")
-color_ramp = SubResource("GradientTexture1D_gg4vb")
+scale_curve = SubResource("CurveTexture_wyr1j")
+color_ramp = SubResource("GradientTexture1D_w150h")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihagf"]
 resource_name = "Material.001"
@@ -1054,6 +1107,30 @@ tracks/25/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(1, 1, 1)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("elevator/bluefire:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("elevator/bluefire:scale")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0.976783, 0.699782)]
 }
 
 [sub_resource type="Animation" id="Animation_6jqdc"]
@@ -1744,6 +1821,18 @@ tracks/21/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.5, 0.5, 1.5), Vector3(1.5, 0.5, 1.5), Vector3(0.9, 1.2, 0.9), Vector3(1, 1, 1)]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("elevator/bluefire:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_14mkk"]
 resource_name = "getdummi"
@@ -2153,6 +2242,7 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_wyy0g"]
 resource_name = "laserblast"
 length = 4.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2261,6 +2351,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0), Color(0, 1, 1, 0.0196078), Color(0, 1, 1, 0)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("elevator/bluefire:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("elevator/bluefire:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(3, 3.8, 4),
+"transitions": PackedFloat32Array(0.138696, 3.73213, 4.2871),
+"update": 0,
+"values": [Vector3(0.2, 0.977, 0.7), Vector3(1, 0.976783, 0.699782), Vector3(1.2, 0.977, 0.7)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w2dvl"]
 _data = {
@@ -2293,7 +2407,7 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.504098)
 colors = PackedColorArray(1, 0, 0, 1, 0.39, 0.1482, 0.1482, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jxfxr"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w150h"]
 gradient = SubResource("Gradient_fysi3")
 width = 256
 height = 256
@@ -2303,11 +2417,98 @@ repeat = 1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2v6dx"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0)
-albedo_texture = SubResource("GradientTexture2D_jxfxr")
+albedo_texture = SubResource("GradientTexture2D_w150h")
 emission = Color(1, 0, 0, 1)
 emission_energy_multiplier = 0.0
 rim_enabled = true
 rim_tint = 1.0
+
+[sub_resource type="Shader" id="Shader_uabnm"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D texture_alpha : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform float rim : hint_range(0.0, 1.0, 0.01);
+uniform float rim_tint : hint_range(0.0, 1.0, 0.01);
+uniform sampler2D texture_rim : hint_default_white, filter_linear_mipmap, repeat_enable;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv + NODE_POSITION_WORLD.xz/3.0);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	vec4 alpha_tex = texture(texture_alpha, base_uv/uv1_scale.xy - uv1_offset.xy);
+	ALPHA *= albedo.a * albedo_tex.a * alpha_tex.x;
+
+	// Rim: Enabled
+	vec2 rim_tex = texture(texture_rim, base_uv).xy;
+	RIM = rim * rim_tex.x;
+	RIM_TINT = rim_tint * rim_tex.y;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_viim7"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.504098)
+colors = PackedColorArray(1, 0, 0, 1, 0.39, 0.1482, 0.1482, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q5e7j"]
+gradient = SubResource("Gradient_viim7")
+width = 256
+height = 256
+fill_to = Vector2(0.25, 0.25)
+repeat = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rthaj"]
+render_priority = 0
+shader = SubResource("Shader_uabnm")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_q5e7j")
+shader_parameter/texture_alpha = ExtResource("18_c08c7")
+shader_parameter/albedo_texture_size = Vector2i(256, 256)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/rim = 1.0
+shader_parameter/rim_tint = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe2un"]
 transparency = 1
@@ -2457,6 +2658,22 @@ amount = 50
 process_material = SubResource("ParticleProcessMaterial_tnyfm")
 draw_pass_1 = SubResource("SphereMesh_8h3eh")
 
+[node name="bluefire" type="Node3D" parent="elevator"]
+transform = Transform3D(1, 0, 0, 0, 0.976783, 0, 0, 0, 0.699782, -2.4, 2.5, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="elevator/bluefire"]
+transform = Transform3D(-3.09086e-08, -1, -3.09086e-08, 0.707107, -4.37114e-08, 0.707107, -0.707107, 0, 0.707107, -3.02463, -0.0107055, 0)
+mesh = SubResource("CylinderMesh_0lgc6")
+skeleton = NodePath("../../laser")
+surface_material_override/0 = SubResource("ShaderMaterial_b5xvq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="elevator/bluefire"]
+transform = Transform3D(-3.09086e-08, -1, -3.09086e-08, 0.707107, -4.37114e-08, 0.707107, -0.707107, 0, 0.707107, -3.02463, -0.0107055, 0)
+mesh = SubResource("CylinderMesh_t0ana")
+skeleton = NodePath("../../laser")
+surface_material_override/0 = SubResource("ShaderMaterial_b5xvq")
+
 [node name="laser" type="MeshInstance3D" parent="elevator"]
 transform = Transform3D(153.52, 0, 0, 0, 4.461, 0, 0, 0, 3.2, -79.123, 2.5, 0)
 visible = false
@@ -2536,6 +2753,12 @@ one_shot = true
 transform = Transform3D(3.03162, 0, 0, 0, 0.87, 0, 0, 0, 3.03162, 0, 0.1, 0)
 mesh = SubResource("PlaneMesh_7gdq4")
 surface_material_override/0 = SubResource("StandardMaterial3D_2v6dx")
+
+[node name="target" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.03162, 0, 0, 0, 0.87, 0, 0, 0, 3.03162, -7.67145, 0.1, 0)
+transparency = 1.0
+mesh = SubResource("PlaneMesh_7gdq4")
+surface_material_override/0 = SubResource("ShaderMaterial_rthaj")
 
 [node name="introcamera" type="Camera3D" parent="."]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -17, 3, 0)

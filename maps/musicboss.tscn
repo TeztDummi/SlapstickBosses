@@ -1040,6 +1040,7 @@ shader_parameter/highlight_color = Color(1, 1, 0, 1)
 shader_parameter/highlight_power = 3.0
 shader_parameter/highlight_intensity = 0.267
 shader_parameter/rim_power = 3.0
+shader_parameter/grow = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfxw3"]
 next_pass = SubResource("ShaderMaterial_5v35a")
@@ -1064,6 +1065,7 @@ shader_parameter/highlight_color = Color(1, 1, 0, 1)
 shader_parameter/highlight_power = 3.0
 shader_parameter/highlight_intensity = 1.0
 shader_parameter/rim_power = 3.0
+shader_parameter/grow = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hjq5"]
 next_pass = SubResource("ShaderMaterial_73ka7")
@@ -1719,8 +1721,14 @@ transform = Transform3D(0.999907, 0.000222404, 0.0136282, 2.92059e-09, 0.999867,
 bone_name = "Bone.003"
 bone_idx = 1
 
+[node name="attachments" type="Marker3D" parent="wizard/Armature/Skeleton3D/headbone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)
+
+[node name="offset" type="Marker3D" parent="wizard/Armature/Skeleton3D/headbone"]
+transform = Transform3D(-1, 7.02858e-09, 7.91624e-08, 4.46744e-09, 0.999466, -0.0326306, -8.75443e-08, -0.0326305, -0.999467, 1.2009e-09, 0.399946, -0.00652698)
+
 [node name="hand" type="BoneAttachment3D" parent="wizard/Armature/Skeleton3D"]
-transform = Transform3D(-0.0126664, -0.776003, -0.630602, 0.369303, -0.589694, 0.718245, -0.929223, -0.223786, 0.29405, -0.399963, 0.950356, 0.005452)
+transform = Transform3D(-0.0126665, -0.776003, -0.630602, 0.369303, -0.589694, 0.718245, -0.929223, -0.223786, 0.29405, -0.399963, 0.950356, 0.00545202)
 bone_name = "Bone"
 bone_idx = 7
 

@@ -49,6 +49,8 @@ func _process(delta):
 				
 				$anim.play("die")
 				
+				position = Vector3.ZERO
+				
 				dead = true
 				
 				if ismain:
@@ -68,7 +70,7 @@ func _process(delta):
 				else: rotation_degrees.y += delta*135
 			if diff == 1:
 				if time >= 60: rotation_degrees.y += delta*90
-				elif time >= 30: rotation_degrees.y += delta*135
+				elif time >= 30 || chal == "2elevators": rotation_degrees.y += delta*135
 				else: rotation_degrees.y += delta*180
 			if diff == 2:
 				rotation_degrees.y += delta*180
@@ -85,22 +87,24 @@ func _process(delta):
 		if time <= 30 || diff == 2:
 			if $"../../music".stream.resource_path.get_file() == "bossmusic.mp3":
 				if chal != "2elevators":
-					var playtime = $"../../music".get_playback_position()
-					playtime -= 1.6
-					for i in range(10):
-						if playtime > 25.6:
-							playtime -= 25.6
-						else:
-							break
-					
-					$"../../music".stream = load("res://audio/music/spicybossmusic.mp3")
-					$"../../music".play()
-					$"../../music".seek(playtime)
-
+					$"../../".transitionmusic("res://audio/music/spicybossmusic.mp3", 1, true, 25.6, -1.6)
+	
+	var cur = $anim.current_animation
+	$target.global_position = Vector3(player.position.x+player.velocity.x*0.9, 0.05, player.position.z+player.velocity.z*0.9)
+	if (time <= 50 || diff == 2) && cur != "laserblast" && cur != "getwheelmen" && cur != "getrats" && cur != "getdummi" && cur != "intro" && !dead:
+		$target.transparency = lerpf($target.transparency, -0.5, delta)
+	else:
+		$target.transparency = lerpf($target.transparency, 1.5, delta)
+	var totalvel = sqrt(pow(player.velocity.x, 2)+pow(player.velocity.z, 2))
+	totalvel += 0.5
+	$target.rotation.y += delta+(4*delta*(1/totalvel))
+	$target.scale = Vector3.ONE*2+(Vector3.ONE*(1/totalvel))
 func _on_anim_animation_finished(anim_name):
 	
 	if anim_name == "die" && ismain:
 		player.camera.current = true
+		player.position.x = sin(randf_range(0, 2*PI))*16
+		player.position.z = cos(randf_range(0, 2*PI))*16
 		$"../../".spawnlobbyportal()
 		if chal == "none":
 			var earnedbits = $"../../".calcbits(diff, $"../../".beatelevator, 1)
@@ -143,10 +147,11 @@ func _on_anim_animation_finished(anim_name):
 			if (time >= 50 && diff != 2) || diff == 0:
 				$anim.play("comedown")
 				playsound("res://audio/elevator/comedown.mp3")
-			elif (time >= 30 && diff != 2) || diff == 0:
+			elif (time >= 30 && diff != 2) && diff != 0:
 				$anim.play("comedownsemifast")
 				playsound("res://audio/elevator/comedownsemifast.mp3")
 			else:
+				rotation.y = atan2(player.position.x-position.x, player.position.z-position.z)
 				if diff == 2:
 					$anim.play("comedownhitfloorfast")
 					playsound("res://audio/elevator/comedownhitfloorfast.mp3")
@@ -154,7 +159,7 @@ func _on_anim_animation_finished(anim_name):
 				else:
 					$anim.play("comedownfast")
 					playsound("res://audio/elevator/comedownfast.mp3")
-			if randf() >= 0.5 && time >= 50 && diff != 2:
+			if time >= 50 && diff != 2:
 				position = Vector3(player.position.x+randf_range(-3, 3), 0, player.position.z+randf_range(-3, 3))
 			else:
 				position = Vector3(player.position.x+player.velocity.x*0.9, 0, player.position.z+player.velocity.z*0.9)
@@ -163,22 +168,24 @@ func _on_anim_animation_finished(anim_name):
 		if anim_name == "comedown" || anim_name == "comedownfast" || anim_name == "comedownsemifast":
 			if slams > 0:
 				slams -= 1
+				rotation_degrees.y = randi_range(0, 3)*90
+				
 				if (time >= 50 && diff != 2) || diff == 0:
 					$anim.play("comedown")
 					playsound("res://audio/elevator/comedown.mp3")
-				elif (time >= 30 && diff != 2) || diff == 0:
+				elif (time >= 30 && diff != 2) && diff != 0:
 					$anim.play("comedownsemifast")
 					playsound("res://audio/elevator/comedownsemifast.mp3")
 				else:
 					$anim.play("comedownfast")
+					rotation.y = atan2(player.position.x-position.x, player.position.z-position.z)
 					playsound("res://audio/elevator/comedownfast.mp3")
 
-				if randf() >= 0.5 && time >= 30 && diff != 2:
+				if time >= 30 && diff != 2:
 					position = Vector3(player.position.x+randf_range(-3, 3), 0, player.position.z+randf_range(-3, 3))
 				else:
 					position = Vector3(player.position.x+player.velocity.x*0.9, 0, player.position.z+player.velocity.z*0.9)
 					
-				rotation_degrees.y = randi_range(0, 3)*90
 				$slamtimer.start()
 			else:
 				if (time >= 50 && diff != 2) || diff == 0:
@@ -189,8 +196,10 @@ func _on_anim_animation_finished(anim_name):
 					playsound("res://audio/elevator/comedownhitfloorsemifast.mp3")
 				else:
 					$anim.play("comedownhitfloorfast")
+					rotation.y = atan2(player.position.x-position.x, player.position.z-position.z)
 					playsound("res://audio/elevator/comedownhitfloorfast.mp3")
-				if randf() >= 0.5 && time >= 50 && diff != 2:
+					
+				if time >= 50 && diff != 2:
 					position = Vector3(player.position.x+randf_range(-3, 3), 0, player.position.z+randf_range(-3, 3))
 				else:
 					position = Vector3(player.position.x+player.velocity.x*0.9, 0, player.position.z+player.velocity.z*0.9)
@@ -236,6 +245,8 @@ func chooseattack():
 		var rand = randi_range(0, 3)
 		if diff == 2 && time >= 30:
 			rand = randi_range(-3, 3)
+		if diff >= 1 && time < 20:
+			rand = randi_range(0, 2)
 		if rand >= -3 && rand <= 1 || player.dead:
 			$anim.play("goupcomedown")
 			playsound("res://audio/elevator/goup.mp3")

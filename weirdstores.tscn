@@ -813,7 +813,7 @@ surface_material_override/7 = SubResource("StandardMaterial3D_r2nco")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hqb5o")
+&"": SubResource("AnimationLibrary_hqb5o")
 }
 autoplay = "KeyAction_001"
 speed_scale = 0.25
@@ -856,7 +856,9 @@ collision_mask = 3
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0383513, 5.96046e-08)
 shape = SubResource("ConvexPolygonShape3D_pci4i")
+debug_color = Color(0, 0.7, 0.0583333, 0.109804)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1.00001, 0, 0, -1.38556e-13, 1, 0.00112534, -0.00921604, -0.542969)
+transform = Transform3D(1, 0, 0, 0, 1, 1.38555e-13, 0, -1.38555e-13, 1, 0.00112534, -0.00921604, -0.542969)
 shape = SubResource("BoxShape3D_sd0tj")
+debug_color = Color(0, 0.7, 0.116667, 0.231373)

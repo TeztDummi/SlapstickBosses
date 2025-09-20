@@ -37,16 +37,15 @@ func _physics_process(delta: float) -> void:
 		if $RigidBody3D.get_contact_count() >= 1:
 			for body in $RigidBody3D.get_colliding_bodies():
 				if body.is_in_group("playergroup"):
-					if $"../../".head != "res://objects/basketball.tscn":
+					if !$"../../".unlockedheads.has("basketball"):
 						if abs($RigidBody3D.linear_velocity.y) > 0.1 && $RigidBody3D.global_position.y > $"../../player".position.y+1.5:
 							$RigidBody3D.linear_velocity = Vector3.ZERO
-							if !$"../../".unlockedheads.has("basketball"):
-								var popup = load("res://popup.tscn").instantiate()
-								popup.cosmetic = true
-								$"../../".unlockedheads.append("basketball")
-								$"../../sfx".stream = load("res://audio/gaincosmetic.mp3")
-								$"../../sfx".play()
-								$"../../canvas/hud".add_child(popup)
+							var popup = load("res://popup.tscn").instantiate()
+							popup.cosmetic = true
+							$"../../".unlockedheads.append("basketball")
+							$"../../sfx".stream = load("res://audio/gaincosmetic.mp3")
+							$"../../sfx".play()
+							$"../../canvas/hud".add_child(popup)
 							$"../../".head = "res://objects/basketball.tscn"
 							body.updatelook()
 							
@@ -65,7 +64,6 @@ func _physics_process(delta: float) -> void:
 				var amount = prevvel-currentvel
 				amount /= 8
 				amount = clamp(amount, 0, 2)
-				print(amount)
 
 				if amount > 0.01:
 					$RigidBody3D/bounce.volume_linear = amount
@@ -178,7 +176,6 @@ func pickup():
 							$"../../sfx2".stream = load("res://audio/spendbits.mp3")
 							$"../../sfx2".play()
 						var grab = load("res://items/held/"+item+".tscn").instantiate()
-						print(grab)
 						grab.extrainfo = extrainfo
 						grab.rot = global_rotation.y
 						$"../../player/camera/gun".add_child(grab)
