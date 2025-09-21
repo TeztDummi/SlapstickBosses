@@ -25,7 +25,7 @@ func _on_starttimer_timeout():
 		add_child(boss2)
 	
 	if chal == "2elevators": $"../".timer = 60
-	else: $"../".timer = 10
+	else: $"../".timer = 90
 	$"../canvas/hud/timer".show()
 	
 	if chal == "rats":
