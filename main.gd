@@ -66,7 +66,7 @@ var audioeffectcool = 0
 
 var hi_source_code_viewer = "im so sorry"
 
-#github test hoe bitch
+#github test hoe bitch the squeakquel
 
 func _init():
 	OS.set_environment("SteamAppID", AppID)
