@@ -40,6 +40,7 @@ var tedtime = 1
 var lilwizardtime = 1
 var canmantime = 1
 var crustytime = 1
+var levelguytime = 1
 var lipstime = 1
 var haspaint = false
 
@@ -568,6 +569,7 @@ func save_game():
 		"lilwizardtime" : lilwizardtime,
 		"canmantime" : canmantime,
 		"crustytime" : crustytime,
+		"levelguytime" : levelguytime,
 		"haspaint" : haspaint,
 		"zorbus" : zorbus,
 		"deadboing" : deadboing,
@@ -650,6 +652,7 @@ func load_game():
 		if data.has("lilwizardtime"): lilwizardtime = data["lilwizardtime"]
 		if data.has("canmantime"): canmantime = data["canmantime"]
 		if data.has("crustytime"): crustytime = data["crustytime"]
+		if data.has("levelguytime"): levelguytime = data["levelguytime"]
 		if data.has("haspaint"): haspaint = data["haspaint"]
 		if data.has("zorbus"): zorbus = data["zorbus"]
 		if data.has("deadboing"): deadboing = data["deadboing"]

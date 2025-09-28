@@ -313,14 +313,14 @@ uv1_scale = Vector3(0.05, 0.05, 0.05)
 uv1_triplanar = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dxo2s"]
-render_priority = 0
+render_priority = -1
 shader = ExtResource("1_o4wyr")
 shader_parameter/glass_texture = ExtResource("2_4aw3v")
 shader_parameter/alpha = 0.0
 shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tq78s"]
-render_priority = 0
+render_priority = -1
 shader = ExtResource("1_o4wyr")
 shader_parameter/glass_texture = ExtResource("2_4aw3v")
 shader_parameter/alpha = 0.5
@@ -796,9 +796,9 @@ surface_material_override/7 = SubResource("StandardMaterial3D_wahkb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.25, -1.795, 0)
 mesh = SubResource("ArrayMesh_ijm18")
 skeleton = NodePath("")
-blend_shapes/Wave = 0.0
-blend_shapes/Wave.001 = 0.822723
-blend_shapes/Wave.002 = 0.177277
+blend_shapes/Wave = 1.0
+blend_shapes/Wave.001 = 0.0
+blend_shapes/Wave.002 = 0.0
 blend_shapes/Wave.003 = 0.0
 blend_shapes/Wave.004 = 0.0
 blend_shapes/Wave.005 = 0.0

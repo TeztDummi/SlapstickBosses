@@ -153,6 +153,7 @@ func _on_portrait_animation_looped():
 		elif $portrait.animation == "crustytweaking": pass
 		elif $portrait.animation == "crustycrazystop": pass
 		elif $portrait.animation == "crustysketchystop": pass
+		elif $portrait.animation == "levelguyhappy": pass
 		else:
 			print("stoppy")
 			$portrait.stop()

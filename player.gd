@@ -249,6 +249,7 @@ func _process(delta):
 		$camera/slidething.get_surface_override_material(0).uv2_offset.z -= (extra)*delta*0.1+delta*0.2
 		$camera/slidething.global_rotation.x = 0
 		$camera/slidething.rotation.y = 0
+		$camera/slidething.rotation.z = -PI/2
 		#$slidepivot.global_rotation.y = atan2(velocity.x, velocity.z)
 		$camera/slidething.scale = Vector3.ONE*3
 	else:

@@ -111,6 +111,8 @@ func clicked():
 					main.get_node("map").lobbypower(false)
 					player.cancrouch = true
 					player.falloff = false
+				if level == "speedrace":
+					main.get_node("map").lobbypower(false)
 		else:
 			levelobject.queue_free()
 			transition = "end"

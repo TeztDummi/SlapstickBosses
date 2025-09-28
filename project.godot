@@ -36,10 +36,6 @@ mouse_cursor/custom_image="uid://dxkerwfrbmvmp"
 
 enabled=PackedStringArray("res://addons/SIsilicon.vfx.lens flare/plugin.cfg", "res://addons/boujie_water_shader/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg")
 
-[filesystem]
-
-import/blender/enabled=false
-
 [input]
 
 left={

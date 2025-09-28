@@ -295,7 +295,7 @@ uv1_scale = Vector3(0.235, 0.235, 0.235)
 uv1_triplanar = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jswn4"]
-render_priority = 0
+render_priority = -1
 shader = ExtResource("8_74m7b")
 shader_parameter/glass_texture = ExtResource("9_cyo32")
 shader_parameter/alpha = 0.0

@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dhrd6vn43dy4r" path="res://spike.tscn" id="3_t47cv"]
 [ext_resource type="Script" uid="uid://c0yabslkk3r1p" path="res://fall.gd" id="4_t47cv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ye72"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t47cv"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.137255)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ruudk"]
-material = SubResource("StandardMaterial3D_4ye72")
+material = SubResource("StandardMaterial3D_t47cv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_poj10"]
 size = Vector3(324.657, 1, 755.399)
@@ -142,14 +142,6 @@ transform = Transform3D(1.99239, 0, 2.9633, 0, 2, 0, -0.174312, 0, 33.8706, -38.
 
 [node name="9patch29" parent="." instance=ExtResource("1_03q6v")]
 transform = Transform3D(4.88195, 0, 2.03948, 0, 1.92, 0, -0.427115, 0, 23.3114, -39.8918, -23.6852, -577.728)
-
-[node name="bounds" type="MeshInstance3D" parent="."]
-transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 637.19, 0, -12.9523, -320.005)
-visible = false
-mesh = SubResource("BoxMesh_ruudk")
-
-[node name="end" type="Marker3D" parent="."]
-transform = Transform3D(2.51765, 0, 0, 0, 1.00706, 0, 0, 0, 1.00706, -52.1443, -33.0264, -621.951)
 
 [node name="springmachine" parent="." instance=ExtResource("2_poj10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.835, -227.953)
@@ -837,6 +829,14 @@ transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 3.45957,
 
 [node name="spike23" parent="." instance=ExtResource("3_t47cv")]
 transform = Transform3D(0.498739, 0, 0, 0, 0.498739, 0, 0, 0, 0.498739, 4.51712, -10.8858, -231.493)
+
+[node name="bounds" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 637.19, 0, -12.9523, -320.005)
+visible = false
+mesh = SubResource("BoxMesh_ruudk")
+
+[node name="end" type="Marker3D" parent="."]
+transform = Transform3D(2.51765, 0, 0, 0, 1.00706, 0, 0, 0, 1.00706, -52.1443, -33.0264, -621.951)
 
 [node name="fall" type="Area3D" parent="."]
 collision_mask = 2
