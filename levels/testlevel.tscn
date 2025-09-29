@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://mptlq61h8h7j"]
+[gd_scene load_steps=7 format=3 uid="uid://mptlq61h8h7j"]
 
 [ext_resource type="PackedScene" uid="uid://8d1eknlhik60" path="res://9patch.tscn" id="1_4ye72"]
+[ext_resource type="Texture2D" uid="uid://bylk1rbt08c6e" path="res://dontask..jpg" id="2_uu6m2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb8io"]
+albedo_texture = ExtResource("2_uu6m2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t3dhk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ye72"]
 transparency = 1
@@ -19,6 +25,13 @@ transform = Transform3D(1, 0, 0, 0, 0.517288, 0, 0, 0, 1, 0, -0.645074, -9.05516
 
 [node name="9patch5" parent="." instance=ExtResource("1_4ye72")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, -9.05516)
+
+[node name="Node3D" type="Node3D" parent="9patch5"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="9patch5/Node3D"]
+transform = Transform3D(-0.999992, -0.00401419, 0, 0.00401419, -0.999992, 0, 0, 0, 1, -1.98002, -2.07616, -14.6312)
+material_override = SubResource("StandardMaterial3D_hb8io")
+mesh = SubResource("PlaneMesh_t3dhk")
 
 [node name="9patch6" parent="." instance=ExtResource("1_4ye72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, -5, 3, -17.0552)
