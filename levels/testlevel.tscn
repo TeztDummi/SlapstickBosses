@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://mptlq61h8h7j"]
+[gd_scene load_steps=7 format=3 uid="uid://mptlq61h8h7j"]
 
 [ext_resource type="PackedScene" uid="uid://8d1eknlhik60" path="res://9patch.tscn" id="1_4ye72"]
+[ext_resource type="Texture2D" uid="uid://bylk1rbt08c6e" path="res://dontask..jpg" id="2_uu6m2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb8io"]
+albedo_texture = ExtResource("2_uu6m2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t3dhk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ye72"]
 transparency = 1
@@ -12,27 +18,55 @@ material = SubResource("StandardMaterial3D_4ye72")
 [node name="testlevel" type="Node3D"]
 
 [node name="9patch" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -3.05516)
+transform = Transform3D(1, 0, 0, 0, 0.560764, 0, 0, 0, 1, -0.000328064, -0.723971, -3.00692)
 
 [node name="9patch2" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -9.05516)
+transform = Transform3D(1, 0, 0, 0, 0.517288, 0, 0, 0, 1, 0, -0.645074, -9.05516)
 
 [node name="9patch5" parent="." instance=ExtResource("1_4ye72")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, -9.05516)
 
+[node name="Node3D" type="Node3D" parent="9patch5"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="9patch5/Node3D"]
+transform = Transform3D(-0.999992, -0.00401419, 0, 0.00401419, -0.999992, 0, 0, 0, 1, -1.98002, -2.07616, -14.6312)
+material_override = SubResource("StandardMaterial3D_hb8io")
+mesh = SubResource("PlaneMesh_t3dhk")
+
 [node name="9patch6" parent="." instance=ExtResource("1_4ye72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, -5, 3, -17.0552)
 
+[node name="9patch7" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, -5, 3, -28.7654)
+
 [node name="9patch3" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(3.19, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -1, -15.0552)
+transform = Transform3D(3.19, 0, 0, 0, 1.5, 0, 0, 0, 1.56795, 0, -1, -15.0552)
 
 [node name="9patch4" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -21.0552)
+transform = Transform3D(1.35149, 0, 0, 0, 0.302928, 0, 0, 0, 1.35031, 0, -1, -21.0552)
+
+[node name="9patch8" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(2.3799, 0, 0, 0, 0.697501, 0, 0, 0, 2.57037, 0, -1, -28.7725)
+
+[node name="9patch9" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(5.6973, 0, 0, 0, 0.697501, 0, 0, 0, 6.49194, 0, -1, -40.4803)
+
+[node name="9patch13" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.697501, 0, 0, 0, 8.1806, 0, -1, -101.274)
+
+[node name="9patch12" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(1.50346, 0, 0, 0, 0.718829, 0, 0, 0, 6.69044, -0.346487, -1.22066, -87.1995)
+
+[node name="9patch10" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(4.36138, 0.448783, 0, -3.66574, 0.533949, 0, 0, 0, 6.49194, -7.08392, 2.44503, -73.5442)
+
+[node name="9patch11" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(4.33086, -0.453192, -0.00501143, 3.70175, 0.530212, -0.00317367, 0.00515283, -9.06473e-05, 6.49193, 5.58385, 2.65708, -60.0636)
 
 [node name="bounds" type="MeshInstance3D" parent="."]
-transform = Transform3D(12.7961, 0, 0, 0, 6.57909, 0, 0, 0, 20.0301, 0.543045, 0.789922, -12.0552)
+transform = Transform3D(42.2898, 0, 0, 0, 14.2733, 0, 0, 0, 108.81, 0.543045, 0.789922, -56.2817)
 visible = false
 mesh = SubResource("BoxMesh_uu6m2")
 
 [node name="end" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000593185, 0.222766, -106.383)
