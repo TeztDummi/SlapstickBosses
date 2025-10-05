@@ -29,7 +29,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, -9.05516)
 [node name="Node3D" type="Node3D" parent="9patch5"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="9patch5/Node3D"]
-transform = Transform3D(-0.999992, -0.00401419, 0, 0.00401419, -0.999992, 0, 0, 0, 1, -1.98002, -2.07616, -14.6312)
+transform = Transform3D(-0.808171, -0.0194282, -9.64936e-05, -7.56302e-05, 0.0141588, -0.536044, 0.0156607, -1.00252, -0.00756872, 0.0312164, 0.148182, -1.11284)
 material_override = SubResource("StandardMaterial3D_hb8io")
 mesh = SubResource("PlaneMesh_t3dhk")
 
