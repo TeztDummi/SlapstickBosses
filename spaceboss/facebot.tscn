@@ -908,7 +908,7 @@ script = ExtResource("1_iyy2o")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qy8v3")
+&"": SubResource("AnimationLibrary_qy8v3")
 }
 
 [node name="mesh" type="Node3D" parent="."]
@@ -968,7 +968,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mxrc5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mesh/rocket/flame"]
 libraries = {
-"": SubResource("AnimationLibrary_4856a")
+&"": SubResource("AnimationLibrary_4856a")
 }
 autoplay = "KeyAction"
 
@@ -1002,7 +1002,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mxrc5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mesh/rocket_001/flame"]
 libraries = {
-"": SubResource("AnimationLibrary_4856a")
+&"": SubResource("AnimationLibrary_4856a")
 }
 autoplay = "KeyAction"
 
@@ -1036,7 +1036,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mxrc5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mesh/rocket_002/flame"]
 libraries = {
-"": SubResource("AnimationLibrary_4856a")
+&"": SubResource("AnimationLibrary_4856a")
 }
 autoplay = "KeyAction"
 
@@ -1070,7 +1070,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mxrc5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mesh/rocket_003/flame"]
 libraries = {
-"": SubResource("AnimationLibrary_4856a")
+&"": SubResource("AnimationLibrary_4856a")
 }
 autoplay = "KeyAction"
 
@@ -1104,7 +1104,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mxrc5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mesh/rocket_004/flame"]
 libraries = {
-"": SubResource("AnimationLibrary_4856a")
+&"": SubResource("AnimationLibrary_4856a")
 }
 autoplay = "KeyAction"
 

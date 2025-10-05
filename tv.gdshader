@@ -34,9 +34,9 @@ void vertex() {
 
 void fragment() {
 	vec2 base_uv = UV;
-	
+
 	vec4 glass_tex = texture(texture_glass, base_uv);
-	
+
 	vec4 screen_tex = texture(texture_screen, base_uv);
 
 	vec4 albedo_tex = texture(texture_albedo, base_uv);
@@ -51,9 +51,9 @@ void fragment() {
 
 	// Emission: Enabled
 	vec2 glassoff = vec2(glass_tex.a, glass_tex.a)*0.05;
-	
+
 	vec3 emission_tex = texture(texture_emission, base_uv+glassoff).rgb;
-	
+
 	ALBEDO = albedo_tex.rgb*albedo.rgb;
 	// Emission Operator: Multiply
 	EMISSION = (emission.rgb * emission_tex) * (emission_energy - glass_tex.a/2.0)*((1.0-rbg_effect)+rbg_effect*(emission_tex*screen_tex.rgb).s);

@@ -65,6 +65,8 @@ var fov = 75
 var quality = 2
 var audioeffectcool = 0
 
+var spooky = true
+
 var hi_source_code_viewer = "im so sorry"
 
 #github test hoe bitch fagnugget the squeakquel
@@ -233,6 +235,7 @@ func _unhandled_input(event):
 		if !$canvas/hud/pause.visible && !$canvas/hud/transitionin.is_playing() && !$canvas/hud/transitionout.is_playing():
 			if !$canvas/hud/pause/pausebg.is_playing():
 				$canvas/hud/pause/pausebg.play("start")
+				$canvas/hud/pause/anim.play("start")
 				$canvas/hud/pause.show()
 				$canvas/hud.show()
 				$canvas/hud/pause.alpha = 0
@@ -243,6 +246,8 @@ func _unhandled_input(event):
 				$canvas/hud/pause/options/Sensitivity.value = sensitivity
 				$music.stream_paused = true
 				$musictransition.stream_paused = true
+				$"sfx2".stream = load("res://audio/pause.mp3")
+				$"sfx2".play()
 				
 				AudioServer.get_bus_effect(0, 1).pre_gain = 0
 				AudioServer.get_bus_effect(0, 1).post_gain = 0
@@ -349,6 +354,9 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 			child.queue_free()
 	$"player/camera/gun".show()
 	print(mappath)
+	if spooky:
+		if mappath == "res://maps/lobby.tscn":
+			mappath = "res://maps/lobbyspooky.tscn"
 	var mapload = load(mappath).instantiate()
 	$canvas/hud/difficultylabel.hide()
 	if chal != "none":
