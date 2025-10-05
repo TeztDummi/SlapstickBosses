@@ -7,12 +7,14 @@ var dontplay = false
 func _process(delta):
 	if isin:
 		if alpha < 1:
-			alpha += delta*4
+			alpha += delta*2
 	else:
 		if alpha > 0:
 			alpha -= delta*4
 	
-	$text.modulate = Color(1, 1, 1, alpha)
+	$text.modulate = Color(1, 1, 1, alpha*1.5-0.5)
+	$options.modulate = Color(1, 1, 1, alpha*1.5-0.5)
+	$shortcuts.modulate = Color(1, 1, 1, alpha*1.5-0.5)
 
 	$text/bits2.text = str(int($"../../..".bits))
 	#fuckass godot update made me do this nightmare nightmare

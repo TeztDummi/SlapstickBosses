@@ -75,7 +75,7 @@ void vertex() {
 	uv1_triplanar_pos = VERTEX * uv1_scale + uv1_offset;
 	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
 	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
-	
+
 	float time = TIME*grow_speed;
 	vec3 grow_offset = vec3(time, time, time);
 
@@ -83,7 +83,7 @@ void vertex() {
 	// Grow: Enabled
 	vec3 world_vertex = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	float min_dist = min(length(player_pos - world_vertex), 1);
-	
+
 	VERTEX += NORMAL * grow * (grow_tex.x-(0.5-grow_size_offset));
 }
 

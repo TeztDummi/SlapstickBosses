@@ -8,7 +8,7 @@ func talk():
 	if delay <= 0:
 		if time == 1: $"../../canvas/hud/talk".start("crustystart", self)
 		if time == 2: $"../../canvas/hud/talk".start("crusty2nd", self)
-		if time >= 3: $"../../canvas/hud/talk".start("crusty/"+str(randi_range(1, 18)), self)
+		if time >= 3: $"../../canvas/hud/talk".start("crusty/"+str(randi_range(1, 19)), self)
 		time += 1
 		$"../../".crustytime = time
 		delay = 1

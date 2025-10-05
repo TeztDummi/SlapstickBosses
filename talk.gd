@@ -37,6 +37,8 @@ func start(thething, characterobjfunc = null):
 	if thething == "gearmoalley": conv = $"../../../conversations/gearmo/alley"
 	if thething == "gearmoboings": conv = $"../../../conversations/gearmo/boings"
 	if thething == "gearmobillboard": conv = $"../../../conversations/gearmo/billboard"
+	if thething == "gearmogloop": conv = $"../../../conversations/gearmo/gloop"
+	if thething == "gearmoburgshelter": conv = $"../../../conversations/gearmo/burgshelter"
 	if thething == "ted": conv = $"../../../conversations/ted/start"
 	if thething == "lilwizardstart": conv = $"../../../conversations/lilwizard/start"
 	if thething == "lilwizard2nd": conv = $"../../../conversations/lilwizard/2nd"
