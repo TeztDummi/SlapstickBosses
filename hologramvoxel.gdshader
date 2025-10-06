@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, fog_disabled;
 
 uniform sampler2D texture_image;
 

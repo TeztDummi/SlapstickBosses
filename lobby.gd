@@ -58,7 +58,8 @@ func _ready():
 		$cube/cube/cubeparticles.emitting = false
 		$introstuff/introcam/introcam/blackfade.hide()
 		$introstuff/introcam/introcam/clicktobegin.hide()
-		$"../music".stream = load("res://audio/music/lobbymusic.mp3")
+		if $"../".spooky: $"../music".stream = load("res://audio/music/spookylobby.mp3")
+		else: $"../music".stream = load("res://audio/music/lobbymusic.mp3")
 		$"../music".play()
 	
 	if $"../".bitbags.has("basketball"):
@@ -133,7 +134,8 @@ func _on_anim_animation_finished(anim_name):
 	if anim_name == "default":
 		player.camera.current = true
 		$cube/cube/cubeparticles.emitting = false
-		$"../music".stream = load("res://audio/music/lobbymusic.mp3")
+		if $"../".spooky: $"../music".stream = load("res://audio/music/spookylobby.mp3")
+		else: $"../music".stream = load("res://audio/music/lobbymusic.mp3")
 		$"../music".play()
 		$gearmo/clicktotalkanim.play("default")
 
@@ -178,7 +180,8 @@ func _on_updateday_timeout() -> void:
 	if $"../".didintro:
 		var time = float(Time.get_datetime_dict_from_system(0)["second"])
 		time += Time.get_datetime_dict_from_system(0)["minute"]*60
-		time += Time.get_datetime_dict_from_system(0)["hour"]*60*24
+		time += Time.get_datetime_dict_from_system(0)["hour"]*60*60
+		time += Time.get_datetime_dict_from_system(0)["day"]*60*60*24
 		#print("Lobby Seconds: "+str(time))
 		time /= (1.0/$daycycle.speed_scale)
 		time = wrap(time, 0, 24)
@@ -194,7 +197,8 @@ func setboingchallenge(num):
 		if num == 1:
 			$"../".transitionmusic("res://audio/music/maingametheme.mp3", 4, true)
 		if num == 0 || num == 10:
-			$"../".transitionmusic("res://audio/music/lobbymusic.mp3", 2, true)
+			if $"../".spooky: $"../".transitionmusic("res://audio/music/spookylobby.mp3", 2, true)
+			else: $"../".transitionmusic("res://audio/music/lobbymusic.mp3", 2, true)
 		if num == 10:
 			boingchallenge = 0
 			$"../sfx2".stream = load("res://audio/goalreached.mp3")
