@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnjtv4dceyis6"
-path="res://.godot/imported/somethingsomethingsomething.png-0b1482870764d8bc6a8d9bf8bc875a6c.ctex"
+uid="uid://c5itnop6jb2dk"
+path="res://.godot/imported/scaryrimsinteractivearts.png-befe3260fa2caa34d4325d3df5900dfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/somethingsomethingsomething.png"
-dest_files=["res://.godot/imported/somethingsomethingsomething.png-0b1482870764d8bc6a8d9bf8bc875a6c.ctex"]
+source_file="res://textures/scaryrimsinteractivearts.png"
+dest_files=["res://.godot/imported/scaryrimsinteractivearts.png-befe3260fa2caa34d4325d3df5900dfa.ctex"]
 
 [params]
 
