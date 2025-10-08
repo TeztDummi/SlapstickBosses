@@ -1,4 +1,4 @@
-[gd_scene load_steps=296 format=4 uid="uid://6b4jmi60xclm"]
+[gd_scene load_steps=299 format=4 uid="uid://6b4jmi60xclm"]
 
 [ext_resource type="Texture2D" uid="uid://buajxs1k2psb2" path="res://textures/Bricks061_2K-JPG/Bricks061_2K-JPG_Color.jpg" id="1_h0cv6"]
 [ext_resource type="Texture2D" uid="uid://c8q7kxavbm6n1" path="res://textures/Bricks061_2K-JPG/Bricks061_2K-JPG_NormalDX.jpg" id="2_6bo7h"]
@@ -33,11 +33,13 @@
 [ext_resource type="Shader" uid="uid://dadqojwnko75l" path="res://glass.gdshader" id="31_5xl1a"]
 [ext_resource type="Texture2D" uid="uid://b4x8fhlybxffs" path="res://textures/glass-1.jpg" id="32_up80b"]
 [ext_resource type="Texture2D" uid="uid://dtd8krb40egoc" path="res://textures/rimsinteractivearts.png" id="33_b80ej"]
+[ext_resource type="Texture2D" uid="uid://dumqah8of077" path="res://DIEmat - Copy.png" id="34_6bo7h"]
 [ext_resource type="Texture2D" uid="uid://crq3h2inxshia" path="res://welcomemat.png" id="34_m5upl"]
 [ext_resource type="Texture2D" uid="uid://cfr4elrog53ix" path="res://artstore_1286_Air Conditioner.png" id="35_mg6rq"]
 [ext_resource type="Script" uid="uid://1i8aj3p517n4" path="res://acfan.gd" id="36_ngmbi"]
 [ext_resource type="Texture2D" uid="uid://dngexnbugd5ao" path="res://artstore_Atlas.png" id="37_jwcge"]
 [ext_resource type="Texture2D" uid="uid://b7b4s15to2x1f" path="res://suckmyrock.png" id="38_6wntw"]
+[ext_resource type="Texture2D" uid="uid://nhvd8ac3nvjk" path="res://textures/blood/blood.png" id="39_th4ih"]
 [ext_resource type="Texture2D" uid="uid://cckkgpxca1ycf" path="res://titsmile.png" id="39_w733p"]
 [ext_resource type="Texture2D" uid="uid://31qjpxt1wjf8" path="res://textures/dummispray.png" id="40_ftq3v"]
 [ext_resource type="Script" uid="uid://b4xkegowtyaqx" path="res://dummidecal.gd" id="41_4pr3s"]
@@ -4655,6 +4657,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nhnls")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th4ih"]
+albedo_texture = ExtResource("34_6bo7h")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyfi"]
 resource_name = "Material.117"
 cull_mode = 2
@@ -4963,7 +4968,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kxy2y")
 
 [node name="pillars" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0, 4.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24891, 0.0350022, 4.38637)
 mesh = SubResource("ArrayMesh_cq452")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_yuokv")
@@ -5341,6 +5346,7 @@ skeleton = NodePath("")
 
 [node name="doormat" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.85, 0.667919, 0)
+material_override = SubResource("StandardMaterial3D_th4ih")
 mesh = SubResource("ArrayMesh_a23of")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_is1hr")
@@ -5415,6 +5421,13 @@ skeleton = NodePath("")
 transform = Transform3D(3.57628e-07, 0, 1, 0, 1, 0, -1, 0, 3.57628e-07, 0.250728, 5.16032, 0.857364)
 mesh = SubResource("ArrayMesh_y3g22")
 skeleton = NodePath("")
+
+[node name="Decal" type="Decal" parent="solarpanels/SolarPanel_Roof"]
+transform = Transform3D(1, 6.70752e-12, 6.73595e-12, 0, 0.866025, -0.5, -1.3415e-11, 0.5, 0.866025, -1.19209e-07, 0.215619, -0.220796)
+size = Vector3(2, 0.704102, 2)
+texture_albedo = ExtResource("39_th4ih")
+upper_fade = 6.23844e-05
+lower_fade = 2.97453e-05
 
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(0.987416, 0.158141, 4.31613e-08, 4.37113e-08, -7.60504e-15, -1, -0.158141, 0.987416, -6.91255e-09, 3.47074, 1.76003, 5.6726)
