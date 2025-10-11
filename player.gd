@@ -962,6 +962,8 @@ func updatelook():
 			for childagainagain in childagain.get_children():
 				if childagainagain is MeshInstance3D:
 					childagainagain.layers = 32
+				if childagainagain is OmniLight3D:
+					childagainagain.layers = 32
 	$Armature/Skeleton3D/headbone/offset.add_child(loadhead)
 	
 func setshaders(val):

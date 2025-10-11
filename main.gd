@@ -887,3 +887,7 @@ func _on_fov_value_changed(value: float) -> void:
 
 func _on_qualityupdate_timeout() -> void:
 	setquality(quality)
+
+func _on_skeletimer_timeout() -> void:
+	if randf() <= 0.1:
+		$canvas/hud/skeleton.play("default")

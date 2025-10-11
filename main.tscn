@@ -1,4 +1,4 @@
-[gd_scene load_steps=375 format=4 uid="uid://cobld5y5t30qb"]
+[gd_scene load_steps=400 format=4 uid="uid://cobld5y5t30qb"]
 
 [ext_resource type="Script" uid="uid://b4f7c2xgl12cp" path="res://main.gd" id="1_447ni"]
 [ext_resource type="PackedScene" uid="uid://chwr8oem503jp" path="res://player.tscn" id="4_7fi2g"]
@@ -287,6 +287,30 @@
 [ext_resource type="Texture2D" uid="uid://be7st61a1yayq" path="res://textures/tedsthumb.png" id="234_38n85"]
 [ext_resource type="Texture2D" uid="uid://byhre74v1klkx" path="res://ui/saveicon.png" id="249_nkmqd"]
 [ext_resource type="Shader" uid="uid://cf4yiu32gwaxd" path="res://inwater.gdshader" id="251_38n85"]
+[ext_resource type="Texture2D" uid="uid://tts11xyhpb2m" path="res://textures/skeleton/ezgif-frame-001.png" id="284_moxjo"]
+[ext_resource type="Texture2D" uid="uid://bgk6qoxrx2oov" path="res://textures/skeleton/ezgif-frame-003.png" id="286_xa7an"]
+[ext_resource type="Texture2D" uid="uid://mvo1jbq42imk" path="res://textures/skeleton/ezgif-frame-004.png" id="287_dk42n"]
+[ext_resource type="Texture2D" uid="uid://d3755thc27blg" path="res://textures/skeleton/ezgif-frame-005.png" id="288_4dwmn"]
+[ext_resource type="Texture2D" uid="uid://hwis12e0mt8m" path="res://textures/skeleton/ezgif-frame-006.png" id="289_swdh1"]
+[ext_resource type="Texture2D" uid="uid://bbjcnp51yvi76" path="res://textures/skeleton/ezgif-frame-007.png" id="290_8v027"]
+[ext_resource type="Texture2D" uid="uid://dl8wnq8dkmsiy" path="res://textures/skeleton/ezgif-frame-008.png" id="291_me1c1"]
+[ext_resource type="Texture2D" uid="uid://7yihr3eeh6lx" path="res://textures/skeleton/ezgif-frame-009.png" id="292_skfll"]
+[ext_resource type="Texture2D" uid="uid://cxp30ku7h4lm5" path="res://textures/skeleton/ezgif-frame-010.png" id="293_l0ugm"]
+[ext_resource type="Texture2D" uid="uid://c63yf58cbnd6u" path="res://textures/skeleton/ezgif-frame-011.png" id="294_dfd08"]
+[ext_resource type="Texture2D" uid="uid://0uoxhry56l76" path="res://textures/skeleton/ezgif-frame-012.png" id="295_fxdwr"]
+[ext_resource type="Texture2D" uid="uid://c8gn37trp42x6" path="res://textures/skeleton/ezgif-frame-013.png" id="296_ecwfn"]
+[ext_resource type="Texture2D" uid="uid://dfjt2un8f67vj" path="res://textures/skeleton/ezgif-frame-014.png" id="296_fxdwr"]
+[ext_resource type="Texture2D" uid="uid://bsmow4yasnjca" path="res://textures/skeleton/ezgif-frame-015.png" id="297_ecwfn"]
+[ext_resource type="Texture2D" uid="uid://d21vrfaj18d8h" path="res://textures/skeleton/ezgif-frame-016.png" id="298_ip2l3"]
+[ext_resource type="Texture2D" uid="uid://d2klykbvqtjxf" path="res://textures/skeleton/ezgif-frame-017.png" id="299_s14wm"]
+[ext_resource type="Texture2D" uid="uid://ik7veigbv0br" path="res://textures/skeleton/ezgif-frame-018.png" id="300_q4gy1"]
+[ext_resource type="Texture2D" uid="uid://ds0dmevjn6x3p" path="res://textures/skeleton/ezgif-frame-019.png" id="301_cnw22"]
+[ext_resource type="Texture2D" uid="uid://blokel82yfv2e" path="res://textures/skeleton/ezgif-frame-020.png" id="302_8e868"]
+[ext_resource type="Texture2D" uid="uid://cnsh540epi5k" path="res://textures/skeleton/ezgif-frame-021.png" id="303_2vmp2"]
+[ext_resource type="Texture2D" uid="uid://bkdqxy1nr80h2" path="res://textures/skeleton/ezgif-frame-022.png" id="304_wvmv7"]
+[ext_resource type="Texture2D" uid="uid://roft1yf8skv0" path="res://textures/skeleton/ezgif-frame-023.png" id="305_us00v"]
+[ext_resource type="Texture2D" uid="uid://c6l2ryebrttil" path="res://textures/skeleton/ezgif-frame-024.png" id="306_nc1xb"]
+[ext_resource type="Texture2D" uid="uid://c3tw565iolose" path="res://textures/skeleton/ezgif-frame-025.png" id="307_wm7i3"]
 
 [sub_resource type="Gradient" id="Gradient_rx6mv"]
 interpolation_mode = 2
@@ -1691,6 +1715,89 @@ _data = {
 &"RESET": SubResource("Animation_fkmie"),
 &"start": SubResource("Animation_7bx05")
 }
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ip2l3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("284_moxjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("286_xa7an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("287_dk42n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("288_4dwmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("289_swdh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("290_8v027")
+}, {
+"duration": 1.0,
+"texture": ExtResource("291_me1c1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("292_skfll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("293_l0ugm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("294_dfd08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("295_fxdwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("296_ecwfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("296_fxdwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("297_ecwfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("298_ip2l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("299_s14wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("300_q4gy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("301_cnw22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("302_8e868")
+}, {
+"duration": 1.0,
+"texture": ExtResource("303_2vmp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("304_wvmv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("305_us00v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("306_nc1xb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("307_wm7i3")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lp6vd"]
 animations = [{
@@ -5923,6 +6030,17 @@ texture = ExtResource("215_4fms3")
 position = Vector2(1110, 44)
 texture = ExtResource("7_ypd12")
 
+[node name="skeleton" type="AnimatedSprite2D" parent="canvas/hud"]
+position = Vector2(637.6, 517.5)
+scale = Vector2(0.668333, 0.668333)
+sprite_frames = SubResource("SpriteFrames_ip2l3")
+frame = 24
+frame_progress = 1.0
+
+[node name="skeletimer" type="Timer" parent="canvas/hud"]
+wait_time = 60.0
+autostart = true
+
 [node name="transitionin" type="AnimatedSprite2D" parent="canvas/hud"]
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_lp6vd")
@@ -7074,11 +7192,11 @@ one_shot = true
 [connection signal="pressed" from="canvas/hud/pause/text/Lobby" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Lobby" to="canvas/hud/pause" method="_on_lobby_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Options" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Quit" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Difficulty" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="canvas/hud/pause" method="_on_difficulty_pressed"]
@@ -7097,17 +7215,18 @@ one_shot = true
 [connection signal="drag_started" from="canvas/hud/pause/options/Quality" to="." method="anybutton"]
 [connection signal="value_changed" from="canvas/hud/pause/options/Quality" to="." method="_on_quality_value_changed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Fullscreen" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
+[connection signal="timeout" from="canvas/hud/skeletimer" to="." method="_on_skeletimer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/transitionin" to="." method="_on_transitionin_animation_finished"]
 [connection signal="animation_finished" from="canvas/hud/cosmetics/cosmeticbg" to="canvas/hud/cosmetics" method="_on_cosmeticbg_animation_finished"]
 [connection signal="drag_started" from="canvas/hud/cosmetics/text/value" to="." method="anybutton"]

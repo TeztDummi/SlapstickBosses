@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2sv8chxwrpqg"]
+
+[ext_resource type="Script" uid="uid://bqau1n5hg8b32" path="res://objects/pumpkin.gd" id="1_4eogp"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_imv80"]
+radial_segments = 12
+rings = 6
+
+[node name="pumpkin" type="Node3D"]
+script = ExtResource("1_4eogp")
+
+[node name="collision" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499153, 0)
+visible = false
+mesh = SubResource("SphereMesh_imv80")

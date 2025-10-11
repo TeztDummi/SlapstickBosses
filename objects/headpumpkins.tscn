@@ -1,0 +1,93 @@
+[gd_scene load_steps=23 format=3 uid="uid://dnnfbbmluvqg7"]
+
+[ext_resource type="PackedScene" uid="uid://cgos36mosirfh" path="res://objects/pumpkins/pumpkin_1.tscn" id="1_s0htr"]
+[ext_resource type="PackedScene" uid="uid://btxb72tpwephn" path="res://objects/pumpkins/pumpkin_2.tscn" id="2_c303a"]
+[ext_resource type="PackedScene" uid="uid://do7n56kxk4a5s" path="res://objects/pumpkins/pumpkin_3.tscn" id="3_y5nrd"]
+[ext_resource type="PackedScene" uid="uid://kl43uf0qskb0" path="res://objects/pumpkins/pumpkin_4.tscn" id="4_38jsi"]
+[ext_resource type="PackedScene" uid="uid://yxrh3hjkog26" path="res://objects/pumpkins/pumpkin_5.tscn" id="5_tmrg5"]
+[ext_resource type="PackedScene" uid="uid://u2c1n13lrih0" path="res://objects/pumpkins/pumpkin_6.tscn" id="6_avvj1"]
+[ext_resource type="PackedScene" uid="uid://bny2mh0qe2fmk" path="res://objects/pumpkins/pumpkin_7.tscn" id="7_288ng"]
+[ext_resource type="PackedScene" uid="uid://dym448s88uc6g" path="res://objects/pumpkins/pumpkin_8.tscn" id="8_elfco"]
+[ext_resource type="PackedScene" uid="uid://b476mweeyqy5q" path="res://objects/pumpkins/pumpkin_9.tscn" id="9_rrwuu"]
+[ext_resource type="PackedScene" uid="uid://c7hkf0ox4uqho" path="res://objects/pumpkins/pumpkin_10.tscn" id="10_pqoa0"]
+[ext_resource type="PackedScene" uid="uid://bxpserloeo2b" path="res://objects/pumpkins/pumpkin_11.tscn" id="11_oecwj"]
+[ext_resource type="PackedScene" uid="uid://bv62nwqhjqi64" path="res://objects/pumpkins/pumpkin_12.tscn" id="12_5v8s3"]
+[ext_resource type="PackedScene" uid="uid://boe4f8gkucg1s" path="res://objects/pumpkins/pumpkin_13.tscn" id="13_ywwdg"]
+[ext_resource type="PackedScene" uid="uid://baa6no16o2yqp" path="res://objects/pumpkins/pumpkin_14.tscn" id="14_clty3"]
+[ext_resource type="PackedScene" uid="uid://dqxmn053y7r6t" path="res://objects/pumpkins/pumpkin_15.tscn" id="15_usunr"]
+[ext_resource type="PackedScene" uid="uid://dokytv4mfwov8" path="res://objects/pumpkins/pumpkin_16.tscn" id="16_y8w8r"]
+[ext_resource type="PackedScene" uid="uid://b3pnl8ptv5xwy" path="res://objects/pumpkins/pumpkin_17.tscn" id="17_lqib3"]
+[ext_resource type="PackedScene" uid="uid://83uj82ltly1v" path="res://objects/pumpkins/pumpkin_18.tscn" id="18_7cfi2"]
+[ext_resource type="PackedScene" uid="uid://c5s725ql4iwtx" path="res://objects/pumpkins/pumpkin_19.tscn" id="19_oddxy"]
+[ext_resource type="PackedScene" uid="uid://c87fdiwbmpdhy" path="res://objects/pumpkins/pumpkin_20.tscn" id="20_hypdn"]
+[ext_resource type="PackedScene" uid="uid://d1t2i0j4ea6uj" path="res://objects/pumpkins/pumpkin_21.tscn" id="21_l6ty7"]
+[ext_resource type="PackedScene" uid="uid://c7wqu0shbbs3l" path="res://objects/pumpkins/pumpkin_22.tscn" id="22_8jond"]
+
+[node name="headpumpkins" type="Node3D"]
+
+[node name="pumpkin1" parent="." instance=ExtResource("1_s0htr")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 15.84, 0.412021, 0)
+
+[node name="pumpkin2" parent="." instance=ExtResource("2_c303a")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 14.4, 0.412021, 0)
+
+[node name="pumpkin3" parent="." instance=ExtResource("3_y5nrd")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 12.96, 0.412021, 0)
+
+[node name="pumpkin4" parent="." instance=ExtResource("4_38jsi")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 11.52, 0.412021, 0)
+
+[node name="pumpkin5" parent="." instance=ExtResource("5_tmrg5")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 10.08, 0.412021, 0)
+
+[node name="pumpkin6" parent="." instance=ExtResource("6_avvj1")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 8.64, 0.412021, 0)
+
+[node name="pumpkin7" parent="." instance=ExtResource("7_288ng")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 2.88, 0.540364, 0)
+
+[node name="pumpkin8" parent="." instance=ExtResource("8_elfco")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 1.44, 0.540364, 0)
+
+[node name="pumpkin9" parent="." instance=ExtResource("9_rrwuu")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -7.6294e-09, 0.540364, 0)
+
+[node name="pumpkin10" parent="." instance=ExtResource("10_pqoa0")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -1.44, 0.540364, 0)
+surface_material_override/0 = null
+
+[node name="pumpkin11" parent="." instance=ExtResource("11_oecwj")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -2.88, 0.540364, 0)
+
+[node name="pumpkin12" parent="." instance=ExtResource("12_5v8s3")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -4.32, 0.540364, 0)
+
+[node name="pumpkin13" parent="." instance=ExtResource("13_ywwdg")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -10.08, 0.38953, 0)
+
+[node name="pumpkin14" parent="." instance=ExtResource("14_clty3")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -11.52, 0.38953, 0)
+
+[node name="pumpkin15" parent="." instance=ExtResource("15_usunr")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -12.96, 0.38953, 0)
+
+[node name="pumpkin16" parent="." instance=ExtResource("16_y8w8r")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -14.4, 0.38953, 0)
+
+[node name="pumpkin17" parent="." instance=ExtResource("17_lqib3")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -15.84, 0.38953, 0)
+
+[node name="pumpkin18" parent="." instance=ExtResource("18_7cfi2")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -17.28, 0.38953, 0)
+
+[node name="pumpkin19" parent="." instance=ExtResource("19_oddxy")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -5.76, 0.540364, 0)
+
+[node name="pumpkin20" parent="." instance=ExtResource("20_hypdn")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 7.2, 0.412021, 0)
+
+[node name="pumpkin21" parent="." instance=ExtResource("21_l6ty7")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 5.76, 0.412021, 0)
+
+[node name="pumpkin22" parent="." instance=ExtResource("22_8jond")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -7.2, 0.540364, 0)
