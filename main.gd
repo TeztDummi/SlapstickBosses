@@ -223,8 +223,6 @@ func _unhandled_input(event):
 		if $"player/camera/gun".get_children().size() >= 1:
 			$"player/camera/gun".get_child(0).visible = !$"player/camera/gun".get_child(0).visible
 		print("hudgone")
-	if Input.is_action_just_pressed("f11"):
-		_on_fullscreen_pressed()
 	if Input.is_action_just_pressed("enter"):
 		if $player.dead:
 			if !$canvas/hud/died.is_playing() && transition == [""]:
@@ -716,23 +714,32 @@ func _exit_tree():
 func _on_options_pressed():
 	$canvas/hud/pause/text.hide()
 	$canvas/hud/pause/options.show()
+	$canvas/hud/pause/pauseaudio.stream = load("res://audio/settingsin.mp3")
+	$canvas/hud/pause/pauseaudio.play()
 func _on_fullscreen_pressed():
 	if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		$canvas/hud/pause/pauseaudio.stream = load("res://audio/fullscreenin.mp3")
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-func _on_options_back_pressed():
+		$canvas/hud/pause/pauseaudio.stream = load("res://audio/fullscreenout.mp3")
+	$canvas/hud/pause/pauseaudio.play()
+func _on_options_back_pressed(sound = true):
 	$canvas/hud/pause/text.show()
 	$canvas/hud/pause/options.hide()
+	if sound:
+		$canvas/hud/pause/pauseaudio.stream = load("res://audio/settingsout.mp3")
+		$canvas/hud/pause/pauseaudio.play()
 
 func _on_master_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
 	print(linear_to_db(0.5))
-	$canvas/hud/pause/options/mastertick.play()
+	slidertick("res://audio/mastertick.mp3", value, $canvas/hud/pause/options/Master)
+	
 
 func _on_music_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
-	$canvas/hud/pause/options/mastertick.play()
+	slidertick("res://audio/musictick.mp3", value, $canvas/hud/pause/options/Music)
 
 
 func _on_music_focus_entered(): $canvas/hud/pause/options/musicpreview.play()
@@ -762,6 +769,7 @@ func _on_sensitivity_value_changed(value):
 	sensitivity = value
 	if sensitivity == 5: $canvas/hud/pause/options/Sensitivity.modulate = Color(0.9, 0.9, 1)
 	else: $canvas/hud/pause/options/Sensitivity.modulate = Color.WHITE
+	slidertick("res://audio/sensitivitytick.mp3", value, $canvas/hud/pause/options/Sensitivity)
 
 func _on_gunmanicon_animation_finished() -> void:
 	if $canvas/hud/gunmanbossbar/gunmanicon.animation == "hurt":
@@ -769,6 +777,11 @@ func _on_gunmanicon_animation_finished() -> void:
 		
 func _on_shortcuts_pressed() -> void:
 	$canvas/hud/pause/shortcuts.visible = !$canvas/hud/pause/shortcuts.visible
+	if $canvas/hud/pause/shortcuts.visible:
+		$canvas/hud/pause/pauseaudio.stream = load("res://audio/shortcutsin.mp3")
+	else:
+		$canvas/hud/pause/pauseaudio.stream = load("res://audio/shortcutsout.mp3")	
+	$canvas/hud/pause/pauseaudio.play()
 
 
 func _on_colorleft_pressed() -> void:
@@ -878,12 +891,22 @@ func _on_quality_value_changed(value: float) -> void:
 	if $"map/WorldEnvironment" != null:
 		$"map/WorldEnvironment".environment.sdfgi_enabled = false
 		$qualityupdate.start()
-		
+	
+	slidertick("res://audio/graphicstick.mp3", value, $canvas/hud/pause/options/Quality)
 	
 func _on_fov_value_changed(value: float) -> void:
 	fov = value
 	if fov == 75: $canvas/hud/pause/options/FOV.modulate = Color(0.9, 0.9, 1)
 	else: $canvas/hud/pause/options/FOV.modulate = Color.WHITE
+	slidertick("res://audio/fovtick.mp3", value, $canvas/hud/pause/options/FOV)
+	
+func slidertick(audio, value, slider):
+	if $canvas/hud/pause/options.visible && $canvas/hud/pause.visible:
+		var player = $canvas/hud/pause/options/mastertick
+		if player.stream.resource_path != audio:
+			player.stream = load(audio)
+		player.pitch_scale = (0.5+(value-slider.min_value)/(slider.max_value-slider.min_value))
+		player.play()
 
 func _on_qualityupdate_timeout() -> void:
 	setquality(quality)
@@ -891,3 +914,6 @@ func _on_qualityupdate_timeout() -> void:
 func _on_skeletimer_timeout() -> void:
 	if randf() <= 0.1:
 		$canvas/hud/skeleton.play("default")
+
+func _on_useless_value_changed(value: float) -> void:
+	slidertick("res://audio/bumpscositytick.mp3", value, $canvas/hud/pause/options/Useless)

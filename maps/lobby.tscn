@@ -6106,6 +6106,9 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 [node name="spacepainting" parent="." instance=ExtResource("81_nqn8k")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -75.762, -3.5, -26.6528)
 
+[node name="spleefpainting" parent="." instance=ExtResource("81_nqn8k")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -11.762, -1.5, -11.6528)
+
 [node name="onelegbird" parent="." instance=ExtResource("83_bsu1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.1072, 13.1223, -30.0969)
 metadata/price = 300

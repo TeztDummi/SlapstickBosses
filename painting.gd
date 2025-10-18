@@ -62,6 +62,10 @@ func _ready():
 		map = "horrorbossarena"
 		ticks = $"../../".beathorror
 		settexture("res://paintings/horrorpainting.png")
+	if painting == "spleefpainting":
+		map = "spleefarena"
+		ticks = 0
+		settexture("res://paintings/wippainting.png")
 	if has_meta("challenge"):
 		if ticks <= 0: #easy or less
 			queue_free()
@@ -119,6 +123,12 @@ func diffselect(the):
 		if the == "hard": diff = 2
 		if beforediff != diff:
 			$AnimationPlayer.play("select")
+			var tempaudio = load("res://tempaudio.tscn").instantiate()
+			add_child(tempaudio)
+			if diff == 0: tempaudio.stream = load("res://audio/easy.mp3")
+			if diff == 1: tempaudio.stream = load("res://audio/medium.mp3")
+			if diff == 2: tempaudio.stream = load("res://audio/hard.mp3")
+			tempaudio.play()
 
 func changebrush():
 	if diff == 0:

@@ -36,20 +36,17 @@ func _process(delta):
 	
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("esc"):
-		if visible:
-			if !$pausebg.is_playing():
-				$pausebg.play("end")
-				isin = false
-				$text/Difficultyselect.visible = false
-				$text/box6.visible = false
+		_on_resume_pressed(true)
 
-func _on_resume_pressed():
+func _on_resume_pressed(sound = true):
 	if visible:
 		if !$pausebg.is_playing():
 			$pausebg.play("end")
 			isin = false
 			$text/Difficultyselect.visible = false
 			$text/box6.visible = false
+			$pauseaudio.stream = load("res://audio/pauseout.mp3")
+			$pauseaudio.play()
 		
 func _on_pausebg_animation_finished():
 	if visible:
@@ -60,14 +57,16 @@ func _on_pausebg_animation_finished():
 			$"../../../musictransition".stream_paused = false
 			get_tree().paused = false
 			$"../../..".save_game()
-			$"../../.."._on_options_back_pressed()
+			$"../../.."._on_options_back_pressed(false)
 			$shortcuts.hide()
 
 func _on_lobby_pressed():
-	_on_resume_pressed()
+	_on_resume_pressed(false)
 	if $"../../../map".get_child(0).name != "lobby":
 		$"../../../".transitionfunc(["loadmap", "res://maps/lobby.tscn", -1])
 		$"../../../".save_game()
+		$pauseaudio.stream = load("res://audio/lobbybutton.mp3")
+		$pauseaudio.play()
 
 
 
@@ -79,12 +78,20 @@ func _on_difficulty_pressed() -> void:
 	if dildo != -1 && chal == "none":
 		$text/Difficultyselect.visible = !$text/Difficultyselect.visible
 		$text/box6.visible = !$text/box6.visible
+		$pauseaudio.stream = load("res://audio/difficultybutton.mp3")
+		$pauseaudio.play()
 
 func _on_difficultyselect_item_selected(index: int) -> void:
 	var dildo = index
-	_on_resume_pressed()
+	_on_resume_pressed(false)
 	$"../../../".transitionfunc(["loadmap", "res://maps/"+$"../../../map".get_child(0).name+".tscn", dildo])
+	if dildo == 0: $pauseaudio.stream = load("res://audio/easy.mp3")
+	if dildo == 1: $pauseaudio.stream = load("res://audio/medium.mp3")
+	if dildo == 2: $pauseaudio.stream = load("res://audio/hard.mp3")
+	$pauseaudio.play()
 
 func _on_restart_pressed() -> void:
-	_on_resume_pressed()
+	_on_resume_pressed(false)
 	$"../../../"._on_died_animation_finished(true)
+	$pauseaudio.stream = load("res://audio/restartbutton.mp3")
+	$pauseaudio.play()

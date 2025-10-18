@@ -5914,6 +5914,8 @@ patch_margin_bottom = 162
 
 [node name="mastertick" type="AudioStreamPlayer" parent="canvas/hud/pause/options"]
 stream = ExtResource("22_y707n")
+volume_db = -6.0
+max_polyphony = 16
 
 [node name="musicpreview" type="AudioStreamPlayer" parent="canvas/hud/pause/options"]
 stream = ExtResource("151_rx6mv")
@@ -6025,6 +6027,8 @@ position = Vector2(-502, -336)
 rotation = 3.74024
 scale = Vector2(1.6268, 1.6268)
 texture = ExtResource("215_4fms3")
+
+[node name="pauseaudio" type="AudioStreamPlayer" parent="canvas/hud/pause"]
 
 [node name="difficultylabel" type="Sprite2D" parent="canvas/hud"]
 position = Vector2(1110, 44)
@@ -7210,6 +7214,7 @@ one_shot = true
 [connection signal="drag_started" from="canvas/hud/pause/options/Sensitivity" to="." method="anybutton"]
 [connection signal="value_changed" from="canvas/hud/pause/options/Sensitivity" to="." method="_on_sensitivity_value_changed"]
 [connection signal="drag_started" from="canvas/hud/pause/options/Useless" to="." method="anybutton"]
+[connection signal="value_changed" from="canvas/hud/pause/options/Useless" to="." method="_on_useless_value_changed"]
 [connection signal="drag_started" from="canvas/hud/pause/options/FOV" to="." method="anybutton"]
 [connection signal="value_changed" from="canvas/hud/pause/options/FOV" to="." method="_on_fov_value_changed"]
 [connection signal="drag_started" from="canvas/hud/pause/options/Quality" to="." method="anybutton"]
@@ -7218,14 +7223,14 @@ one_shot = true
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="timeout" from="canvas/hud/skeletimer" to="." method="_on_skeletimer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/transitionin" to="." method="_on_transitionin_animation_finished"]
 [connection signal="animation_finished" from="canvas/hud/cosmetics/cosmeticbg" to="canvas/hud/cosmetics" method="_on_cosmeticbg_animation_finished"]

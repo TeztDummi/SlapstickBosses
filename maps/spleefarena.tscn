@@ -1,0 +1,799 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnikxw32s7muq"]
+
+[ext_resource type="PackedScene" uid="uid://crq065kkknpky" path="res://spleef/spleefblock.tscn" id="1_1pysb"]
+[ext_resource type="Script" uid="uid://cswb87pk1t0nq" path="res://maps/spleefarena.gd" id="1_7op7n"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7op7n"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_b83xr"]
+sky_material = SubResource("ProceduralSkyMaterial_7op7n")
+
+[sub_resource type="Environment" id="Environment_vlq20"]
+background_mode = 2
+sky = SubResource("Sky_b83xr")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[node name="spleefarena" type="Node3D"]
+script = ExtResource("1_7op7n")
+
+[node name="spleefarena" type="Marker3D" parent="."]
+editor_description = "Playin spleef but better"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vlq20")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="spleefblock" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1, 1)
+
+[node name="spleefblock2" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1, 3)
+
+[node name="spleefblock3" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, -15, -1, 5)
+
+[node name="spleefblock4" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, -1, 7)
+
+[node name="spleefblock5" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -15, -1, 9)
+
+[node name="spleefblock6" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, -1, 11)
+
+[node name="spleefblock7" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1, 13)
+
+[node name="spleefblock8" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -15, -1, 15)
+
+[node name="spleefblock9" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, -1, 1)
+
+[node name="spleefblock10" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, -1, 3)
+
+[node name="spleefblock11" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, 1.60936e-07, 0, 1, 0, -1.60936e-07, 0, -1, -13, -1, 5)
+
+[node name="spleefblock12" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, -1, 7)
+
+[node name="spleefblock13" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, -13, -1, 9)
+
+[node name="spleefblock14" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -13, -1, 11)
+
+[node name="spleefblock15" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, -1, 13)
+
+[node name="spleefblock16" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -13, -1, 15)
+
+[node name="spleefblock17" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -1, 1)
+
+[node name="spleefblock18" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -1, 3)
+
+[node name="spleefblock19" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, -11, -1, 5)
+
+[node name="spleefblock20" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, -1, 7)
+
+[node name="spleefblock21" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -11, -1, 9)
+
+[node name="spleefblock22" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, -1, 11)
+
+[node name="spleefblock23" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -1, 13)
+
+[node name="spleefblock24" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -11, -1, 15)
+
+[node name="spleefblock25" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1, 1)
+
+[node name="spleefblock26" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1, 3)
+
+[node name="spleefblock27" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, -9, -1, 5)
+
+[node name="spleefblock28" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, -1, 7)
+
+[node name="spleefblock29" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -9, -1, 9)
+
+[node name="spleefblock30" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, -1, 11)
+
+[node name="spleefblock31" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1, 13)
+
+[node name="spleefblock32" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -9, -1, 15)
+
+[node name="spleefblock33" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, -1, 1)
+
+[node name="spleefblock34" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, -1, 3)
+
+[node name="spleefblock35" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -7, -1, 5)
+
+[node name="spleefblock36" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7, -1, 7)
+
+[node name="spleefblock37" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -7, -1, 9)
+
+[node name="spleefblock38" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, -1, 11)
+
+[node name="spleefblock39" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, -1, 13)
+
+[node name="spleefblock40" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, -7, -1, 15)
+
+[node name="spleefblock41" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -5, -1, 1)
+
+[node name="spleefblock42" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -5, -1, 3)
+
+[node name="spleefblock43" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, -5, -1, 5)
+
+[node name="spleefblock44" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -5, -1, 7)
+
+[node name="spleefblock45" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, -5, -1, 9)
+
+[node name="spleefblock46" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -5, -1, 11)
+
+[node name="spleefblock47" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -5, -1, 13)
+
+[node name="spleefblock48" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, -5, -1, 15)
+
+[node name="spleefblock49" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3, -1, 1)
+
+[node name="spleefblock50" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3, -1, 3)
+
+[node name="spleefblock51" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -3, -1, 5)
+
+[node name="spleefblock52" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -3, -1, 7)
+
+[node name="spleefblock53" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, -3, -1, 9)
+
+[node name="spleefblock54" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, -1, 11)
+
+[node name="spleefblock55" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3, -1, 13)
+
+[node name="spleefblock56" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, -3, -1, 15)
+
+[node name="spleefblock57" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -1, -1, 1)
+
+[node name="spleefblock58" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -1, -1, 3)
+
+[node name="spleefblock59" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, -1, -1, 5)
+
+[node name="spleefblock60" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -1, -1, 7)
+
+[node name="spleefblock61" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, -1, -1, 9)
+
+[node name="spleefblock62" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1, -1, 11)
+
+[node name="spleefblock63" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -1, -1, 13)
+
+[node name="spleefblock64" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, -1, -1, 15)
+
+[node name="spleefblock65" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, -1, -15)
+
+[node name="spleefblock66" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, -1, -13)
+
+[node name="spleefblock67" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -15, -1, -11)
+
+[node name="spleefblock68" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, -1, -9)
+
+[node name="spleefblock69" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -15, -1, -7)
+
+[node name="spleefblock70" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1, -5)
+
+[node name="spleefblock71" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, -1, -3)
+
+[node name="spleefblock72" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -15, -1, -1)
+
+[node name="spleefblock73" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, -1, -15)
+
+[node name="spleefblock74" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, -1, -13)
+
+[node name="spleefblock75" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, -13, -1, -11)
+
+[node name="spleefblock76" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13, -1, -9)
+
+[node name="spleefblock77" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -13, -1, -7)
+
+[node name="spleefblock78" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, -1, -5)
+
+[node name="spleefblock79" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, -1, -3)
+
+[node name="spleefblock80" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -13, -1, -1)
+
+[node name="spleefblock81" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, -1, -15)
+
+[node name="spleefblock82" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, -1, -13)
+
+[node name="spleefblock83" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -11, -1, -11)
+
+[node name="spleefblock84" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, -1, -9)
+
+[node name="spleefblock85" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -11, -1, -7)
+
+[node name="spleefblock86" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -1, -5)
+
+[node name="spleefblock87" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, -1, -3)
+
+[node name="spleefblock88" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -11, -1, -1)
+
+[node name="spleefblock89" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, -1, -15)
+
+[node name="spleefblock90" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, -1, -13)
+
+[node name="spleefblock91" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -9, -1, -11)
+
+[node name="spleefblock92" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9, -1, -9)
+
+[node name="spleefblock93" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -9, -1, -7)
+
+[node name="spleefblock94" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1, -5)
+
+[node name="spleefblock95" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, -1, -3)
+
+[node name="spleefblock96" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -9, -1, -1)
+
+[node name="spleefblock97" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7, -1, -15)
+
+[node name="spleefblock98" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7, -1, -13)
+
+[node name="spleefblock99" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -7, -1, -11)
+
+[node name="spleefblock100" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -7, -1, -9)
+
+[node name="spleefblock101" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, -7, -1, -7)
+
+[node name="spleefblock102" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, -1, -5)
+
+[node name="spleefblock103" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7, -1, -3)
+
+[node name="spleefblock104" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, -7, -1, -1)
+
+[node name="spleefblock105" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -5, -1, -15)
+
+[node name="spleefblock106" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -5, -1, -13)
+
+[node name="spleefblock107" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, -5, -1, -11)
+
+[node name="spleefblock108" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -5, -1, -9)
+
+[node name="spleefblock109" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, -5, -1, -7)
+
+[node name="spleefblock110" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -5, -1, -5)
+
+[node name="spleefblock111" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -5, -1, -3)
+
+[node name="spleefblock112" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, -5, -1, -1)
+
+[node name="spleefblock113" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -3, -1, -15)
+
+[node name="spleefblock114" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -3, -1, -13)
+
+[node name="spleefblock115" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, -3, -1, -11)
+
+[node name="spleefblock116" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -3, -1, -9)
+
+[node name="spleefblock117" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, -3, -1, -7)
+
+[node name="spleefblock118" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3, -1, -5)
+
+[node name="spleefblock119" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -3, -1, -3)
+
+[node name="spleefblock120" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, -3, -1, -1)
+
+[node name="spleefblock121" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -1, -1, -15)
+
+[node name="spleefblock122" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -1, -1, -13)
+
+[node name="spleefblock123" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, -1, -1, -11)
+
+[node name="spleefblock124" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, -1, -1, -9)
+
+[node name="spleefblock125" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, -1, -1, -7)
+
+[node name="spleefblock126" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -1, -1, -5)
+
+[node name="spleefblock127" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -1, -1, -3)
+
+[node name="spleefblock128" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.32466e-07, 0, -1, 0, 1, 0, 1, 0, 2.32466e-07, -1, -1, -1)
+
+[node name="spleefblock129" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -1, -15)
+
+[node name="spleefblock130" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -1, -13)
+
+[node name="spleefblock131" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 1, -1, -11)
+
+[node name="spleefblock132" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 1, -1, -9)
+
+[node name="spleefblock133" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 1, -1, -7)
+
+[node name="spleefblock134" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, -1, -5)
+
+[node name="spleefblock135" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -1, -3)
+
+[node name="spleefblock136" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 1, -1, -1)
+
+[node name="spleefblock137" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -1, -15)
+
+[node name="spleefblock138" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -1, -13)
+
+[node name="spleefblock139" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 3, -1, -11)
+
+[node name="spleefblock140" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, -1, -9)
+
+[node name="spleefblock141" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 3, -1, -7)
+
+[node name="spleefblock142" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, -5)
+
+[node name="spleefblock143" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -1, -3)
+
+[node name="spleefblock144" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 3, -1, -1)
+
+[node name="spleefblock145" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, -1, -15)
+
+[node name="spleefblock146" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, -1, -13)
+
+[node name="spleefblock147" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 5, -1, -11)
+
+[node name="spleefblock148" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5, -1, -9)
+
+[node name="spleefblock149" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 5, -1, -7)
+
+[node name="spleefblock150" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, -1, -5)
+
+[node name="spleefblock151" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, -1, -3)
+
+[node name="spleefblock152" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 5, -1, -1)
+
+[node name="spleefblock153" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -1, -15)
+
+[node name="spleefblock154" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -1, -13)
+
+[node name="spleefblock155" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 7, -1, -11)
+
+[node name="spleefblock156" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, -1, -9)
+
+[node name="spleefblock157" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 7, -1, -7)
+
+[node name="spleefblock158" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, -1, -5)
+
+[node name="spleefblock159" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -1, -3)
+
+[node name="spleefblock160" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 7, -1, -1)
+
+[node name="spleefblock161" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 9, -1, -15)
+
+[node name="spleefblock162" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 9, -1, -13)
+
+[node name="spleefblock163" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 9, -1, -11)
+
+[node name="spleefblock164" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 9, -1, -9)
+
+[node name="spleefblock165" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, 9, -1, -7)
+
+[node name="spleefblock166" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 9, -1, -5)
+
+[node name="spleefblock167" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 9, -1, -3)
+
+[node name="spleefblock168" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 9, -1, -1)
+
+[node name="spleefblock169" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 11, -1, -15)
+
+[node name="spleefblock170" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 11, -1, -13)
+
+[node name="spleefblock171" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 11, -1, -11)
+
+[node name="spleefblock172" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 11, -1, -9)
+
+[node name="spleefblock173" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, 11, -1, -7)
+
+[node name="spleefblock174" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 11, -1, -5)
+
+[node name="spleefblock175" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 11, -1, -3)
+
+[node name="spleefblock176" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.32466e-07, 0, -1, 0, 1, 0, 1, 0, 2.32466e-07, 11, -1, -1)
+
+[node name="spleefblock177" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 13, -1, -15)
+
+[node name="spleefblock178" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 13, -1, -13)
+
+[node name="spleefblock179" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, 13, -1, -11)
+
+[node name="spleefblock180" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 13, -1, -9)
+
+[node name="spleefblock181" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 13, -1, -7)
+
+[node name="spleefblock182" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 13, -1, -5)
+
+[node name="spleefblock183" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 13, -1, -3)
+
+[node name="spleefblock184" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, 13, -1, -1)
+
+[node name="spleefblock185" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 15, -1, -15)
+
+[node name="spleefblock186" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 15, -1, -13)
+
+[node name="spleefblock187" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, 15, -1, -11)
+
+[node name="spleefblock188" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 15, -1, -9)
+
+[node name="spleefblock189" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.32466e-07, 0, -1, 0, 1, 0, 1, 0, 2.32466e-07, 15, -1, -7)
+
+[node name="spleefblock190" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 15, -1, -5)
+
+[node name="spleefblock191" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 15, -1, -3)
+
+[node name="spleefblock192" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 2.76177e-07, 0, 1, 0, -2.76177e-07, 0, 1, 15, -1, -1)
+
+[node name="spleefblock193" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 1, -1, 1)
+
+[node name="spleefblock194" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 1, -1, 3)
+
+[node name="spleefblock195" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 1, -1, 5)
+
+[node name="spleefblock196" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1, -1, 7)
+
+[node name="spleefblock197" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 1, -1, 9)
+
+[node name="spleefblock198" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -1, 11)
+
+[node name="spleefblock199" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 1, -1, 13)
+
+[node name="spleefblock200" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, 1, -1, 15)
+
+[node name="spleefblock201" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, -1, 1)
+
+[node name="spleefblock202" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, -1, 3)
+
+[node name="spleefblock203" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 3, -1, 5)
+
+[node name="spleefblock204" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3, -1, 7)
+
+[node name="spleefblock205" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 3, -1, 9)
+
+[node name="spleefblock206" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -1, 11)
+
+[node name="spleefblock207" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, -1, 13)
+
+[node name="spleefblock208" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 3, -1, 15)
+
+[node name="spleefblock209" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5, -1, 1)
+
+[node name="spleefblock210" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5, -1, 3)
+
+[node name="spleefblock211" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 5, -1, 5)
+
+[node name="spleefblock212" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5, -1, 7)
+
+[node name="spleefblock213" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 5, -1, 9)
+
+[node name="spleefblock214" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, -1, 11)
+
+[node name="spleefblock215" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5, -1, 13)
+
+[node name="spleefblock216" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, 5, -1, 15)
+
+[node name="spleefblock217" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, -1, 1)
+
+[node name="spleefblock218" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, -1, 3)
+
+[node name="spleefblock219" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 7, -1, 5)
+
+[node name="spleefblock220" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 7, -1, 7)
+
+[node name="spleefblock221" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(5.76205e-08, 0, -1, 0, 1, 0, 1, 0, 5.76205e-08, 7, -1, 9)
+
+[node name="spleefblock222" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -1, 11)
+
+[node name="spleefblock223" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, -1, 13)
+
+[node name="spleefblock224" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, 7, -1, 15)
+
+[node name="spleefblock225" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 9, -1, 1)
+
+[node name="spleefblock226" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 9, -1, 3)
+
+[node name="spleefblock227" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.01332e-07, 0, 1, 0, -1.01332e-07, 0, 1, 9, -1, 5)
+
+[node name="spleefblock228" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 9, -1, 7)
+
+[node name="spleefblock229" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 9, -1, 9)
+
+[node name="spleefblock230" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 9, -1, 11)
+
+[node name="spleefblock231" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 9, -1, 13)
+
+[node name="spleefblock232" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, 9, -1, 15)
+
+[node name="spleefblock233" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 11, -1, 1)
+
+[node name="spleefblock234" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 11, -1, 3)
+
+[node name="spleefblock235" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, 11, -1, 5)
+
+[node name="spleefblock236" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 11, -1, 7)
+
+[node name="spleefblock237" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.32466e-07, 0, -1, 0, 1, 0, 1, 0, 2.32466e-07, 11, -1, 9)
+
+[node name="spleefblock238" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 11, -1, 11)
+
+[node name="spleefblock239" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 11, -1, 13)
+
+[node name="spleefblock240" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 2.76177e-07, 0, 1, 0, -2.76177e-07, 0, 1, 11, -1, 15)
+
+[node name="spleefblock241" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 13, -1, 1)
+
+[node name="spleefblock242" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 13, -1, 3)
+
+[node name="spleefblock243" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 13, -1, 5)
+
+[node name="spleefblock244" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 13, -1, 7)
+
+[node name="spleefblock245" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -1.88755e-07, 0, 1, 0, 1.88755e-07, 0, -1, 13, -1, 9)
+
+[node name="spleefblock246" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 13, -1, 11)
+
+[node name="spleefblock247" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 13, -1, 13)
+
+[node name="spleefblock248" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.32466e-07, 0, -1, 0, 1, 0, 1, 0, 2.32466e-07, 13, -1, 15)
+
+[node name="spleefblock249" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 15, -1, 1)
+
+[node name="spleefblock250" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 15, -1, 3)
+
+[node name="spleefblock251" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(2.32466e-07, 0, -1, 0, 1, 0, 1, 0, 2.32466e-07, 15, -1, 5)
+
+[node name="spleefblock252" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 15, -1, 7)
+
+[node name="spleefblock253" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 2.76177e-07, 0, 1, 0, -2.76177e-07, 0, 1, 15, -1, 9)
+
+[node name="spleefblock254" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 15, -1, 11)
+
+[node name="spleefblock255" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 15, -1, 13)
+
+[node name="spleefblock256" parent="." instance=ExtResource("1_1pysb")]
+transform = Transform3D(-3.19889e-07, 0, 1, 0, 1, 0, -1, 0, -3.19889e-07, 15, -1, 15)

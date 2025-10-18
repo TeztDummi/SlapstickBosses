@@ -16,6 +16,9 @@ func _process(delta):
 	
 	$"../music".volume_linear = musictransition
 	$"../musictransition".volume_linear = 1-musictransition
+	
+	if Input.is_action_just_pressed("f11"):
+		$"../"._on_fullscreen_pressed()
 				
 func _on_overlay_toggled(param1, param2, param3):
 	if param1:

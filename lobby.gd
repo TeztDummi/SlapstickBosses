@@ -46,7 +46,6 @@ func lobbypower(val):
 func _ready():
 	
 	lobbypower(true)
-		
 	
 	if $"../".bits <= 0 || $"../".freebits:
 		$funnysigns.queue_free()
