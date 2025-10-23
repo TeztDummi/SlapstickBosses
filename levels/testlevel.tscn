@@ -24,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 0.560764, 0, 0, 0, 1, -0.000328064, -0.72397
 transform = Transform3D(1, 0, 0, 0, 0.517288, 0, 0, 0, 1, 0, -0.645074, -9.05516)
 
 [node name="9patch5" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, -9.05516)
+transform = Transform3D(2, 0, 0, 0, 1.5099, 0, 0, 0, 0.253276, 5, 2, -9.05516)
 
 [node name="Node3D" type="Node3D" parent="9patch5"]
 
@@ -34,39 +34,86 @@ material_override = SubResource("StandardMaterial3D_hb8io")
 mesh = SubResource("PlaneMesh_t3dhk")
 
 [node name="9patch6" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, -5, 3, -17.0552)
+transform = Transform3D(5.05548, 0, 0, 0, 0.278001, -2.73009, 0, 0.259613, 2.92346, 0.411447, 1.11406, -64.9292)
 
 [node name="9patch7" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, -5, 3, -28.7654)
+transform = Transform3D(1, 0, 0, 0, 0.43976, 0, 0, 0, 4, -5, 0.0290629, -46.9887)
 
 [node name="9patch3" parent="." instance=ExtResource("1_4ye72")]
 transform = Transform3D(3.19, 0, 0, 0, 1.5, 0, 0, 0, 1.56795, 0, -1, -15.0552)
 
 [node name="9patch4" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(1.35149, 0, 0, 0, 0.302928, 0, 0, 0, 1.35031, 0, -1, -21.0552)
+transform = Transform3D(1.35149, 0, 0, 0, 0.335547, 0, 0, 0, 1.35031, 0, -1, -21.0552)
 
 [node name="9patch8" parent="." instance=ExtResource("1_4ye72")]
 transform = Transform3D(2.3799, 0, 0, 0, 0.697501, 0, 0, 0, 2.57037, 0, -1, -28.7725)
 
+[node name="9patch14" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(1.90367, -0.166793, 0, 1.42828, 0.222309, 0, 0, 0, 2.57037, 3.23913, 1.43024, -37.8501)
+
 [node name="9patch9" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(5.6973, 0, 0, 0, 0.697501, 0, 0, 0, 6.49194, 0, -1, -40.4803)
+transform = Transform3D(5.6973, 0, 0, 0, 0.697501, 0, 0, 0, 6.49194, 0, -1, -87.2602)
 
 [node name="9patch13" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(7.99689, 0, 0, 0, 0.697501, 0, 0, 0, 8.1806, 0, -1, -101.274)
+transform = Transform3D(4.27256, 0, 0, 0, 0.697501, 0, 0, 0, 4.56209, 0, -1, -159.427)
+
+[node name="9patch16" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(2.23546, 0, 0, 0, 0.697501, 0, 0, 0, 2.39713, 0, -1, -144.735)
+
+[node name="9patch17" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(0.850724, 0, 0, 0, 0.471676, 0, 0, 0, 3.95948, 0, -1, -151.092)
+
+[node name="9patch15" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.697501, 0, 0, 0, 8.1806, 0, 8.23568, -181.859)
+
+[node name="9patch20" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.697501, 0, 0, 0, 8.1806, -0.688424, -10.0731, -223.196)
+
+[node name="9patch21" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.697501, 0, 0, 0, 8.1806, -0.688424, -10.0731, -239.463)
+
+[node name="9patch22" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.697501, 0, 0, 0, 8.1806, -0.688424, -10.0731, -255.675)
+
+[node name="9patch23" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.581488, -4.51779, 0, 0.3852, 6.81995, -0.725067, -5.5966, -270.287)
+
+[node name="9patch24" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.697473, -0.0732436, 0, 0.006245, 8.18027, -0.725067, -1.19533, -284.942)
+
+[node name="9patch26" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.697473, -0.0732436, 0, 0.006245, 8.18027, -1.00511, 9.82687, -371.835)
+
+[node name="9patch28" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(-0.0760652, 0.697441, -0.0732403, -7.99653, -0.00663426, 0.00069669, 0, 0.006245, 8.18027, 7.62593, 19.035, -356.284)
+
+[node name="9patch29" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(-0.0760652, 0.697441, -0.0732403, -7.99653, -0.00663426, 0.00069669, 0, 0.006245, 8.18027, -8.54416, 16.0483, -344.637)
+
+[node name="9patch27" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.697473, -0.0732436, 0, 0.006245, 8.18027, -0.838588, 7.25328, -328.229)
+
+[node name="9patch25" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(7.99689, 0, 0, 0, 0.60717, -4.02633, 0, 0.343296, 7.12116, -0.725067, 3.13002, -313.403)
+
+[node name="9patch18" parent="." instance=ExtResource("1_4ye72")]
+transform = Transform3D(2.7957, 0, 0, 0, 0.433165, 6.41188, 0, -0.546695, 5.08036, 0, 1.8092, -203.684)
 
 [node name="9patch12" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(1.50346, 0, 0, 0, 0.718829, 0, 0, 0, 6.69044, -0.346487, -1.22066, -87.1995)
+transform = Transform3D(1.50346, 0, 0, 0, 0.520209, -4.61724, 0, 0.496082, 4.84181, -0.387134, 3.7744, -169.295)
 
 [node name="9patch10" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(4.36138, 0.448783, 0, -3.66574, 0.533949, 0, 0, 0, 6.49194, -7.08392, 2.44503, -73.5442)
+transform = Transform3D(4.36138, 0.448783, 0, -3.66574, 0.533949, 0, 0, 0, 6.49194, -7.08392, 2.44503, -122.955)
 
 [node name="9patch11" parent="." instance=ExtResource("1_4ye72")]
-transform = Transform3D(4.33086, -0.453192, -0.00501143, 3.70175, 0.530212, -0.00317367, 0.00515283, -9.06473e-05, 6.49193, 5.58385, 2.65708, -60.0636)
+transform = Transform3D(4.33086, -0.453192, -0.00501143, 3.70175, 0.530212, -0.00317367, 0.00515283, -9.06473e-05, 6.49193, 5.61988, 2.6799, -106.74)
 
 [node name="bounds" type="MeshInstance3D" parent="."]
-transform = Transform3D(42.2898, 0, 0, 0, 14.2733, 0, 0, 0, 108.81, 0.543045, 0.789922, -56.2817)
+transform = Transform3D(50.2281, 0, 0, 0, 42.9564, 0, 0, 0, 257.486, 0.468948, -11.4253, -106.08)
 visible = false
 mesh = SubResource("BoxMesh_uu6m2")
 
 [node name="end" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000593185, 0.222766, -106.383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11874, 12.3166, -371.892)
+
+[node name="Node3D" type="Node3D" parent="."]
