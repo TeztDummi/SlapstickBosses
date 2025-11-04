@@ -8,12 +8,12 @@ albedo_texture = ExtResource("2_uu6m2")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t3dhk"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ye72"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu6m2"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.137255)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uu6m2"]
-material = SubResource("StandardMaterial3D_4ye72")
+material = SubResource("StandardMaterial3D_uu6m2")
 
 [node name="testlevel" type="Node3D"]
 

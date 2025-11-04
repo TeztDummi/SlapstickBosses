@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://lytdgcew4gqs"]
+
+[ext_resource type="PackedScene" uid="uid://8d1eknlhik60" path="res://9patch.tscn" id="1_affe6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ye72"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.137255)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sl7v2"]
+material = SubResource("StandardMaterial3D_4ye72")
+
+[node name="Teztleveldickydo" type="Node3D"]
+
+[node name="9patch" parent="." instance=ExtResource("1_affe6")]
+transform = Transform3D(1, 0, 0, 0, 0.560764, 0, 0, 0, 1, 0, -0.796, -3.007)
+
+[node name="9patch2" parent="." instance=ExtResource("1_affe6")]
+transform = Transform3D(1.69, 0, 0, 0, 0.31, 0, 0, 0, 1.6, 0, -0.796, -6.83555)
+
+[node name="9patch3" parent="." instance=ExtResource("1_affe6")]
+transform = Transform3D(1.32452, -0.100389, 0, 1.06726, 0.124587, 0, 0, 0, 1.61, 4.17966, 0.742081, -11.5492)
+
+[node name="9patch4" parent="." instance=ExtResource("1_affe6")]
+transform = Transform3D(1.701, 0, 0, 0, 0.16, 0, 0, 0, 1.61, 0.00339389, 0.197279, -17.631)
+
+[node name="bounds" type="MeshInstance3D" parent="."]
+transform = Transform3D(50.2281, 0, 0, 0, 24.0884, 0, 0, 0, 257.486, 0.46862, -7.13087, -109.087)
+visible = false
+mesh = SubResource("BoxMesh_sl7v2")
+skeleton = NodePath("../9patch")
+
+[node name="end" type="Marker3D" parent="."]
+transform = Transform3D(50.2281, 0, 0, 0, 24.0884, 0, 0, 0, 257.176, 0, 0.599484, -17.4899)
