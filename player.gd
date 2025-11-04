@@ -702,6 +702,8 @@ func _unhandled_input(event):
 			if collider != null:
 				if collider.is_in_group("pipewheel"):
 					collider.get_parent().spin()
+				if collider.is_in_group("grease"):
+					collider.pet()
 	if Input.is_action_just_pressed("click"):
 		if !dead && $camera.current:
 			var collider = $camera/raycast.get_collider()
@@ -741,6 +743,8 @@ func _unhandled_input(event):
 						$"../".transitionfunc(["loadmap", "res://maps/credits.tscn", -1])
 				if collider.is_in_group("item"):
 					collider.get_parent().pickup()
+				if collider.is_in_group("grease"):
+					collider.pickup()
 func kill(effect):
 	print("died to death")
 	

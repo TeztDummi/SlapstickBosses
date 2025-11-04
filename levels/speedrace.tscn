@@ -430,7 +430,7 @@ data = PackedVector3Array(15.85, -2.38419e-07, 0, 15.7859, -0.155213, 0.477705, 
 
 [node name="speedrace" type="Node3D"]
 
-[node name="movingwall10" type="AnimatableBody3D" parent="." groups=["moveleft", "spike"]]
+[node name="movingwall10" type="StaticBody3D" parent="." groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -80, -217.4)
 script = ExtResource("6_4k3jb")
 
@@ -444,7 +444,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall11" type="AnimatableBody3D" parent="." groups=["moveleft", "spike"]]
+[node name="movingwall11" type="StaticBody3D" parent="." groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -80, -217.4)
 script = ExtResource("6_4k3jb")
 
@@ -458,7 +458,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall12" type="AnimatableBody3D" parent="." groups=["moveleft", "spike"]]
+[node name="movingwall12" type="StaticBody3D" parent="." groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -80, -217.4)
 script = ExtResource("6_4k3jb")
 
@@ -472,7 +472,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall13" type="AnimatableBody3D" parent="." groups=["spike"]]
+[node name="movingwall13" type="StaticBody3D" parent="." groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -80, -234.4)
 script = ExtResource("6_4k3jb")
 
@@ -486,7 +486,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall14" type="AnimatableBody3D" parent="." groups=["spike"]]
+[node name="movingwall14" type="StaticBody3D" parent="." groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -80, -234.4)
 script = ExtResource("6_4k3jb")
 
@@ -500,7 +500,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall15" type="AnimatableBody3D" parent="." groups=["spike"]]
+[node name="movingwall15" type="StaticBody3D" parent="." groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -80, -234.4)
 script = ExtResource("6_4k3jb")
 
@@ -514,7 +514,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall16" type="AnimatableBody3D" parent="." groups=["moveleft", "spike"]]
+[node name="movingwall16" type="StaticBody3D" parent="." groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62514, -80, -250.9)
 script = ExtResource("6_4k3jb")
 
@@ -528,7 +528,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall17" type="AnimatableBody3D" parent="." groups=["moveleft", "spike"]]
+[node name="movingwall17" type="StaticBody3D" parent="." groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3749, -80, -250.9)
 script = ExtResource("6_4k3jb")
 
@@ -542,7 +542,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall18" type="AnimatableBody3D" parent="." groups=["moveleft", "spike"]]
+[node name="movingwall18" type="StaticBody3D" parent="." groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6251, -80, -250.9)
 script = ExtResource("6_4k3jb")
 
@@ -699,7 +699,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ss1p0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="secondsection/walls/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_m5ggv")
 
-[node name="movingwall" type="AnimatableBody3D" parent="secondsection" groups=["spike"]]
+[node name="movingwall" type="StaticBody3D" parent="secondsection" groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197, 0, -217.4)
 script = ExtResource("6_4k3jb")
 
@@ -713,7 +713,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall2" type="AnimatableBody3D" parent="secondsection" groups=["spike"]]
+[node name="movingwall2" type="StaticBody3D" parent="secondsection" groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213, 0, -217.4)
 script = ExtResource("6_4k3jb")
 
@@ -727,7 +727,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall3" type="AnimatableBody3D" parent="secondsection" groups=["spike"]]
+[node name="movingwall3" type="StaticBody3D" parent="secondsection" groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229, 0, -217.4)
 script = ExtResource("6_4k3jb")
 
@@ -741,7 +741,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall4" type="AnimatableBody3D" parent="secondsection" groups=["moveleft", "spike"]]
+[node name="movingwall4" type="StaticBody3D" parent="secondsection" groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210, 0, -234.4)
 script = ExtResource("6_4k3jb")
 
@@ -755,7 +755,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall5" type="AnimatableBody3D" parent="secondsection" groups=["moveleft", "spike"]]
+[node name="movingwall5" type="StaticBody3D" parent="secondsection" groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 227, 0, -234.4)
 script = ExtResource("6_4k3jb")
 
@@ -769,7 +769,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall6" type="AnimatableBody3D" parent="secondsection" groups=["moveleft", "spike"]]
+[node name="movingwall6" type="StaticBody3D" parent="secondsection" groups=["moveleft", "spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 194, 0, -234.4)
 script = ExtResource("6_4k3jb")
 
@@ -783,7 +783,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall7" type="AnimatableBody3D" parent="secondsection" groups=["spike"]]
+[node name="movingwall7" type="StaticBody3D" parent="secondsection" groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.375, 0, -250.9)
 script = ExtResource("6_4k3jb")
 
@@ -797,7 +797,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall8" type="AnimatableBody3D" parent="secondsection" groups=["spike"]]
+[node name="movingwall8" type="StaticBody3D" parent="secondsection" groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.375, 0, -250.9)
 script = ExtResource("6_4k3jb")
 
@@ -811,7 +811,7 @@ mesh = SubResource("ArrayMesh_c4iwq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qma04")
 
-[node name="movingwall9" type="AnimatableBody3D" parent="secondsection" groups=["spike"]]
+[node name="movingwall9" type="StaticBody3D" parent="secondsection" groups=["spike"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190.375, 0, -250.9)
 script = ExtResource("6_4k3jb")
 

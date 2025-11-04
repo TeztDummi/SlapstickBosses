@@ -65,7 +65,7 @@ var fov = 75
 var quality = 2
 var audioeffectcool = 0
 
-var spooky = true
+var spooky = false
 
 var hi_source_code_viewer = "im so sorry"
 
@@ -459,7 +459,6 @@ func transitionfunc(array):
 	"don't let Pimpledump show you his secret pimple",
 	"long ago there was once a bread named Barry",
 	"made you look, dumbahh",
-	"bawls stuck to my leg",
 	"nothing beats a Jet2holiday, and right now, you can save fifty pounds per person, that's two hundred pounds off for a family of four, we've got millions of free child place holidays available with twenty two kilograms of baggage included, book now with Jet2holidays package holidays you can trust",
 	"stand ready for my arriwhere'somnimanareyousureihadaprettyinterestingdayareyousurewecanfinallybebeesthinkmarkareyousurewecanfinallybethebeesweweremeanttobeimmarkingitwhatyoudidwasnotniceareyousureitsnotniceSEASALTareyousureINEEDYOUareyousureSEASALTlookkidwevehadourdifferencesareyousurebutwerestillonthesamesidewerestilltryingtosavelivesareyousureandwerestillthegoodguysareyousureareyousureimsolonelyareyousurealltheotherviltrumitesareareyousurescaredofmeareyousureareyousurenoonetalkestoareyousureareyousureareyousureareyousureareyousureareyousure",
 	"im stronger im smarter, im better, I AM BETTER",
@@ -912,8 +911,9 @@ func _on_qualityupdate_timeout() -> void:
 	setquality(quality)
 
 func _on_skeletimer_timeout() -> void:
-	if randf() <= 0.1:
-		$canvas/hud/skeleton.play("default")
+	if spooky:
+		if randf() <= 0.1:
+			$canvas/hud/skeleton.play("default")
 
 func _on_useless_value_changed(value: float) -> void:
 	slidertick("res://audio/bumpscositytick.mp3", value, $canvas/hud/pause/options/Useless)

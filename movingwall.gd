@@ -1,4 +1,4 @@
-extends AnimatableBody3D
+extends StaticBody3D
 
 var off = 0
 var delay = 0.5
@@ -9,7 +9,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var thex = position.x
-	print(thex)
 	if thex > 100:
 		off = 211.0
 	if delay > 0:

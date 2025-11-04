@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgh8s5dfj4qe0"]
+
+[ext_resource type="Script" uid="uid://dyffin3165jpn" path="res://items/held/grease.gd" id="1_coas6"]
+[ext_resource type="Texture2D" uid="uid://hfpnjbpkkw35" path="res://characters/grease/mrorb0090.png" id="2_6n0e8"]
+[ext_resource type="Texture2D" uid="uid://d1nnuqp8ufotb" path="res://characters/grease/mrorb0091.png" id="3_bx7ve"]
+[ext_resource type="Texture2D" uid="uid://bwqfupfstfj5i" path="res://characters/grease/mrorb0092.png" id="4_cfj2u"]
+[ext_resource type="Texture2D" uid="uid://b5c5qrnrk6b24" path="res://characters/grease/mrorb0093.png" id="5_23ghu"]
+[ext_resource type="Texture2D" uid="uid://dpfhvs4hrg0bn" path="res://characters/grease/mrorb0094.png" id="6_g0n6o"]
+[ext_resource type="Texture2D" uid="uid://cytlsk8yttm32" path="res://characters/grease/mrorb0095.png" id="7_188iw"]
+[ext_resource type="Texture2D" uid="uid://ckfvilhdugngx" path="res://characters/grease/mrorb0096.png" id="8_iqe01"]
+[ext_resource type="Texture2D" uid="uid://d1pft6yu1p0c5" path="res://characters/grease/mrorb0097.png" id="9_qjro5"]
+[ext_resource type="Texture2D" uid="uid://b67mx2umskmfp" path="res://characters/grease/mrorb0098.png" id="10_6cxdx"]
+[ext_resource type="Texture2D" uid="uid://yutwjel2slos" path="res://characters/grease/mrorb0099.png" id="11_ih4uq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xon7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6n0e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bx7ve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cfj2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_23ghu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g0n6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_188iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iqe01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qjro5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6cxdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ih4uq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="defaultitem" type="Node3D"]
+script = ExtResource("1_coas6")
+metadata/held = true
+
+[node name="preview" type="Node3D" parent="."]
+
+[node name="sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.093, 0, 0, 0, 0.093, 0, 0, 0, 0.093, 0.603, -0.34, -0.441)
+offset = Vector2(-360, 360)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_xon7i")
+autoplay = "default"
+frame_progress = 0.0625523
+
+[node name="raycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -5, 0)
