@@ -67,6 +67,8 @@ var audioeffectcool = 0
 
 var spooky = false
 
+var escapedcube = "none"
+
 var hi_source_code_viewer = "im so sorry"
 
 #github test hoe bitch fagnugget the squeakquel
@@ -213,7 +215,10 @@ func _process(delta):
 	
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("f2"):
-		_on_died_animation_finished(true)
+		if escapedcube == "none":
+			_on_died_animation_finished(true)
+		else:
+			crash("restartinshutdown")
 		#$player.hurt(2, "ragdoll")
 		#$player.hiteffect = 1
 	if Input.is_action_just_pressed("f8"):
@@ -231,28 +236,31 @@ func _unhandled_input(event):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if Input.is_action_just_pressed("esc"):
 		if !$canvas/hud/pause.visible && !$canvas/hud/transitionin.is_playing() && !$canvas/hud/transitionout.is_playing():
-			if !$canvas/hud/pause/pausebg.is_playing():
-				$canvas/hud/pause/pausebg.play("start")
-				$canvas/hud/pause/anim.play("start")
-				$canvas/hud/pause.show()
-				$canvas/hud.show()
-				$canvas/hud/pause.alpha = 0
-				$canvas/hud/pause.isin = true
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-				$canvas/hud/pause/options/Master.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
-				$canvas/hud/pause/options/Music.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
-				$canvas/hud/pause/options/Sensitivity.value = sensitivity
-				$music.stream_paused = true
-				$musictransition.stream_paused = true
-				$"sfx2".stream = load("res://audio/pause.mp3")
-				$"sfx2".play()
-				
-				AudioServer.get_bus_effect(0, 1).pre_gain = 0
-				AudioServer.get_bus_effect(0, 1).post_gain = 0
-				AudioServer.get_bus_effect(0, 2).pitch_scale = 1
-				AudioServer.get_bus_effect(0, 3).cutoff_hz = 20500
-				
-				get_tree().paused = true
+			if escapedcube == "none":
+				if !$canvas/hud/pause/pausebg.is_playing():
+					$canvas/hud/pause/pausebg.play("start")
+					$canvas/hud/pause/anim.play("start")
+					$canvas/hud/pause.show()
+					$canvas/hud.show()
+					$canvas/hud/pause.alpha = 0
+					$canvas/hud/pause.isin = true
+					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+					$canvas/hud/pause/options/Master.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+					$canvas/hud/pause/options/Music.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+					$canvas/hud/pause/options/Sensitivity.value = sensitivity
+					$music.stream_paused = true
+					$musictransition.stream_paused = true
+					$"sfx2".stream = load("res://audio/pause.mp3")
+					$"sfx2".play()
+					
+					AudioServer.get_bus_effect(0, 1).pre_gain = 0
+					AudioServer.get_bus_effect(0, 1).post_gain = 0
+					AudioServer.get_bus_effect(0, 2).pitch_scale = 1
+					AudioServer.get_bus_effect(0, 3).cutoff_hz = 20500
+					
+					get_tree().paused = true
+			else:
+				crash("pauseinshutdown")
 	if Input.is_action_just_pressed("x"):
 		if $canvas/hud/steamdisconnect.visible:
 			$canvas/hud/steamdisconnect.hide()
@@ -399,6 +407,20 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 			mapload.add_child(placed)
 	$"map/WorldEnvironment".environment.sdfgi_enabled = false
 	$qualityupdate.start()
+	
+func escapecube(type):
+	if escapedcube == "none":
+		$map.name = "deletemap"
+		var mapload = load("res://maps/outofbounds.tscn").instantiate()
+		mapload.get_node("cube").rotation = $deletemap.get_node("cube").rotation
+		mapload.get_node("cube").position = $deletemap.get_node("cube").position
+		add_child(mapload)
+		mapload.name = "map"
+		$deletemap.queue_free()
+		escapedcube = type
+		$distanceblurshader.hide()
+		$outlineshader.hide()
+		$player.setshaders(false)
 
 func _on_transitionin_animation_finished():
 	if transition[0] == "loadmap":
@@ -917,3 +939,29 @@ func _on_skeletimer_timeout() -> void:
 
 func _on_useless_value_changed(value: float) -> void:
 	slidertick("res://audio/bumpscositytick.mp3", value, $canvas/hud/pause/options/Useless)
+
+func crash(type):
+	$"../bingle"
+	if type == "pauseinshutdown":
+		$AcceptDialog.title = "Game Crashed!"
+		$AcceptDialog.dialog_text = "Invalid call. Nonexistent function 'pauseGame' in base 'Nil'."
+		$AcceptDialog.ok_button_text = "Close"
+		$AcceptDialog.popup_centered()
+	if type == "freecamoffinshutdown":
+		$AcceptDialog.title = "Game Crashed!"
+		$AcceptDialog.dialog_text = "Node not found: \"/player\" (relative to \"/root/main\")."
+		$AcceptDialog.ok_button_text = "Close"
+		$AcceptDialog.popup_centered()
+	if type == "restartinshutdown":
+		$AcceptDialog.title = "Game Crashed!"
+		$AcceptDialog.dialog_text = "Invalid call. Nonexistent function 'add_child' in base 'Nil'."
+		$AcceptDialog.ok_button_text = "Close"
+		$AcceptDialog.popup_centered()
+		
+	$freecam.process_mode = Node.PROCESS_MODE_PAUSABLE
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$music.stop()
+	
+func _on_accept_dialog_confirmed() -> void:
+	get_tree().quit()

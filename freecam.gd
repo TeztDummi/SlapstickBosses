@@ -27,35 +27,59 @@ func _process(delta):
 
 		position += velocity
 		
+		#print($area.get_overlapping_areas())
+		
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("f1"):
-		if !on:
-			if !get_tree().paused:
-				get_tree().paused = true
-				on = true
-				$"../canvas/hud".visible = false
-				$cam.current = true
-				position = $"../player".position
-				rotation = $"../player".rotation
-				velocity.y = 0.1
-				speed = 2
-				$cam.fov = 75
+		if $"../".escapedcube == "none":
+			if !on:
+				if !get_tree().paused:
+					#get_tree().paused = true
+					on = true
+					$"../canvas/hud".visible = false
+					$cam.current = true
+					position = $"../player".position
+					rotation = $"../player".rotation
+					velocity.y = 0.1
+					speed = 2
+					$cam.fov = 75
+			else:
+				get_tree().paused = false
+				on = false
+				$"../canvas/hud".visible = true
+				$"../player".camera.current = true
 		else:
-			get_tree().paused = false
-			on = false
-			$"../canvas/hud".visible = true
-			$"../player".camera.current = true
+			$"../".crash("pauseinshutdown")
 			
 	if on:
-		if !Input.is_action_pressed("crouch"):
-			if Input.is_action_just_pressed("scrollup"): speed *= 1.5
+		if !Input.is_action_pressed("dash"):
+			if speed <= 50:
+				if Input.is_action_just_pressed("scrollup"): speed *= 1.5
 			if Input.is_action_just_pressed("scrolldown"): speed /= 1.5
 		else:
 			if Input.is_action_just_pressed("scrollup"): $cam.fov *= 1.05
 			if Input.is_action_just_pressed("scrolldown"): $cam.fov /= 1.05
 		if Input.is_action_pressed("enter"):
-			get_tree().paused = !get_tree().paused
+			if $"../".escapedcube == "none":
+				get_tree().paused = !get_tree().paused
 		if event is InputEventMouseMotion:
 			rotate_y(-event.relative.x * .005)
 			$cam.rotate_x(-event.relative.y * .005)
 			$cam.rotation.x = clamp($cam.rotation.x, -PI/2, PI/2)
+
+
+func _on_area_area_exited(area: Area3D) -> void:
+	print("area exiting: ")
+	print(area)
+	if area.name == "cubearea":
+		var pos = position-$"../player".position
+		var dist = sqrt(pow(pos.x, 2)+pow(pos.y, 2)+pow(pos.z, 2))
+		print(dist)
+		if dist > 500:
+			$"../".escapecube("freecam")
+
+func _on_area_area_entered(area: Area3D) -> void:
+	print("area entering: ")
+	print(area)
+	if area.name == "cubearea":
+		velocity = -velocity+position.normalized()*10

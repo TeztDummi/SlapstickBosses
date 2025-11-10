@@ -82,8 +82,8 @@ func _process(delta):
 	if position.y <= -20 && falloff:
 		hurt(100, "fall")
 		
-	if !$"../map/WorldEnvironment".environment.adjustment_enabled:
-		$"../map/WorldEnvironment".environment.adjustment_enabled = true
+	#if !$"../map/WorldEnvironment".environment.adjustment_enabled:
+		#$"../map/WorldEnvironment".environment.adjustment_enabled = true
 
 	if hiteffect > 0:
 		hiteffect = hiteffect*0.99-(delta*0.1)
@@ -98,9 +98,9 @@ func _process(delta):
 		
 	else:
 		hiteffect = 0
-		$"../map/WorldEnvironment".environment.adjustment_brightness = 1
-		$"../map/WorldEnvironment".environment.adjustment_contrast = 1
-		$"../map/WorldEnvironment".environment.adjustment_saturation = 1
+		#$"../map/WorldEnvironment".environment.adjustment_brightness = 1
+		#$"../map/WorldEnvironment".environment.adjustment_contrast = 1
+		#$"../map/WorldEnvironment".environment.adjustment_saturation = 1
 		
 		$"../canvas/hud/healthbar".position = healthbarpos
 		
@@ -204,6 +204,7 @@ func _process(delta):
 		$camera.h_offset = 0
 		$camera.v_offset = 0
 		$camera/gun.position = Vector3(0, 0, 0)
+	$camera/gun.position.z = (-(1.0/$camera.fov-1.0/75)*45)+abs((1.0/$camera.fov-1.0/75)*4)
 		
 	if Input.is_action_just_pressed("scrollup"):
 		scroll += 1
@@ -974,3 +975,9 @@ func setshaders(val):
 	for child in $camera.get_children():
 		if child is ColorRect:
 			child.visible = val
+
+func _on_cubeleavearea_area_exited(area: Area3D) -> void:
+	pass
+	#print("area exiting: ")
+	#if area.name == "cubearea" && !dead:
+		#$"../".escapecube("player")

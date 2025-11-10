@@ -1,4 +1,4 @@
-[gd_scene load_steps=400 format=4 uid="uid://cobld5y5t30qb"]
+[gd_scene load_steps=401 format=4 uid="uid://cobld5y5t30qb"]
 
 [ext_resource type="Script" uid="uid://b4f7c2xgl12cp" path="res://main.gd" id="1_447ni"]
 [ext_resource type="PackedScene" uid="uid://chwr8oem503jp" path="res://player.tscn" id="4_7fi2g"]
@@ -311,6 +311,8 @@
 [ext_resource type="Texture2D" uid="uid://roft1yf8skv0" path="res://textures/skeleton/ezgif-frame-023.png" id="305_us00v"]
 [ext_resource type="Texture2D" uid="uid://c6l2ryebrttil" path="res://textures/skeleton/ezgif-frame-024.png" id="306_nc1xb"]
 [ext_resource type="Texture2D" uid="uid://c3tw565iolose" path="res://textures/skeleton/ezgif-frame-025.png" id="307_wm7i3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fxdwr"]
 
 [sub_resource type="Gradient" id="Gradient_rx6mv"]
 interpolation_mode = 2
@@ -2702,7 +2704,14 @@ process_mode = 3
 script = ExtResource("4_kbck3")
 
 [node name="cam" type="Camera3D" parent="freecam"]
+far = 100000.0
 metadata/freecam = false
+
+[node name="area" type="Area3D" parent="freecam"]
+process_mode = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="freecam/area"]
+shape = SubResource("SphereShape3D_fxdwr")
 
 [node name="conversations" type="Node" parent="."]
 
@@ -4688,7 +4697,7 @@ metadata/Portrait = "tednormal"
 metadata/Sound = "tednormal"
 
 [node name="3" type="Node" parent="conversations/lips"]
-editor_description = "couldn't get enough hm?"
+editor_description = "watchu need hun?"
 metadata/Portrait = "lipsside"
 metadata/Sound = "lipsnormal"
 
@@ -4750,6 +4759,37 @@ metadata/Portrait = "lipsside"
 metadata/Sound = "lipsnormal"
 
 [node name="[LEAVE]" type="Node" parent="conversations/lips/4/nevermind"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="5" type="Node" parent="conversations/lips"]
+editor_description = "you here for a fit or did you come to see me?"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="i\'ll buy something" type="Node" parent="conversations/lips/5"]
+editor_description = "consider it your reparations"
+metadata/Portrait = "lipsmmhmm"
+metadata/Sound = "lipsnormal"
+metadata/firstsound = "lipsnormal"
+
+[node name="[OUTFITS]" type="Node" parent="conversations/lips/5/i\'ll buy something"]
+editor_description = "yeah thats right, walk away"
+metadata/Portrait = "lipsnormal"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/5/i\'ll buy something/[OUTFITS]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "tednormal"
+metadata/Sound = "tednormal"
+
+[node name="nevermind" type="Node" parent="conversations/lips/5"]
+editor_description = "it's because I'm a floating pair of lips ain't it?"
+metadata/Portrait = "lipsside"
+metadata/Sound = "lipsnormal"
+
+[node name="[LEAVE]" type="Node" parent="conversations/lips/5/nevermind"]
 editor_description = "[LEAVE]"
 metadata/Portrait = "tednormal"
 metadata/Sound = "tednormal"
@@ -7166,6 +7206,12 @@ script = ExtResource("122_aoika")
 wait_time = 0.1
 one_shot = true
 
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+popup_window = true
+force_native = true
+
+[connection signal="area_entered" from="freecam/area" to="freecam" method="_on_area_area_entered"]
+[connection signal="area_exited" from="freecam/area" to="freecam" method="_on_area_area_exited"]
 [connection signal="finished" from="music" to="." method="_on_music_finished"]
 [connection signal="finished" from="musictransition" to="." method="_on_music_finished"]
 [connection signal="animation_finished" from="canvas/hud/gunmanbossbar/gunmanicon" to="." method="_on_gunmanicon_animation_finished"]
@@ -7199,8 +7245,8 @@ one_shot = true
 [connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Quit" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Difficulty" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="canvas/hud/pause" method="_on_difficulty_pressed"]
@@ -7220,14 +7266,14 @@ one_shot = true
 [connection signal="drag_started" from="canvas/hud/pause/options/Quality" to="." method="anybutton"]
 [connection signal="value_changed" from="canvas/hud/pause/options/Quality" to="." method="_on_quality_value_changed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Fullscreen" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
@@ -7297,3 +7343,5 @@ one_shot = true
 [connection signal="animation_finished" from="canvas/hud/antipiracygag/anim" to="canvas/hud/antipiracygag" method="_on_anim_animation_finished"]
 [connection signal="timeout" from="outlineshadertimer" to="." method="_on_outlineshadertimer_timeout"]
 [connection signal="timeout" from="qualityupdate" to="." method="_on_qualityupdate_timeout"]
+[connection signal="canceled" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]

@@ -7,7 +7,7 @@ var savedatadelay = 0.2
 func talk():
 	if delay <= 0:
 		if time == 1: $"../../canvas/hud/talk".start("lips/start")
-		if time >= 2: $"../../canvas/hud/talk".start("lips/"+str(randi_range(1, 4)))
+		if time >= 2: $"../../canvas/hud/talk".start("lips/"+str(randi_range(1, 5)))
 		time += 1
 		$"../../".lipstime = time
 		delay = 1

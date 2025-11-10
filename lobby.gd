@@ -225,3 +225,7 @@ func setboingchallenge(num):
 						child.get_node("boingchallenge").show()
 					else:
 						child.get_node("boingchallenge").hide()
+
+func _on_skyscraperarea_body_entered(body: Node3D) -> void:
+	$platform/StaticBody3D/CollisionShape3D.disabled = true
+	print("disable floor")

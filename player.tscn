@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://chwr8oem503jp"]
+[gd_scene load_steps=77 format=4 uid="uid://chwr8oem503jp"]
 
 [ext_resource type="Script" uid="uid://bjpn2a0wgi7cf" path="res://player.gd" id="1_1li8y"]
 [ext_resource type="Shader" uid="uid://b82urhehdrcc3" path="res://blurvignette.gdshader" id="2_cqahk"]
@@ -1394,6 +1394,8 @@ _data = {
 &"slide": SubResource("Animation_606se")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_pbfsw"]
+
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_lenwx"]
 frames = 2
 speed_scale = 24.0
@@ -1792,6 +1794,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_l3m7e")
 }
 
+[node name="cubeleavearea" type="Area3D" parent="."]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cubeleavearea"]
+shape = SubResource("SphereShape3D_pbfsw")
+
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.6)
 cull_mask = 1048543
@@ -1878,6 +1887,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 target_position = Vector3(0, 0, -5000)
 
 [node name="gun" type="Marker3D" parent="camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.03)
 
 [node name="slidething" type="MeshInstance3D" parent="camera"]
 transform = Transform3D(-8.09557e-05, 3, -5.77977e-05, -3, -8.0955e-05, 3.27131e-05, 3.27115e-05, 5.77986e-05, 3, 0, -0.5, 0.6)
@@ -1988,4 +1998,5 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
+[connection signal="area_exited" from="cubeleavearea" to="." method="_on_cubeleavearea_area_exited"]
 [connection signal="timeout" from="walktimer" to="." method="_on_walktimer_timeout"]
