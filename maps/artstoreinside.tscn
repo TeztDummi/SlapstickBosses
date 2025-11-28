@@ -1,4 +1,4 @@
-[gd_scene load_steps=289 format=4 uid="uid://dffiokfwgml48"]
+[gd_scene load_steps=301 format=4 uid="uid://dffiokfwgml48"]
 
 [ext_resource type="Texture2D" uid="uid://nr10ur8k2qng" path="res://textures/Wood060_2K-JPG/Wood060_2K-JPG_Color.jpg" id="1_jvr6d"]
 [ext_resource type="Texture2D" uid="uid://dc2h1yqwxlv8f" path="res://textures/Paint004_2K-JPG/Paint004_2K-JPG_Color.jpg" id="1_lrylp"]
@@ -23,6 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://bo57f4jf5sd0l" path="res://audio/dooropen.mp3" id="19_jh76e"]
 [ext_resource type="Texture2D" uid="uid://c1u4os75tumum" path="res://characters/canmaneyeshidden.tres" id="20_5utqd"]
 [ext_resource type="Texture2D" uid="uid://3krjv5ailbdl" path="res://freecow_freecow.png" id="23_5addp"]
+[ext_resource type="Texture2D" uid="uid://c6c5die0agr12" path="res://textures/zparticle/zparticle.png" id="23_x7k7d"]
+[ext_resource type="AudioStream" uid="uid://cab85ohvxl8vi" path="res://audio/rimsnore.mp3" id="24_fl0w7"]
 [ext_resource type="Texture2D" uid="uid://vfhsp6wor7bf" path="res://textures/bossespng.png" id="24_ns3tp"]
 [ext_resource type="Texture2D" uid="uid://clqni0mpr7f4l" path="res://acrylicpaint_cadmiumred.png" id="25_cux1x"]
 
@@ -4842,6 +4844,90 @@ billboard_keep_scale = true
 radius = 0.526
 height = 2.32637
 
+[sub_resource type="Gradient" id="Gradient_4xdkp"]
+offsets = PackedFloat32Array(0, 0.222222, 0.755556, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0a82d"]
+gradient = SubResource("Gradient_4xdkp")
+
+[sub_resource type="Curve" id="Curve_owpq6"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1.4717), 1.35915, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yedcr"]
+curve = SubResource("Curve_owpq6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_36j44"]
+direction = Vector3(0, 1, 0.5)
+spread = 20.0
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_yedcr")
+color = Color(0.666667, 0.192157, 0.431373, 1)
+color_ramp = SubResource("GradientTexture1D_0a82d")
+anim_speed_min = 16.0
+anim_speed_max = 16.0
+anim_offset_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdcil"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("23_x7k7d")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 3
+particles_anim_loop = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wkb37"]
+material = SubResource("StandardMaterial3D_rdcil")
+size = Vector2(0.5, 0.5)
+orientation = 2
+
+[sub_resource type="Animation" id="Animation_dtv7t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("zparticles:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_copo1"]
+resource_name = "default"
+length = 0.500004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("zparticles:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0s1s"]
+_data = {
+&"RESET": SubResource("Animation_dtv7t"),
+&"default": SubResource("Animation_copo1")
+}
+
 [sub_resource type="BoxMesh" id="BoxMesh_m4qth"]
 size = Vector3(5, 5, 5)
 
@@ -5388,6 +5474,28 @@ shape = SubResource("CapsuleShape3D_e228l")
 [node name="Timer" type="Timer" parent="canman"]
 wait_time = 0.625
 one_shot = true
+
+[node name="zparticles" type="GPUParticles3D" parent="canman"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16355, 0.539414)
+visibility_range_end = 4.0
+visibility_range_end_margin = 1.0
+visibility_range_fade_mode = 1
+amount = 3
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_36j44")
+draw_pass_1 = SubResource("PlaneMesh_wkb37")
+
+[node name="snore" type="AudioStreamPlayer3D" parent="canman"]
+stream = ExtResource("24_fl0w7")
+volume_db = 20.0
+max_db = 6.0
+autoplay = true
+max_distance = 10.0
+
+[node name="fade" type="AnimationPlayer" parent="canman"]
+libraries = {
+&"": SubResource("AnimationLibrary_d0s1s")
+}
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54519, 1, 0)

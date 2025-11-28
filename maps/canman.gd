@@ -32,6 +32,9 @@ func _process(delta):
 			$mesh.get_surface_override_material(0).albedo_texture = load("res://characters/canmaneyeup.tres")
 			$Timer.start()
 			eyesshown = true
+			$fade.play("default")
+			$snore.stream = load("res://audio/rimwake.mp3")
+			$snore.play()
 
 func _on_timer_timeout():
 	$mesh.get_surface_override_material(0).albedo_texture = load("res://characters/canman.tres")

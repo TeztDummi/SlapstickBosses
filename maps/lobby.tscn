@@ -129,7 +129,8 @@
 [ext_resource type="PackedScene" uid="uid://cav460x768hcg" path="res://items/placed/dashpower.tscn" id="116_r7hsw"]
 [ext_resource type="Texture2D" uid="uid://fgbh7rqdts8r" path="res://my face.png" id="128_wrohi"]
 [ext_resource type="PackedScene" uid="uid://bththcei0dvea" path="res://items/placed/grease.tscn" id="129_aiev2"]
-[ext_resource type="Texture2D" uid="uid://bkuyh43x0m1ks" path="res://somethingsomethingsomething.png" id="130_k05ld"]
+[ext_resource type="Texture2D" uid="uid://cp0a5jibel7wx" path="res://textures/greasezone.png" id="130_dcbet"]
+[ext_resource type="Script" uid="uid://ch7amj1x3p301" path="res://maps/greasezone.gd" id="131_ly6u5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3aav2"]
 sky_top_color = Color(0.54902, 0.384314, 0.384314, 1)
@@ -3914,10 +3915,8 @@ albedo_texture = ExtResource("128_wrohi")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_k05ld"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyaxc"]
-albedo_texture = ExtResource("128_wrohi")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_10auq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0m8k"]
+size = Vector3(2.5, 2.5, 2.5)
 
 [node name="map" type="Node3D"]
 script = ExtResource("1_ndg5n")
@@ -6333,23 +6332,19 @@ light_energy = 2.524
 omni_range = 14.004
 
 [node name="grease" parent="." instance=ExtResource("129_aiev2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7753, -3.35065, -14.1857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.175, 26)
 metadata/price = 1000
 
-[node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.5195, 38.3978)
+[node name="greasezone" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 26)
+size = Vector3(2, 0.005, 2)
+texture_albedo = ExtResource("130_dcbet")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2"]
-transform = Transform3D(1.98288, 0, 0, 0, -0.0129849, -1.87762, 0, 0.999916, -0.0243828, 0, 0.130365, -9.76435)
-material_override = SubResource("StandardMaterial3D_eyaxc")
-mesh = SubResource("PlaneMesh_10auq")
+[node name="greasezone" type="Area3D" parent="greasezone"]
+script = ExtResource("131_ly6u5")
 
-[node name="Node3D3" type="Node3D" parent="."]
-
-[node name="Decal" type="Decal" parent="Node3D3"]
-transform = Transform3D(-0.995332, -0.706673, 0.0213539, -0.00363776, -0.024443, -1.11723, 0.994832, -0.707118, 0.0172792, -60.74, 0.746096, -39.3225)
-size = Vector3(2, 0.25, 2)
-texture_albedo = ExtResource("130_k05ld")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="greasezone/greasezone"]
+shape = SubResource("BoxShape3D_r0m8k")
 
 [connection signal="body_entered" from="alleytrespass" to="." method="_on_alleytrespass_body_entered"]
 [connection signal="timeout" from="pssttimer" to="." method="_on_pssttimer_timeout"]
@@ -6398,3 +6393,5 @@ texture_albedo = ExtResource("130_k05ld")
 [connection signal="animation_finished" from="introstuff/anim" to="." method="_on_anim_animation_finished"]
 [connection signal="body_entered" from="hoop/bballarea" to="." method="_on_bballarea_body_entered"]
 [connection signal="timeout" from="updateday" to="." method="_on_updateday_timeout"]
+[connection signal="body_entered" from="greasezone/greasezone" to="greasezone/greasezone" method="_on_body_entered"]
+[connection signal="body_exited" from="greasezone/greasezone" to="greasezone/greasezone" method="_on_body_exited"]
