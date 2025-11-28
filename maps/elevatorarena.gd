@@ -56,6 +56,7 @@ func _on_neodetect_body_entered(body):
 			if abs(boss.position.x) >= 17 || abs(boss.position.z) >= 17:
 				neo = 1
 				neostart = player.position
+				
 func _on_neodetect_body_exited(body):
 	if body.is_in_group("playergroup"):
 		if neo == 1:

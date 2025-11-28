@@ -449,7 +449,7 @@ func _physics_process(delta):
 			$"../canvas/hud/dash".hide()
 				
 		if candoublejump:
-			if doublejump > 0 && djdelay <= 0 && velocity.y < JUMP_VELOCITY*0.54 && !$djumpaccidentproofing.is_colliding():
+			if djdelay <= 0 && velocity.y < JUMP_VELOCITY*0.54 && !$djumpaccidentproofing.is_colliding():
 				$"../canvas/hud/doublejump".modulate.v = 1
 				if doajump > 0:
 					velocity.y = JUMP_VELOCITY*1.5

@@ -1,4 +1,7 @@
 shader_type spatial;
+
+render_mode depth_prepass_alpha;
+
 uniform sampler2D glass_texture;
 uniform lowp float alpha : hint_range(0.0, 1.0);
 uniform vec3 color : source_color;

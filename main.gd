@@ -265,9 +265,12 @@ func _unhandled_input(event):
 		if $canvas/hud/steamdisconnect.visible:
 			$canvas/hud/steamdisconnect.hide()
 	if Input.is_action_just_pressed("trainhorn"):
-		$trainhorn.stream = load("res://audio/trainhorn.mp3")
-		$trainhorn.play()
-		if $player.screenshake <= 0.1: $player.screenshake = 0.1
+		if escapedcube == "none":
+			$trainhorn.stream = load("res://audio/trainhorn.mp3")
+			$trainhorn.play()
+			if $player.screenshake <= 0.1: $player.screenshake = 0.1
+		else:
+			crash("horninshutdown")
 	if Input.is_action_just_released("trainhorn"):
 		$trainhorn.stream = load("res://audio/trainhornstop.wav")
 		$trainhorn.play()
@@ -955,6 +958,11 @@ func crash(type):
 	if type == "restartinshutdown":
 		$AcceptDialog.title = "Game Crashed!"
 		$AcceptDialog.dialog_text = "Invalid call. Nonexistent function 'add_child' in base 'Nil'."
+		$AcceptDialog.ok_button_text = "Close"
+		$AcceptDialog.popup_centered()
+	if type == "horninshutdown":
+		$AcceptDialog.title = "Game Crashed!"
+		$AcceptDialog.dialog_text = "\"trainhorn.mp3\" not found."
 		$AcceptDialog.ok_button_text = "Close"
 		$AcceptDialog.popup_centered()
 		

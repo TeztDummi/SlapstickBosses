@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://crq065kkknpky"]
+[gd_scene load_steps=25 format=4 uid="uid://crq065kkknpky"]
 
 [ext_resource type="Texture2D" uid="uid://cdslvc2axu72o" path="res://spleef/snowblock_snow.png" id="1_2gd2m"]
 [ext_resource type="Script" uid="uid://cwy56kg75w7fj" path="res://spleef/spleefblock.gd" id="1_og3gk"]
+[ext_resource type="Shader" uid="uid://dadqojwnko75l" path="res://glass.gdshader" id="3_rjmeq"]
+[ext_resource type="Texture2D" uid="uid://b4x8fhlybxffs" path="res://textures/glass-1.jpg" id="4_w0dav"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ud305"]
 _surfaces = [{
@@ -34,8 +36,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ud305")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewfeo"]
+render_priority = -1
+shader = ExtResource("3_rjmeq")
+shader_parameter/glass_texture = ExtResource("4_w0dav")
+shader_parameter/alpha = 1.0
+shader_parameter/color = Color(0, 0.439216, 1, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfo2s"]
 resource_name = "Material"
+next_pass = SubResource("ShaderMaterial_ewfeo")
 cull_mode = 2
 albedo_texture = ExtResource("1_2gd2m")
 roughness = 0.2
@@ -64,7 +74,6 @@ color_initial_ramp = SubResource("GradientTexture1D_rjmeq")
 collision_mode = 1
 collision_friction = 0.1
 collision_bounce = 0.5
-collision_use_scale = true
 
 [sub_resource type="Shader" id="Shader_w0dav"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
@@ -116,7 +125,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwte3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0dav"]
 render_priority = 0
 shader = SubResource("Shader_w0dav")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -133,10 +142,90 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ewfeo"]
-material = SubResource("ShaderMaterial_jwte3")
+material = SubResource("ShaderMaterial_w0dav")
 size = Vector3(0.125, 0.125, 0.125)
 
-[node name="spleefblock" type="Node3D"]
+[sub_resource type="Gradient" id="Gradient_rjmeq"]
+colors = PackedColorArray(0.68, 0.904, 1, 1, 0.3, 0.568333, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w0dav"]
+gradient = SubResource("Gradient_rjmeq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jwte3"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(0.9, 0.9, 0.9)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = -2.0
+initial_velocity_max = 6.0
+color_initial_ramp = SubResource("GradientTexture1D_w0dav")
+collision_mode = 1
+collision_friction = 0.1
+collision_bounce = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gropd"]
+render_priority = 0
+shader = SubResource("Shader_w0dav")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/rounding = 0.125
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nflx4"]
+material = SubResource("ShaderMaterial_gropd")
+size = Vector3(0.125, 0.125, 0.375)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjmeq"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="Animation" id="Animation_w0dav"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rjmeq"]
+resource_name = "revive"
+length = 0.250008
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.33, 0.33, 0.33), Vector3(0.6171, 0.6171, 0.6171), Vector3(1.1, 1.1, 1.1), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jwte3"]
+_data = {
+&"RESET": SubResource("Animation_w0dav"),
+&"revive": SubResource("Animation_rjmeq")
+}
+
+[node name="spleefblock" type="Node3D" groups=["spleefblockparent"]]
 script = ExtResource("1_og3gk")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
@@ -144,18 +233,41 @@ mesh = SubResource("ArrayMesh_og3gk")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_pfo2s")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["spleefblock"]]
+[node name="static" type="StaticBody3D" parent="." groups=["spleefblock"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="col" type="CollisionShape3D" parent="static"]
 shape = SubResource("BoxShape3D_rtdpa")
 
 [node name="particles" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 128
-lifetime = 5.0
+lifetime = 15.0
 one_shot = true
+speed_scale = 2.0
 explosiveness = 1.0
+visibility_aabb = AABB(-32, -32, -32, 64, 64, 64)
 process_material = SubResource("ParticleProcessMaterial_rjmeq")
 draw_pass_1 = SubResource("BoxMesh_ewfeo")
 
+[node name="iceparticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 42
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-32, -32, -32, 64, 64, 64)
+process_material = SubResource("ParticleProcessMaterial_jwte3")
+draw_pass_1 = SubResource("BoxMesh_nflx4")
+
 [node name="particlecol" type="GPUParticlesCollisionBox3D" parent="."]
+
+[node name="revive" type="Area3D" parent="." groups=["spleefblock"]]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="revive"]
+shape = SubResource("BoxShape3D_rjmeq")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jwte3")
+}

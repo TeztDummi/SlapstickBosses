@@ -427,6 +427,7 @@ transform = Transform3D(5000, 0, 0, 0, 5000, 0, 0, 0, 5000, 0, 0, 0)
 mesh = SubResource("SphereMesh_r3mul")
 
 [node name="rats" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]

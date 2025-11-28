@@ -10,6 +10,7 @@ var hover = false
 var rot = 0
 var distlimit = 1.5
 var petspeed = 1
+var dontmove = false
 
 @onready var main = get_node("/root").get_node("main")
 @onready var player = main.get_node("player")
@@ -194,7 +195,7 @@ func _on_action_timeout() -> void:
 	
 	if $sprite.animation != "step" && $sprite.animation != "roll" && !has_meta("price"):
 		if dist >= 20:
-			if $sprite.animation != "roll":
+			if $sprite.animation != "roll" && !dontmove:
 				$sprite.play("startroll")
 		else:
 			if $sprite.animation == "spin" || $sprite.animation == "bounce":

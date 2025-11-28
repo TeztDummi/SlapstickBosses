@@ -45,8 +45,8 @@ func _process(delta):
 			$"../../".catwaverpg = wave
 			$"../../".save_game()
 		wave += 1
-		player.health = 100
 		if wave <= amountofwaves:
+			player.health = 100
 			spawnflagcat(getrandompos(), wave)
 			if chal == "none":
 				if wave == 1:
