@@ -8,8 +8,15 @@ func shoot(raycast):
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
 		$anim.play("click")
+		$click.pitch_scale = 1
+		$click.play()
+		$ambience.play()
+		$ambience.seek(randf_range(0, 5.6))
 	if Input.is_action_just_released("click"):
 		$anim.play("unclick")
+		$click.pitch_scale = 0.9
+		$click.play()
+		$ambience.stop()
 		
 	if Input.is_action_pressed("click"):
 		if $raycast.is_colliding():
@@ -31,11 +38,24 @@ func _process(delta: float) -> void:
 	else:
 		$pointer/laser.hide()
 		$hit.hide()
+		
+	updatelook(delta)
 
 func _on_updatelook_timeout() -> void:
+	pass
+	#updatelook()
+	
+func lerpvect(from, to, time):
+	var ret = Vector3.ZERO
+	ret.x = lerpf(from.x, to.x, time)
+	ret.y = lerpf(from.y, to.y, time)
+	ret.z = lerpf(from.z, to.z, time)
+	return ret
+	
+func updatelook(delta):
 	if $raycast.is_colliding():
-		lookpos = $raycast.get_collision_point()
+		lookpos = lerpvect(lookpos, $raycast.get_collision_point(), delta*32)
 	else:
-		lookpos = $lookfar.global_position
+		lookpos = lerpvect(lookpos, $lookfar.global_position, delta*32)
 		
 	$pointer/laser/spiral.rotation.x += 0.021*PI*20

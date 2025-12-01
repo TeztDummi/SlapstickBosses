@@ -237,6 +237,7 @@ dash={
 
 [physics]
 
+jolt_physics_3d/simulation/areas_detect_static_bodies=true
 3d/default_gravity=30.0
 
 [rendering]

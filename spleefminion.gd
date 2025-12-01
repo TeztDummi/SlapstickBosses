@@ -14,7 +14,7 @@ func finishmove():
 	
 func _process(delta):
 	if $main.visible:
-		if !$floordetect.is_colliding() && !$anim.is_playing():
+		if !$floordetect.is_colliding():
 			velocity.y -= gravity*delta*0.01
 			position.y += velocity.y
 		else:
@@ -34,6 +34,9 @@ func _process(delta):
 		if dothe != null && checkbreak >= 1:
 			hurt(10)
 			dothe.hurt(10, "bluelaser")
+			
+		if position.y < -40:
+			queue_free()
 			
 func checkblock(thedir):
 	var check = $"check/1"
@@ -63,19 +66,23 @@ func _on_chooseblock_timeout() -> void:
 		
 		if checkblock(dir):
 			$main.rotation.y = dir
-			$anim.playfps("move", 24)
+			moveanim()
 		elif checkblock(dir+PI/2):
 			dir += PI/2
 			$main.rotation.y = dir
-			$anim.playfps("move", 24)
+			moveanim()
 		elif checkblock(dir-PI/2):
 			dir -= PI/2
 			$main.rotation.y = dir
-			$anim.playfps("move", 24)
+			moveanim()
 		elif checkblock(dir+PI):
 			dir += PI
 			$main.rotation.y = dir
-			$anim.playfps("move", 24)
+			moveanim()
+			
+func moveanim():
+	$anim.playfps("move", 24)
+	$audio.play()
 
 func _on_anim_animation_finished(anim_name: StringName) -> void:
 	finishmove()
@@ -86,6 +93,8 @@ func hurt(dmg, idk = "idk"):
 		$col.disabled = true
 		$explodeparticles.emitting = true
 		$main.hide()
+		$audio.stream = load("res://audio/spleef/firebreak.mp3")
+		$audio.play()
 		for body in $area.get_overlapping_bodies():
 			if body.is_in_group("spleefblock"):
 				body.get_parent().hurt()
@@ -95,4 +104,9 @@ func _on_checkbreak_timeout() -> void:
 		if body != self:
 			if body.is_in_group("spleefminion") || body.is_in_group("playergroup"):
 				hurt(10)
-				body.hurt(10, "bluelaser")
+				body.hurt(15, "bluelaser")
+
+func _on_sfx_timeout() -> void:
+	if $main.visible:
+		$audio2.stream = load("res://audio/spleef/minionsound"+str(randi_range(1, 6))+".mp3")
+		$audio2.play()

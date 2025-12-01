@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=4 uid="uid://dqwu6w8ubp0uj"]
+[gd_scene load_steps=122 format=4 uid="uid://dqwu6w8ubp0uj"]
 
 [ext_resource type="Texture2D" uid="uid://dqp4mmg8x1ayo" path="res://spleef/spleefboss_Untitled.png" id="1_l6iel"]
 [ext_resource type="Script" uid="uid://bgppvdu1s8fiq" path="res://spleef/spleefboss.gd" id="1_xu01h"]
@@ -6,10 +6,15 @@
 [ext_resource type="Shader" uid="uid://cj66yq5hxlncr" path="res://laserpointer.gdshader" id="3_wfjt7"]
 [ext_resource type="AudioStream" uid="uid://crrf4ln1lnv2k" path="res://audio/spleef/laser.mp3" id="4_vprv4"]
 [ext_resource type="Shader" uid="uid://w26jonlm6mpa" path="res://spleef/voxelfog.gdshader" id="4_wfjt7"]
+[ext_resource type="AudioStream" uid="uid://ck1t6tb0fadaw" path="res://audio/spleef/move.mp3" id="6_4yv8k"]
 [ext_resource type="Texture2D" uid="uid://uqv0fbi6kuu6" path="res://textures/laser/laserhit0000.png" id="6_m6n46"]
+[ext_resource type="AudioStream" uid="uid://c4qxf60mlxm34" path="res://audio/spleef/cannon.mp3" id="7_03k12"]
 [ext_resource type="Texture2D" uid="uid://86fg71jbklkq" path="res://textures/laser/laserhit0001.png" id="7_vprv4"]
+[ext_resource type="AudioStream" uid="uid://cp5ytjpvyk2tt" path="res://audio/spleef/laserstart.mp3" id="8_1dmv7"]
 [ext_resource type="Texture2D" uid="uid://dvr01it15ojvl" path="res://textures/laser/laserhit0002.png" id="8_4yv8k"]
 [ext_resource type="Texture2D" uid="uid://b7qk5xfl0125c" path="res://textures/laser/laserhit0003.png" id="9_6aepv"]
+[ext_resource type="AudioStream" uid="uid://c15bm1ao6qwlp" path="res://audio/spleef/antenna.mp3" id="9_lj62n"]
+[ext_resource type="AudioStream" uid="uid://bdhfdqkh557fe" path="res://audio/spleef/reviveblocks.mp3" id="10_1dmv7"]
 [ext_resource type="Texture2D" uid="uid://canqu7dhdlpwn" path="res://textures/laser/laserhit0004.png" id="10_qgs1w"]
 [ext_resource type="Texture2D" uid="uid://djcw7ev42yo7y" path="res://textures/laser/laserhit0005.png" id="11_03k12"]
 [ext_resource type="Texture2D" uid="uid://cxexokqdsb055" path="res://textures/laser/laserhit0006.png" id="12_1dmv7"]
@@ -931,7 +936,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bq4ok")
 
 [sub_resource type="Animation" id="Animation_xu01h"]
-length = 0.001
+length = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -991,6 +996,217 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 15, 23)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("body/neck:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(17, 10, 20)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("body/neck/neckmid:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("body/neck/neckmid/neckhigh:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.11758e-22, 1.5708, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../headcol:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.88, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1dmv7"]
+resource_name = "bounce"
+length = 1.16667
+step = 0.0208333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/neck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.166667, 0.208333, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(17, 10, 20), Vector3(17, 3, 20), Vector3(17, 3, 20), Vector3(17, 21, 20), Vector3(17, 10, 20), Vector3(17, 3, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/neck/neckmid:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.166667, 0.208333, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -18, 0), Vector3(0, -18, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -18, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/neck/neckmid/neckhigh:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0625, 0.0833333, 0.104167, 0.125, 0.145833, 0.166667, 0.208333, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -14, 0), Vector3(0, -12, 0), Vector3(0, -14, 0), Vector3(0, -12, 0), Vector3(0, -14, 0), Vector3(0, -12, 0), Vector3(0, -14, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -14, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.208333, 0.395833, 0.5, 0.583333, 1.16667),
+"transitions": PackedFloat32Array(0.5, 2, -2, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 5, -1.29713), Vector3(0, 2.85023, 0), Vector3(0, 2.85, 0.04), Vector3(0, -0.722, 0.314)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.208333, 0.395833, 0.5, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.11758e-22, 1.5708, 0), Vector3(-4.37114e-08, 1.5708, 1.5708), Vector3(0, 1.5708, 3.14159), Vector3(0, 1.5708, 3.4383)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Lleg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.541667, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 15, 23), Vector3(12, 15, 23), Vector3(-12, 15, 23), Vector3(12, 15, 23), Vector3(-12, 15, 23), Vector3(12, 15, 23), Vector3(-12, 15, 23), Vector3(12, 15, 23), Vector3(12, 15, 23)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rleg:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.541667, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 15, -23), Vector3(-12, 15, -23), Vector3(12, 15, -23), Vector3(-12, 15, -23), Vector3(12, 15, -23), Vector3(-12, 15, -23), Vector3(12, 15, -23), Vector3(-12, 15, -23), Vector3(12, 15, -23)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("body/Lrail:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333, 1, 1.04167, 1.08333, 1.125, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(17, 5, 35), Vector3(17, -7, 35), Vector3(17, 5, 35), Vector3(17, -7, 35), Vector3(17, 5, 35), Vector3(17, -7, 35), Vector3(17, 5, 35), Vector3(17, -7, 35), Vector3(17, 5, 35), Vector3(17, -7, 35), Vector3(17, 5, 35), Vector3(17, -7, 35), Vector3(17, 5, 35)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("body/Rrail:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333, 1, 1.04167, 1.08333, 1.125, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(17, 5, 5), Vector3(17, -7, 5), Vector3(17, 5, 5), Vector3(17, -7, 5), Vector3(17, 5, 5), Vector3(17, -7, 5), Vector3(17, 5, 5), Vector3(17, -7, 5), Vector3(17, 5, 5), Vector3(17, -7, 5), Vector3(17, 5, 5), Vector3(17, -7, 5), Vector3(17, 5, 5)]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("..")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"launchplayer"
+}]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../headcol:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.14583, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.48, 0), Vector3(0, 2.48, 0), Vector3(0, 4.88, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_l6iel"]
@@ -1316,6 +1532,7 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_daiqr"]
 _data = {
 &"RESET": SubResource("Animation_xu01h"),
+&"bounce": SubResource("Animation_1dmv7"),
 &"idle": SubResource("Animation_l6iel"),
 &"movedown": SubResource("Animation_hu6ql"),
 &"moveleft": SubResource("Animation_njokh"),
@@ -1734,11 +1951,82 @@ tracks/4/keys = {
 "values": [Vector3(2.66743e-10, 1.5708, 1.5708), Vector3(150.796, 1.5708, 1.5708)]
 }
 
+[sub_resource type="Animation" id="Animation_obf0v"]
+resource_name = "shoothigher"
+length = 2.33334
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/lasergun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.208333, 0.458333, 2, 2.20833, 2.33333),
+"transitions": PackedFloat32Array(0.5, 2, 1, 1, 2, 0.5),
+"update": 0,
+"values": [Vector3(22, 1.25369, 9), Vector3(22, 18, 9), Vector3(22, 6, 9), Vector3(22, 6, 9), Vector3(22, 18, 9), Vector3(22, 1.25369, 9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/lasergun/axel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.208333, 0.458333, 0.5, 1.04167, 1.20833, 1.79167, 2, 2.125, 2.20833),
+"transitions": PackedFloat32Array(0.5, 2, 1, 1, 1, 2, 2, 2, 0.5),
+"update": 0,
+"values": [Vector3(-1.5708, -2.22525e-07, 0), Vector3(2.23402, 0, 0), Vector3(2.00713, 0, 0), Vector3(1.74533, 0, 0), Vector3(1.39626, 0, 0), Vector3(1.13446, 0, 0), Vector3(0.401426, 0, 0), Vector3(-0.253073, 0, 0), Vector3(-1.5708, -2.22525e-07, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/lasergun:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.208333, 2.20833, 2.33333),
+"transitions": PackedFloat32Array(1, 1, 2, 1),
+"update": 0,
+"values": [Vector3(1, 0.571291, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 0.571291, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"laser"
+}, {
+"args": [false],
+"method": &"laser"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body/lasergun/axel/laser/spiral:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.66743e-10, 1.5708, 1.5708), Vector3(150.796, 1.5708, 1.5708)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vchsd"]
 _data = {
 &"RESET": SubResource("Animation_5nytk"),
 &"shoot": SubResource("Animation_daiqr"),
-&"shoothigh": SubResource("Animation_m6n46")
+&"shoothigh": SubResource("Animation_m6n46"),
+&"shoothigher": SubResource("Animation_obf0v")
 }
 
 [sub_resource type="Animation" id="Animation_ledsn"]
@@ -1806,7 +2094,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_f4cik"]
 resource_name = "shoot"
-length = 1.4
+length = 1.43334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2014,11 +2302,17 @@ animations = [{
 height = 12.0
 radius = 8.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_03k12"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lj62n"]
+height = 1.5
+radius = 1.6
+
 [node name="spleefboss" type="CharacterBody3D" groups=["spleefboss"]]
 script = ExtResource("1_xu01h")
 
 [node name="main" type="Node3D" parent="."]
-transform = Transform3D(-2.75382e-09, 0, 0.063, 0, 0.063, 0, -0.063, 0, -2.75382e-09, 0, 0, 0)
+transform = Transform3D(-2.28059e-07, -1.33408e-23, 0.063, 0, 0.063, 1.33408e-23, -0.063, 4.82934e-29, -2.28059e-07, 0, 0, 0)
 
 [node name="body" type="MeshInstance3D" parent="main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 10, -20)
@@ -2106,7 +2400,9 @@ mesh = SubResource("ArrayMesh_okoqv")
 skeleton = NodePath("")
 
 [node name="raycast" type="RayCast3D" parent="main/body/lasergun/axel"]
+transform = Transform3D(1, -2.27374e-13, -8.67362e-19, 2.27374e-13, 1, 0, 0, 0, 1, 0, 0.000201225, -55.5689)
 target_position = Vector3(0, 0, -10000)
+collision_mask = 3
 debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="laser" type="MeshInstance3D" parent="main/body/lasergun/axel"]
@@ -2330,12 +2626,31 @@ libraries = {
 }
 script = ExtResource("3_daiqr")
 
+[node name="mainaudio" type="AudioStreamPlayer3D" parent="main"]
+stream = ExtResource("6_4yv8k")
+
+[node name="cannonaudio" type="AudioStreamPlayer3D" parent="main"]
+transform = Transform3D(15.873, 0, -1.13687e-13, 0, 15.873, 0, 1.13687e-13, 0, 15.873, -1.38766e-06, 47.619, 31.746)
+stream = ExtResource("7_03k12")
+
+[node name="laseraudio" type="AudioStreamPlayer3D" parent="main"]
+transform = Transform3D(15.873, 0, -1.7053e-13, 0, 15.873, 0, 1.7053e-13, 0, 15.873, 4.76191, 44.4444, -12.6984)
+stream = ExtResource("8_1dmv7")
+
+[node name="antennaaudio" type="AudioStreamPlayer3D" parent="main"]
+transform = Transform3D(15.873, 0, -2.84217e-13, 0, 15.873, 0, 2.84217e-13, 0, 15.873, -7.93651, 53.9683, -25.3968)
+stream = ExtResource("9_lj62n")
+
+[node name="freezeaudio" type="AudioStreamPlayer3D" parent="main"]
+transform = Transform3D(15.873, 0, -3.41061e-13, 0, 15.873, 0, 3.41061e-13, 0, 15.873, 15.873, 15.873, 6.93832e-07)
+stream = ExtResource("10_1dmv7")
+
 [node name="collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26609, 0)
 shape = SubResource("BoxShape3D_daiqr")
 debug_color = Color(0, 0.595, 0.7, 0.164706)
 
-[node name="collision2" type="CollisionShape3D" parent="."]
+[node name="headcol" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88, 0)
 shape = SubResource("BoxShape3D_m6n46")
 debug_color = Color(0, 0.595, 0.7, 0.164706)
@@ -2458,7 +2773,7 @@ process_material = SubResource("ParticleProcessMaterial_qgs1w")
 draw_pass_1 = SubResource("BoxMesh_f4cik")
 
 [node name="attack" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 6.0
 autostart = true
 
 [node name="headrot" type="Timer" parent="."]
@@ -2480,8 +2795,29 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -4.
 shape = SubResource("CylinderShape3D_m6n46")
 debug_color = Color(0, 0.595, 0.7, 0.235294)
 
+[node name="lavacheck" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lavacheck"]
+shape = SubResource("BoxShape3D_03k12")
+debug_color = Color(0, 0.595, 0.7, 0.333333)
+
+[node name="headbounce" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.3, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="headbounce"]
+shape = SubResource("CylinderShape3D_lj62n")
+debug_color = Color(0, 0.595, 0.7, 0.466667)
+
+[node name="laserdamage" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
 [connection signal="animation_finished" from="main/anim" to="." method="_on_anim_animation_finished"]
 [connection signal="animation_finished" from="main/antenna" to="." method="_on_antenna_animation_finished"]
 [connection signal="timeout" from="movecheck" to="." method="_on_movecheck_timeout"]
 [connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]
 [connection signal="timeout" from="headrot" to="." method="_on_headrot_timeout"]
+[connection signal="body_entered" from="headbounce" to="." method="_on_headbounce_body_entered"]
+[connection signal="timeout" from="laserdamage" to="." method="_on_laserdamage_timeout"]

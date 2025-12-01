@@ -9,6 +9,14 @@ func _ready() -> void:
 	$Cube.set_surface_override_material(0, dupe)
 	var icedupe = $Cube.get_surface_override_material(0).next_pass.duplicate()
 	$Cube.get_surface_override_material(0).next_pass = icedupe
+	
+	rotation.y = randi_range(0, 3)*(PI/2)
+	
+	if get_parent().is_in_group("startdead"):
+		health = 0
+		$Cube.hide()
+		$static/col.disabled = true
+		$particlecol.hide()
 
 func _process(delta: float) -> void:
 	if health > 0:
@@ -42,8 +50,12 @@ func hurt():
 	$particlecol.hide()
 	if ice:
 		$iceparticles.restart()
+		$audio.stream = load("res://audio/spleef/icebreak.mp3")
 	else:
 		$particles.restart()
+		$audio.stream = load("res://audio/spleef/blockbreak.mp3")
+	$audio.pitch_scale = randf_range(0.8, 1.2)
+	$audio.play()
 		
 func revive():
 	if !$Cube.visible && !ice:

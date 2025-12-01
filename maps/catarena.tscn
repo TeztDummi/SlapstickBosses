@@ -586,7 +586,7 @@ material = SubResource("StandardMaterial3D_dtnxh")
 size = Vector2(1, 1)
 orientation = 2
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fi5k4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8islh"]
 render_priority = -1
 shader = ExtResource("10_6yjma")
 shader_parameter/line_color = Color(0, 0, 0, 0)
@@ -604,7 +604,7 @@ shader_parameter/flickering = 1.0
 shader_parameter/alpha = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_j76hq"]
-material = SubResource("ShaderMaterial_fi5k4")
+material = SubResource("ShaderMaterial_8islh")
 flip_faces = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yr7sm"]

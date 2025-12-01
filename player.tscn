@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://chwr8oem503jp"]
+[gd_scene load_steps=78 format=4 uid="uid://chwr8oem503jp"]
 
 [ext_resource type="Script" uid="uid://bjpn2a0wgi7cf" path="res://player.gd" id="1_1li8y"]
 [ext_resource type="Shader" uid="uid://b82urhehdrcc3" path="res://blurvignette.gdshader" id="2_cqahk"]
@@ -1655,6 +1655,8 @@ stereo = true
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uxwyk"]
 radius = 2.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pbfsw"]
+
 [node name="player" type="CharacterBody3D" groups=["playergroup"]]
 collision_layer = 2
 script = ExtResource("1_1li8y")
@@ -1997,6 +1999,13 @@ debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
+
+[node name="lavacheck" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lavacheck"]
+shape = SubResource("BoxShape3D_pbfsw")
+debug_color = Color(0, 0.595, 0.7, 0.333333)
 
 [connection signal="area_exited" from="cubeleavearea" to="." method="_on_cubeleavearea_area_exited"]
 [connection signal="timeout" from="walktimer" to="." method="_on_walktimer_timeout"]

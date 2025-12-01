@@ -1,9 +1,9 @@
 [gd_scene load_steps=26 format=4 uid="uid://dbaxgx51svm4b"]
 
-[ext_resource type="Script" uid="uid://bu4dv3xwlvdn3" path="res://minigun.gd" id="1_1p7k5"]
-[ext_resource type="Shader" uid="uid://dknogeoufmn1b" path="res://animtex.gdshader" id="1_emtlm"]
-[ext_resource type="Texture2D" uid="uid://cbkcjohahs1bg" path="res://textures/shot/sprite_sheet.png" id="1_kdrfl"]
-[ext_resource type="Texture2D" uid="uid://c48i8ll7pjo2m" path="res://textures/shot/sprite_sheetfronmt.png" id="3_3u0dj"]
+[ext_resource type="Script" uid="uid://bu4dv3xwlvdn3" path="res://minigun.gd" id="1_3w73q"]
+[ext_resource type="Shader" uid="uid://dknogeoufmn1b" path="res://animtex.gdshader" id="2_o64u3"]
+[ext_resource type="Texture2D" uid="uid://cbkcjohahs1bg" path="res://textures/shot/sprite_sheet.png" id="3_ndl6s"]
+[ext_resource type="Texture2D" uid="uid://c48i8ll7pjo2m" path="res://textures/shot/sprite_sheetfronmt.png" id="4_nly0w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ayuj"]
 resource_name = "Material.001"
@@ -116,9 +116,9 @@ anim_speed_max = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_86ctj"]
 render_priority = 0
-shader = ExtResource("1_emtlm")
+shader = ExtResource("2_o64u3")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("1_kdrfl")
+shader_parameter/texture_albedo = ExtResource("3_ndl6s")
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
@@ -151,9 +151,9 @@ anim_speed_max = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mhffp"]
 render_priority = 1
-shader = ExtResource("1_emtlm")
+shader = ExtResource("2_o64u3")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("3_3u0dj")
+shader_parameter/texture_albedo = ExtResource("4_nly0w")
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
@@ -648,7 +648,7 @@ _data = {
 
 [node name="minigun" type="Marker3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
-script = ExtResource("1_1p7k5")
+script = ExtResource("1_3w73q")
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.81e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.81e-06, -0.31, -0.185, 0.545)
@@ -706,6 +706,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.314516, -0.192627, 1)
 volume_db = -20.0
 max_db = -5.0
 max_polyphony = 4
+attenuation_filter_cutoff_hz = 20500.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="shoottimer" to="." method="_on_shoottimer_timeout"]

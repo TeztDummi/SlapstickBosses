@@ -48,6 +48,7 @@ func _ready():
 func _process(delta):
 	if coyote > 0: coyote -= delta
 	
+	
 	if motionblur > 0: motionblur -= delta*20
 	else: motionblur = 0
 	if motionblur > 1: motionblur = 1
@@ -271,6 +272,8 @@ func _physics_process(delta):
 		else: 
 			coyote = 0.1
 			
+			doublejump = 1
+			
 			if falldamagemult <= -20:
 				var tempaudio = load("res://tempaudio.tscn").instantiate()
 				add_child(tempaudio)
@@ -393,7 +396,7 @@ func _physics_process(delta):
 			playaudio("res://audio/jump.wav")
 			moveeffect("jump")
 			doajump = 0
-			doublejump = 1
+			
 		if candash:
 			if !cancrouch:
 				if Input.is_action_pressed("crouch"):
@@ -449,7 +452,7 @@ func _physics_process(delta):
 			$"../canvas/hud/dash".hide()
 				
 		if candoublejump:
-			if djdelay <= 0 && velocity.y < JUMP_VELOCITY*0.54 && !$djumpaccidentproofing.is_colliding():
+			if doublejump >= 1 && djdelay <= 0 && velocity.y < JUMP_VELOCITY*0.54 && !$djumpaccidentproofing.is_colliding():
 				$"../canvas/hud/doublejump".modulate.v = 1
 				if doajump > 0:
 					velocity.y = JUMP_VELOCITY*1.5
@@ -842,6 +845,21 @@ func kill(effect):
 		ragdoll.color = $"../".bodycolor
 		ragdoll.head = $"../".head
 		ragdoll.vel = velocity
+		ragdoll.rotation.y = rotation.y
+		ragdoll.position = position
+		$"../tppivot/tppivot2".rotation_degrees.x = -90
+		$"../map".add_child(ragdoll)
+		$"../".tplock = ragdoll.get_child(2)
+		
+	if effect == "lava":
+		var hitaudio = load("res://tempaudio.tscn").instantiate()
+		add_child(hitaudio)
+		hitaudio.stream = load("res://audio/lavadeath.mp3")
+		hitaudio.play()
+		
+		var ragdoll = load("res://lavaragdoll.tscn").instantiate()
+		ragdoll.head = $"../".head
+		ragdoll.vel = Vector3(0, 10, 0)
 		ragdoll.rotation.y = rotation.y
 		ragdoll.position = position
 		$"../tppivot/tppivot2".rotation_degrees.x = -90

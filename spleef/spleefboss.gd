@@ -12,6 +12,8 @@ var laseron = false
 var cold = true
 var temp = 0
 var move = false
+var vulnerable = false
+var lasergoup = false
 
 func settemp(iscold):
 	cold = iscold
@@ -19,6 +21,17 @@ func settemp(iscold):
 
 func _ready():
 	freezeblocks()
+	
+func fallinlava():
+	if move:
+		vulnerable = true
+		velocity = Vector3.ZERO
+		position.y = get_parent().get_node("lava").position.y+1
+		$headcol.position.y = 2.48
+		get_parent().nextlevel()
+	
+func setattack(sec):
+	$attack.wait_time = sec
 
 func _process(delta: float) -> void:
 	#var floordetects = [$floordetect1, $floordetect2, $floordetect3, $floordetect4]
@@ -29,11 +42,12 @@ func _process(delta: float) -> void:
 		#else:
 			#position.y = ray.get_collision_point().y
 			#break
-	if !is_on_floor():
+	if !is_on_floor() && move:
 		fall = 4
 	if fall == 4:
-		velocity.y -= gravity*delta 
-		print(velocity.y)
+		if !vulnerable && move:
+			velocity.y -= gravity*delta 
+			print(velocity.y)
 	move_and_slide()
 	freezeblocks()
 	#print(position)
@@ -127,6 +141,10 @@ func _on_movecheck_timeout() -> void:
 			print(directions[iterdir]["place"])
 		print(movedir)
 					
+		if movedir["dir"] != "center":
+			$main/mainaudio.stream = load("res://audio/spleef/move.mp3")
+			$main/mainaudio.play()
+					
 		if movedir["dir"] == "left":
 			$main/anim.playfps("moveleft")
 		if movedir["dir"] == "right":
@@ -147,7 +165,7 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 			position.z -= 2
 		if anim_name == "movedown":
 			position.z += 2
-	$main/anim.playfps("idle")
+	$main/anim.playfps("RESET")
 	
 func freezeblocks():
 	var doparticles = false
@@ -161,6 +179,8 @@ func freezeblocks():
 	if doparticles:
 		$fog.restart()
 		settemp(true)
+		$main/mainaudio.stream = load("res://audio/spleef/freezeblocks.mp3")
+		$main/mainaudio.play()
 
 func _on_attack_timeout() -> void:
 	if fall != 4:
@@ -168,7 +188,7 @@ func _on_attack_timeout() -> void:
 			"cannon": 0.5,
 			"laser": 1,
 			"antenna": 0.25,
-			"freeze": 1
+			"freeze": 0.5
 		}
 		
 		if rand.has(choice): rand[choice] *= 0
@@ -191,18 +211,21 @@ func _on_attack_timeout() -> void:
 		if choice == "cannon":
 			$main/cannon.playfps("shoot", 24)
 			settemp(false)
-			#$audio.stream = load("res://audio/sodabox/shootfromtop.mp3")
-			#$audio.play()
+			$main/cannonaudio.play()
 		if choice == "laser":
-			if move:
+			if lasergoup:
+				$main/laser.playfps("shoothigher", 24)
+			elif move:
 				$main/laser.playfps("shoot", 24)
 			else:
 				$main/laser.playfps("shoothigh", 24)
 			var lpos = $main/body/lasergun.global_position
 			$main/body/lasergun.rotation.y = -PI/2+atan2(lpos.x-player.position.x, lpos.z-player.position.z)
 			settemp(false)
+			$main/laseraudio.play()
 		if choice == "antenna":
 			$main/antenna.playfps("shoot", 24)
+			$main/antennaaudio.play()
 		if choice == "freeze":
 			freezeattack()
 		
@@ -211,6 +234,7 @@ func freezeattack():
 	$fog2.emitting = true
 	$movecheck.wait_time = 3
 	$movecheck.start()
+	$main/freezeaudio.play()
 	for area in $revive.get_overlapping_areas():
 		if area.is_in_group("spleefblock"):
 			area.get_parent().revive()
@@ -235,15 +259,36 @@ func _on_headrot_timeout() -> void:
 func _on_antenna_animation_finished(anim_name: StringName) -> void:
 	for i in range(2):
 		var choices = []
-		for child in get_parent().get_children():
-			if child.is_in_group("spleefblockparent"):
-				if child.health > 0:
-					choices.append(child.position)
+		for child in get_parent().levelgroup().get_children():
+			if child.health > 0:
+				choices.append(child.global_position)
 		
 		if choices.size() > 0:
 			var enemy = load("res://spleef/spleefminion.tscn").instantiate()
 			var ranpos = choices.pick_random()
 			enemy.position.x = ranpos.x#floor(randf_range(-16, 16)/2)*2+1
 			enemy.position.z = ranpos.z#floor(randf_range(-16, 16)/2)*2+1
-			enemy.position.y += 20+i*5
+			enemy.position.y += ranpos.y+30+i*5
 			$"../".add_child(enemy)
+
+func _on_headbounce_body_entered(body: Node3D) -> void:
+	if body.is_in_group("spleefblock"):
+		body.get_parent().hurt()
+	if $main/anim.current_animation != "bounce":
+		if vulnerable:
+			if body.is_in_group("playergroup"):
+				$main/anim.playfps("bounce", 48)
+			
+func launchplayer():
+	if get_parent().level == 2:
+		player.velocity.y = 60
+	else:
+		player.velocity.y = 60
+
+func _on_laserdamage_timeout() -> void:
+	if laseron:
+		if $main/body/lasergun/axel/raycast.is_colliding():
+			var col = $main/body/lasergun/axel/raycast.get_collider()
+			if col != null:
+				if col.is_in_group("playergroup"):
+					col.hurt(3, "bluelaser")

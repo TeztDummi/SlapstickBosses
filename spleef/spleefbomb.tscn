@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=4 uid="uid://cpjfuwv3vhupl"]
+[gd_scene load_steps=31 format=4 uid="uid://cpjfuwv3vhupl"]
 
 [ext_resource type="Script" uid="uid://deeohkxi3c1h" path="res://spleefbomb.gd" id="1_f6cn2"]
+[ext_resource type="AudioStream" uid="uid://8bgfn0atr1hn" path="res://audio/spleef/fireloop.mp3" id="2_5cgu5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxe32"]
 
@@ -231,6 +232,8 @@ radius = 1.25
 radius = 0.3
 height = 1.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cgu5"]
+
 [node name="spleefbomb" type="Node3D"]
 script = ExtResource("1_f6cn2")
 
@@ -285,5 +288,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.168577, 0)
 [node name="col" type="CollisionShape3D" parent="static"]
 shape = SubResource("CapsuleShape3D_f6cn2")
 debug_color = Color(0.443333, 0.7, 0, 0.176471)
+
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_5cgu5")
+autoplay = true
+max_distance = 10.0
+
+[node name="lavacheck" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lavacheck"]
+shape = SubResource("BoxShape3D_5cgu5")
+debug_color = Color(0, 0.595, 0.7, 0.333333)
 
 [connection signal="timeout" from="textureupdate" to="." method="_on_textureupdate_timeout"]
