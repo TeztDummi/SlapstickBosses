@@ -4067,6 +4067,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.137, -3.5, -48.985)
 [node name="billboard" type="Marker3D" parent="gearmospots"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0101, 9.3544, -6.9094)
 
+[node name="gloop" type="Marker3D" parent="gearmospots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51, -3.5, -25)
+
+[node name="burgshelter" type="Marker3D" parent="gearmospots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, -3.5, 32)
+
 [node name="ted" type="StaticBody3D" parent="." groups=["talk"]]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -9.98915, 0, 6.44619)
 script = ExtResource("8_ufrne")
@@ -4156,7 +4162,7 @@ shape = SubResource("CapsuleShape3D_8af1p")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="levelguy" type="StaticBody3D" parent="." groups=["talk"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -3.5, -47)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -5.5, -47)
 script = ExtResource("37_245pu")
 
 [node name="mesh" type="MeshInstance3D" parent="levelguy"]

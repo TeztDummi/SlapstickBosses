@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 			if prevframe != theframe:
 				#print(get_animation(current_animation).add_marker())
 				var anus = get_animation(current_animation).track_find_key(functrack, theframe, Animation.FIND_MODE_APPROX)
-				if anus != -1: print(anus)
+				#if anus != -1: print(anus)
 				if anus != -1:
 					get_animation(current_animation).track_set_enabled(functrack, true)
 				else:

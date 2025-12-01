@@ -1,8 +1,10 @@
-[gd_scene load_steps=47 format=4 uid="uid://cyao1l4idtsev"]
+[gd_scene load_steps=50 format=4 uid="uid://cyao1l4idtsev"]
 
 [ext_resource type="Script" uid="uid://cl2xegdhjft0h" path="res://spleefminion.gd" id="1_8if2b"]
 [ext_resource type="Texture2D" uid="uid://dpy0y24lj2bfp" path="res://spleef/spleefminion_Untitled.png" id="2_y8fpw"]
 [ext_resource type="Script" uid="uid://bt6qjq8ripekt" path="res://spleef/fpsanim.gd" id="3_8if2b"]
+[ext_resource type="AudioStream" uid="uid://cfncrvj78vuin" path="res://audio/spleef/minionjump.mp3" id="4_y8fpw"]
+[ext_resource type="AudioStream" uid="uid://xj10n701tdp1" path="res://audio/spleef/minionsound1.mp3" id="5_6tgrj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqopm"]
 resource_name = "Material"
@@ -834,6 +836,18 @@ tracks/20/keys = {
 "update": 0,
 "values": [Vector3(0, 0.5, 0)]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("floordetect:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_1q83q"]
 resource_name = "move"
@@ -1091,6 +1105,18 @@ tracks/20/keys = {
 "update": 0,
 "values": [Vector3(0, 0.5, 0), Vector3(0, 1.16531, 0.892118), Vector3(0, 0.5, 2)]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("floordetect:position")
+tracks/21/interp = 0
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.458333, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 1, 0), Vector3(0, 1, 2)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_td430"]
 resource_local_to_scene = true
@@ -1202,6 +1228,8 @@ size = Vector3(0.125, 0.125, 0.125)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_31jxi"]
 radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6tgrj"]
 
 [node name="spleefminion" type="StaticBody3D" groups=["spleefminion"]]
 collision_layer = 4
@@ -1324,7 +1352,7 @@ script = ExtResource("3_8if2b")
 
 [node name="break" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-collision_mask = 3
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="break"]
 shape = SubResource("BoxShape3D_8if2b")
@@ -1354,6 +1382,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.648361, 0)
 shape = SubResource("CylinderShape3D_31jxi")
 debug_color = Color(0.7, 0, 0, 0.117647)
 
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_y8fpw")
+max_distance = 12.0
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_6tgrj")
+max_distance = 12.0
+
+[node name="sfx" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="lavacheck" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lavacheck"]
+shape = SubResource("BoxShape3D_6tgrj")
+debug_color = Color(0, 0.595, 0.7, 0.333333)
+
 [connection signal="timeout" from="chooseblock" to="." method="_on_chooseblock_timeout"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="checkbreak" to="." method="_on_checkbreak_timeout"]
+[connection signal="timeout" from="sfx" to="." method="_on_sfx_timeout"]

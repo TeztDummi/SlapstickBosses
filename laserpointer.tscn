@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bsd3gjwdexiyu"]
+[gd_scene load_steps=41 format=4 uid="uid://bsd3gjwdexiyu"]
 
 [ext_resource type="Texture2D" uid="uid://djm3hua6ymi1p" path="res://spleef/laserpointer.png" id="1_2l12u"]
 [ext_resource type="Script" uid="uid://ct14h2ynunohs" path="res://laserpointer.gd" id="1_nmpkx"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bn5bscxgh2gnr" path="res://textures/laser/laserhit0008.png" id="12_wamgw"]
 [ext_resource type="Texture2D" uid="uid://j7prltlh4gsx" path="res://textures/laser/laserhit0009.png" id="13_d7jcd"]
 [ext_resource type="Texture2D" uid="uid://dx5wolvm1a5t5" path="res://textures/laser/laserhit0010.png" id="14_sv4qh"]
+[ext_resource type="AudioStream" uid="uid://crrf4ln1lnv2k" path="res://audio/spleef/laser.mp3" id="15_3pakk"]
+[ext_resource type="AudioStream" uid="uid://cdfkbeoviqco7" path="res://audio/spleef/pointerclick.mp3" id="16_ugggr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmpkx"]
 resource_name = "Material"
@@ -517,5 +519,14 @@ frame_progress = 0.820558
 [node name="updatelook" type="Timer" parent="."]
 wait_time = 0.021
 autostart = true
+
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_3pakk")
+volume_db = -30.0
+pitch_scale = 2.0
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ugggr")
+pitch_scale = 2.0
 
 [connection signal="timeout" from="updatelook" to="." method="_on_updatelook_timeout"]

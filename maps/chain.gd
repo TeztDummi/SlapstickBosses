@@ -36,8 +36,14 @@ func _process(delta: float) -> void:
 			if stages.size() > 0:
 				if health < stages[0]:
 					$particles.restart()
-					stages.remove_at(0)
 					get_surface_override_material(0).next_pass.albedo_color.a += 0.15
+					var tempaudio = load("res://tempaudio.tscn").instantiate()
+					add_child(tempaudio)
+					tempaudio.stream = load("res://audio/spleef/icebreak.mp3")
+					tempaudio.pitch_scale = 1-stages[0]*0.25
+					tempaudio.volume_linear = 2
+					tempaudio.play()
+					stages.remove_at(0)
 		
 		if health <= 0:
 			hurt()
@@ -49,3 +55,8 @@ func hurt():
 	$StaticBody3D/CollisionShape3D.disabled = true
 	$particles.restart()
 	get_parent().startbreak()
+	var tempaudio = load("res://tempaudio.tscn").instantiate()
+	add_child(tempaudio)
+	tempaudio.stream = load("res://audio/spleef/chainbreak.mp3")
+	tempaudio.pitch_scale = 1
+	tempaudio.play()
