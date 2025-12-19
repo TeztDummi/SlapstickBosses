@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cpjfuwv3vhupl"]
+[gd_scene load_steps=35 format=4 uid="uid://cpjfuwv3vhupl"]
 
 [ext_resource type="Script" uid="uid://deeohkxi3c1h" path="res://spleefbomb.gd" id="1_f6cn2"]
 [ext_resource type="AudioStream" uid="uid://8bgfn0atr1hn" path="res://audio/spleef/fireloop.mp3" id="2_5cgu5"]
@@ -234,6 +234,28 @@ height = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cgu5"]
 
+[sub_resource type="Gradient" id="Gradient_5a8r7"]
+colors = PackedColorArray(1, 0.566667, 0, 1, 1, 0.566667, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_23em6"]
+gradient = SubResource("Gradient_5a8r7")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_wflys"]
+colors = PackedColorArray(1, 0.566667, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_plocq"]
+gradient = SubResource("Gradient_wflys")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.5)
+
 [node name="spleefbomb" type="Node3D"]
 script = ExtResource("1_f6cn2")
 
@@ -258,7 +280,7 @@ draw_pass_1 = SubResource("BoxMesh_38e8w")
 [node name="explodeparticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224197, 0)
 emitting = false
-amount = 512
+amount = 128
 lifetime = 4.0
 one_shot = true
 explosiveness = 1.0
@@ -284,6 +306,7 @@ debug_shape_custom_color = Color(1, 1, 1, 1)
 
 [node name="static" type="StaticBody3D" parent="." groups=["spleefbomb"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.168577, 0)
+collision_layer = 4
 
 [node name="col" type="CollisionShape3D" parent="static"]
 shape = SubResource("CapsuleShape3D_f6cn2")
@@ -300,5 +323,14 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lavacheck"]
 shape = SubResource("BoxShape3D_5cgu5")
 debug_color = Color(0, 0.595, 0.7, 0.333333)
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.563003, 0)
+visible = false
+size = Vector3(6, 32, 6)
+texture_albedo = SubResource("GradientTexture2D_23em6")
+texture_emission = SubResource("GradientTexture2D_plocq")
+upper_fade = 53.1343
+lower_fade = 1.0
 
 [connection signal="timeout" from="textureupdate" to="." method="_on_textureupdate_timeout"]

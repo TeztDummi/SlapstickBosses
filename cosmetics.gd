@@ -3,7 +3,7 @@ var objects = ["bowlingball", "car", "moyai", "glasses",
 "excord", "biggerboy", "eye", "socialcredit",
 "skull", "fatman", "lightbulb", "menger",
 "stickbug", "mememan", "maxwell", "dummi",
-"distressed", "mrheeh", "kbcrown", "pumpkin", "elevator", "catsoldier", "wizardhat", "gunman", "sodacan", "bioplasm", "basketball", "discord"]
+"distressed", "mrheeh", "kbcrown", "pumpkin", "santaball", "elevator", "catsoldier", "wizardhat", "gunman", "sodacan", "bioplasm", "basketball", "discord"]
 
 var titledesc = [["Bowling Ball", "Bowl a turkey", 0],
 ["Racecar", "Go 90 mph in a school zone", 0],
@@ -25,6 +25,7 @@ var titledesc = [["Bowling Ball", "Bowl a turkey", 0],
 ["Mr Heeh", "Some guy, probobly related to Ted", 2000],
 ["Kurger Bing Crown", "Just makes you wanna get on an airplane", 500],
 ["Pumpkin", "Holloween special!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 500],
+["Santa Ball", "Actual ornament I have", 500],
 ["Elevator", "Beat The Elevator on Hard", -1],
 ["Cat Soldier", "Beat The Cat Batallion on Hard", -1],
 ["Pimpledump's Hat", "Beat Pimpledump Kinkledorf Dingledale on Hard", -1],

@@ -19,7 +19,7 @@ func _process(delta):
 			position.y += velocity.y
 		else:
 			velocity.y = 0
-			position.y = 0
+			position.y = round(position.y/32.0)*32
 
 		var dothe = null
 		for body in $break.get_overlapping_bodies():
@@ -104,7 +104,7 @@ func _on_checkbreak_timeout() -> void:
 		if body != self:
 			if body.is_in_group("spleefminion") || body.is_in_group("playergroup"):
 				hurt(10)
-				body.hurt(15, "bluelaser")
+				body.hurt(25, "bluelaser")
 
 func _on_sfx_timeout() -> void:
 	if $main.visible:

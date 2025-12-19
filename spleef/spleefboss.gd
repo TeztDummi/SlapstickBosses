@@ -14,6 +14,11 @@ var temp = 0
 var move = false
 var vulnerable = false
 var lasergoup = false
+var dominions = false
+var dosuperice = false
+var supericeing = false
+var prevcenter = 0
+var ended = false
 
 func settemp(iscold):
 	cold = iscold
@@ -25,10 +30,14 @@ func _ready():
 func fallinlava():
 	if move:
 		vulnerable = true
+		if get_parent().level == 1:
+			var tween = get_tree().create_tween()
+			tween.tween_property($arrow, "transparency", 0, 0.25)
 		velocity = Vector3.ZERO
 		position.y = get_parent().get_node("lava").position.y+1
 		$headcol.position.y = 2.48
-		get_parent().nextlevel()
+		if get_parent().level < 4:
+			get_parent().nextlevel()
 	
 func setattack(sec):
 	$attack.wait_time = sec
@@ -47,7 +56,13 @@ func _process(delta: float) -> void:
 	if fall == 4:
 		if !vulnerable && move:
 			velocity.y -= gravity*delta 
+			if !$main/fallaudio.playing:
+				$main/fallaudio.play()
 			print(velocity.y)
+		elif !vulnerable:
+			$main/fallaudio.stop()
+	elif !vulnerable:
+		$main/fallaudio.stop()
 	move_and_slide()
 	freezeblocks()
 	#print(position)
@@ -85,6 +100,29 @@ func _process(delta: float) -> void:
 	
 	glowmat.emission_energy_multiplier = lerpf(16, 2.5, temp)
 	glowmat.emission = Color.from_hsv(0.625, lerpf(0.95, 0, temp), 1)
+	
+	if fall != 4 && dosuperice && !supericeing:
+		var directions = {
+			"center" : {
+				"obj" : [$"check/4", $"check/5", $"check/8", $"check/9"],
+				"place" : 0.0,
+				"dir" : "center"
+			}
+		}
+		
+		for ray in directions["center"]["obj"]:
+			if !ray.is_colliding():
+				directions["center"]["place"] += 1
+		
+		if prevcenter < directions["center"]["place"] && directions["center"]["place"] != 4:
+			move = false
+			setsuper(true)
+			$main/anim.playfps("startsuperice", 48)
+			get_parent().startheatwavetimer()
+			$main/mainaudio.stream = load("res://audio/spleef/startsuperice.mp3")
+			$main/mainaudio.play()
+			
+		prevcenter = directions["center"]["place"]
 	
 func _on_movecheck_timeout() -> void:
 	$movecheck.wait_time = 1.2
@@ -153,6 +191,8 @@ func _on_movecheck_timeout() -> void:
 			$main/anim.playfps("moveup")
 		if movedir["dir"] == "down":
 			$main/anim.playfps("movedown")
+	
+	
 			
 
 func _on_anim_animation_finished(anim_name: StringName) -> void:
@@ -165,7 +205,45 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 			position.z -= 2
 		if anim_name == "movedown":
 			position.z += 2
-	$main/anim.playfps("RESET")
+	if anim_name == "bounce":
+		position.y -= 6
+			
+	if anim_name == "endsuperice":
+		pass
+	if anim_name == "startsuperice":
+		#setsuper(true)
+		$main/anim.playfps("superice", 48)
+		$main/mainaudio.stream = load("res://audio/spleef/supericeloop.mp3")
+		$main/mainaudio.play()
+		print("start super ice")
+	else:
+		$main/anim.playfps("RESET")
+		
+func setsuper(val):
+	print("set superice: "+str(val))
+	if dosuperice:
+		var directions = {
+			"center" : {
+				"obj" : [$"check/4", $"check/5", $"check/8", $"check/9"],
+				"place" : 0.0,
+				"dir" : "center"
+			}
+		}
+	
+		for ray in directions["center"]["obj"]:
+			if ray.is_colliding():
+				if ray.get_collider().is_in_group("spleefblock"):
+					ray.get_collider().get_parent().setsuper(val)
+		
+		move = !val
+		supericeing = val
+		$supericefog.emitting = val
+		
+		if !val:
+			$main/anim.playfps("endsuperice", 48)
+			$main/mainaudio.stream = load("res://audio/spleef/endsuperice.mp3")
+			$main/mainaudio.play()
+			main.transitionmusic("res://audio/music/coldspleefhype.mp3", 0.85, false)
 	
 func freezeblocks():
 	var doparticles = false
@@ -181,6 +259,9 @@ func freezeblocks():
 		settemp(true)
 		$main/mainaudio.stream = load("res://audio/spleef/freezeblocks.mp3")
 		$main/mainaudio.play()
+		
+func start():
+	$attack.start()
 
 func _on_attack_timeout() -> void:
 	if fall != 4:
@@ -194,7 +275,7 @@ func _on_attack_timeout() -> void:
 		if rand.has(choice): rand[choice] *= 0
 		if $main/cannon.playing: rand["cannon"] *= 0
 		if $main/laser.playing: rand["laser"] *= 0
-		if $main/antenna.playing: rand["antenna"] *= 0
+		if $main/antenna.playing || !dominions: rand["antenna"] *= 0
 		if !move: rand["freeze"] *= 0
 			
 		var weightsum = 0
@@ -215,7 +296,7 @@ func _on_attack_timeout() -> void:
 		if choice == "laser":
 			if lasergoup:
 				$main/laser.playfps("shoothigher", 24)
-			elif move:
+			elif move || dosuperice:
 				$main/laser.playfps("shoot", 24)
 			else:
 				$main/laser.playfps("shoothigh", 24)
@@ -257,11 +338,13 @@ func _on_headrot_timeout() -> void:
 
 
 func _on_antenna_animation_finished(anim_name: StringName) -> void:
-	for i in range(2):
+	for i in range(2+diff*2):
 		var choices = []
 		for child in get_parent().levelgroup().get_children():
 			if child.health > 0:
-				choices.append(child.global_position)
+				var disttoplayer = sqrt(pow(child.position.x-player.position.x, 2)+pow(child.position.x-player.position.x, 2))
+				if disttoplayer > 12:
+					choices.append(child.global_position)
 		
 		if choices.size() > 0:
 			var enemy = load("res://spleef/spleefminion.tscn").instantiate()
@@ -275,15 +358,25 @@ func _on_headbounce_body_entered(body: Node3D) -> void:
 	if body.is_in_group("spleefblock"):
 		body.get_parent().hurt()
 	if $main/anim.current_animation != "bounce":
-		if vulnerable:
-			if body.is_in_group("playergroup"):
+		if body.is_in_group("playergroup"):
+			if vulnerable:
 				$main/anim.playfps("bounce", 48)
-			
+				$main/mainaudio.stream = load("res://audio/spleef/bounce.mp3")
+				$main/mainaudio.play()
+				main.transitionmusic("res://audio/music/hotspleef.mp3", 0.85, false)
+				var tween = get_tree().create_tween()
+				tween.tween_property($arrow, "transparency", 1, 0.25)
+			else:
+				$main/anim.playfps("headkill", 48)
+				$main/mainaudio.stream = load("res://audio/spleef/headkill.mp3")
+				$main/mainaudio.play()
+				body.velocity.y = 80
+				body.hurt(100, "ragdoll")
 func launchplayer():
-	if get_parent().level == 2:
-		player.velocity.y = 60
-	else:
-		player.velocity.y = 60
+	#if get_parent().level == 2:
+	player.velocity.y = 60
+	#else:
+		#player.velocity.y = 60
 
 func _on_laserdamage_timeout() -> void:
 	if laseron:
@@ -292,3 +385,15 @@ func _on_laserdamage_timeout() -> void:
 			if col != null:
 				if col.is_in_group("playergroup"):
 					col.hurt(3, "bluelaser")
+
+func _on_end_body_entered(body: Node3D) -> void:
+	if !ended:
+		if vulnerable:
+			if body.is_in_group("playergroup"):
+				print("do an end?:")
+				print(get_parent().level)
+				if get_parent().level == 4:
+					$attack.stop()
+					hide()
+					get_parent().end()
+					ended = true

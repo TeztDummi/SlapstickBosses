@@ -28,9 +28,13 @@ func _on_area_3d_body_entered(body):
 	if !done:
 		if body.is_in_group("playergroup"):
 			if !body.dead:
-				print("guh")
-				done = true
-				grow = true
-				$audio.stream = load("res://audio/portalenter.mp3")
-				$audio.play()
-				$"../../".transitionfunc(["loadmap", "res://maps/lobby.tscn"])
+				do()
+
+func do():
+	if !done:
+		print("guh")
+		done = true
+		grow = true
+		$audio.stream = load("res://audio/portalenter.mp3")
+		$audio.play()
+		$"../../".transitionfunc(["loadmap", "res://maps/lobby.tscn"])

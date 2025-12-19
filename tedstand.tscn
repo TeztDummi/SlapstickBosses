@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://dtts2bar74ujv"]
+[gd_scene load_steps=58 format=4 uid="uid://dtts2bar74ujv"]
 
 [ext_resource type="Script" uid="uid://cxlhpj7cttnv2" path="res://tedstand.gd" id="1_mofew"]
 [ext_resource type="Texture2D" uid="uid://b1stqqij67y8s" path="res://textures/Cardboard004_2K-JPG/Cardboard004_2K-JPG_Color.jpg" id="1_pel2d"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://u5n3w4qp3se" path="res://objects/maxwell.tscn" id="24_2omqn"]
 [ext_resource type="PackedScene" uid="uid://kjttpyguacv2" path="res://objects/distressed.tscn" id="25_xq2ur"]
 [ext_resource type="PackedScene" uid="uid://dwu1l05x1c71f" path="res://objects/kbcrown.tscn" id="26_deind"]
+[ext_resource type="PackedScene" uid="uid://d2sv8chxwrpqg" path="res://objects/pumpkin.tscn" id="27_37fvq"]
+[ext_resource type="PackedScene" uid="uid://cpckplfhudryq" path="res://objects/santaball.tscn" id="28_04etj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_du0xb"]
 resource_name = "Material"
@@ -458,5 +460,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.073, -0.04, -2.21)
 wait_time = 0.2
 one_shot = true
 autostart = true
+
+[node name="pumpkin" parent="." instance=ExtResource("27_37fvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="santaball" parent="." instance=ExtResource("28_04etj")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 3, 0, -1)
 
 [connection signal="timeout" from="Timer" to="." method="clearheads"]

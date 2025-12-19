@@ -22,6 +22,7 @@ func _on_textureupdate_timeout() -> void:
 func _process(delta: float) -> void:
 	if position.y > heightlimit:
 		up = false
+		$Decal.show()
 		
 		var choices = []
 		for child in map.levelgroup().get_children():
@@ -56,6 +57,7 @@ func hurt():
 		$explodeparticles.emitting = true
 		$particles.emitting = false
 		$ball.hide()
+		$Decal.hide()
 		$static/col.disabled = true
 		$colsphere.queue_free()
 		$audio.stream = load("res://audio/spleef/firebreak.mp3")
@@ -65,5 +67,5 @@ func hurt():
 				if !body.get_parent().ice:
 					body.get_parent().hurt()
 			if body.is_in_group("playergroup"):
-				body.hurt(10, "bluelaser")
+				body.hurt(20, "bluelaser")
 		

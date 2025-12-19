@@ -64,7 +64,7 @@ func _ready():
 		settexture("res://paintings/horrorpainting.png")
 	if painting == "spleefpainting":
 		map = "spleefarena"
-		ticks = 0
+		ticks = $"../../".beatspleef
 		settexture("res://paintings/wippainting.png")
 	if has_meta("challenge"):
 		if ticks <= 0: #easy or less

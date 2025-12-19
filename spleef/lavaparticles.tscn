@@ -91,7 +91,7 @@ shader = SubResource("Shader_a2pch")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_texture_size = Vector2i(0, 0)
 shader_parameter/point_size = 1.0
-shader_parameter/rounding = 0.125
+shader_parameter/rounding = 0.25
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/specular = 0.5
@@ -103,7 +103,7 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d2vyq"]
 material = SubResource("ShaderMaterial_kcdiv")
-size = Vector3(0.125, 0.125, 0.125)
+size = Vector3(0.25, 0.25, 0.25)
 
 [node name="lavaparticles" type="Node3D"]
 script = ExtResource("1_0mwq2")
@@ -111,7 +111,7 @@ script = ExtResource("1_0mwq2")
 [node name="particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 emitting = false
-amount = 256
+amount = 128
 lifetime = 4.0
 one_shot = true
 explosiveness = 1.0

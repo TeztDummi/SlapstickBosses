@@ -12,7 +12,7 @@ var outfitcolors = {}
 #{"tuxedo" : {"1" : {"r": 0.5, "g": 0.5, "b": 0.5}, "2" : {"r": 1, "g": 1, "b": 1}}} 
 var outfit = "res://outfits/defaultplayer.tscn"
 var outfittext = ""
-
+var restarted = 0
 
 var beatelevator = -1
 var beatcat = -1
@@ -20,6 +20,7 @@ var beatwizard = -1
 var beatgunman = -1
 var beatsoda = -1
 var beathorror = -1
+var beatspleef = -1
 
 var beatsomethingnormal = false
 
@@ -318,7 +319,12 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 		if beatgunman >= 1: beatsomethingnormal = true
 		if beatsoda >= 1: beatsomethingnormal = true
 		if beathorror >= 1: beatsomethingnormal = true
-	
+		
+	if restarted == -1:
+		restarted = 1
+	elif restarted == 1:
+		restarted = 0
+		
 	if $map != null:
 		$map.name = "deletemap"
 		$deletemap.queue_free()
@@ -335,6 +341,9 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 		$player.position = Vector3(0, 129.15, 74)
 		$player.rotation = Vector3(0, 0, 0)
 		$player.camera.rotation = Vector3(0, 0, 0)
+	if mappath == "res://maps/spleefarena.tscn":
+		$player.rotation = Vector3(0, PI, 0)
+		$player.camera.rotation = Vector3(PI/6, 0, 0)
 	$player.dead = false
 	$player.health = 100
 	$player.camera.current = true
@@ -464,7 +473,7 @@ func transitionfunc(array):
 	"links to important websites are in the credits.",
 	"if you want real tips go talk to rim",
 	"talk to rim for more tips",
-	"labubu is respulsive",
+	"labubu is repulsive",
 	"santa isnt real",
 	"beware the bone men",
 	"my name tezt dummi :)",
@@ -501,12 +510,14 @@ func transitionfunc(array):
 	$canvas/hud/transitionin/tip.text += tips.pick_random()
 	
 func _on_died_animation_finished(manual = false):
+	#restart
 	if $canvas/hud/died.animation == "end" || manual:
 		var dildo = $map.diff
 		var chal = "none"
 		if "chal" in $map:
 			chal = $map.chal
 		transitionfunc(["loadmap", "res://maps/"+$map.get_child(0).name+".tscn", dildo, chal])
+		restarted = -1
 		
 func spawnlobbyportal(custompos = Vector3.ZERO):
 	var randangle = randf_range(0, PI*2)
@@ -584,6 +595,7 @@ func save_game():
 		"beatgunman" : beatgunman,
 		"beatsoda" : beatsoda,
 		"beathorror" : beathorror,
+		"beatspleef" : beatspleef,
 		"beatchallenges" : beatchallenges,
 		"catwaveeasy" : catwaveeasy,
 		"catwavemedium" : catwavemedium,
@@ -647,6 +659,7 @@ func load_game():
 		if data.has("beatgunman"): beatgunman = data["beatgunman"]
 		if data.has("beatsoda"): beatsoda = data["beatsoda"]
 		if data.has("beathorror"): beathorror = data["beathorror"]
+		if data.has("beatspleef"): beatspleef = data["beatspleef"]
 		if data.has("catwaveeasy"): catwaveeasy = data["catwaveeasy"]
 		if data.has("catwavemedium"): catwavemedium = data["catwavemedium"]
 		if data.has("catwavehard"): catwavehard = data["catwavehard"]

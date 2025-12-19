@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://crq065kkknpky"]
+[gd_scene load_steps=33 format=4 uid="uid://crq065kkknpky"]
 
 [ext_resource type="Texture2D" uid="uid://cdslvc2axu72o" path="res://spleef/snowblock_snow.png" id="1_2gd2m"]
 [ext_resource type="Script" uid="uid://cwy56kg75w7fj" path="res://spleef/spleefblock.gd" id="1_og3gk"]
@@ -36,12 +36,64 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ud305")
 
+[sub_resource type="Gradient" id="Gradient_w0dav"]
+offsets = PackedFloat32Array(0.0804598, 0.781609)
+colors = PackedColorArray(0.75, 0.891667, 1, 1, 0.490196, 0.490196, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jwte3"]
+frequency = 0.1135
+fractal_type = 3
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ewfeo"]
+width = 16
+height = 20
+seamless = true
+color_ramp = SubResource("Gradient_w0dav")
+noise = SubResource("FastNoiseLite_jwte3")
+
+[sub_resource type="Gradient" id="Gradient_gropd"]
+offsets = PackedFloat32Array(0.0804598, 0.781609)
+colors = PackedColorArray(0.605235, 0.768369, 1, 1, 0.858824, 0.960784, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nflx4"]
+frequency = 0.1135
+fractal_type = 3
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g3ti5"]
+width = 16
+height = 20
+seamless = true
+as_normal_map = true
+color_ramp = SubResource("Gradient_gropd")
+noise = SubResource("FastNoiseLite_nflx4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cd4q"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = SubResource("NoiseTexture2D_ewfeo")
+metallic = 0.9
+metallic_specular = 1.0
+roughness = 0.0
+normal_enabled = true
+normal_scale = 0.15
+normal_texture = SubResource("NoiseTexture2D_g3ti5")
+rim_tint = 0.0
+clearcoat_roughness = 0.79
+anisotropy = -1.0
+backlight = Color(1, 1, 1, 1)
+texture_filter = 0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ewfeo"]
 render_priority = -1
+next_pass = SubResource("StandardMaterial3D_5cd4q")
 shader = ExtResource("3_rjmeq")
 shader_parameter/glass_texture = ExtResource("4_w0dav")
 shader_parameter/alpha = 1.0
-shader_parameter/color = Color(0, 0.439216, 1, 1)
+shader_parameter/color = Color(0, 0.433333, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfo2s"]
 resource_name = "Material"
@@ -225,6 +277,10 @@ _data = {
 &"revive": SubResource("Animation_rjmeq")
 }
 
+[sub_resource type="FogMaterial" id="FogMaterial_rjmeq"]
+density = -8.0
+edge_fade = 1e-05
+
 [node name="spleefblock" type="Node3D" groups=["spleefblockparent"]]
 script = ExtResource("1_og3gk")
 
@@ -274,3 +330,8 @@ libraries = {
 
 [node name="audio" type="AudioStreamPlayer3D" parent="."]
 max_distance = 16.0
+
+[node name="antifog" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.5, 0)
+size = Vector3(4, 33, 4)
+material = SubResource("FogMaterial_rjmeq")

@@ -25,6 +25,13 @@ func _process(delta: float) -> void:
 			if col != null:
 				if col.is_in_group("spleefblock"):
 					col.get_parent().breaking = 1
+					if col.get_parent().issuper:
+						var rayvect = ($raycast.global_position-$raycast.get_collision_point()).normalized()
+						var reflection = rayvect.reflect($raycast.get_collision_normal())
+						$hit.look_at(reflection+$hit.global_position)
+						$hit/reflect.show()
+					else:
+						$hit/reflect.hide()
 				if col.is_in_group("spleefbomb"):
 					col.get_parent().hurt()
 		else:

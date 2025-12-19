@@ -6946,7 +6946,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop"]
-transform = Transform3D(-4.82441e-08, -1.26821, 9.12385e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
+transform = Transform3D(-4.82441e-08, -1.26821, 9.12386e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_0kbh1")
@@ -7052,7 +7052,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop2"]
-transform = Transform3D(-4.82441e-08, -1.26821, 9.12427e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
+transform = Transform3D(-4.82441e-08, -1.26821, 9.12428e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_0kbh1")
@@ -7158,7 +7158,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop3"]
-transform = Transform3D(-4.82441e-08, -1.26821, 9.12427e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
+transform = Transform3D(-4.82441e-08, -1.26821, 9.12428e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_0kbh1")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpckplfhudryq"]
+
+[ext_resource type="PackedScene" uid="uid://coxlkevtbx7wo" path="res://objects/santaball.glb" id="1_iauug"]
+
+[node name="santaball" instance=ExtResource("1_iauug")]
+metadata/deathsound = "santaball"
+metadata/winsound = "santaball"
+
+[node name="santaball2" parent="." index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="nameoffset" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17662, 0)

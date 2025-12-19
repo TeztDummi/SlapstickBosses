@@ -745,6 +745,7 @@ func _unhandled_input(event):
 						$"../".transitionfunc(["loadmap", "res://maps/lobby.tscn", -1])
 					if collider.name == "creditsdoor":
 						$"../".transitionfunc(["loadmap", "res://maps/credits.tscn", -1])
+						$"../".transitionmusic("res://audio/music/creditstheme.mp3", 1, false)
 				if collider.is_in_group("item"):
 					collider.get_parent().pickup()
 				if collider.is_in_group("grease"):

@@ -2661,7 +2661,7 @@ color_ramp = SubResource("Gradient_6kvph")
 noise = SubResource("FastNoiseLite_rf5gj")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vdyvh"]
-render_priority = -128
+render_priority = -127
 shader = ExtResource("124_812ih")
 shader_parameter/blur_strength = 8
 shader_parameter/falloff = 400.0
@@ -2683,7 +2683,7 @@ color_ramp = SubResource("Gradient_r0scr")
 noise = SubResource("FastNoiseLite_rf5gj")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6csnn"]
-render_priority = -128
+render_priority = -127
 shader = ExtResource("18_kvdh6")
 shader_parameter/zNear = 30.0
 shader_parameter/zFar = 100.0
@@ -7269,14 +7269,14 @@ force_native = true
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="timeout" from="canvas/hud/skeletimer" to="." method="_on_skeletimer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/transitionin" to="." method="_on_transitionin_animation_finished"]
 [connection signal="animation_finished" from="canvas/hud/cosmetics/cosmeticbg" to="canvas/hud/cosmetics" method="_on_cosmeticbg_animation_finished"]

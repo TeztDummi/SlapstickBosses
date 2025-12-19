@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, fog_disabled;
 
 // Parameters
 uniform float zNear = 0.05;

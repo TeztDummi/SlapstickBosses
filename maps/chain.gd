@@ -3,6 +3,7 @@ extends MeshInstance3D
 var breaking = 0
 var health = 1
 var ice = false
+var issuper = false
 @onready var startpos = position
 var stages = [0.75, 0.5, 0.25]
 

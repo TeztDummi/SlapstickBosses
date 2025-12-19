@@ -514,6 +514,21 @@ sprite_frames = SubResource("SpriteFrames_ht5d5")
 autoplay = "default"
 frame_progress = 0.820558
 
+[node name="reflect" type="MeshInstance3D" parent="hit"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -500)
+visible = false
+mesh = SubResource("BoxMesh_aqt85")
+skeleton = NodePath("../../pointer")
+surface_material_override/0 = SubResource("StandardMaterial3D_h0s3d")
+
+[node name="laser" type="MeshInstance3D" parent="hit/reflect"]
+mesh = SubResource("BoxMesh_p1a3b")
+surface_material_override/0 = SubResource("StandardMaterial3D_vguqe")
+
+[node name="pixel" type="MeshInstance3D" parent="hit/reflect"]
+mesh = SubResource("BoxMesh_3mhm5")
+surface_material_override/0 = SubResource("ShaderMaterial_8sg3m")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 
 [node name="updatelook" type="Timer" parent="."]

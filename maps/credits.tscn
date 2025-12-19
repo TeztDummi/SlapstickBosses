@@ -1,12 +1,15 @@
-[gd_scene load_steps=99 format=4 uid="uid://bftbdh781b6tr"]
+[gd_scene load_steps=109 format=4 uid="uid://bftbdh781b6tr"]
 
 [ext_resource type="Script" uid="uid://b4egihb8ow5kh" path="res://maps/credits.gd" id="1_55htf"]
 [ext_resource type="Theme" uid="uid://cmewige4oh18h" path="res://theme.tres" id="1_64rit"]
 [ext_resource type="Texture2D" uid="uid://bulm5krgba2rr" path="res://textures/wood/WoodFloor040_1K-JPG_Color.jpg" id="2_ushuy"]
 [ext_resource type="Texture2D" uid="uid://c8tu687uhoulc" path="res://textures/portalparticle.png" id="3_55htf"]
 [ext_resource type="Texture2D" uid="uid://dtx706caxsc47" path="res://textures/wood/WoodFloor040_1K-JPG_NormalDX.jpg" id="3_np8tj"]
+[ext_resource type="Texture2D" uid="uid://b312lrshv2b3u" path="res://textures/Rope001_2K-JPG/Rope001_2K-JPG_NormalDX.jpg" id="4_83qmw"]
 [ext_resource type="Texture2D" uid="uid://dm2crftre2cx6" path="res://textures/wood/WoodFloor040_1K-JPG_Roughness.jpg" id="4_vwpko"]
+[ext_resource type="Texture2D" uid="uid://fr1er32jve6" path="res://textures/defaulttexture/defaulttexturenormal.png" id="5_ogi3t"]
 [ext_resource type="PackedScene" uid="uid://c6ftme17gapn0" path="res://objects/dummi.tscn" id="5_yxgdb"]
+[ext_resource type="Texture2D" uid="uid://cqonc4ujyr2gr" path="res://textures/defaulttexture/defaulttexture.png" id="6_exqdf"]
 [ext_resource type="AudioStream" uid="uid://bo57f4jf5sd0l" path="res://audio/dooropen.mp3" id="6_ikig3"]
 [ext_resource type="PackedScene" uid="uid://bdchdvx41e5v7" path="res://bitbag.tscn" id="8_1k5e3"]
 [ext_resource type="Script" uid="uid://bsvw7d0d11je7" path="res://maps/hover.gd" id="9_rfop8"]
@@ -32,7 +35,7 @@ gradient = SubResource("Gradient_50rr1")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_duw0m"]
 lifetime_randomness = 0.5
-emission_shape_scale = Vector3(9.46, 1, 1)
+emission_shape_scale = Vector3(9.46, 3.755, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 spread = 180.0
@@ -63,12 +66,67 @@ orientation = 2
 [sub_resource type="Environment" id="Environment_ch7v6"]
 background_mode = 1
 background_color = Color(0.172549, 0.172549, 0.172549, 1)
+ssr_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_junc7"]
 size = Vector3(10, 1, 10)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7aqjh"]
+metallic = 0.86
+roughness = 0.1
+roughness_texture = ExtResource("6_exqdf")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("5_ogi3t")
+clearcoat_roughness = 1.0
+anisotropy_enabled = true
+anisotropy = 0.5
+anisotropy_flowmap = ExtResource("4_83qmw")
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+subsurf_scatter_transmittance_enabled = true
+subsurf_scatter_transmittance_depth = 2.653
+subsurf_scatter_transmittance_boost = 1.0
+backlight = Color(0, 0.8, 1, 1)
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2srm"]
 size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_83qmw"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_83qmw"]
+load_path = "res://.godot/imported/Rope001_2K-JPG_NormalDX.jpg-8d6dd6c5e2dc5d548459d1b9c45d80b2.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ogi3t"]
+load_path = "res://.godot/imported/defaulttexturenormal.png-14afc3580db129fa00ba2d6d4510e8ec.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_exqdf"]
+load_path = "res://.godot/imported/defaulttexture.png-27f970d3e98db6de4db14e1014956ac5.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47yx2"]
+metallic = 1.0
+roughness_texture = SubResource("CompressedTexture2D_exqdf")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = SubResource("CompressedTexture2D_ogi3t")
+clearcoat_roughness = 1.0
+anisotropy = 0.5
+anisotropy_flowmap = SubResource("CompressedTexture2D_83qmw")
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+subsurf_scatter_transmittance_enabled = true
+subsurf_scatter_transmittance_depth = 2.653
+subsurf_scatter_transmittance_boost = 1.0
+backlight = Color(0, 0.8, 1, 1)
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qe0bp"]
+size = Vector3(2, 1, 2)
 
 [sub_resource type="Animation" id="Animation_blt36"]
 length = 0.001
@@ -804,7 +862,7 @@ script = ExtResource("1_55htf")
 editor_description = "Lookin at the credits for some reason"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.500003, 0.749999, -0.43301, 1.47562e-08, 0.499998, 0.866026, 0.866024, 0.433016, -0.250001, 0, 0, 0)
+transform = Transform3D(-0.48296, -0.853856, 0.194113, -0.129409, 0.288846, 0.948589, -0.866027, 0.433011, -0.249998, 0, 0, 0)
 shadow_enabled = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -820,9 +878,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -1118.0
-offset_top = -1804.79
+offset_top = -1905.0
 offset_right = 1118.0
-offset_bottom = -374.79
+offset_bottom = -475.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -835,7 +893,8 @@ Soda factory escape concept by CrumboWumbo
 Guillermo based off and voiced by ToxicTinfoil on YT
 Crusty designed and animated by Mollusk by Nature
 Rim designed by Mollusk by Nature
-Outfits theme by Dylanking9619"
+Outfits theme by Dylanking9619
+Spleef themes composed by Dylanking9619"
 horizontal_alignment = 1
 
 [node name="credits" type="Label" parent="SubViewport"]
@@ -890,11 +949,11 @@ lips voice from SML Movie: Cody's New Family"
 horizontal_alignment = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 11, -10.3008)
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 8.32107, -21.0851)
 texture = SubResource("ViewportTexture_ydjqe")
 
 [node name="particles" type="GPUParticles3D" parent="Sprite3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.59, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.1759, 2.98023e-08)
 amount = 50
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_duw0m")
@@ -908,9 +967,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_junc7")
+surface_material_override/0 = SubResource("StandardMaterial3D_7aqjh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_y2srm")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+mesh = SubResource("BoxMesh_junc7")
+surface_material_override/0 = SubResource("StandardMaterial3D_7aqjh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_y2srm")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_83qmw")
+surface_material_override/0 = SubResource("StandardMaterial3D_47yx2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_qe0bp")
 
 [node name="exitcreditsdoor" type="StaticBody3D" parent="." groups=["door"]]
 transform = Transform3D(1.2, 0, 1.43051e-07, 0, 1.2, 0, -1.43051e-07, 0, 1.2, -4.6, 1.08, 0)
