@@ -32,6 +32,8 @@ func _process(delta: float) -> void:
 						$hit/reflect.show()
 					else:
 						$hit/reflect.hide()
+				else:
+					$hit/reflect.hide()
 				if col.is_in_group("spleefbomb"):
 					col.get_parent().hurt()
 		else:

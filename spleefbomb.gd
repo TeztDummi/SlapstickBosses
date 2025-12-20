@@ -14,15 +14,20 @@ func _ready() -> void:
 	var dupe = $ball.get_surface_override_material(0).duplicate()
 	$ball.set_surface_override_material(0, dupe)
 	
-	heightlimit = map.levelgroup().position.y+40
+	if map != null:
+		heightlimit = map.levelgroup().position.y+40
 
 func _on_textureupdate_timeout() -> void:
 	$ball.get_surface_override_material(0).uv1_offset.y += -0.03
 
+func turn():
+	up = false
+	$Decal.show()
+	rotation.x = 0
+
 func _process(delta: float) -> void:
-	if position.y > heightlimit:
-		up = false
-		$Decal.show()
+	if position.y > heightlimit && up:
+		turn()
 		
 		var choices = []
 		for child in map.levelgroup().get_children():
@@ -35,8 +40,6 @@ func _process(delta: float) -> void:
 		else:
 			position.x = floor(randf_range(-16, 16)/2)*2+1
 			position.z = floor(randf_range(-16, 16)/2)*2+1
-			
-		rotation.x = 0
 		
 	if up:
 		realy += delta*64

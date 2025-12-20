@@ -11,6 +11,9 @@ var revivelist = []
 var hurtlist = []
 var heatwave = false
 var filllevel = false
+var lastmusictick = 0
+var beat = (120.0/140.0)
+var diddoublejump = false
 
 func _ready() -> void:
 	var gun = load("res://laserpointer.tscn").instantiate()
@@ -32,7 +35,7 @@ func _ready() -> void:
 	
 	$heatwaveanim.play("RESET")
 	
-	if $"../".restarted != 1:
+	if $"../".restarted != 1 && chal == "none":
 		$Armature.show()
 		$cutscene.play("start")
 		$spleefboss.hide()
@@ -94,8 +97,37 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 		$"../".transitionmusic("res://audio/music/coldspleef.mp3", 0.85, false)
 		
 func _process(delta: float) -> void:
-	pass
-	
+	if diff == 2:
+		if !diddoublejump:
+			if player.doublejump != 1:
+				diddoublejump = true
+	if chal == "musicspleef" && revivelist.size() == 0 && level < 4 && !player.dead:
+		var pos = $"../music".get_playback_position()
+		if pos < lastmusictick:
+			lastmusictick = 0
+		var tick = floor(pos/(4*beat))*(4*beat)
+		var warntick = floor((pos+2*beat)/(4*beat))*(4*beat)-2*beat
+		
+		if lastmusictick < warntick:
+			lastmusictick = warntick
+			if $musicspleef.volume_linear >= 0.5:
+				for block in get_node("level"+str(level)).get_children():
+					if !block.ice:
+						block.warning()
+		if lastmusictick < tick:
+			lastmusictick = tick
+			if $musicspleef.volume_linear < 0.5:
+				$musicspleef.volume_linear = 1
+			else:
+				print("tick: "+str(tick))
+				for block in get_node("level"+str(level)).get_children():
+					if !block.ice:
+						if block.health <= 0:
+							block.revive()
+						else:
+							block.hurt(false)
+	else:
+		$musicspleef.volume_linear = 0
 func nextlevel():
 	if level < 4:
 		level += 1
@@ -119,6 +151,10 @@ func _on_lavaarea_area_entered(area: Area3D) -> void:
 			area.get_parent().fallinlava()
 		if area.get_parent().is_in_group("playergroup"):
 			area.get_parent().hurt(100, "lava")
+			
+func toggleicecloud(val):
+	if chal == "icecloud":
+		$icecloud.visible = val
 
 func _on_revivetimer_timeout() -> void:
 	if level <= 4:
@@ -141,26 +177,28 @@ func _on_revivetimer_timeout() -> void:
 					$spleefboss.move = false
 					$spleefboss.vulnerable = false
 					if diff == 0: $spleefboss.setattack(8)
-					if diff == 1: $spleefboss.setattack(4)
+					if diff == 1: $spleefboss.setattack(3)
 					if diff == 2: $spleefboss.setattack(2)
 					$spleefboss.position.x = 0
 					$spleefboss.position.z = 0
 					$spleefboss.lasergoup = true
 					$spleefboss.dominions = true
 					$lavaanim.play("level2")
+					toggleicecloud(true)
 				if level == 3:
 					$revivetimer.stop()
 					$spleefboss.move = false
 					$spleefboss.vulnerable = false
 					if diff == 0: $spleefboss.setattack(6)
-					if diff == 1: $spleefboss.setattack(3)
-					if diff == 2: $spleefboss.setattack(2)
+					if diff == 1: $spleefboss.setattack(4)
+					if diff == 2: $spleefboss.setattack(3)
 					$spleefboss.position.x = 0
 					$spleefboss.position.z = 0
 					$spleefboss.lasergoup = true
 					$lavaanim.play("level3")
 					#startheatwavetimer()
 					$heatwavestarttimer.start()
+					toggleicecloud(true)
 			
 func _on_lavaanim_animation_finished(anim_name: StringName) -> void:
 	print("lavafinished")
@@ -178,21 +216,35 @@ func setheatwave(val):
 	if val:
 		$spleefboss.setsuper(false)
 		
+func checkfloorplan():
+	if diff >= 1 && chal == "none":
+		var alive = 0.0
+		for block in get_node("level"+str(level)).get_children():
+			if block.health > 0:
+				alive += 1
+		alive /= get_node("level"+str(level)).get_child_count()
+		print("alive percentage: ")
+		print(alive)
+		if alive >= 0.8:
+			$"../".setAchievement("openfloorplan")
+		
 func win():
 	$"../".spawnlobbyportal($portalpos.position)
+	$campivot/camera.set_meta("showhud", true)
+	$"../canvas/hud".show()
 	if chal == "none":
 		var earnedbits = $"../".calcbits(diff, $"../".beatspleef, 1)
 		$"../".bits += earnedbits
 		if diff == 2:
-			$"../".setAchievement("carcinocide")
+			$"../".setAchievement("chillthekiln")
 			if player.health >= 100: $"../".setAchievement("100")
 		if earnedbits > 0:
 			var popup = load("res://popup.tscn").instantiate()
 			popup.bits = earnedbits
 			$"../sfx".stream = load("res://audio/gainbits.mp3")
-			if diff == 2 && !$"../".unlockedheads.has("bioplasm"):
+			if diff == 2 && !$"../".unlockedheads.has("rustychiln"):
 				popup.cosmetic = true
-				$"../".unlockedheads.append("bioplasm")
+				$"../".unlockedheads.append("rustychiln")
 				$"../sfx".stream = load("res://audio/gaincosmetic.mp3")
 			$"../sfx".play()
 			$"../canvas/hud".add_child(popup)
@@ -222,7 +274,10 @@ func _on_heatwavetimer_timeout() -> void:
 		$heatwaveray.position.y = player.position.y-10
 		if $heatwaveray.is_colliding():
 			if $heatwaveray.get_collider().is_in_group("playergroup"):
-				$heatwaveray.get_collider().hurt(2, "bluelaser")
+				if chal != "icecloud":
+					$heatwaveray.get_collider().hurt(2, "lasernopile")
+				else:
+					$heatwaveray.get_collider().hurt(1, "lasernopile")
 
 func _on_heatwavestarttimer_timeout() -> void:
 	$heatwaveanim.play("heatwave")
@@ -240,6 +295,19 @@ func _on_cutscene_animation_finished(anim_name: StringName) -> void:
 		$spleefboss.start()
 		$"../music".stream = load("res://audio/music/hotspleef.mp3")
 		$"../music".play()
+		if chal == "musicspleef":
+			$musicspleef.play()
+			for i in range(4):
+				var bomb = load("res://spleef/spleefbomb.tscn").instantiate()
+				bomb.position.z = 9
+				bomb.position.x = 9-i*6
+				bomb.position.y = 5+i/2.0
+				add_child(bomb)
+				bomb.turn()
+		if chal == "icecloud":
+			var icecloud = load("res://spleef/icecloud.tscn").instantiate()
+			icecloud.position = $icecloudspot.position
+			add_child(icecloud)
 	if anim_name == "end":
 		get_node("lobbyportal").do()
 		
@@ -254,6 +322,21 @@ func end():
 	$spleefboss.get_node("main/fallaudio").stop()
 	$campivot/camera.current = true
 	$"../music".stop()
+	if chal == "musicspleef":
+		$musicspleef.stop()
+		
+func checkdoublejump():
+	if diff == 2 && chal == "none":
+		if !diddoublejump:
+			$"../".setAchievement("groundedindividual")
+			if !$"../".beatchallenges.has("groundedindividual"):
+				$"../".beatchallenges["groundedindividual"] = true
+				var popup = load("res://popup.tscn").instantiate()
+				popup.bits = $"../".getchalbits("groundedindividual")
+				$"../".bits += $"../".getchalbits("groundedindividual")
+				$"../sfx".stream = load("res://audio/gainbits.mp3")
+				$"../sfx".play()
+				$"../canvas/hud".add_child(popup)
 		
 func filllevel4():
 	#level += 1

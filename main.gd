@@ -319,6 +319,7 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 		if beatgunman >= 1: beatsomethingnormal = true
 		if beatsoda >= 1: beatsomethingnormal = true
 		if beathorror >= 1: beatsomethingnormal = true
+		if beatspleef >= 1: beatsomethingnormal = true
 		
 	if restarted == -1:
 		restarted = 1
@@ -351,6 +352,8 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 	$player.SPEED = 2
 	$player.JUMP_VELOCITY = 12
 	$player.candoublejump = false
+	$player.doublejump = 1
+	$player.djdelay = 0
 	$player.djseconds = 3
 	$player.camlock = false
 	$player.cancrouch = false
@@ -736,6 +739,9 @@ func getchalbits(chal):
 	if chal == "horrorgun": returnbits = 650
 	if chal == "boingchallenge": returnbits = 300
 	if chal == "stophittingyourself": returnbits = 250
+	if chal == "musicspleef": returnbits = 500
+	if chal == "icecloud": returnbits = 750
+	if chal == "groundedindividual": returnbits = 750
 	return returnbits
 	
 func _on_quit_pressed():

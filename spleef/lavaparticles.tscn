@@ -115,6 +115,7 @@ amount = 128
 lifetime = 4.0
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 8
 collision_base_size = 0.1
 visibility_aabb = AABB(-32, -32, -32, 64, 64, 64)
 process_material = SubResource("ParticleProcessMaterial_f0t0a")

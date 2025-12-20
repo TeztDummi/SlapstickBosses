@@ -229,8 +229,8 @@ size = Vector3(0.125, 0.125, 0.125)
 radius = 1.25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f6cn2"]
-radius = 0.3
-height = 1.0
+radius = 0.6
+height = 1.6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cgu5"]
 
@@ -271,8 +271,9 @@ autostart = true
 
 [node name="particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.393468, 0)
-amount = 128
+amount = 64
 lifetime = 2.0
+fixed_fps = 12
 visibility_aabb = AABB(-32, -32, -32, 64, 64, 64)
 process_material = SubResource("ParticleProcessMaterial_23em6")
 draw_pass_1 = SubResource("BoxMesh_38e8w")
@@ -284,6 +285,7 @@ amount = 128
 lifetime = 4.0
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 8
 collision_base_size = 0.1
 visibility_aabb = AABB(-32, -32, -32, 64, 64, 64)
 process_material = SubResource("ParticleProcessMaterial_5a8r7")

@@ -3,7 +3,7 @@ var objects = ["bowlingball", "car", "moyai", "glasses",
 "excord", "biggerboy", "eye", "socialcredit",
 "skull", "fatman", "lightbulb", "menger",
 "stickbug", "mememan", "maxwell", "dummi",
-"distressed", "mrheeh", "kbcrown", "pumpkin", "santaball", "elevator", "catsoldier", "wizardhat", "gunman", "sodacan", "bioplasm", "basketball", "discord"]
+"distressed", "mrheeh", "kbcrown", "pumpkin", "santaball", "elevator", "catsoldier", "wizardhat", "gunman", "sodacan", "bioplasm", "rustychiln", "basketball", "discord"]
 
 var titledesc = [["Bowling Ball", "Bowl a turkey", 0],
 ["Racecar", "Go 90 mph in a school zone", 0],
@@ -32,6 +32,7 @@ var titledesc = [["Bowling Ball", "Bowl a turkey", 0],
 ["Artillertunk's Head", "Beat Artillertunk on Hard", -1],
 ["Soda Sola Can", "Beat Soda Sola on Hard", -1],
 ["Bioplasm Chunk", "Beat The Epidermal Bioplasm on Hard", -1],
+["Rusty Chiln's Head", "Beat Rusty Chiln on Hard", -1],
 ["Basketball", "Its a secret, shh", -1],
 ["Discord", "Find the code on the discord server, aw dont cwy you can handwle it", -1]]
 

@@ -88,7 +88,7 @@ orientation = 2
 [node name="bitbag" type="Area3D"]
 collision_mask = 2
 script = ExtResource("1_t3he4")
-metadata/id = 3
+metadata/id = "default"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

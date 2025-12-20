@@ -5664,44 +5664,58 @@ metadata/alley = true
 metadata/diffoverride = 2
 
 [node name="painting11" parent="." instance=ExtResource("57_b278t")]
-transform = Transform3D(-0.704539, -0.0602022, -0.707107, -0.0851387, 0.996369, -7.2422e-08, 0.704539, 0.0602021, -0.707107, -51.8154, -2.06223, 37.6605)
+transform = Transform3D(-0.704539, -0.0602022, -0.707107, -0.0851387, 0.996369, -7.2422e-08, 0.704539, 0.0602021, -0.707107, -50.4063, -1.89195, 36.2514)
 metadata/challenge = "gunmanfast"
 metadata/nameoverride = "gunmanpainting"
 metadata/alley = true
 metadata/diffoverride = 2
 
 [node name="painting12" parent="." instance=ExtResource("57_b278t")]
-transform = Transform3D(-0.704539, -0.0602022, -0.707107, -0.0851387, 0.996369, -7.2422e-08, 0.704539, 0.0602021, -0.707107, -53.1815, -2.06223, 39.0526)
+transform = Transform3D(-0.704539, -0.0602022, -0.707107, -0.0851387, 0.996369, -7.2422e-08, 0.704539, 0.0602021, -0.707107, -51.7724, -1.89195, 37.6435)
 metadata/challenge = "gunmanrockets"
 metadata/nameoverride = "gunmanpainting"
 metadata/alley = true
 metadata/diffoverride = 1
 
 [node name="painting13" parent="." instance=ExtResource("57_b278t")]
-transform = Transform3D(0.704539, 0.0602022, 0.707107, -0.0851387, 0.996369, -7.1087e-08, -0.704539, -0.0602021, 0.707107, -51.1199, -1.04196, 41.991)
+transform = Transform3D(0.704539, 0.0602022, 0.707107, -0.0851387, 0.996369, -7.1087e-08, -0.704539, -0.0602021, 0.707107, -49.7108, -1.21224, 40.5819)
 metadata/challenge = "sodaspeedrun"
 metadata/nameoverride = "sodapainting"
 metadata/alley = true
 metadata/diffoverride = 1
 
 [node name="painting14" parent="." instance=ExtResource("57_b278t")]
-transform = Transform3D(0.706986, -0.0130317, 0.707107, 0.0184296, 0.99983, -7.07805e-08, -0.706986, 0.0130318, 0.707107, -52.5406, -1.21026, 43.4117)
+transform = Transform3D(0.706986, -0.0130317, 0.707107, 0.0184296, 0.99983, -7.07805e-08, -0.706986, 0.0130318, 0.707107, -51.1266, -1.1734, 41.9977)
 metadata/challenge = "justbox"
 metadata/nameoverride = "sodapainting"
 metadata/alley = true
 metadata/diffoverride = 2
 
 [node name="painting15" parent="." instance=ExtResource("57_b278t")]
-transform = Transform3D(0.707, -0.012242, -0.707107, 0.0173127, 0.99985, -7.07805e-08, 0.707, -0.0122419, 0.707107, -54.5301, -1.69157, 44.1015)
+transform = Transform3D(-0.707, 0.0122419, -0.707107, 0.0173127, 0.99985, -7.10706e-08, 0.707, -0.012242, -0.707107, -55.1843, -1.79501, 40.9685)
 metadata/challenge = "eyes"
 metadata/nameoverride = "horrorpainting"
 metadata/alley = true
 metadata/diffoverride = 2
 
 [node name="painting16" parent="." instance=ExtResource("57_b278t")]
-transform = Transform3D(0.703867, 0.0676011, -0.707107, -0.0956025, 0.99542, -7.07805e-08, 0.703867, 0.0676012, 0.707107, -55.8406, -1.87318, 42.791)
+transform = Transform3D(-0.703867, -0.0676012, -0.707107, -0.0956025, 0.99542, -6.71193e-08, 0.703867, 0.0676011, -0.707107, -53.816, -2.07134, 39.6002)
 metadata/challenge = "horrorgun"
 metadata/nameoverride = "horrorpainting"
+metadata/alley = true
+metadata/diffoverride = 2
+
+[node name="painting17" parent="." instance=ExtResource("57_b278t")]
+transform = Transform3D(0.705277, 0.0508395, -0.707107, -0.0718978, 0.997412, -3.72529e-09, 0.705277, 0.0508394, 0.707107, -54.6517, -0.880638, 43.9924)
+metadata/challenge = "musicspleef"
+metadata/nameoverride = "spleefpainting"
+metadata/alley = true
+metadata/diffoverride = 1
+
+[node name="painting18" parent="." instance=ExtResource("57_b278t")]
+transform = Transform3D(0.706764, 0.0220011, -0.707107, -0.0311142, 0.999516, 1.86265e-09, 0.706764, 0.0220011, 0.707107, -55.7268, -1.45754, 42.9172)
+metadata/challenge = "icecloud"
+metadata/nameoverride = "spleefpainting"
 metadata/alley = true
 metadata/diffoverride = 2
 
@@ -6145,9 +6159,6 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="spacepainting" parent="." instance=ExtResource("81_nqn8k")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -75.762, -3.5, -26.6528)
-
-[node name="spleefpainting" parent="." instance=ExtResource("81_nqn8k")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -11.762, -1.5, -11.6528)
 
 [node name="onelegbird" parent="." instance=ExtResource("83_bsu1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.1072, 13.1223, -30.0969)

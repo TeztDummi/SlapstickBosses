@@ -19,6 +19,7 @@ func _ready() -> void:
 	if get_parent().is_in_group("startdead"):
 		health = 0
 		$Cube.hide()
+		$warning.show()
 		$static/col.disabled = true
 		$particlecol.hide()
 		
@@ -65,6 +66,7 @@ func _process(delta: float) -> void:
 func hurt(particles = true):
 	health = 0
 	$Cube.hide()
+	$warning.show()
 	$static/col.disabled = true
 	$particlecol.hide()
 	
@@ -77,6 +79,10 @@ func hurt(particles = true):
 			$audio.stream = load("res://audio/spleef/blockbreak.mp3")
 	$audio.pitch_scale = randf_range(0.8, 1.2)
 	$audio.play()
+	
+func warning():
+	if !$anim.is_playing():
+		$anim.play("warning")
 		
 func revive():
 	if !$Cube.visible && !ice:
@@ -84,5 +90,6 @@ func revive():
 		$anim.play("revive")
 		$Cube.get_surface_override_material(0).albedo_color = Color(1, 1, 1)
 		$Cube.show()
+		$warning.hide()
 		$static/col.disabled = false
 		$particlecol.show()

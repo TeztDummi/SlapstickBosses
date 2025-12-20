@@ -26,6 +26,13 @@ func settemp(iscold):
 
 func _ready():
 	freezeblocks()
+	if get_parent().chal == "musicspleef":
+		$main/Lleg.material_overlay.albedo_color.a = 0.9
+		$main/Rleg.material_overlay.albedo_color.a = 0.9
+	else:
+		$main/Lleg.material_overlay.albedo_color.a = 0
+		$main/Rleg.material_overlay.albedo_color.a = 0
+		
 	
 func fallinlava():
 	if move:
@@ -33,9 +40,13 @@ func fallinlava():
 		if get_parent().level == 1:
 			var tween = get_tree().create_tween()
 			tween.tween_property($arrow, "transparency", 0, 0.25)
+			get_parent().checkfloorplan()
+		if get_parent().level == 3:
+			get_parent().checkdoublejump()
 		velocity = Vector3.ZERO
 		position.y = get_parent().get_node("lava").position.y+1
 		$headcol.position.y = 2.48
+		get_parent().toggleicecloud(false)
 		if get_parent().level < 4:
 			get_parent().nextlevel()
 	
@@ -58,7 +69,6 @@ func _process(delta: float) -> void:
 			velocity.y -= gravity*delta 
 			if !$main/fallaudio.playing:
 				$main/fallaudio.play()
-			print(velocity.y)
 		elif !vulnerable:
 			$main/fallaudio.stop()
 	elif !vulnerable:
@@ -126,7 +136,9 @@ func _process(delta: float) -> void:
 	
 func _on_movecheck_timeout() -> void:
 	$movecheck.wait_time = 1.2
-	if fall != 4 && move:
+	if get_parent().chal == "icecloud":
+		$movecheck.wait_time = 4
+	if fall != 4 && move && get_parent().chal != "musicspleef":
 		var directions = {
 			"center" : {
 				"obj" : [$"check/4", $"check/5", $"check/8", $"check/9"],
@@ -264,19 +276,22 @@ func start():
 	$attack.start()
 
 func _on_attack_timeout() -> void:
-	if fall != 4:
+	if fall != 4 && !player.dead:
 		var rand = {
 			"cannon": 0.5,
 			"laser": 1,
-			"antenna": 0.25,
+			"antenna": 0.3,
 			"freeze": 0.5
 		}
+		
+		#print(rand)
+		#print(choice)
 		
 		if rand.has(choice): rand[choice] *= 0
 		if $main/cannon.playing: rand["cannon"] *= 0
 		if $main/laser.playing: rand["laser"] *= 0
 		if $main/antenna.playing || !dominions: rand["antenna"] *= 0
-		if !move: rand["freeze"] *= 0
+		if !move || get_parent().chal == "musicspleef": rand["freeze"] *= 0
 			
 		var weightsum = 0
 		var weights = {}
@@ -314,6 +329,8 @@ func freezeattack():
 	settemp(true)
 	$fog2.emitting = true
 	$movecheck.wait_time = 3
+	if get_parent().chal == "icecloud":
+		$movecheck.wait_time = 8
 	$movecheck.start()
 	$main/freezeaudio.play()
 	for area in $revive.get_overlapping_areas():
@@ -338,17 +355,19 @@ func _on_headrot_timeout() -> void:
 
 
 func _on_antenna_animation_finished(anim_name: StringName) -> void:
-	for i in range(2+diff*2):
-		var choices = []
-		for child in get_parent().levelgroup().get_children():
-			if child.health > 0:
-				var disttoplayer = sqrt(pow(child.position.x-player.position.x, 2)+pow(child.position.x-player.position.x, 2))
-				if disttoplayer > 12:
-					choices.append(child.global_position)
-		
+	var range = 2+diff*2
+	if get_parent().chal == "musicspleef":
+		range = 12
+	var choices = []
+	for child in get_parent().levelgroup().get_children():
+		if child.health > 0:
+			var disttoplayer = sqrt(pow(child.position.x-player.position.x, 2)+pow(child.position.x-player.position.x, 2))
+			if disttoplayer > 36:
+				choices.append(child.global_position)
+	for i in range(range):
 		if choices.size() > 0:
 			var enemy = load("res://spleef/spleefminion.tscn").instantiate()
-			var ranpos = choices.pick_random()
+			var ranpos = choices.pop_at(randi_range(0, choices.size()-1))
 			enemy.position.x = ranpos.x#floor(randf_range(-16, 16)/2)*2+1
 			enemy.position.z = ranpos.z#floor(randf_range(-16, 16)/2)*2+1
 			enemy.position.y += ranpos.y+30+i*5

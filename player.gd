@@ -820,6 +820,21 @@ func kill(effect):
 		$"../map".add_child(ragdoll)
 		$"../".tplock = ragdoll
 		
+	if effect == "lasernopile":
+		var hitaudio = load("res://tempaudio.tscn").instantiate()
+		add_child(hitaudio)
+		hitaudio.stream = load("res://audio/squishdeath.mp3")
+		hitaudio.pitch_scale = randf_range(0.75, 1.25)
+		hitaudio.play()
+		
+		var ragdoll = load("res://laserdeath.tscn").instantiate()
+		ragdoll.rotation.y = rotation.y
+		ragdoll.position = position
+		ragdoll.position.y = 0
+		ragdoll.pile = false
+		$"../map".add_child(ragdoll)
+		$"../".tplock = ragdoll
+		
 	if effect == "radiation":
 		var hitaudio = load("res://tempaudio.tscn").instantiate()
 		add_child(hitaudio)
@@ -829,6 +844,22 @@ func kill(effect):
 		
 		var ragdoll = load("res://ragdoll.tscn").instantiate()
 		ragdoll.color = Color.SEA_GREEN
+		ragdoll.head = $"../".head
+		ragdoll.vel = velocity
+		ragdoll.rotation.y = rotation.y
+		ragdoll.position = position
+		$"../map".add_child(ragdoll)
+		$"../".tplock = ragdoll.get_child(1).get_child(0)
+		
+	if effect == "freeze":
+		var hitaudio = load("res://tempaudio.tscn").instantiate()
+		add_child(hitaudio)
+		hitaudio.stream = load("res://audio/death ("+str(randi_range(1, 3))+").wav")
+		hitaudio.pitch_scale = randf_range(0.75, 1.25)
+		hitaudio.play()
+		
+		var ragdoll = load("res://freezeragdoll.tscn").instantiate()
+		ragdoll.color = $"../".bodycolor
 		ragdoll.head = $"../".head
 		ragdoll.vel = velocity
 		ragdoll.rotation.y = rotation.y
