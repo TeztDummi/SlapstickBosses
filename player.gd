@@ -571,7 +571,12 @@ func _physics_process(delta):
 			#walk
 			if direction != Vector3.ZERO && is_on_floor():
 				if $walktimer.is_stopped() && sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 0.5*SPEED:
-					playaudio("res://audio/walk ("+str(randi_range(1, 4))+").wav")
+					var walksound = "res://audio/walk ("+str(randi_range(1, 4))+").wav"
+					var djap = $djumpaccidentproofing.get_collider()
+					if djap != null:
+						if djap.is_in_group("snow"):
+							walksound = "res://audio/snowwalk ("+str(randi_range(1, 4))+").wav"
+					playaudio(walksound)
 					moveeffect("run")
 					$walktimer.wait_time = 0.4/SPEED
 					$walktimer.start()

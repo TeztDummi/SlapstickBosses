@@ -4036,6 +4036,24 @@ metadata/Portrait = "lookupguy"
 metadata/Sound = "lookupguy"
 metadata/Speed = 5.0
 
+[node name="christmas" type="Node" parent="conversations/lookupguy"]
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]weres the building[/wave]"
+metadata/Portrait = "lookupguy"
+metadata/Sound = "lookupguy"
+metadata/Speed = 8.0
+
+[node name="[NEXT]" type="Node" parent="conversations/lookupguy/christmas"]
+editor_description = "[wave amp=10.0 freq=5.0 connected=1]im reporting slapstick bosses[/wave]"
+metadata/Portrait = "lookupguy"
+metadata/Sound = "lookupguy"
+metadata/Speed = 8.0
+
+[node name="[LEAVE]" type="Node" parent="conversations/lookupguy/christmas/[NEXT]"]
+editor_description = "[LEAVE]"
+metadata/Portrait = "lookupguy"
+metadata/Sound = "lookupguy"
+metadata/Speed = 5.0
+
 [node name="1" type="Node" parent="conversations/lookupguy"]
 editor_description = "[wave amp=10.0 freq=5.0 connected=1]yup[/wave]"
 metadata/Portrait = "lookupguy"
@@ -7242,8 +7260,8 @@ force_native = true
 [connection signal="pressed" from="canvas/hud/pause/text/Lobby" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Lobby" to="canvas/hud/pause" method="_on_lobby_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Options" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Quit" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
@@ -7269,14 +7287,14 @@ force_native = true
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="timeout" from="canvas/hud/skeletimer" to="." method="_on_skeletimer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/transitionin" to="." method="_on_transitionin_animation_finished"]
 [connection signal="animation_finished" from="canvas/hud/cosmetics/cosmeticbg" to="canvas/hud/cosmetics" method="_on_cosmeticbg_animation_finished"]

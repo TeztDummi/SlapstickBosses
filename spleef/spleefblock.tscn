@@ -345,7 +345,7 @@ mesh = SubResource("ArrayMesh_og3gk")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_pfo2s")
 
-[node name="static" type="StaticBody3D" parent="." groups=["spleefblock"]]
+[node name="static" type="StaticBody3D" parent="." groups=["snow", "spleefblock"]]
 
 [node name="col" type="CollisionShape3D" parent="static"]
 shape = SubResource("BoxShape3D_rtdpa")
