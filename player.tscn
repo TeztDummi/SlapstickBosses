@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://chwr8oem503jp"]
+[gd_scene load_steps=79 format=4 uid="uid://chwr8oem503jp"]
 
 [ext_resource type="Script" uid="uid://bjpn2a0wgi7cf" path="res://player.gd" id="1_1li8y"]
 [ext_resource type="Shader" uid="uid://b82urhehdrcc3" path="res://blurvignette.gdshader" id="2_cqahk"]
@@ -1657,6 +1657,9 @@ radius = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pbfsw"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_pbfsw"]
+size = Vector3(1, 3, 0.1)
+
 [node name="player" type="CharacterBody3D" groups=["playergroup"]]
 collision_layer = 2
 script = ExtResource("1_1li8y")
@@ -2006,6 +2009,13 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lavacheck"]
 shape = SubResource("BoxShape3D_pbfsw")
 debug_color = Color(0, 0.595, 0.7, 0.333333)
+
+[node name="surfboard" type="Node3D" parent="."]
+visible = false
+
+[node name="surfboard" type="MeshInstance3D" parent="surfboard"]
+mesh = SubResource("BoxMesh_pbfsw")
+skeleton = NodePath("../..")
 
 [connection signal="area_exited" from="cubeleavearea" to="." method="_on_cubeleavearea_area_exited"]
 [connection signal="timeout" from="walktimer" to="." method="_on_walktimer_timeout"]

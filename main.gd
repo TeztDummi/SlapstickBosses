@@ -67,6 +67,7 @@ var quality = 2
 var audioeffectcool = 0
 
 var spooky = false
+var christmas = true
 
 var escapedcube = "none"
 
@@ -363,6 +364,7 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 	$player.dashseconds = 2
 	$player.falloff = true
 	$player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+	$player.setsurfboard(false)
 	setwater(0)
 	$canvas/hud/died.play("nothing")
 	timer = 100
@@ -410,6 +412,8 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 		DiscordRPC.refresh()
 	for item in itemdata:
 		if itemdata[item]["map"] == mappath:
+			print("ITEM:")
+			print(item)
 			var placed = load("res://items/placed/"+item+".tscn").instantiate()
 			print(itemdata[item])
 			if itemdata[item].has("posx"):

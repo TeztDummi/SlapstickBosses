@@ -4237,7 +4237,7 @@ metadata/Portrait = "crustyangry"
 metadata/Sound = "crustyangry"
 
 [node name="alr damn" type="Node" parent="conversations/crusty/start/nope/[NEXT]/[NEXT]/[NEXT]/[NEXT]/[NEXT]/yessir/[NEXT]/[NEXT]"]
-editor_description = "You'll probobly find em around his shop."
+editor_description = "You'll probably find em around his shop."
 metadata/Portrait = "crustynormal"
 metadata/Sound = "crustynormal"
 
@@ -7260,11 +7260,11 @@ force_native = true
 [connection signal="pressed" from="canvas/hud/pause/text/Lobby" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Lobby" to="canvas/hud/pause" method="_on_lobby_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Options" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/text/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Quit" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Difficulty" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="canvas/hud/pause" method="_on_difficulty_pressed"]
@@ -7284,17 +7284,17 @@ force_native = true
 [connection signal="drag_started" from="canvas/hud/pause/options/Quality" to="." method="anybutton"]
 [connection signal="value_changed" from="canvas/hud/pause/options/Quality" to="." method="_on_quality_value_changed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Fullscreen" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
 [connection signal="timeout" from="canvas/hud/skeletimer" to="." method="_on_skeletimer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/transitionin" to="." method="_on_transitionin_animation_finished"]
 [connection signal="animation_finished" from="canvas/hud/cosmetics/cosmeticbg" to="canvas/hud/cosmetics" method="_on_cosmeticbg_animation_finished"]

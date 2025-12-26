@@ -38,6 +38,7 @@ var walljumpvel = Vector3.ZERO
 var inwater = false
 var jetpack = false
 var physicsscale = 1
+var surfboard = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -257,6 +258,21 @@ func _process(delta):
 	else:
 		$camera/slidething.transparency = 1
 
+func setsurfboard(val):
+	$surfboard.visible = val
+	surfboard = val
+	floor_stop_on_slope = !val
+	floor_block_on_wall = !val
+	print("FLOOR ANGLE")
+	print(floor_max_angle)
+	if val:
+		floor_max_angle = deg_to_rad(5)
+		wall_min_slide_angle = deg_to_rad(45)
+	else:
+		$surfboard.rotation = Vector3.ZERO
+		floor_max_angle = deg_to_rad(45)
+		wall_min_slide_angle = deg_to_rad(15)
+
 func _physics_process(delta):
 	
 	delta *= physicsscale
@@ -266,9 +282,10 @@ func _physics_process(delta):
 		if candash:
 			$walljump.global_rotation = Vector3.ZERO
 		# Add the gravity.
-		if not is_on_floor():
+		if not is_on_floor():# || surfboard:
 			velocity.y -= gravity * delta
 			falldamagemult = velocity.y
+			print("yunkers")
 		else: 
 			coyote = 0.1
 			
@@ -321,14 +338,14 @@ func _physics_process(delta):
 		$crouch.disabled = !slide
 		
 		if is_on_floor():
-			if !slide:
+			if !slide && !surfboard:
 				velocity.x *= 1-(floorfriction*delta)
 				velocity.z *= 1-(floorfriction*delta)
 			else:
 				velocity.x *= 1-(slidefriction*delta)
 				velocity.z *= 1-(slidefriction*delta)
 		else:
-			if !slide:
+			if !slide && !surfboard:
 				var totelvel = sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))
 				var frict = airfriction
 				totelvel /= 10
@@ -499,6 +516,13 @@ func _physics_process(delta):
 				if velocity.y > -JUMP_VELOCITY*5:
 					velocity.y -= JUMP_VELOCITY*5
 					print("get down tonight")
+					
+		if surfboard:
+			if (direction != Vector3.ZERO && is_on_floor()):
+				var mult = 0.1
+				
+				velocity.x += direction.x*SPEED*mult
+				velocity.z += direction.z*SPEED*mult
 		
 		if slide:
 			if (direction != Vector3.ZERO && is_on_floor() && sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) > 1 && sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) < 5*SPEED*SLIDEMULT):
@@ -567,7 +591,7 @@ func _physics_process(delta):
 			if position.y > slidefallpos:
 				slidefallpos = position.y
 		
-		if !slide:
+		if !slide && !surfboard:
 			#walk
 			if direction != Vector3.ZERO && is_on_floor():
 				if $walktimer.is_stopped() && sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 0.5*SPEED:
@@ -621,6 +645,37 @@ func _physics_process(delta):
 			$Armature/Skeleton3D.rotation.y = 0
 			
 		var djap = $djumpaccidentproofing.get_collider();
+		
+		if surfboard:
+			if djap != null:
+				var djray = $djumpaccidentproofing
+				if djray.get_collision_normal() == Vector3(0, 1, 0):
+					$surfboard/surfboard.rotation.z = -rotation.y
+					$surfboard.rotation = Vector3(PI/2, -rotation.y, 0)
+				else:
+					var rayvect = (djray.global_position-djray.get_collision_point()).normalized()
+					var reflection = rayvect.reflect(djray.get_collision_normal())
+					$surfboard.look_at(djray.get_collision_normal()+djray.get_collision_point())
+					$surfboard/surfboard.rotation.z = -rotation.y
+					var forwardvect = Vector2(djray.get_collision_normal().x, djray.get_collision_normal().z).normalized()
+					var lookvect = Vector2(sin(rotation.y), cos(rotation.y))
+					var angle = 1-abs((abs(forwardvect.angle_to(lookvect))-PI/2))/(PI/2)
+					angle = clampf(angle*2, 0, 1)
+					print(angle)
+					var perpdir = -sign(forwardvect.angle_to(lookvect))
+					velocity *= 1-(1*delta*(angle))
+					var perpvel = 0.5*perpdir*angle*Vector2(-forwardvect.y, forwardvect.x)
+					velocity.x += perpvel.x
+					velocity.z += perpvel.y
+					
+					if Vector3.ZERO.distance_to(velocity) > 100:
+						velocity = velocity.normalized()*100
+					
+					print(forwardvect)
+					print(lookvect)
+			else:
+				$surfboard/surfboard.rotation.z = -rotation.y
+				$surfboard.rotation = Vector3(PI/2, -rotation.y, 0)
 		
 		if djap != null && sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 0.1 && is_on_floor():
 			$sand.emitting = djap.is_in_group("sand")

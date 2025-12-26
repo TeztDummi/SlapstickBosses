@@ -58,6 +58,7 @@ func _ready():
 		$introstuff/introcam/introcam/blackfade.hide()
 		$introstuff/introcam/introcam/clicktobegin.hide()
 		if $"../".spooky: $"../music".stream = load("res://audio/music/spookylobby.mp3")
+		elif $"../".christmas: $"../music".stream = load("res://audio/music/christmaslobby.mp3")
 		else: $"../music".stream = load("res://audio/music/lobbymusic.mp3")
 		$"../music".play()
 	
@@ -134,6 +135,7 @@ func _on_anim_animation_finished(anim_name):
 		player.camera.current = true
 		$cube/cube/cubeparticles.emitting = false
 		if $"../".spooky: $"../music".stream = load("res://audio/music/spookylobby.mp3")
+		elif $"../".christmas: $"../music".stream = load("res://audio/music/christmaslobby.mp3")
 		else: $"../music".stream = load("res://audio/music/lobbymusic.mp3")
 		$"../music".play()
 		$gearmo/clicktotalkanim.play("default")
@@ -197,6 +199,7 @@ func setboingchallenge(num):
 			$"../".transitionmusic("res://audio/music/maingametheme.mp3", 4, true)
 		if num == 0 || num == 10:
 			if $"../".spooky: $"../".transitionmusic("res://audio/music/spookylobby.mp3", 2, true)
+			elif $"../".christmas: $"../".transitionmusic("res://audio/music/christmaslobby.mp3", 2, true)
 			else: $"../".transitionmusic("res://audio/music/lobbymusic.mp3", 2, true)
 		if num == 10:
 			boingchallenge = 0

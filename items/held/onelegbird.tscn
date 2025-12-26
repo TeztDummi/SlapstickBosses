@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://bxgxpy1vpnu2"]
 
 [ext_resource type="Script" uid="uid://caotp67s6qgx" path="res://items/placed/onelegbird.gd" id="1_ugkox"]
-[ext_resource type="Texture2D" uid="uid://b18gbuoa14omm" path="res://scripts/birdtripod_bird-tripod.png" id="2_pxfkm"]
+[ext_resource type="Texture2D" uid="uid://cxj8n8fyv4vr5" path="res://birdtripod_bird-tripod.png" id="2_pxfkm"]
 [ext_resource type="Texture2D" uid="uid://jmuodnvxpgpv" path="res://textures/feather/feathernormal.jpg" id="3_mefxi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plpt8"]

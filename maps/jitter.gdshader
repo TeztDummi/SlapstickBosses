@@ -43,7 +43,7 @@ float random (float uv) {
 
 void vertex() {
 	float c = clock(TIME);
-	
+
 	vec3 normal = NORMAL;
 
 	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
@@ -61,7 +61,7 @@ void vertex() {
 	uv1_triplanar_pos = VERTEX * uv1_scale + uv1_offset + c*2.0;
 	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
 	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
-	
+
 	//random(c+float(VERTEX_ID))*jitter;
 	VERTEX.x += random(c+float(VERTEX_ID)+1.0+round(NODE_POSITION_WORLD.x*0.1))*jitter;
 	VERTEX.y += random(c+float(VERTEX_ID)+1.0+round(NODE_POSITION_WORLD.y*0.1))*jitter;

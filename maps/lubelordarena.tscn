@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://ybad4s2ndshr"]
+
+[ext_resource type="Script" uid="uid://b33p3afurddwu" path="res://maps/lubelordarena.gd" id="1_2ppf2"]
+[ext_resource type="Shader" uid="uid://kj30u00d7spn" path="res://maps/wobble.gdshader" id="2_0fbs5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ppf2"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_0fbs5"]
+sky_material = SubResource("ProceduralSkyMaterial_2ppf2")
+
+[sub_resource type="Environment" id="Environment_nhlob"]
+background_mode = 2
+sky = SubResource("Sky_0fbs5")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qb1yv"]
+size = Vector2(100, 200)
+
+[sub_resource type="Gradient" id="Gradient_qb1yv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2ppf2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0fbs5"]
+seamless = true
+color_ramp = SubResource("Gradient_qb1yv")
+noise = SubResource("FastNoiseLite_2ppf2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhlob"]
+albedo_texture = SubResource("NoiseTexture2D_0fbs5")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ppf2"]
+size = Vector3(100, 0, 200)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nhlob"]
+
+[sub_resource type="Gradient" id="Gradient_0fbs5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nhlob"]
+seamless = true
+color_ramp = SubResource("Gradient_0fbs5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kyl8k"]
+render_priority = 0
+shader = ExtResource("2_0fbs5")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/grow = 1.0
+shader_parameter/growtex_scale = 0.301001
+shader_parameter/grow_speed = 0.0100008
+shader_parameter/grow_size_offset = 0.1
+shader_parameter/albedo_texture_size = Vector2i(2048, 2048)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.44
+shader_parameter/texture_grow = SubResource("NoiseTexture2D_nhlob")
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = 0.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/subsurface = true
+shader_parameter/subsurface_scattering_strength = 1.0
+shader_parameter/transmittance_color = Color(1, 1, 1, 1)
+shader_parameter/transmittance_depth = 8.0
+shader_parameter/transmittance_boost = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[node name="lubelordarena" type="Node3D"]
+script = ExtResource("1_2ppf2")
+
+[node name="lubelordarena" type="Marker3D" parent="."]
+editor_description = "lube lord"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nhlob")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, -25.8819, -94.5926)
+mesh = SubResource("PlaneMesh_qb1yv")
+surface_material_override/0 = SubResource("StandardMaterial3D_nhlob")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_2ppf2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_nhlob")
+surface_material_override/0 = SubResource("ShaderMaterial_kyl8k")
