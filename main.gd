@@ -64,10 +64,11 @@ var baskets = 0
 var sensitivity = 5.0
 var fov = 75
 var quality = 2
+var language = OS.get_locale_language()
 var audioeffectcool = 0
 
 var spooky = false
-var christmas = true
+var christmas = false
 
 var escapedcube = "none"
 
@@ -88,8 +89,8 @@ func _ready():
 	
 	if isRunning:
 		var id = Steam.getSteamID()
-		var name  = Steam.getFriendPersonaName(id)
-		print("username: ", str(name))
+		var steamname = Steam.getFriendPersonaName(id)
+		print("username: ", str(steamname))
 	else:
 		print("steam aint runnin")
 		$canvas/hud/steamdisconnect.show()
@@ -111,6 +112,43 @@ func _ready():
 	DiscordRPC.refresh() # Always refresh after changing the values!
 	
 	loadmap("res://maps/lobby.tscn", -1, "none")
+	
+	TranslationServer.set_locale(language)
+	$canvas/hud/pause.updatelanguage()
+	
+	#var conversations = getallchildren($conversations)
+	#var descs = ""
+	#for conv in conversations:
+		#descs += conv.editor_description+"\n"
+	#print(clean_dialogue(descs))
+	
+	#var convnames = ""
+	#for conv in conversations:
+		#convnames += conv.name+"\n"
+	#print(clean_dialogue(convnames))
+		
+func clean_dialogue(text: String) -> String:
+	var regex = RegEx.new()
+	regex.compile("\\[.*?\\]")
+
+	# remove bracketed content
+	text = regex.sub(text, "", true)
+
+	# remove empty lines
+	var cleaned := []
+	for line in text.split("\n"):
+		if line.strip_edges() != "":
+			cleaned.append(line)
+
+	return "\n".join(cleaned)
+	
+func getallchildren(node):
+	var ret = []
+	for child in node.get_children():
+		ret.append(child)
+		var arr = getallchildren(child)
+		ret.append_array(arr)
+	return ret
 	
 func setAchievement(ach):
 	if Steam.isSteamRunning():
@@ -254,6 +292,8 @@ func _unhandled_input(event):
 					$musictransition.stream_paused = true
 					$"sfx2".stream = load("res://audio/pause.mp3")
 					$"sfx2".play()
+					$canvas/hud/peakpreformanceoverlay.hide()
+					$canvas/hud/pause.updatelanguage()
 					
 					AudioServer.get_bus_effect(0, 1).pre_gain = 0
 					AudioServer.get_bus_effect(0, 1).post_gain = 0
@@ -263,9 +303,6 @@ func _unhandled_input(event):
 					get_tree().paused = true
 			else:
 				crash("pauseinshutdown")
-	if Input.is_action_just_pressed("x"):
-		if $canvas/hud/steamdisconnect.visible:
-			$canvas/hud/steamdisconnect.hide()
 	if Input.is_action_just_pressed("trainhorn"):
 		if escapedcube == "none":
 			$trainhorn.stream = load("res://audio/trainhorn.mp3")
@@ -510,11 +547,12 @@ func transitionfunc(array):
 	"the wee you is underrated",
 	"no game fell off harder than Roblocks",
 	"zendaya is mid 3000",
-	"im eating animal crackers right now, jealous?"
+	"im eating animal crackers right now, jealous?",
+	"you lost the game"
 	]
-	if randf() <= 0.05: $canvas/hud/transitionin/tip.text = "Player tip: "
-	else: $canvas/hud/transitionin/tip.text = "Tip: "
-	$canvas/hud/transitionin/tip.text += tips.pick_random()
+	if randf() <= 0.05: $canvas/hud/transitionin/tip.text = tr("Player tip: ")
+	else: $canvas/hud/transitionin/tip.text = tr("Tip: ")
+	$canvas/hud/transitionin/tip.text += tr(tips.pick_random())
 	
 func _on_died_animation_finished(manual = false):
 	#restart
@@ -551,6 +589,7 @@ func calcbits(curbeat, prevbeat, mult):
 	if prevbeat == 0: addbits -= 200
 	if prevbeat == 1: addbits -= 500
 	if prevbeat == 2: addbits -= 1000
+	if addbits < 0: addbits = 0 #thx yena
 	return addbits*mult
 
 func save_game():
@@ -589,6 +628,7 @@ func save_game():
 		"sensitivity" : sensitivity,
 		"fov" : fov,
 		"quality" : quality,
+		"language" : language,
 		"head" : head,
 		"outfit" : outfit,
 		"outfittext" : outfittext,
@@ -654,6 +694,7 @@ func load_game():
 		if data.has("sensitivity"): _on_sensitivity_value_changed(data["sensitivity"])
 		if data.has("fov"): _on_fov_value_changed(data["fov"])
 		if data.has("quality"): _on_quality_value_changed(data["quality"])
+		if data.has("language"): language = data["language"]
 
 		if data.has("head"): head = data["head"]
 		if data.has("outfit"): outfit = data["outfit"]
@@ -763,6 +804,7 @@ func _on_options_pressed():
 	$canvas/hud/pause/options.show()
 	$canvas/hud/pause/pauseaudio.stream = load("res://audio/settingsin.mp3")
 	$canvas/hud/pause/pauseaudio.play()
+	$canvas/hud/pause.updatelanguage()
 func _on_fullscreen_pressed():
 	if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
@@ -827,7 +869,7 @@ func _on_shortcuts_pressed() -> void:
 	if $canvas/hud/pause/shortcuts.visible:
 		$canvas/hud/pause/pauseaudio.stream = load("res://audio/shortcutsin.mp3")
 	else:
-		$canvas/hud/pause/pauseaudio.stream = load("res://audio/shortcutsout.mp3")	
+		$canvas/hud/pause/pauseaudio.stream = load("res://audio/shortcutsout.mp3")
 	$canvas/hud/pause/pauseaudio.play()
 
 
@@ -847,8 +889,10 @@ func setquality(val):
 	if val == -1:
 		get_viewport().disable_3d = true
 		$player.setshaders(false)
+		$canvas/hud/peakpreformanceoverlay/peaktimer.start()
 	else:
 		get_viewport().disable_3d = false
+		$canvas/hud/peakpreformanceoverlay.hide()
 	if val == 0:
 		$"map/WorldEnvironment".environment.sdfgi_enabled = false
 		$"map/WorldEnvironment".environment.ssr_enabled = false
@@ -927,14 +971,14 @@ func _on_quality_value_changed(value: float) -> void:
 	quality = value
 	$canvas/hud/pause/options/Quality.value = value
 	if quality == -1:
-		$canvas/hud/pause/options/Qualitylabel.text = "Quality: peak preformance"
+		$canvas/hud/pause/options/Qualitylabel.text = tr("Quality: peak performance")
 		$canvas/hud/pause/options/Qualitylabel.add_theme_font_size_override("font_size", 32)
 	else:
 		$canvas/hud/pause/options/Qualitylabel.add_theme_font_size_override("font_size", 52)
-	if quality == 0: $canvas/hud/pause/options/Qualitylabel.text = "Quality: dog water"
-	if quality == 1: $canvas/hud/pause/options/Qualitylabel.text = "Quality: real sh*t"
-	if quality == 2: $canvas/hud/pause/options/Qualitylabel.text = "Quality: hot"
-	if quality == 3: $canvas/hud/pause/options/Qualitylabel.text = "Quality: creamy"
+	if quality == 0: $canvas/hud/pause/options/Qualitylabel.text = tr("Quality: dog water")
+	if quality == 1: $canvas/hud/pause/options/Qualitylabel.text = tr("Quality: real sh*t")
+	if quality == 2: $canvas/hud/pause/options/Qualitylabel.text = tr("Quality: hot")
+	if quality == 3: $canvas/hud/pause/options/Qualitylabel.text = tr("Quality: creamy")
 	if $"map/WorldEnvironment" != null:
 		$"map/WorldEnvironment".environment.sdfgi_enabled = false
 		$qualityupdate.start()
@@ -967,7 +1011,6 @@ func _on_useless_value_changed(value: float) -> void:
 	slidertick("res://audio/bumpscositytick.mp3", value, $canvas/hud/pause/options/Useless)
 
 func crash(type):
-	$"../bingle"
 	if type == "pauseinshutdown":
 		$AcceptDialog.title = "Game Crashed!"
 		$AcceptDialog.dialog_text = "Invalid call. Nonexistent function 'pauseGame' in base 'Nil'."
@@ -996,3 +1039,62 @@ func crash(type):
 	
 func _on_accept_dialog_confirmed() -> void:
 	get_tree().quit()
+
+func _on_peaktimer_timeout() -> void:
+	if quality == -1:
+		$canvas/hud/peakpreformanceoverlay.show()
+
+func shrinktext(text, maxsize, maxfont = 1000):
+	#maxsize = text.get_minimum_size().x
+	text.size.x = 1
+	if maxfont != 1000:
+		#print("startbig:")
+		#print(text.size.x)
+		text.add_theme_font_size_override("font_size", maxfont)
+		text.add_theme_font_size_override("font_size", maxfont)
+		text.size.x = 1
+		#print("after:")
+		#print(text.size.x)
+	if text.size.x > maxsize:
+		for i in range(200):
+			if (text.size.x > maxsize):
+				var fontsize = text.get_theme_font_size("font_size")
+				text.add_theme_font_size_override("font_size", fontsize-2)
+				text.size.x = 1
+				#print("resize:")
+				#print(text.size.x)
+			else:
+				var fontsize = text.get_theme_font_size("font_size")
+				text.add_theme_font_size_override("font_size", fontsize-4)
+				text.size.x = 1
+				#text.size.x = maxsize
+				#print("FOUND SIZE:")
+				#print(text.size.x)
+				#print(maxsize)
+				break
+			if i == 199: print("couldn't find size")
+	#if text.size.x != maxsize && text.get_theme_font_size("font_size") != maxfont:
+	text.size.x = maxsize
+
+func _on_language_pressed() -> void:
+	$canvas/hud/pause/language.visible = !$canvas/hud/pause/language.visible
+	if $canvas/hud/pause/language.visible:
+		$canvas/hud/pause/pauseaudio.stream = load("res://audio/languagein.mp3")
+	else:
+		$canvas/hud/pause/pauseaudio.stream = load("res://audio/languageout.mp3")	
+	$canvas/hud/pause/pauseaudio.play()
+
+func _on_lang_list_item_selected(index: int) -> void:
+	var langs = {
+		"English" : "en",
+		"Español" : "es",
+		"Русский" : "ru",
+		"Português" : "pt",
+		"Deutsch" : "de",
+		"日本語" : "jp",
+		"Français" : "fr",
+		"Polski" : "pl"
+	}
+	language = langs[$canvas/hud/pause/language/LangList.get_item_text(index)]
+	TranslationServer.set_locale(language)
+	$canvas/hud/pause.updatelanguage()

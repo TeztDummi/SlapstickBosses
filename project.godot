@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Slapstick Bosses"
 run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/image="res://splashscreen.png"
 config/icon="res://gameicon.png"
 
@@ -22,7 +22,8 @@ DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [debug]
 
-shapes/navigation/geometry_edge_color=Color(0.501961, 1, 1, 1)
+shapes/navigation/3d/geometry_edge_color=Color(0.501961, 1, 1, 1)
+shapes/navigation/2d/geometry_edge_color=Color(0.501961, 1, 1, 1)
 shapes/collision/shape_color=Color(0, 0.6, 0.701961, 0)
 
 [display]
@@ -235,10 +236,14 @@ dash={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Slapstick Translations - all.es.translation", "res://Slapstick Translations - all.pt.translation", "res://Slapstick Translations - all.ru.translation", "res://Slapstick Translations - all.jp.translation", "res://Slapstick Translations - all.fr.translation", "res://Slapstick Translations - all.pl.translation", "res://Slapstick Translations - all.de.translation")
+
 [physics]
 
-jolt_physics_3d/simulation/areas_detect_static_bodies=true
 3d/default_gravity=30.0
+jolt_physics_3d/simulation/areas_detect_static_bodies=true
 
 [rendering]
 

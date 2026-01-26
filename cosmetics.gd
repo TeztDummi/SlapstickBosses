@@ -180,15 +180,16 @@ func _on_right_pressed():
 
 func _on_value_value_changed(value):
 	color.z = value
-	$"../pause/options/mastertick".play()
+	
+	$"../pause/options/tick".play()
 
 func _on_saturation_value_changed(value):
 	color.y = value
-	$"../pause/options/mastertick".play()
+	$"../pause/options/tick".play()
 
 func _on_hue_value_changed(value):
 	color.x = value
-	$"../pause/options/mastertick".play()
+	$"../pause/options/tick".play()
 	
 func start():
 	$randomspeak.wait_time = randf_range(20, 40)
@@ -293,6 +294,7 @@ func _on_buy_pressed():
 			if rand == 6: tedtalk("Im rich!!!")
 		
 func tedtalk(text):
+	text = tr(text, "TED")
 	if $talktimer.is_stopped():
 		$talktimer.wait_time = text.length()*0.1+1
 		$talktimer.start()

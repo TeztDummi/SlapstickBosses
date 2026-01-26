@@ -104,8 +104,8 @@ func _process(delta):
 					#if soundalternate: soundplayer = $talksound2
 					#soundalternate = !soundalternate 
 					if !$firstsound.playing:
-						if $talklabel.text[$talklabel.visible_characters] != "*":
-							if $talklabel.text[$talklabel.visible_characters] != " ":
+						if $talklabel.get_parsed_text()[$talklabel.visible_characters] != "*":
+							if $talklabel.get_parsed_text()[$talklabel.visible_characters] != " ":
 								soundplayer.stream = load("res://audio/characters/"+sound+"_"+str(randi_range(0, 2))+".mp3")
 								soundplayer.play()
 						else:
@@ -115,6 +115,7 @@ func _process(delta):
 		spokentext += delta*talkspeed
 		if $talklabel.visible_ratio < 1:
 			$talklabel.visible_characters = round(spokentext)
+			$talklabel.scroll_to_line($talklabel.get_visible_line_count()-3)
 			optionsappear = false
 		else:
 			if !optionsappear:
@@ -171,6 +172,11 @@ func _unhandled_input(event):
 						option_press(0)
 func decode():
 	$talklabel.text = conv.editor_description
+	var parsed = $talklabel.get_parsed_text()
+	var translation = tr(parsed)
+	print("parsed:")
+	if translation != parsed:
+		$talklabel.text = translation
 	if conv.get_meta("Portrait") == null:
 		$portrait.animation = "default"
 	else:
@@ -215,7 +221,7 @@ func decode():
 					conv.get_child(num).name = "yes"
 				else: option.hide()
 			
-			option.text = conv.get_child(num).name
+			option.text = tr(conv.get_child(num).name)
 			option.add_theme_font_size_override("font_size", 76)
 			$talklabel.size.y = 231
 		else:

@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://ybad4s2ndshr"]
+[gd_scene load_steps=17 format=3 uid="uid://ybad4s2ndshr"]
 
 [ext_resource type="Script" uid="uid://b33p3afurddwu" path="res://maps/lubelordarena.gd" id="1_2ppf2"]
-[ext_resource type="Shader" uid="uid://kj30u00d7spn" path="res://maps/wobble.gdshader" id="2_0fbs5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ppf2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -17,45 +16,183 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qb1yv"]
-size = Vector2(100, 200)
+size = Vector2(100, 400)
+subdivide_width = 640
+subdivide_depth = 640
 
-[sub_resource type="Gradient" id="Gradient_qb1yv"]
+[sub_resource type="Shader" id="Shader_qo7yb"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2ppf2"]
+shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0fbs5"]
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float grow : hint_range(-16.0, 16.0);
+uniform float growtex_scale : hint_range(-16.0, 16.0);
+uniform float grow_speed : hint_range(-16.0, 16.0);
+uniform float grow_size_offset : hint_range(-0.5, 0.5);
+uniform vec3 grow_movement = vec3(1.0, 1.0, 1.0);
+uniform vec3 tex_movement = vec3(0.0, 0.0, 0.0);
+
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform sampler2D texture_grow : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+uniform float emission : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+
+uniform sampler2D texture_ambient_occlusion : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 ao_texture_channel;
+uniform float ao_light_affect : hint_range(0.0, 1.0, 0.01);
+
+uniform bool subsurface = true;
+uniform float subsurface_scattering_strength : hint_range(0.0, 1.0, 0.01);
+uniform sampler2D texture_subsurface_scattering : hint_default_white, filter_linear_mipmap, repeat_enable;
+
+uniform vec4 transmittance_color : source_color;
+uniform float transmittance_depth : hint_range(0.001, 100.0, 0.001);
+uniform sampler2D texture_subsurface_transmittance : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform float transmittance_boost : hint_range(0.0, 10.0, 0.01);
+varying vec3 uv1_triplanar_pos;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+global uniform vec3 player_pos;
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec4 samp = vec4(0.0);
+	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return samp;
+}
+
+void vertex() {
+	vec3 normal = NORMAL;
+
+	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+	TANGENT = normalize(TANGENT);
+
+	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+	BINORMAL = normalize(BINORMAL);
+
+	// UV1 Triplanar: Enabled
+	uv1_power_normal = pow(abs(NORMAL), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = VERTEX * uv1_scale + uv1_offset + vec3(TIME, TIME, TIME)*tex_movement;
+	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+	
+	float time = TIME*grow_speed;
+	vec3 grow_offset = vec3(time, time, time)*grow_movement;
+
+	vec4 grow_tex = triplanar_texture(texture_grow, uv1_power_normal, uv1_triplanar_pos*growtex_scale+grow_offset);
+	// Grow: Enabled
+	vec3 world_vertex = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	float min_dist = min(length(player_pos - world_vertex), 1);
+	
+	VERTEX += NORMAL * grow * (grow_tex.x-(0.5-grow_size_offset));
+}
+
+void fragment() {
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	EMISSION = albedo.rgb * emission;
+
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	// Ambient Occlusion: Enabled
+	AO = dot(triplanar_texture(texture_ambient_occlusion, uv1_power_normal, uv1_triplanar_pos), ao_texture_channel);
+	AO_LIGHT_AFFECT = ao_light_affect;
+
+	// Subsurface Scattering: Enabled
+	if (subsurface)
+	{
+		float sss_tex = triplanar_texture(texture_subsurface_scattering, uv1_power_normal, uv1_triplanar_pos).r;
+		SSS_STRENGTH = subsurface_scattering_strength * sss_tex;
+
+		// Subsurface Scattering Transmittance: Enabled
+		vec4 trans_color_tex = triplanar_texture(texture_subsurface_transmittance, uv1_power_normal, uv1_triplanar_pos);
+		SSS_TRANSMITTANCE_COLOR = transmittance_color * trans_color_tex;
+		SSS_TRANSMITTANCE_DEPTH = transmittance_depth;
+		SSS_TRANSMITTANCE_BOOST = transmittance_boost;
+	}
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_nhlob"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.44855967, 1)
+colors = PackedColorArray(1, 0.922, 0.88, 1, 0.8855091, 0.82673705, 0.767965, 1, 1, 0.971, 0.94, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_db6xe"]
+frequency = 0.018
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2y664"]
+noise = SubResource("FastNoiseLite_db6xe")
+color_ramp = SubResource("Gradient_nhlob")
 seamless = true
-color_ramp = SubResource("Gradient_qb1yv")
-noise = SubResource("FastNoiseLite_2ppf2")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhlob"]
-albedo_texture = SubResource("NoiseTexture2D_0fbs5")
-uv1_scale = Vector3(0.1, 0.1, 0.1)
-uv1_triplanar = true
+[sub_resource type="Gradient" id="Gradient_2503l"]
+offsets = PackedFloat32Array(0, 0.26229507, 0.67901236)
+colors = PackedColorArray(1, 1, 1, 1, 0.82, 0.82, 0.82, 1, 0, 0, 0, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ppf2"]
-size = Vector3(100, 0, 200)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kyl8k"]
+noise_type = 2
+frequency = 0.03
+fractal_octaves = 1
 
-[sub_resource type="SphereMesh" id="SphereMesh_nhlob"]
-
-[sub_resource type="Gradient" id="Gradient_0fbs5"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nhlob"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4kpv7"]
+noise = SubResource("FastNoiseLite_kyl8k")
+color_ramp = SubResource("Gradient_2503l")
 seamless = true
-color_ramp = SubResource("Gradient_0fbs5")
+seamless_blend_skirt = 0.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kyl8k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lk6qu"]
 render_priority = 0
-shader = ExtResource("2_0fbs5")
+shader = SubResource("Shader_qo7yb")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/grow = 1.0
-shader_parameter/growtex_scale = 0.301001
-shader_parameter/grow_speed = 0.0100008
-shader_parameter/grow_size_offset = 0.1
+shader_parameter/texture_albedo = SubResource("NoiseTexture2D_2y664")
+shader_parameter/grow = 0.50000078375
+shader_parameter/growtex_scale = 0.4000007789999991
+shader_parameter/grow_speed = 0.2000007695000008
+shader_parameter/grow_size_offset = 0.0
+shader_parameter/grow_movement = Vector3(0, 0, 1)
+shader_parameter/tex_movement = Vector3(0, 0, 0.2)
 shader_parameter/albedo_texture_size = Vector2i(2048, 2048)
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 0.44
-shader_parameter/texture_grow = SubResource("NoiseTexture2D_nhlob")
+shader_parameter/texture_grow = SubResource("NoiseTexture2D_4kpv7")
 shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 0.0
@@ -64,15 +201,26 @@ shader_parameter/normal_scale = 1.0
 shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/ao_light_affect = 0.0
 shader_parameter/subsurface = true
-shader_parameter/subsurface_scattering_strength = 1.0
-shader_parameter/transmittance_color = Color(1, 1, 1, 1)
-shader_parameter/transmittance_depth = 8.0
-shader_parameter/transmittance_boost = 1.0
-shader_parameter/uv1_blend_sharpness = 1.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/subsurface_scattering_strength = 0.999999977648
+shader_parameter/transmittance_color = Color(0, 0, 0, 1)
+shader_parameter/transmittance_depth = 1.0000000475
+shader_parameter/transmittance_boost = 0.0
+shader_parameter/uv1_blend_sharpness = 1.0000000475
+shader_parameter/uv1_scale = Vector3(0.05, 0.05, 0.05)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ppf2"]
+size = Vector3(100, 0, 400)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2ppf2"]
+size = Vector2(100, 6)
+subdivide_width = 640
+subdivide_depth = 640
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0fbs5"]
+size = Vector3(100, 0, 6)
 
 [node name="lubelordarena" type="Node3D"]
 script = ExtResource("1_2ppf2")
@@ -88,9 +236,9 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, -25.8819, -94.5926)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, -51.7638, -193.1852)
 mesh = SubResource("PlaneMesh_qb1yv")
-surface_material_override/0 = SubResource("StandardMaterial3D_nhlob")
+surface_material_override/0 = SubResource("ShaderMaterial_lk6qu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
@@ -98,5 +246,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_nhlob")
 shape = SubResource("BoxShape3D_2ppf2")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_nhlob")
-surface_material_override/0 = SubResource("ShaderMaterial_kyl8k")
+transform = Transform3D(1, 0, 0, 0, 1.0000001, -5.9604645e-08, 0, 5.9604645e-08, 1.0000001, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2ppf2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_0fbs5")
+
+[node name="rampspawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
+
+[node name="spawnlubeball" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="spawnlubeball" to="." method="_on_spawnlubeball_timeout"]

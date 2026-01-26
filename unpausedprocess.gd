@@ -19,6 +19,9 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("f11"):
 		$"../"._on_fullscreen_pressed()
+	if Input.is_action_just_pressed("x"):
+		if $"../canvas/hud/steamdisconnect".visible:
+			$"../canvas/hud/steamdisconnect".hide()
 				
 func _on_overlay_toggled(param1, param2, param3):
 	if param1:

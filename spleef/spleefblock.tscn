@@ -38,8 +38,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ud305")
 
 [sub_resource type="Gradient" id="Gradient_w0dav"]
-offsets = PackedFloat32Array(0.0804598, 0.781609)
-colors = PackedColorArray(0.75, 0.891667, 1, 1, 0.490196, 0.490196, 1, 1)
+offsets = PackedFloat32Array(0.0804598, 0.781609, 1)
+colors = PackedColorArray(0.76, 0.94, 1, 1, 0.07999998, 0.07999998, 1, 1, 0, 0.7166667, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_jwte3"]
 frequency = 0.1135
@@ -49,9 +49,9 @@ fractal_octaves = 3
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ewfeo"]
 width = 16
 height = 20
-seamless = true
-color_ramp = SubResource("Gradient_w0dav")
 noise = SubResource("FastNoiseLite_jwte3")
+color_ramp = SubResource("Gradient_w0dav")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_gropd"]
 offsets = PackedFloat32Array(0.0804598, 0.781609)
@@ -65,10 +65,10 @@ fractal_octaves = 3
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g3ti5"]
 width = 16
 height = 20
+noise = SubResource("FastNoiseLite_nflx4")
+color_ramp = SubResource("Gradient_gropd")
 seamless = true
 as_normal_map = true
-color_ramp = SubResource("Gradient_gropd")
-noise = SubResource("FastNoiseLite_nflx4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cd4q"]
 transparency = 2

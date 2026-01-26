@@ -40,6 +40,10 @@ var jetpack = false
 var physicsscale = 1
 var surfboard = false
 
+var was_on_wall = false
+var velocity_memory = Vector3.ZERO
+var positionmem = Vector3.ZERO
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -265,6 +269,7 @@ func setsurfboard(val):
 	floor_block_on_wall = !val
 	print("FLOOR ANGLE")
 	print(floor_max_angle)
+	
 	if val:
 		floor_max_angle = deg_to_rad(5)
 		wall_min_slide_angle = deg_to_rad(45)
@@ -282,10 +287,10 @@ func _physics_process(delta):
 		if candash:
 			$walljump.global_rotation = Vector3.ZERO
 		# Add the gravity.
-		if not is_on_floor():# || surfboard:
+		
+		if !is_on_floor():
 			velocity.y -= gravity * delta
 			falldamagemult = velocity.y
-			print("yunkers")
 		else: 
 			coyote = 0.1
 			
@@ -300,6 +305,7 @@ func _physics_process(delta):
 				moveeffect("land")
 				
 			falldamagemult = 0
+			
 			
 		if shockwavedmgdelay > 0:
 			shockwavedmgdelay -= delta
@@ -653,26 +659,31 @@ func _physics_process(delta):
 					$surfboard/surfboard.rotation.z = -rotation.y
 					$surfboard.rotation = Vector3(PI/2, -rotation.y, 0)
 				else:
-					var rayvect = (djray.global_position-djray.get_collision_point()).normalized()
-					var reflection = rayvect.reflect(djray.get_collision_normal())
+					#var rayvect = (djray.global_position-djray.get_collision_point()).normalized()
+					#var reflection = rayvect.reflect(djray.get_collision_normal())
 					$surfboard.look_at(djray.get_collision_normal()+djray.get_collision_point())
 					$surfboard/surfboard.rotation.z = -rotation.y
+					
 					var forwardvect = Vector2(djray.get_collision_normal().x, djray.get_collision_normal().z).normalized()
 					var lookvect = Vector2(sin(rotation.y), cos(rotation.y))
 					var angle = 1-abs((abs(forwardvect.angle_to(lookvect))-PI/2))/(PI/2)
-					angle = clampf(angle*2, 0, 1)
-					print(angle)
+					
+					angle = clampf(angle*2-0.4, 0, 1)
 					var perpdir = -sign(forwardvect.angle_to(lookvect))
-					velocity *= 1-(1*delta*(angle))
-					var perpvel = 0.5*perpdir*angle*Vector2(-forwardvect.y, forwardvect.x)
-					velocity.x += perpvel.x
-					velocity.z += perpvel.y
+					velocity *= 1-(0.5*delta*(angle))
+					#print(angle)
+					
+					var perpvel = perpdir*angle*Vector2(-forwardvect.y, forwardvect.x)
+					velocity.x += perpvel.x*1
+					velocity.z += perpvel.y*1
+					
+					velocity.x *= 1-(1*delta*(abs(1-perpvel.x)))*(1-abs(forwardvect.x))
+					velocity.z *= 1-(1*delta*(abs(1-perpvel.y)))*(1-abs(forwardvect.y))
+
+					print(velocity.z)
 					
 					if Vector3.ZERO.distance_to(velocity) > 100:
 						velocity = velocity.normalized()*100
-					
-					print(forwardvect)
-					print(lookvect)
 			else:
 				$surfboard/surfboard.rotation.z = -rotation.y
 				$surfboard.rotation = Vector3(PI/2, -rotation.y, 0)
@@ -693,9 +704,24 @@ func _physics_process(delta):
 			if $anim.is_playing() || slide:
 				if $anim.current_animation != "jump": $anim.play("jump")
 				
+		positionmem = position
+				
 		velocity *= physicsscale
 		move_and_slide()
 		velocity /= physicsscale
+		
+		if surfboard:
+			velocity = (position-positionmem)/delta
+			#print(velocity)
+			#var is_on_wall = is_on_wall()
+			#if was_on_wall and not is_on_wall:
+				# slope exited, restore y velocity
+			#	velocity = velocity_memory
+			#if not was_on_wall and is_on_wall:
+				# slope entered, remember y velocity
+			#	velocity_memory = velocity
+			#was_on_wall = is_on_wall
+		
 	else:
 		if $audio.stream.resource_path.get_file() == "slide.tres":
 			$audio.stop()

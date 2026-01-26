@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b0eb3oyq4s872"
+
+[deps]
+
+files=["res://Slapstick Translations - all.es.translation", "res://Slapstick Translations - all.ru.translation", "res://Slapstick Translations - all.pt.translation", "res://Slapstick Translations - all.de.translation", "res://Slapstick Translations - all.jp.translation", "res://Slapstick Translations - all.fr.translation", "res://Slapstick Translations - all.pl.translation"]
+
+source_file="res://Slapstick Translations - all.csv"
+dest_files=["res://Slapstick Translations - all.es.translation", "res://Slapstick Translations - all.ru.translation", "res://Slapstick Translations - all.pt.translation", "res://Slapstick Translations - all.de.translation", "res://Slapstick Translations - all.jp.translation", "res://Slapstick Translations - all.fr.translation", "res://Slapstick Translations - all.pl.translation"]
+
+[params]
+
+compress=true
+delimiter=0

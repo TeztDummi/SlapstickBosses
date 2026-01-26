@@ -9,6 +9,8 @@ uniform float grow : hint_range(-16.0, 16.0);
 uniform float growtex_scale : hint_range(-16.0, 16.0);
 uniform float grow_speed : hint_range(-16.0, 16.0);
 uniform float grow_size_offset : hint_range(-0.5, 0.5);
+uniform vec3 grow_movement = vec3(1.0, 1.0, 1.0);
+
 uniform ivec2 albedo_texture_size;
 uniform float point_size : hint_range(0.1, 128.0, 0.1);
 
@@ -77,7 +79,7 @@ void vertex() {
 	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
 	
 	float time = TIME*grow_speed;
-	vec3 grow_offset = vec3(time, time, time);
+	vec3 grow_offset = vec3(time, time, time)*grow_movement;
 
 	vec4 grow_tex = triplanar_texture(texture_grow, uv1_power_normal, uv1_triplanar_pos*growtex_scale+grow_offset);
 	// Grow: Enabled

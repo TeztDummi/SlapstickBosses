@@ -147,6 +147,8 @@ func _unhandled_input(event):
 				}
 				$"../../../../".save_game()
 				$"../../../../canvas/hud/recall/anim".play("default")
+				var label = $"../../../../canvas/hud/recall/recalllabel"
+				$"../../../../".shrinktext(label, label.size.x, 396)
 				queue_free()
 	else:
 		if Input.is_action_just_pressed("r") && prevvel > 0.01:

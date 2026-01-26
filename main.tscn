@@ -1,4 +1,4 @@
-[gd_scene load_steps=401 format=4 uid="uid://cobld5y5t30qb"]
+[gd_scene load_steps=407 format=4 uid="uid://cobld5y5t30qb"]
 
 [ext_resource type="Script" uid="uid://b4f7c2xgl12cp" path="res://main.gd" id="1_447ni"]
 [ext_resource type="PackedScene" uid="uid://chwr8oem503jp" path="res://player.tscn" id="4_7fi2g"]
@@ -264,6 +264,7 @@
 [ext_resource type="Texture2D" uid="uid://bvaic7c81hp5t" path="res://ui/portraits/levelguy0037.png" id="160_cnw22"]
 [ext_resource type="Texture2D" uid="uid://dcpslbj0qtgb5" path="res://ui/portraits/levelguy0038.png" id="161_8e868"]
 [ext_resource type="Script" uid="uid://c31v2lnbfnaov" path="res://outfits.gd" id="197_31js7"]
+[ext_resource type="Texture2D" uid="uid://cs4uwprylg4ua" path="res://textures/languageicon.png" id="209_ip2l3"]
 [ext_resource type="Texture2D" uid="uid://8dribtrm0ha6" path="res://textures/cardboardbg.png" id="213_kc3cm"]
 [ext_resource type="Texture2D" uid="uid://c0piejqe0grdi" path="res://textures/cardboardbutton.png" id="214_utcts"]
 [ext_resource type="FontFile" uid="uid://6oquj8m68w6l" path="res://FingerPaint-Regular.ttf" id="215_2pm5r"]
@@ -311,6 +312,7 @@
 [ext_resource type="Texture2D" uid="uid://roft1yf8skv0" path="res://textures/skeleton/ezgif-frame-023.png" id="305_us00v"]
 [ext_resource type="Texture2D" uid="uid://c6l2ryebrttil" path="res://textures/skeleton/ezgif-frame-024.png" id="306_nc1xb"]
 [ext_resource type="Texture2D" uid="uid://c3tw565iolose" path="res://textures/skeleton/ezgif-frame-025.png" id="307_wm7i3"]
+[ext_resource type="Texture2D" uid="uid://cblyfpxcr824m" path="res://textures/peakpreformance.png" id="308_ecwfn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fxdwr"]
 
@@ -1613,6 +1615,14 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ip2l3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s14wm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4gy1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cnw22"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_syujt"]
 animations = [{
 "frames": [{
@@ -2241,11 +2251,11 @@ animations = [{
 "speed": 18.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivr7d"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eovqa"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kohd"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eovqa"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivr7d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ok4n"]
 
@@ -2657,8 +2667,8 @@ noise_type = 0
 frequency = 0.0117
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qglsg"]
-color_ramp = SubResource("Gradient_6kvph")
 noise = SubResource("FastNoiseLite_rf5gj")
+color_ramp = SubResource("Gradient_6kvph")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vdyvh"]
 render_priority = -127
@@ -2679,8 +2689,8 @@ colors = PackedColorArray(0.687215, 0.687215, 0.687215, 1, 1, 1, 1, 1)
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a6w78"]
 width = 167
 height = 1022
-color_ramp = SubResource("Gradient_r0scr")
 noise = SubResource("FastNoiseLite_rf5gj")
+color_ramp = SubResource("Gradient_r0scr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6csnn"]
 render_priority = -127
@@ -2722,107 +2732,107 @@ editor_description = "whatchu want fat f***"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="what is this" type="Node" parent="conversations/gearmo/start"]
+[node name="what is this?" type="Node" parent="conversations/gearmo/start"]
 editor_description = "what the game?"
 metadata/Portrait = "gearmoquestion"
 metadata/Sound = "gearmoquestion"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?"]
 editor_description = "it's about fighting bosses and stuff i guess, you're askin the wrong guy"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="is it good?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]"]
+[node name="is it good?" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]"]
 editor_description = "idk, its made by one guy so probobly not"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?"]
 editor_description = "his brainrot ahh watches instergam reels"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]"]
 editor_description = "[shake rate=40.0 level=40 connected=1]GYEAH[/shake]"
 metadata/Portrait = "gearmoscream"
 metadata/Sound = "gearmoloud"
 
-[node name="how do i play?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]"]
+[node name="how do i play?" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]"]
 editor_description = "u see that store?"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?"]
 editor_description = "go in."
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="whats in there?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
+[node name="whats in there?" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
 editor_description = "i dont have all day fat***, i gotta stand in this spot some more"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats in there?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats in there?"]
 editor_description = "bye gyeah"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats in there?/[NEXT]"]
+[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats in there?/[NEXT]"]
 editor_description = "[LEAVE]"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="whats this game about?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
+[node name="whats this game about?" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
 editor_description = "i dont have all day fat***, i gotta stand in this spot some more"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats this game about?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats this game about?"]
 editor_description = "bye gyeah"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats this game about?/[NEXT]"]
+[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats this game about?/[NEXT]"]
 editor_description = "[LEAVE]"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="whats a store?" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
+[node name="whats a store?" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
 editor_description = "you dumb fat lard quit eating so much"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?"]
 editor_description = "probly got fat in yur brain"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]"]
 editor_description = "i can smell the fat, fat f***"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]/[NEXT]"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]/[NEXT]"]
 editor_description = "come back when u graduate preschool"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]/[NEXT]/[NEXT]"]
+[node name="[LEAVE]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/whats a store?/[NEXT]/[NEXT]/[NEXT]"]
 editor_description = "[NOPROGRESS]"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="nah" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
+[node name="nah" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]"]
 editor_description = "if u dont wanna play thats fine with me"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
 
-[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/nah"]
+[node name="[NEXT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/nah"]
 editor_description = "bye gyeah"
 metadata/Portrait = "gearmoarmscross"
 metadata/Sound = "gearmonormal"
 
-[node name="[QUIT]" type="Node" parent="conversations/gearmo/start/what is this/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/nah/[NEXT]"]
+[node name="[QUIT]" type="Node" parent="conversations/gearmo/start/what is this?/[NEXT]/is it good?/[NEXT]/[NEXT]/how do i play?/[NEXT]/nah/[NEXT]"]
 editor_description = "[NOPROGRESS]"
 metadata/Portrait = "gearmopoint"
 metadata/Sound = "gearmonormal"
@@ -4473,7 +4483,7 @@ metadata/Portrait = "crustycrazy"
 metadata/Sound = "crustycrazy"
 
 [node name="[NEXT]" type="Node" parent="conversations/crusty/11/[NEXT]"]
-editor_description = " bath salts,"
+editor_description = " bath salts"
 metadata/Portrait = "crustycrazy"
 metadata/Sound = "crustycrazy"
 
@@ -5229,7 +5239,6 @@ theme = ExtResource("6_ayt4i")
 theme_override_constants/shadow_offset_y = 35
 theme_override_font_sizes/font_size = 396
 text = "Recall"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="anim" type="AnimationPlayer" parent="canvas/hud/recall"]
@@ -5446,6 +5455,7 @@ autoplay = "default"
 frame_progress = 0.543841
 
 [node name="talklabel" type="RichTextLabel" parent="canvas/hud/talk"]
+auto_translate_mode = 2
 layout_mode = 0
 offset_left = 526.0
 offset_top = 440.0
@@ -5455,9 +5465,12 @@ theme = ExtResource("6_ayt4i")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("32_ci1pj")
 theme_override_font_sizes/normal_font_size = 66
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ip2l3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s14wm")
+theme_override_styles/background = SubResource("StyleBoxEmpty_q4gy1")
+theme_override_styles/fill = SubResource("StyleBoxEmpty_cnw22")
 bbcode_enabled = true
 text = "sup fatass"
-scroll_following = true
 
 [node name="talksound" type="AudioStreamPlayer" parent="canvas/hud/talk"]
 max_polyphony = 3
@@ -5483,6 +5496,8 @@ script = ExtResource("44_0lg2u")
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_syujt")
 animation = &"start"
+frame = 4
+frame_progress = 1.0
 
 [node name="text" type="Control" parent="canvas/hud/pause"]
 anchors_preset = 0
@@ -5491,9 +5506,9 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = -153.0
+offset_left = 41.0
 offset_top = 67.0
-offset_right = 1114.0
+offset_right = 921.0
 offset_bottom = 223.0
 theme = ExtResource("6_ayt4i")
 theme_override_constants/shadow_offset_y = 10
@@ -5574,18 +5589,18 @@ patch_margin_bottom = 162
 
 [node name="Options" type="Button" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = 226.0
+offset_left = 282.0
 offset_top = 437.0
-offset_right = 683.0
+offset_right = 806.0
 offset_bottom = 546.0
 theme = ExtResource("6_ayt4i")
 text = "Options"
 
 [node name="box3" type="NinePatchRect" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = 212.0
+offset_left = 265.0
 offset_top = 421.0
-offset_right = 2712.0
+offset_right = 3126.5388
 offset_bottom = 1121.0
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("49_hgcff")
@@ -5596,7 +5611,7 @@ patch_margin_bottom = 162
 
 [node name="Quit" type="Button" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = 723.0
+offset_left = 852.0
 offset_top = 437.0
 offset_right = 1182.0
 offset_bottom = 546.0
@@ -5605,9 +5620,32 @@ text = "Quit"
 
 [node name="box2" type="NinePatchRect" parent="canvas/hud/pause/text"]
 layout_mode = 0
-offset_left = 709.0
+offset_left = 836.0
 offset_top = 421.0
-offset_right = 3209.0
+offset_right = 2684.7178
+offset_bottom = 1121.0
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
+
+[node name="Language" type="Button" parent="canvas/hud/pause/text"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 439.0
+offset_right = 859.0
+offset_bottom = 1167.0
+scale = Vector2(0.135667, 0.135667)
+theme = ExtResource("6_ayt4i")
+icon = ExtResource("209_ip2l3")
+
+[node name="box8" type="NinePatchRect" parent="canvas/hud/pause/text"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 421.0
+offset_right = 837.2052
 offset_bottom = 1121.0
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("49_hgcff")
@@ -5696,9 +5734,9 @@ grow_vertical = 2
 
 [node name="Label2" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = -174.0
+offset_left = 55.0
 offset_top = -4.0
-offset_right = 1093.0
+offset_right = 889.0
 offset_bottom = 152.0
 theme = ExtResource("6_ayt4i")
 theme_override_constants/shadow_offset_y = 10
@@ -5730,9 +5768,9 @@ value = 0.001
 
 [node name="Masterlabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 173.0
+offset_left = 22.0
 offset_top = 121.0
-offset_right = 481.0
+offset_right = 707.3334
 offset_bottom = 277.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
@@ -5762,9 +5800,9 @@ value = 0.001
 
 [node name="Musiclabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 741.0
+offset_left = 558.0
 offset_top = 122.0
-offset_right = 961.0
+offset_right = 1254.0
 offset_bottom = 278.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
@@ -5794,9 +5832,9 @@ value = 5.0
 
 [node name="Sensitivitylabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 24.0
 offset_top = 202.0
-offset_right = 526.0
+offset_right = 704.0
 offset_bottom = 358.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
@@ -5824,9 +5862,9 @@ step = 0.1
 
 [node name="Uselesslabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 617.0
+offset_left = 560.0
 offset_top = 275.0
-offset_right = 1204.0
+offset_right = 1249.3333
 offset_bottom = 431.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
@@ -5887,9 +5925,9 @@ value = 2.0
 
 [node name="Qualitylabel" type="Label" parent="canvas/hud/pause/options"]
 layout_mode = 0
-offset_left = 617.0
+offset_left = 559.0
 offset_top = 198.0
-offset_right = 1204.0
+offset_right = 1245.6666
 offset_bottom = 354.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("6_ayt4i")
@@ -5978,6 +6016,129 @@ max_polyphony = 16
 [node name="musicpreview" type="AudioStreamPlayer" parent="canvas/hud/pause/options"]
 stream = ExtResource("151_rx6mv")
 bus = &"Music"
+
+[node name="language" type="Control" parent="canvas/hud/pause"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="canvas/hud/pause/language"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -25.0
+offset_right = 1267.0
+offset_bottom = 708.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.521569)
+
+[node name="background" type="Sprite2D" parent="canvas/hud/pause/language"]
+modulate = Color(0.084, 0.123, 0.24, 1)
+position = Vector2(442.37094, 360.40265)
+rotation = -1.57079
+scale = Vector2(0.786, 1.903)
+texture = ExtResource("95_37eu1")
+
+[node name="label" type="Label" parent="canvas/hud/pause/language"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 268.37097
+offset_top = 153.40265
+offset_right = 568.371
+offset_bottom = 218.40265
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("32_ci1pj")
+theme_override_font_sizes/font_size = 64
+text = "Language"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Language" type="Button" parent="canvas/hud/pause/language"]
+layout_mode = 0
+offset_left = 324.37097
+offset_top = 604.40265
+offset_right = 799.371
+offset_bottom = 713.40265
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("6_ayt4i")
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[node name="box6" type="NinePatchRect" parent="canvas/hud/pause/language"]
+layout_mode = 0
+offset_left = 315.37097
+offset_top = 596.40265
+offset_right = 2895.371
+offset_bottom = 1296.4026
+scale = Vector2(0.098, 0.098)
+texture = ExtResource("49_hgcff")
+patch_margin_left = 150
+patch_margin_top = 136
+patch_margin_right = 146
+patch_margin_bottom = 162
+
+[node name="LangList" type="ItemList" parent="canvas/hud/pause/language"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 262.37097
+offset_top = 244.40265
+offset_right = 577.371
+offset_bottom = 533.40265
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("32_ci1pj")
+theme_override_font_sizes/font_size = 32
+allow_search = false
+item_count = 8
+item_0/text = "English"
+item_1/text = "Español"
+item_2/text = "Русский"
+item_3/text = "Português"
+item_4/text = "Deutsch"
+item_5/text = "日本語"
+item_6/text = "Français"
+item_7/text = "Polski"
+
+[node name="background2" type="Sprite2D" parent="canvas/hud/pause/language"]
+modulate = Color(0.084, 0.123, 0.24, 1)
+position = Vector2(924.29236, 360.1823)
+rotation = -3.1415882
+scale = Vector2(0.5057294, 0.6286162)
+texture = ExtResource("95_37eu1")
+
+[node name="translationwarning" type="Label" parent="canvas/hud/pause/language"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 759.29236
+offset_top = 276.1823
+offset_right = 1054.2924
+offset_bottom = 407.1823
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayt4i")
+theme_override_fonts/font = ExtResource("32_ci1pj")
+theme_override_font_sizes/font_size = 24
+text = "Translations are made with Google Translate"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="shortcuts" type="Control" parent="canvas/hud/pause"]
 visible = false
@@ -6120,8 +6281,8 @@ theme = ExtResource("6_ayt4i")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
 theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 10
 theme_override_fonts/normal_font = ExtResource("32_ci1pj")
 theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
@@ -6150,7 +6311,6 @@ offset_bottom = 40.0
 script = ExtResource("79_f317l")
 
 [node name="stopmouse" type="Control" parent="canvas/hud/cosmetics"]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
 offset_top = -1.0
@@ -6341,9 +6501,9 @@ offset_left = 69.0
 offset_top = 169.0
 offset_right = 237.0
 offset_bottom = 329.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
 text_overrun_behavior = 4
 
 [node name="right" type="Button" parent="canvas/hud/cosmetics/text"]
@@ -6352,9 +6512,9 @@ offset_left = 445.0
 offset_top = 169.0
 offset_right = 612.0
 offset_bottom = 329.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
 text_overrun_behavior = 4
 
 [node name="lefttext" type="Label" parent="canvas/hud/cosmetics/text"]
@@ -6648,7 +6808,6 @@ offset_bottom = 40.0
 script = ExtResource("197_31js7")
 
 [node name="stopmouse" type="Control" parent="canvas/hud/outfits"]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
 offset_top = -1.0
@@ -6736,9 +6895,9 @@ offset_left = 659.0
 offset_top = 525.0
 offset_right = 832.0
 offset_bottom = 702.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
 text_overrun_behavior = 4
 
 [node name="colorbuttons" type="Label" parent="canvas/hud/outfits/text"]
@@ -6772,9 +6931,9 @@ offset_left = 151.0
 offset_top = 298.0
 offset_right = 245.0
 offset_bottom = 390.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
 text_overrun_behavior = 4
 
 [node name="label" type="Label" parent="canvas/hud/outfits/text/colorleft"]
@@ -6794,9 +6953,9 @@ offset_left = 413.0
 offset_top = 306.0
 offset_right = 510.0
 offset_bottom = 392.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
 text_overrun_behavior = 4
 
 [node name="label" type="Label" parent="canvas/hud/outfits/text/colorright"]
@@ -6816,9 +6975,9 @@ offset_left = 1079.0
 offset_top = 528.0
 offset_right = 1252.0
 offset_bottom = 705.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eovqa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kohd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ivr7d")
 text_overrun_behavior = 4
 
 [node name="Save" type="Button" parent="canvas/hud/outfits/text"]
@@ -7147,6 +7306,7 @@ Achievements and cloud saves will not work,
 please run the game through steam.
 Press x to ignore."
 vertical_alignment = 2
+autowrap_mode = 1
 
 [node name="steamoverlay" type="Label" parent="canvas/hud"]
 process_mode = 3
@@ -7174,6 +7334,15 @@ texture = ExtResource("249_nkmqd")
 libraries = {
 &"": SubResource("AnimationLibrary_piefl")
 }
+
+[node name="peakpreformanceoverlay" type="Sprite2D" parent="canvas/hud"]
+visible = false
+texture = ExtResource("308_ecwfn")
+centered = false
+
+[node name="peaktimer" type="Timer" parent="canvas/hud/peakpreformanceoverlay"]
+wait_time = 4.0
+one_shot = true
 
 [node name="transition" type="Timer" parent="."]
 
@@ -7265,6 +7434,9 @@ force_native = true
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Quit" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/pause/text/Language" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/pause/text/Language" to="." method="_on_language_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/text/Language" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/text/Difficulty" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/text/Difficulty" to="canvas/hud/pause" method="_on_difficulty_pressed"]
@@ -7287,14 +7459,18 @@ force_native = true
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/options/Shortcuts" to="." method="anybutton"]
 [connection signal="mouse_entered" from="canvas/hud/pause/options/optionsBack" to="." method="anybuttonfocus"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/options/optionsBack" to="." method="_on_options_back_pressed"]
+[connection signal="mouse_entered" from="canvas/hud/pause/language/Language" to="." method="anybuttonfocus"]
+[connection signal="pressed" from="canvas/hud/pause/language/Language" to="." method="_on_language_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/language/Language" to="." method="anybutton"]
+[connection signal="item_selected" from="canvas/hud/pause/language/LangList" to="." method="_on_lang_list_item_selected"]
 [connection signal="mouse_entered" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybuttonfocus"]
-[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="_on_shortcuts_pressed"]
+[connection signal="pressed" from="canvas/hud/pause/shortcuts/Shortcuts" to="." method="anybutton"]
 [connection signal="timeout" from="canvas/hud/skeletimer" to="." method="_on_skeletimer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/transitionin" to="." method="_on_transitionin_animation_finished"]
 [connection signal="animation_finished" from="canvas/hud/cosmetics/cosmeticbg" to="canvas/hud/cosmetics" method="_on_cosmeticbg_animation_finished"]
@@ -7359,6 +7535,7 @@ force_native = true
 [connection signal="text_changed" from="canvas/hud/outfits/textedit" to="canvas/hud/outfits" method="_on_textedit_text_changed"]
 [connection signal="timeout" from="canvas/hud/antipiracygag/timer" to="canvas/hud/antipiracygag" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="canvas/hud/antipiracygag/anim" to="canvas/hud/antipiracygag" method="_on_anim_animation_finished"]
+[connection signal="timeout" from="canvas/hud/peakpreformanceoverlay/peaktimer" to="." method="_on_peaktimer_timeout"]
 [connection signal="timeout" from="outlineshadertimer" to="." method="_on_outlineshadertimer_timeout"]
 [connection signal="timeout" from="qualityupdate" to="." method="_on_qualityupdate_timeout"]
 [connection signal="canceled" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]

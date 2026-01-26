@@ -3,6 +3,19 @@ var alpha = 0
 var isin = true
 var musicplace = 0
 var dontplay = false
+@onready var texts = [$text/Label, $text/Resume, $text/Restart, $text/Lobby, $text/Options, $text/Quit, $options/Label2, $options/Masterlabel, $options/Musiclabel, $options/Sensitivitylabel, $options/Fullscreen, $options/Shortcuts, $options/optionsBack, $shortcuts/Shortcuts]
+var textsizes = []
+
+func _ready() -> void:
+	for i in range(texts.size()):
+		textsizes.append(texts[i].size.x)
+	
+func updatelanguage():
+	for i in range(texts.size()):
+		if i == 0: $"../../..".shrinktext(texts[i], textsizes[i], 121)
+		elif i == 2: $"../../..".shrinktext(texts[i], textsizes[i], 54)
+		elif i == 6: $"../../..".shrinktext(texts[i], textsizes[i], 121)
+		else: $"../../..".shrinktext(texts[i], textsizes[i], 64)
 
 func _process(delta):
 	if isin:
@@ -59,6 +72,7 @@ func _on_pausebg_animation_finished():
 			$"../../..".save_game()
 			$"../../.."._on_options_back_pressed(false)
 			$shortcuts.hide()
+			$language.hide()
 
 func _on_lobby_pressed():
 	_on_resume_pressed(false)
