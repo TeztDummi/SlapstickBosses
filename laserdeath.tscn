@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dfjwwlcq00xf0"]
+[gd_scene format=3 uid="uid://dfjwwlcq00xf0"]
 
 [ext_resource type="Script" uid="uid://dtt30iskax5bx" path="res://laserdeath.gd" id="1_0wsx7"]
 [ext_resource type="Texture2D" uid="uid://c0nj83h4o1p72" path="res://addons/kenney_particle_pack/smoke_01.png" id="2_e1bg2"]
@@ -173,10 +173,13 @@ transparency = 1
 shading_mode = 0
 albedo_color = Color(0.407843, 0.407843, 0.407843, 0.572549)
 
-[node name="laserdeath" type="Node3D"]
+[node name="laserdeath" type="Node3D" unique_id=959638642]
 script = ExtResource("1_0wsx7")
 
-[node name="particles" type="GPUParticles3D" parent="."]
+[node name="focus" type="Marker3D" parent="." unique_id=1032632798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="particles" type="GPUParticles3D" parent="." unique_id=479217247]
 emitting = false
 amount = 500
 one_shot = true
@@ -184,23 +187,21 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_1juq7")
 draw_pass_1 = SubResource("PlaneMesh_cfvtj")
 
-[node name="ashpile" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.30077e-08, 0, 0.694544, 0, 0.586614, 0, -0.526355, 0, -3.03595e-08, 0, 0, 0)
+[node name="ashpile" type="MeshInstance3D" parent="." unique_id=1001266201]
+transform = Transform3D(-2.300771e-08, 0, 0.694544, 0, 0.586614, 0, -0.526355, 0, -3.0359484e-08, 0, 0, 0)
 mesh = ExtResource("3_j4roo")
 surface_material_override/0 = SubResource("StandardMaterial3D_6qk52")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_2ul6i")
-}
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=394987895]
+libraries/ = SubResource("AnimationLibrary_2ul6i")
+autoplay = &"default"
 
-[node name="Smoke" type="MeshInstance3D" parent="."]
+[node name="Smoke" type="MeshInstance3D" parent="." unique_id=1812644491]
 transform = Transform3D(0.412048, 0, 0, 0, 0.412048, 0, 0, 0, 0.412048, 0, 0.455219, 0)
 mesh = ExtResource("5_7p145")
 surface_material_override/0 = SubResource("StandardMaterial3D_n4ms3")
 
-[node name="floordetect" type="RayCast3D" parent="."]
+[node name="floordetect" type="RayCast3D" parent="." unique_id=458053506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, -1000, 0)
 debug_shape_custom_color = Color(1, 0.966667, 0.5, 1)

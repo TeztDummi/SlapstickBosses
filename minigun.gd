@@ -40,11 +40,18 @@ func shootbullet():
 	var collision = $raycast.get_collider()
 	var pos = $raycast.get_collision_point()
 	var normal = $raycast.get_collision_normal()
-	
-	var bullet = load("res://bullet.tscn").instantiate()
+	var path = "res://bullet.tscn"
+	ResourceLoader.load_threaded_request(path)
+	var progress = []
+	ResourceLoader.load_threaded_get_status(path, progress)
+	var bullet
+	if progress[0] == 1:
+		bullet = ResourceLoader.load_threaded_get(path).instantiate()
+	else:
+		bullet = load(path).instantiate()
 	$body/shootfrom.look_at_from_position($body/shootfrom.global_position, pos)
 	bullet.rotation = $body/shootfrom.global_rotation
-	bullet.rotation.x *= 2.2
+	#bullet.rotation.x *= 2.2
 	print($body/shootfrom.global_rotation.x)
 	bullet.position = $body/shootfrom.global_position
 	bullet.scale *= 0.1

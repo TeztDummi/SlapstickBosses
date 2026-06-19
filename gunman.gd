@@ -36,10 +36,13 @@ func _ready():
 	$"../../canvas/hud/gunmanbossbar".value = health
 	$"../../canvas/hud/gunmanbossbar/healthlabel".text = str(round(health))
 	$"../../canvas/hud/gunmanbossbar".tint_progress = Color.from_hsv(health*0.003*(100/$"../../canvas/hud/gunmanbossbar".max_value), 0.5, 1)
-	$anim.play("intro")
 	$"../../music".stop()
-	$introcam.current = true
 	turntoplayer = false
+	if $"../../".restarted != 1:
+		$anim.play("intro")
+		$introcam.current = true
+	else:
+		_on_anim_animation_finished("intro")
 	
 	if chal == "gunmanfast":
 		$".".scale *= 0.5
@@ -196,13 +199,13 @@ func shotgunshoot(slower = false):
 	print(randf())
 	if chal == "gunmanrockets" && randf() <= rocketchance*4:
 		for i in range(range):
-			var bullet = load("res://gunmanrocket.tscn").instantiate()
+			var bullet = backload("res://gunmanrocket.tscn").instantiate()
 			bullet.rotation = Vector3(-PI/2,0,0)
 			bullet.position = $gunman/torso/shotgun/shotgun/shotgun/Node3D/bullets.global_position
 			$"../".add_child(bullet)
 	else:
 		for i in range(range):
-			var bullet = load("res://bullet.tscn").instantiate()
+			var bullet = backload("res://bullet.tscn").instantiate()
 			bullet.rotation = $gunman/torso/shotgun.global_rotation
 			if health <= 50:
 				bullet.rotation.x *= 2.2
@@ -228,51 +231,57 @@ func smgshoot():
 	
 	if chal == "gunmanrockets" && randf() <= rocketchance/2:
 		for i in range(range):
-			var bullet = load("res://gunmanrocket.tscn").instantiate()
+			var bullet = backload("res://bullet.tscn").instantiate()
 			bullet.rotation = Vector3(-PI/2,0,0)
 			bullet.position = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_position
 			$"../".add_child(bullet)
 	else:
 		for i in range(range):
-			var path = "res://bullet.tscn"
-			ResourceLoader.load_threaded_request(path)
-			
-			var progress = []
-			ResourceLoader.load_threaded_get_status(path, progress)
-			if progress[0] == 1:
-				var bullet = ResourceLoader.load_threaded_get(path).instantiate()
-				bullet.rotation = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_rotation
-				bullet.rotation.x *= 2.2
-				if health <= 50:
-					bullet.rotation_degrees.y += ((i+1)-range/2)*360*(1/range)
-				else:
-					bullet.rotation_degrees.y += (i-0.5)*randf_range(5, 20)
-					
-				if randf() < 0.5:
-					bullet.rotation.y = atan2(player.position.x-global_position.x, player.position.z-global_position.z)+PI+randf_range(-PI/8, PI/8)
-				bullet.scale *= 0.2
-				bullet.position = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_position
-				if diff == 0:
-					bullet.damagemult = easydmg
-					bullet.speed *= easyspeed
-				if diff == 2:
-					bullet.damagemult = harddmg
-					bullet.speed *= hardspeed
-				if chal == "gunmanfast": bullet.scale *= 0.75
-				$"../".add_child(bullet)
+			var bullet = backload("res://bullet.tscn").instantiate()
+			bullet.rotation = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_rotation
+			bullet.rotation.x *= 2.2
+			if health <= 50:
+				bullet.rotation_degrees.y += ((i+1)-range/2)*360*(1/range)
+			else:
+				bullet.rotation_degrees.y += (i-0.5)*randf_range(5, 20)
+				
+			if randf() < 0.5:
+				bullet.rotation.y = atan2(player.position.x-global_position.x, player.position.z-global_position.z)+PI+randf_range(-PI/8, PI/8)
+			bullet.scale *= 0.2
+			bullet.position = $gunman/torso/smgarm/Armature/Skeleton3D/Vert_001/smgbullets.global_position
+			if diff == 0:
+				bullet.damagemult = easydmg
+				bullet.speed *= easyspeed
+			if diff == 2:
+				bullet.damagemult = harddmg
+				bullet.speed *= hardspeed
+			if chal == "gunmanfast": bullet.scale *= 0.75
+			$"../".add_child(bullet)
+				
+func backload(path):
+	ResourceLoader.load_threaded_request(path)
+	var progress = []
+	ResourceLoader.load_threaded_get_status(path, progress)
+	var obj
+	if progress[0] == 1:
+		obj = ResourceLoader.load_threaded_get(path)
+	else:
+		obj = load(path)
+	return obj
+	
 				
 func shootrocket(rocket):
 	var target = get_node(rocket)
-	var bullet = load("res://gunmanrocket.tscn").instantiate()
-	bullet.rotation = target.global_rotation
+	var bullet = backload("res://gunmanrocket.tscn").instantiate()
+	bullet.rotation = Vector3(-PI/2,0,0)
 	bullet.position = target.global_position
 	$"../".add_child(bullet)
 	
 func snipershoot():
 	player.screenshake += 0.1
-	var bullet = load("res://sniperbullet.tscn").instantiate()
-	bullet.rotation = $gunman/torso/head/sniper/Cylinder_001/Cylinder_002/snipershoot.global_rotation
-	bullet.rotation_degrees.y += 180
+	var bullet = backload("res://sniperbullet.tscn").instantiate()
+	bullet.rotation = $gunman/torso/head.global_rotation
+	#bullet.rotation_degrees.y += 180
 	bullet.scale *= 1
 	bullet.position = $gunman/torso/head/sniper/Cylinder_001/Cylinder_002/snipershoot.global_position
 	bullet.speed = 150

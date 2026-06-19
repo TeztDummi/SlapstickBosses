@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://c04iet5vwwk57"]
+[gd_scene format=4 uid="uid://c04iet5vwwk57"]
 
 [ext_resource type="Script" uid="uid://b1copu1eorxvf" path="res://kittyblaster9000.gd" id="1_erlcf"]
 [ext_resource type="Texture2D" uid="uid://c8lhwpf56qw2i" path="res://kittyblaster9000_kittyblasterdecal.png" id="1_rbu8q"]
@@ -469,18 +469,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="kittyblaster9000" type="Marker3D"]
-transform = Transform3D(-2.33489e-06, 2.81939e-08, 0.645, 3.52389e-15, 0.645, -2.81939e-08, -0.645, -9.85376e-14, -2.33489e-06, 0.315, -0.23, -0.39)
+[node name="kittyblaster9000" type="Marker3D" unique_id=259950526]
+transform = Transform3D(-2.3348937e-06, 2.819385e-08, 0.645, 3.523893e-15, 0.645, -2.819385e-08, -0.645, -9.853757e-14, -2.3348937e-06, 0.315, -0.23, -0.39)
 script = ExtResource("1_erlcf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1662181027]
 transform = Transform3D(1, -1.35525e-20, -4.54747e-13, 4.06576e-20, 1, 3.55327e-15, 4.54747e-13, -3.55216e-15, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_16igt")
 
-[node name="kb9kparticlespivot" type="Marker3D" parent="."]
+[node name="kb9kparticlespivot" type="Marker3D" parent="." unique_id=1857220968]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.485031, 0.196217, 0)
 
-[node name="kb9kparticles" type="GPUParticles3D" parent="kb9kparticlespivot"]
+[node name="kb9kparticles" type="GPUParticles3D" parent="kb9kparticlespivot" unique_id=1796011420]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -50)
 emitting = false
 amount = 500
@@ -491,20 +491,18 @@ visibility_aabb = AABB(-50, -4, -4, 100, 8, 8)
 process_material = SubResource("ParticleProcessMaterial_1pnjj")
 draw_pass_1 = SubResource("PlaneMesh_sjltt")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_swrxy")
-}
-autoplay = "intro"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=241170062]
+libraries/ = SubResource("AnimationLibrary_swrxy")
+autoplay = &"intro"
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=1032338750]
 stream = ExtResource("4_uyo2i")
 volume_db = -27.0
 
-[node name="pivot" type="Marker3D" parent="."]
+[node name="pivot" type="Marker3D" parent="." unique_id=889509346]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.485031, 0.196217, 0)
 
-[node name="electricity" type="GPUParticles3D" parent="pivot"]
+[node name="electricity" type="GPUParticles3D" parent="pivot" unique_id=2052801382]
 transform = Transform3D(1, 0, 4.54747e-13, 0, 1, 0, 0, 0, 1, -0.0488113, -0.000998631, -1.78814e-07)
 emitting = false
 amount = 1
@@ -514,12 +512,12 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7irpu")
 draw_pass_1 = SubResource("ArrayMesh_36cyg")
 
-[node name="light" type="OmniLight3D" parent="pivot"]
+[node name="light" type="OmniLight3D" parent="pivot" unique_id=1986013211]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067397, 0.00109123, 2.05636e-06)
 light_color = Color(1, 0, 1, 1)
 light_energy = 0.0
 
-[node name="shot" type="AnimatedSprite3D" parent="pivot"]
+[node name="shot" type="AnimatedSprite3D" parent="pivot" unique_id=1329618744]
 transform = Transform3D(-3.43087e-09, 0, -0.0999999, 0, 0.1, 0, 0.0784914, 0, -4.371e-09, 0, 0, 0)
 modulate = Color(1, 0.407843, 1, 1)
 sprite_frames = SubResource("SpriteFrames_y4epv")

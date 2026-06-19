@@ -250,8 +250,8 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 		
 		player.health = 100
 		
-		$"../../canvas/hud/bossbar".show()
-		$"../../canvas/hud/bossbar".max_value = health
+		$"../../canvas/hud/sodaboxbossbar".show()
+		$"../../canvas/hud/sodaboxbossbar".max_value = health
 		hurt(0)
 		
 		$"../../music".stream = load("res://audio/music/factoryescapespicy.mp3")
@@ -440,17 +440,16 @@ func hurt(amount):
 			
 			
 			dead = true
-			$"../../canvas/hud/bossbar".hide()
+			$"../../canvas/hud/sodaboxbossbar".hide()
 			
 			for child in get_parent().get_children():
 				if child.is_in_group("sodacan"):
 					child.queue_free()
 	else:
-		var maxhealth = $"../../canvas/hud/bossbar".max_value
+		var maxhealth = $"../../canvas/hud/sodaboxbossbar".max_value
 		
 		wetnoise.color_ramp.set_offset(0, ((health/maxhealth)*0.5)+0.4)
 		wetnoise.color_ramp.set_offset(1, ((health/maxhealth)*0.5)+0.5)
 		
-		$"../../canvas/hud/bossbar".value = health
-		$"../../canvas/hud/bossbar"/healthlabel.text = str(int(round(health)))
-		$"../../canvas/hud/bossbar".tint_progress = Color.from_hsv(health*0.003*(100/maxhealth), 0.5, 1)
+		$"../../canvas/hud/sodaboxbossbar".value = health
+		$"../../canvas/hud/sodaboxbossbar"/healthlabel.text = str(int(round(health)))

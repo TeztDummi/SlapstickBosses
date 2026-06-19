@@ -4,8 +4,8 @@ var hitdelay = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	ResourceLoader.load_threaded_request("res://shootparticlelaser.tscn")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,13 +19,17 @@ func shoot(raycast):
 			var collision = raycast.get_collider()
 			var pos = raycast.get_collision_point()
 			var normal = raycast.get_collision_normal()
-			var particle = load("res://shootparticlelaser.tscn").instantiate()
-			particle.position = pos
-			particle.look_at_from_position(raycast.get_collision_point(), raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
-			particle.get_node("dent").hide()
-			if collision.is_in_group("cat"):
-				particle.get_node("blud").show()
-			$"../../../../map".add_child(particle)
+			
+			var progress = []
+			ResourceLoader.load_threaded_get_status("res://shootparticlelaser.tscn", progress)
+			if progress[0] == 1:
+				var particle = ResourceLoader.load_threaded_get("res://shootparticlelaser.tscn").instantiate()
+				particle.position = pos
+				particle.look_at_from_position(raycast.get_collision_point(), raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
+				particle.get_node("dent").hide()
+				if collision.is_in_group("cat"):
+					particle.get_node("blud").show()
+				$"../../../../map".add_child(particle)
 			
 			$kb9kparticlespivot.look_at(pos, Vector3.UP)
 			$kb9kparticlespivot/kb9kparticles.emitting = true

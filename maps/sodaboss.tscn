@@ -1,4 +1,4 @@
-[gd_scene load_steps=272 format=4 uid="uid://fma1f25dg448"]
+[gd_scene format=4 uid="uid://fma1f25dg448"]
 
 [ext_resource type="Script" uid="uid://oc80lfbaoc8u" path="res://maps/sodaboss.gd" id="1_8oicj"]
 [ext_resource type="Texture2D" uid="uid://bj02w0j2h5vf5" path="res://textures/concrete/Concrete031_2K-JPG_Color.jpg" id="3_0mj7x"]
@@ -5800,52 +5800,52 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_aqiw5")
 orientation = 2
 
-[node name="sodaboss" type="Node3D"]
+[node name="sodaboss" type="Node3D" unique_id=377103169]
 script = ExtResource("1_8oicj")
 
-[node name="sodaboss" type="Marker3D" parent="."]
+[node name="sodaboss" type="Marker3D" parent="." unique_id=1428290521]
 editor_description = "Escaping a collapsing soda factory"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=669439623]
 transform = Transform3D(1, 0, 0, 0, -7.00355e-07, 1, 0, -1, -7.15256e-07, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1456636358]
 environment = SubResource("Environment_3anqi")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=8756198]
 wait_time = 0.1
 autostart = true
 
-[node name="startdelay" type="Timer" parent="."]
+[node name="startdelay" type="Timer" parent="." unique_id=586798093]
 wait_time = 0.5
 one_shot = true
 autostart = true
 
-[node name="startroomfiller" parent="." instance=ExtResource("3_g8n82")]
+[node name="startroomfiller" parent="." unique_id=1125858120 instance=ExtResource("3_g8n82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
-[node name="end" type="Marker3D" parent="."]
+[node name="end" type="Marker3D" parent="." unique_id=1237314428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
-[node name="room" type="MeshInstance3D" parent="."]
+[node name="room" type="MeshInstance3D" parent="." unique_id=2022406667]
 transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 8, 0, 0, 0)
 mesh = SubResource("ArrayMesh_l4mu5")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ovogv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="room"]
+[node name="StaticBody3D" type="StaticBody3D" parent="room" unique_id=1773562746]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="room/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room/StaticBody3D" unique_id=1984865962]
 shape = SubResource("ConcavePolygonShape3D_77b06")
 debug_color = Color(0, 0.6, 0.701961, 0.286275)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="room/StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="room/StaticBody3D" unique_id=1115196739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160034, 0.84256, -1.4375)
 shape = SubResource("BoxShape3D_jdrcn")
 debug_color = Color(0, 0.6, 0.701961, 0.12549)
 
-[node name="mixingstation" type="MeshInstance3D" parent="."]
+[node name="mixingstation" type="MeshInstance3D" parent="." unique_id=2094605969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8, 0, 1)
 mesh = SubResource("ArrayMesh_7uvrr")
 skeleton = NodePath("")
@@ -5855,13 +5855,13 @@ surface_material_override/2 = SubResource("ShaderMaterial_68yiy")
 surface_material_override/3 = SubResource("StandardMaterial3D_xwx5p")
 surface_material_override/4 = SubResource("StandardMaterial3D_8fg3b")
 
-[node name="mixingpipes" type="MeshInstance3D" parent="mixingstation"]
+[node name="mixingpipes" type="MeshInstance3D" parent="mixingstation" unique_id=1448094486]
 transform = Transform3D(0.385962, 0, 0, 0, 0, 0.385962, 0, -0.385962, 0, -0.4, 3.87915, -2)
 mesh = SubResource("ArrayMesh_crg0d")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tenrf")
 
-[node name="particles" type="GPUParticles3D" parent="mixingstation"]
+[node name="particles" type="GPUParticles3D" parent="mixingstation" unique_id=1365399942]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 3.55271e-15, -1, 0, -4.37114e-08, -1.13182, 0.725855, 0)
 amount = 1000
 lifetime = 1.5
@@ -5869,18 +5869,18 @@ speed_scale = 2.0
 process_material = SubResource("ParticleProcessMaterial_f57x7")
 draw_pass_1 = SubResource("PlaneMesh_wbhwv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="mixingstation"]
+[node name="StaticBody3D" type="StaticBody3D" parent="mixingstation" unique_id=1640543788]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mixingstation/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mixingstation/StaticBody3D" unique_id=1272503388]
 shape = SubResource("ConcavePolygonShape3D_7monm")
 debug_color = Color(0, 0.6, 0.701961, 0.0588235)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="mixingstation/StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="mixingstation/StaticBody3D" unique_id=236350852]
 transform = Transform3D(0.385962, 0, 0, 0, 0, 0.385962, 0, -0.385962, 0, -0.4, 3.87915, -2)
 shape = SubResource("ConcavePolygonShape3D_y7swh")
 debug_color = Color(0, 0.6, 0.701961, 0.0588235)
 
-[node name="particles2" type="GPUParticles3D" parent="mixingstation"]
+[node name="particles2" type="GPUParticles3D" parent="mixingstation" unique_id=92023116]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 3.55271e-15, -1, 0, -4.37114e-08, -1.13182, 0.725855, 0)
 emitting = false
 amount = 5000
@@ -5890,501 +5890,495 @@ visibility_aabb = AABB(-7.555, -4, -4, 17.34, 11.925, 20.515)
 process_material = SubResource("ParticleProcessMaterial_ficjt")
 draw_pass_1 = SubResource("PlaneMesh_7monm")
 
-[node name="seam" type="MeshInstance3D" parent="."]
+[node name="seam" type="MeshInstance3D" parent="." unique_id=1299807140]
 transform = Transform3D(-0.875, 1.32121e-07, 0, -1.32121e-07, -0.875, 0, 0, 0, 0.875, -6.84884, 0, 5.97148)
 mesh = SubResource("ArrayMesh_kwafc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_snp8t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="seam"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="seam" unique_id=1953978408]
 transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, 0, 0, 0)
 mesh = SubResource("SphereMesh_k44qe")
 surface_material_override/0 = SubResource("StandardMaterial3D_5mknm")
 
-[node name="seam4" type="MeshInstance3D" parent="."]
+[node name="seam4" type="MeshInstance3D" parent="." unique_id=867192321]
 transform = Transform3D(-1.53653, 2.3201e-07, 0, -2.3201e-07, -1.53653, 0, 0, 0, 1.53653, -6.84884, 0, 3.97148)
 mesh = SubResource("ArrayMesh_kwafc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_snp8t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="seam4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="seam4" unique_id=603774405]
 transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, 0, 0, 0)
 mesh = SubResource("SphereMesh_k44qe")
 surface_material_override/0 = SubResource("StandardMaterial3D_5mknm")
 
-[node name="seam5" type="MeshInstance3D" parent="."]
+[node name="seam5" type="MeshInstance3D" parent="." unique_id=1670689863]
 transform = Transform3D(-0.93158, 1.40665e-07, 0, -1.40665e-07, -0.93158, 0, 0, 0, 0.93158, -7.41444, 0, 1.61225)
 mesh = SubResource("ArrayMesh_kwafc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_snp8t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="seam5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="seam5" unique_id=572702213]
 transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, 0, 0, 0)
 mesh = SubResource("SphereMesh_k44qe")
 surface_material_override/0 = SubResource("StandardMaterial3D_5mknm")
 
-[node name="seam6" type="MeshInstance3D" parent="."]
+[node name="seam6" type="MeshInstance3D" parent="." unique_id=1127730804]
 transform = Transform3D(-0.537101, 8.11001e-08, 0, -8.11001e-08, -0.537101, 0, 0, 0, 0.537101, -6.36176, 0, 0.511857)
 mesh = SubResource("ArrayMesh_kwafc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_snp8t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="seam6"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="seam6" unique_id=705492606]
 transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, 0, 0, 0)
 mesh = SubResource("SphereMesh_k44qe")
 surface_material_override/0 = SubResource("StandardMaterial3D_5mknm")
 
-[node name="seam2" type="MeshInstance3D" parent="."]
+[node name="seam2" type="MeshInstance3D" parent="." unique_id=1811651841]
 transform = Transform3D(-0.57854, 8.73571e-08, 0, -8.73571e-08, -0.57854, 0, 0, 0, 0.57854, -7.19575, 0, -3.00641)
 mesh = SubResource("ArrayMesh_kwafc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_snp8t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="seam2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="seam2" unique_id=709932681]
 transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, 0, 0, 0)
 mesh = SubResource("SphereMesh_k44qe")
 surface_material_override/0 = SubResource("StandardMaterial3D_5mknm")
 
-[node name="seam3" type="MeshInstance3D" parent="."]
+[node name="seam3" type="MeshInstance3D" parent="." unique_id=2015994285]
 transform = Transform3D(-0.455337, 6.8754e-08, 0, -6.8754e-08, -0.455337, 0, 0, 0, 0.455337, -6.43169, 0, -2.34913)
 mesh = SubResource("ArrayMesh_kwafc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_snp8t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="seam3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="seam3" unique_id=1111266110]
 transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, 0, 0, 0)
 mesh = SubResource("SphereMesh_k44qe")
 surface_material_override/0 = SubResource("StandardMaterial3D_5mknm")
 
-[node name="mixingstationtrigger" type="StaticBody3D" parent="."]
+[node name="mixingstationtrigger" type="StaticBody3D" parent="." unique_id=855323748]
 transform = Transform3D(0.872103, 0.489322, 0, -0.489322, 0.872103, 0, 0, 0, 1, -4.93387, 1.79411, 4)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mixingstationtrigger"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mixingstationtrigger" unique_id=1626732854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43051e-06, 0.0447699, 0)
 shape = SubResource("CylinderShape3D_68yiy")
 debug_color = Color(0, 0.595, 0.7, 0.247059)
 
-[node name="brokenwallfill" type="MeshInstance3D" parent="."]
+[node name="brokenwallfill" type="MeshInstance3D" parent="." unique_id=699425555]
 transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 8, 0, 0, 0)
 mesh = SubResource("ArrayMesh_xwx5p")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_44ccj")
 
-[node name="brokenwall" type="MeshInstance3D" parent="."]
+[node name="brokenwall" type="MeshInstance3D" parent="." unique_id=538784880]
 transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 8, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vxrpf")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_k06fi")
 
-[node name="outside" type="MeshInstance3D" parent="."]
+[node name="outside" type="MeshInstance3D" parent="." unique_id=1312676787]
 transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 8, 0, 0, -16)
 mesh = SubResource("ArrayMesh_ay0ao")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_iaa5f")
 
-[node name="cell" type="MeshInstance3D" parent="."]
+[node name="cell" type="MeshInstance3D" parent="." unique_id=22575557]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 1.78098, 0.420847, -7.75)
 mesh = SubResource("ArrayMesh_tenrf")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_001" type="MeshInstance3D" parent="."]
+[node name="cell_001" type="MeshInstance3D" parent="." unique_id=1343613284]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -6.23664, 0.581323, -7.75)
 mesh = SubResource("ArrayMesh_skcyv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_002" type="MeshInstance3D" parent="."]
+[node name="cell_002" type="MeshInstance3D" parent="." unique_id=1966062350]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -4.63338, 5.51924, -7.76711)
 mesh = SubResource("ArrayMesh_fprgf")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_003" type="MeshInstance3D" parent="."]
+[node name="cell_003" type="MeshInstance3D" parent="." unique_id=403925550]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -1.80613, 3.55203, -7.78207)
 mesh = SubResource("ArrayMesh_8wnbc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_004" type="MeshInstance3D" parent="."]
+[node name="cell_004" type="MeshInstance3D" parent="." unique_id=1122053401]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -5.89449, 3.80254, -7.71617)
 mesh = SubResource("ArrayMesh_njqee")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_005" type="MeshInstance3D" parent="."]
+[node name="cell_005" type="MeshInstance3D" parent="." unique_id=1205720779]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -6.45757, 6.54805, -7.71186)
 mesh = SubResource("ArrayMesh_ficjt")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_006" type="MeshInstance3D" parent="."]
+[node name="cell_006" type="MeshInstance3D" parent="." unique_id=229208594]
 transform = Transform3D(0.952377, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 0.484305, 2.06528, -7.78794)
 mesh = SubResource("ArrayMesh_7monm")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_007" type="MeshInstance3D" parent="."]
+[node name="cell_007" type="MeshInstance3D" parent="." unique_id=1324849372]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 0.0081408, 7.05865, -7.72498)
 mesh = SubResource("ArrayMesh_y7swh")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_008" type="MeshInstance3D" parent="."]
+[node name="cell_008" type="MeshInstance3D" parent="." unique_id=417923691]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 1.117, 4.71555, -7.75234)
 mesh = SubResource("ArrayMesh_68yiy")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_009" type="MeshInstance3D" parent="."]
+[node name="cell_009" type="MeshInstance3D" parent="." unique_id=541371921]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 3.10965, 5.45308, -7.72141)
 mesh = SubResource("ArrayMesh_8fg3b")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_010" type="MeshInstance3D" parent="."]
+[node name="cell_010" type="MeshInstance3D" parent="." unique_id=833422436]
 transform = Transform3D(0.952377, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 0.602898, 6.61509, -7.74013)
 mesh = SubResource("ArrayMesh_m274a")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_011" type="MeshInstance3D" parent="."]
+[node name="cell_011" type="MeshInstance3D" parent="." unique_id=760195914]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 3.69505, 2.67101, -7.7522)
 mesh = SubResource("ArrayMesh_1mwdw")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_012" type="MeshInstance3D" parent="."]
+[node name="cell_012" type="MeshInstance3D" parent="." unique_id=1426888476]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 0.779048, 6.15761, -7.79408)
 mesh = SubResource("ArrayMesh_hh7m7")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_013" type="MeshInstance3D" parent="."]
+[node name="cell_013" type="MeshInstance3D" parent="." unique_id=1769794787]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952377, 0, 0, 0, 0.952378, 6.704, 0.0438901, -7.75)
 mesh = SubResource("ArrayMesh_qhosk")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_014" type="MeshInstance3D" parent="."]
+[node name="cell_014" type="MeshInstance3D" parent="." unique_id=1113350139]
 transform = Transform3D(0.952377, 0, 0, 0, 0.952378, 0, 0, 0, 0.952377, -4.20349, 2.70754, -7.76114)
 mesh = SubResource("ArrayMesh_f57x7")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_015" type="MeshInstance3D" parent="."]
+[node name="cell_015" type="MeshInstance3D" parent="." unique_id=696004538]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952377, 0, 0, 0, 0.952378, -1.57901, 6.97859, -7.76105)
 mesh = SubResource("ArrayMesh_wbhwv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_016" type="MeshInstance3D" parent="."]
+[node name="cell_016" type="MeshInstance3D" parent="." unique_id=1803390050]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -5.4085, 5.62761, -7.72884)
 mesh = SubResource("ArrayMesh_pat3k")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_017" type="MeshInstance3D" parent="."]
+[node name="cell_017" type="MeshInstance3D" parent="." unique_id=537104091]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -0.919815, 6.1705, -7.79339)
 mesh = SubResource("ArrayMesh_k680r")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_018" type="MeshInstance3D" parent="."]
+[node name="cell_018" type="MeshInstance3D" parent="." unique_id=970735064]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -1.38143, 1.26794, -7.75838)
 mesh = SubResource("ArrayMesh_jrlr1")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_019" type="MeshInstance3D" parent="."]
+[node name="cell_019" type="MeshInstance3D" parent="." unique_id=28592719]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, -2.78737, 6.8451, -7.76476)
 mesh = SubResource("ArrayMesh_2rrpr")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_020" type="MeshInstance3D" parent="."]
+[node name="cell_020" type="MeshInstance3D" parent="." unique_id=559368053]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952377, -3.14567, 5.3603, -7.73296)
 mesh = SubResource("ArrayMesh_77e4m")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_021" type="MeshInstance3D" parent="."]
+[node name="cell_021" type="MeshInstance3D" parent="." unique_id=95910611]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 2.86345, 7.05641, -7.74954)
 mesh = SubResource("ArrayMesh_ikgt4")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_022" type="MeshInstance3D" parent="."]
+[node name="cell_022" type="MeshInstance3D" parent="." unique_id=951242153]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 1.91796, 2.07258, -7.99611)
 mesh = SubResource("ArrayMesh_linha")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_023" type="MeshInstance3D" parent="."]
+[node name="cell_023" type="MeshInstance3D" parent="." unique_id=9303230]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 5.25971, 4.81106, -7.75)
 mesh = SubResource("ArrayMesh_aqiw5")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_024" type="MeshInstance3D" parent="."]
+[node name="cell_024" type="MeshInstance3D" parent="." unique_id=698538788]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 4.95066, 1.52852, -7.86137)
 mesh = SubResource("ArrayMesh_v10xi")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_025" type="MeshInstance3D" parent="."]
+[node name="cell_025" type="MeshInstance3D" parent="." unique_id=1757430002]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 5.64468, 1.31815, -7.73984)
 mesh = SubResource("ArrayMesh_6j4bm")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_026" type="MeshInstance3D" parent="."]
+[node name="cell_026" type="MeshInstance3D" parent="." unique_id=1192315880]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 3.37431, 0.831638, -7.73716)
 mesh = SubResource("ArrayMesh_dankd")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_027" type="MeshInstance3D" parent="."]
+[node name="cell_027" type="MeshInstance3D" parent="." unique_id=1837508311]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 2.37954, 6.98161, -7.80533)
 mesh = SubResource("ArrayMesh_hq1ii")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="cell_028" type="MeshInstance3D" parent="."]
+[node name="cell_028" type="MeshInstance3D" parent="." unique_id=889612264]
 transform = Transform3D(0.952378, 0, 0, 0, 0.952378, 0, 0, 0, 0.952378, 2.7484, 6.26232, -7.80717)
 mesh = SubResource("ArrayMesh_okr1s")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ib20k")
 
-[node name="small" type="MeshInstance3D" parent="."]
+[node name="small" type="MeshInstance3D" parent="." unique_id=1599678838]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 6, 9, -6)
 mesh = SubResource("ArrayMesh_k06fi")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ay0ao")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="small"]
+[node name="StaticBody3D" type="StaticBody3D" parent="small" unique_id=144983032]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="small/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="small/StaticBody3D" unique_id=976081816]
 shape = SubResource("CylinderShape3D_iaa5f")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="small2" type="MeshInstance3D" parent="."]
+[node name="small2" type="MeshInstance3D" parent="." unique_id=839290793]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 2, 9, -6)
 mesh = SubResource("ArrayMesh_k06fi")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ay0ao")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="small2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="small2" unique_id=1972215237]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="small2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="small2/StaticBody3D" unique_id=436742518]
 shape = SubResource("CylinderShape3D_iaa5f")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="small4" type="MeshInstance3D" parent="."]
+[node name="small4" type="MeshInstance3D" parent="." unique_id=1080851198]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -2, 9, -2.8533)
 mesh = SubResource("ArrayMesh_k06fi")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ay0ao")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="small4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="small4" unique_id=277132967]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="small4/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="small4/StaticBody3D" unique_id=2102946496]
 shape = SubResource("CylinderShape3D_iaa5f")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="small6" type="MeshInstance3D" parent="."]
+[node name="small6" type="MeshInstance3D" parent="." unique_id=892045129]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 2, 9, 0.146698)
 mesh = SubResource("ArrayMesh_k06fi")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ay0ao")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="small6"]
+[node name="StaticBody3D" type="StaticBody3D" parent="small6" unique_id=289028653]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="small6/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="small6/StaticBody3D" unique_id=1641514218]
 shape = SubResource("CylinderShape3D_iaa5f")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="small8" type="MeshInstance3D" parent="."]
+[node name="small8" type="MeshInstance3D" parent="." unique_id=1778255759]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -6, 9, 0.146698)
 mesh = SubResource("ArrayMesh_k06fi")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ay0ao")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="small8"]
+[node name="StaticBody3D" type="StaticBody3D" parent="small8" unique_id=1213784633]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="small8/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="small8/StaticBody3D" unique_id=556532916]
 shape = SubResource("CylinderShape3D_iaa5f")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="smallL" type="MeshInstance3D" parent="."]
+[node name="smallL" type="MeshInstance3D" parent="." unique_id=311572130]
 transform = Transform3D(0, -1, -1.62921e-07, -1, 0, -1.62921e-07, 1.62921e-07, 1.62921e-07, -1, -5, 9, -5.42)
 mesh = SubResource("ArrayMesh_b20e1")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_n84lh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="smallL"]
+[node name="StaticBody3D" type="StaticBody3D" parent="smallL" unique_id=363187881]
 transform = Transform3D(0.65, 1.01644e-20, 0, 1.01644e-20, 0.65, 0, 0, 0, 0.65, -1.62921e-08, 0.1, 0.1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL/StaticBody3D" unique_id=444909197]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.53674e-07, 4.76837e-07)
 shape = SubResource("ConcavePolygonShape3D_c2jq4")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="smallL"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="smallL" unique_id=737145990]
 transform = Transform3D(0.65, -1.05898e-07, 1.05898e-07, 1.05898e-07, -1.59033e-09, -0.65, 1.05898e-07, 0.65, -1.59032e-09, 1.43073e-07, 0.576466, -0.778176)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL/StaticBody3D2" unique_id=895730131]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, -1.42109e-14, 1.42109e-14, 1.42109e-14, 1, -2.84217e-14, 1.90735e-06, 5.96046e-07)
 shape = SubResource("CylinderShape3D_rk5aw")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="smallL"]
+[node name="StaticBody3D3" type="StaticBody3D" parent="smallL" unique_id=583798]
 transform = Transform3D(0.65, 1.85807e-14, -1.42109e-14, -2.84217e-14, 0.65, 2.68221e-08, 0, -2.68221e-08, 0.65, -1.95268e-07, -0.771503, 0.566842)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL/StaticBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL/StaticBody3D3" unique_id=2880502]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, -1.42109e-14, 1.42109e-14, 1.42109e-14, 1, -2.84217e-14, 1.90735e-06, 5.96046e-07)
 shape = SubResource("CylinderShape3D_rk5aw")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="smallL2" type="MeshInstance3D" parent="."]
+[node name="smallL2" type="MeshInstance3D" parent="." unique_id=1009068221]
 transform = Transform3D(1.62921e-07, 2.06632e-07, -1, -1, 0, -1.62921e-07, -7.1215e-15, 1, 2.06632e-07, -5, 9, -3.42)
 mesh = SubResource("ArrayMesh_b20e1")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_n84lh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="smallL2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="smallL2" unique_id=355497211]
 transform = Transform3D(0.65, 1.01644e-20, 0, 1.01644e-20, 0.65, 0, 0, 0, 0.65, -1.62921e-08, 0.1, 0.1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL2/StaticBody3D" unique_id=1893039813]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.53674e-07, 4.76837e-07)
 shape = SubResource("ConcavePolygonShape3D_c2jq4")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="smallL2"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="smallL2" unique_id=1175055487]
 transform = Transform3D(0.65, -1.05898e-07, 1.05898e-07, 1.05898e-07, -1.59033e-09, -0.65, 1.05898e-07, 0.65, -1.59032e-09, 1.43073e-07, 0.576466, -0.778176)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL2/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL2/StaticBody3D2" unique_id=319710932]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, -1.42109e-14, 1.42109e-14, 1.42109e-14, 1, -2.84217e-14, 1.90735e-06, 5.96046e-07)
 shape = SubResource("CylinderShape3D_rk5aw")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="smallL2"]
+[node name="StaticBody3D3" type="StaticBody3D" parent="smallL2" unique_id=1957787342]
 transform = Transform3D(0.65, 1.85807e-14, -1.42109e-14, -2.84217e-14, 0.65, 2.68221e-08, 0, -2.68221e-08, 0.65, -1.95268e-07, -0.771503, 0.566842)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL2/StaticBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL2/StaticBody3D3" unique_id=971790163]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, -1.42109e-14, 1.42109e-14, 1.42109e-14, 1, -2.84217e-14, 1.90735e-06, 5.96046e-07)
 shape = SubResource("CylinderShape3D_rk5aw")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="smallL3" type="MeshInstance3D" parent="."]
+[node name="smallL3" type="MeshInstance3D" parent="." unique_id=927295414]
 transform = Transform3D(-7.10543e-15, 1, 2.68221e-07, -1, 2.46386e-16, -1.62921e-07, -1.62921e-07, -2.68221e-07, 1, 5, 9, -0.42)
 mesh = SubResource("ArrayMesh_b20e1")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_n84lh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="smallL3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="smallL3" unique_id=43123068]
 transform = Transform3D(0.65, 1.01644e-20, 0, 1.01644e-20, 0.65, 0, 0, 0, 0.65, -1.62921e-08, 0.1, 0.1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL3/StaticBody3D" unique_id=1180985045]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.53674e-07, 4.76837e-07)
 shape = SubResource("ConcavePolygonShape3D_c2jq4")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="smallL3"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="smallL3" unique_id=456706890]
 transform = Transform3D(0.65, -1.05898e-07, 1.05898e-07, 1.05898e-07, -1.59033e-09, -0.65, 1.05898e-07, 0.65, -1.59032e-09, 1.43073e-07, 0.576466, -0.778176)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL3/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL3/StaticBody3D2" unique_id=2052601215]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, -1.42109e-14, 1.42109e-14, 1.42109e-14, 1, -2.84217e-14, 1.90735e-06, 5.96046e-07)
 shape = SubResource("CylinderShape3D_rk5aw")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="smallL3"]
+[node name="StaticBody3D3" type="StaticBody3D" parent="smallL3" unique_id=373257930]
 transform = Transform3D(0.65, 1.85807e-14, -1.42109e-14, -2.84217e-14, 0.65, 2.68221e-08, 0, -2.68221e-08, 0.65, -1.95268e-07, -0.771503, 0.566842)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL3/StaticBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL3/StaticBody3D3" unique_id=1936486007]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, -1.42109e-14, 1.42109e-14, 1.42109e-14, 1, -2.84217e-14, 1.90735e-06, 5.96046e-07)
 shape = SubResource("CylinderShape3D_rk5aw")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="smallL4" type="MeshInstance3D" parent="."]
+[node name="smallL4" type="MeshInstance3D" parent="." unique_id=1422109851]
 transform = Transform3D(-1.62921e-07, -2.83122e-07, 1, -1, 0, -1.62921e-07, 1.77636e-14, -1, -2.83122e-07, 5, 9, -2.42)
 mesh = SubResource("ArrayMesh_b20e1")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_n84lh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="smallL4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="smallL4" unique_id=797831274]
 transform = Transform3D(0.65, 1.01644e-20, 0, 1.01644e-20, 0.65, 0, 0, 0, 0.65, -1.62921e-08, 0.1, 0.1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL4/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL4/StaticBody3D" unique_id=1931772353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.53674e-07, 4.76837e-07)
 shape = SubResource("ConcavePolygonShape3D_c2jq4")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="smallL4"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="smallL4" unique_id=150891802]
 transform = Transform3D(0.65, -1.05898e-07, 1.05898e-07, 1.05898e-07, -1.59033e-09, -0.65, 1.05898e-07, 0.65, -1.59032e-09, 1.43073e-07, 0.576466, -0.778176)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL4/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL4/StaticBody3D2" unique_id=539298324]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, -1.42109e-14, 1.42109e-14, 1.42109e-14, 1, -2.84217e-14, 1.90735e-06, 5.96046e-07)
 shape = SubResource("CylinderShape3D_rk5aw")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="smallL4"]
+[node name="StaticBody3D3" type="StaticBody3D" parent="smallL4" unique_id=374027304]
 transform = Transform3D(0.65, 1.85807e-14, -1.42109e-14, -2.84217e-14, 0.65, 2.68221e-08, 0, -2.68221e-08, 0.65, -1.95268e-07, -0.771503, 0.566842)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL4/StaticBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="smallL4/StaticBody3D3" unique_id=551985085]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, -1.42109e-14, 1.42109e-14, 1.42109e-14, 1, -2.84217e-14, 1.90735e-06, 5.96046e-07)
 shape = SubResource("CylinderShape3D_rk5aw")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="whitelight" type="OmniLight3D" parent="."]
+[node name="whitelight" type="OmniLight3D" parent="." unique_id=945344578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
 light_energy = 0.0
 omni_range = 14.0
 omni_attenuation = 0.082
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ymlyf")
-}
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1000312017]
+libraries/ = SubResource("AnimationLibrary_ymlyf")
 
-[node name="lightanim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_44ccj")
-}
+[node name="lightanim" type="AnimationPlayer" parent="." unique_id=117520812]
+libraries/ = SubResource("AnimationLibrary_44ccj")
 
-[node name="mixinganim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_m274a")
-}
+[node name="mixinganim" type="AnimationPlayer" parent="." unique_id=921861727]
+libraries/ = SubResource("AnimationLibrary_m274a")
 
-[node name="coplights" type="SpotLight3D" parent="."]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0, 3, -13)
+[node name="coplights" type="SpotLight3D" parent="." unique_id=133668715]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 0, 3, -13)
 visible = false
 light_color = Color(0, 0.25, 1, 1)
 light_energy = 16.0
 spot_range = 30.0
 spot_angle = 37.5816
 
-[node name="SpotLight3D" type="SpotLight3D" parent="coplights"]
+[node name="SpotLight3D" type="SpotLight3D" parent="coplights" unique_id=1499243653]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 light_color = Color(1, 0, 0, 1)
 light_energy = 16.0
 spot_range = 30.0
 spot_angle = 37.5816
 
-[node name="pedestal" type="MeshInstance3D" parent="."]
+[node name="pedestal" type="MeshInstance3D" parent="." unique_id=955763537]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 mesh = SubResource("ArrayMesh_n84lh")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_c2jq4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pedestal"]
+[node name="StaticBody3D" type="StaticBody3D" parent="pedestal" unique_id=479728631]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pedestal/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pedestal/StaticBody3D" unique_id=855774672]
 shape = SubResource("ConvexPolygonShape3D_8wnbc")
 debug_color = Color(0, 0.595, 0.7, 0.054902)
 
-[node name="poobottle" type="MeshInstance3D" parent="."]
+[node name="poobottle" type="MeshInstance3D" parent="." unique_id=1455887337]
 transform = Transform3D(-0.3, 0, -4.05308e-08, 0, 0.3, 0, 4.05308e-08, 0, -0.3, 0, 2.2135, 0)
 mesh = SubResource("ArrayMesh_n58q6")
 skeleton = NodePath("")
@@ -6392,17 +6386,17 @@ surface_material_override/0 = SubResource("ShaderMaterial_encfi")
 surface_material_override/1 = SubResource("StandardMaterial3D_6j4bm")
 script = ExtResource("19_fprgf")
 
-[node name="cap" type="MeshInstance3D" parent="poobottle"]
+[node name="cap" type="MeshInstance3D" parent="poobottle" unique_id=672628108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00156919, 3.58873, -0.000549178)
 mesh = SubResource("ArrayMesh_ts312")
 skeleton = NodePath("")
 
-[node name="liquid" type="MeshInstance3D" parent="poobottle"]
+[node name="liquid" type="MeshInstance3D" parent="poobottle" unique_id=17911224]
 mesh = SubResource("ArrayMesh_icc1c")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_x2tpx")
 
-[node name="outline" type="MeshInstance3D" parent="poobottle"]
+[node name="outline" type="MeshInstance3D" parent="poobottle" unique_id=1930896776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0100002, 0)
 visible = false
 mesh = SubResource("ArrayMesh_n58q6")
@@ -6410,19 +6404,19 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_njqee")
 surface_material_override/1 = SubResource("StandardMaterial3D_ficjt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="poobottle" groups=["poobottle"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="poobottle" unique_id=1820733614 groups=["poobottle"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="poobottle/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="poobottle/StaticBody3D" unique_id=648875208]
 shape = SubResource("ConvexPolygonShape3D_7monm")
 debug_color = Color(0, 0.595, 0.7, 0.0901961)
 
-[node name="audio" type="AudioStreamPlayer3D" parent="poobottle"]
+[node name="audio" type="AudioStreamPlayer3D" parent="poobottle" unique_id=1109936649]
 stream = ExtResource("22_jrlr1")
 unit_size = 1.0
 autoplay = true
 max_distance = 7.0
 
-[node name="particles" type="GPUParticles3D" parent="poobottle"]
+[node name="particles" type="GPUParticles3D" parent="poobottle" unique_id=2078890235]
 transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, 0, 0.690108, 0)
 visibility_range_end = 7.0
 visibility_range_end_margin = 2.0
@@ -6432,30 +6426,30 @@ lifetime = 8.0
 process_material = SubResource("ParticleProcessMaterial_ikgt4")
 draw_pass_1 = SubResource("PlaneMesh_aqiw5")
 
-[node name="light" type="OmniLight3D" parent="poobottle"]
+[node name="light" type="OmniLight3D" parent="poobottle" unique_id=337708184]
 transform = Transform3D(3.33333, 0, -2.84217e-14, 0, 3.33333, 0, 2.84217e-14, 0, 3.33333, 0, 0, 0)
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.45
 
-[node name="light2" type="OmniLight3D" parent="poobottle"]
+[node name="light2" type="OmniLight3D" parent="poobottle" unique_id=1427930210]
 transform = Transform3D(3.33333, 0, -2.27374e-13, 0, 3.33333, 0, 2.27374e-13, 0, 3.33333, 2.4623e-07, 0.890218, -1.82254)
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.1
 omni_range = 0.667284
 
-[node name="fakepopcop" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -4, 0.1, -10)
+[node name="fakepopcop" type="Node3D" parent="." unique_id=1204075920]
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, -4, 0.1, -10)
 
-[node name="Armature" type="Node3D" parent="fakepopcop"]
-transform = Transform3D(-0.5, 0, 1.26759e-06, 0, 0.5, 0, -1.26759e-06, 0, -0.5, 0, 0, 0)
+[node name="Armature" type="Node3D" parent="fakepopcop" unique_id=739724885]
+transform = Transform3D(-0.5, 0, 1.2675908e-06, 0, 0.5, 0, -1.2675908e-06, 0, -0.5, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="fakepopcop/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="fakepopcop/Armature" unique_id=1093073265]
 bones/0/name = "body"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 1.00887, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(5.96046e-08, 1.00887, 1.21431e-17)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11747e-22, 1)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.1174693e-22, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "body.001"
 bones/1/parent = 0
@@ -6469,7 +6463,7 @@ bones/2/parent = -1
 bones/2/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, -0.2, 1.10887, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.2, 1.10887, -0.000483751)
-bones/2/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/2/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Lcalf"
 bones/3/parent = 2
@@ -6483,14 +6477,14 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(-8.76926e-08, 0.5, 2.45385e-08)
-bones/4/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/4/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Rthigh"
 bones/5/parent = -1
 bones/5/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, 0.2, 1.10887, 0)
 bones/5/enabled = true
 bones/5/position = Vector3(0.2, 1.10887, -1.40686e-15)
-bones/5/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/5/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/5/scale = Vector3(0.999999, 1, 1)
 bones/6/name = "Rcalf"
 bones/6/parent = 5
@@ -6504,25 +6498,25 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/7/enabled = true
 bones/7/position = Vector3(5.88528e-08, 0.5, 9.27785e-09)
-bones/7/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/7/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/7/scale = Vector3(1, 0.999998, 1)
 
-[node name="glass" type="MeshInstance3D" parent="fakepopcop/Armature/Skeleton3D"]
+[node name="glass" type="MeshInstance3D" parent="fakepopcop/Armature/Skeleton3D" unique_id=148407801]
 lod_bias = 6.0
 mesh = SubResource("ArrayMesh_c2jq4")
 skin = SubResource("Skin_rk5aw")
 surface_material_override/0 = SubResource("ShaderMaterial_n58q6")
 
-[node name="hat" type="MeshInstance3D" parent="fakepopcop/Armature/Skeleton3D"]
+[node name="hat" type="MeshInstance3D" parent="fakepopcop/Armature/Skeleton3D" unique_id=1149835960]
 mesh = SubResource("ArrayMesh_encfi")
 skin = SubResource("Skin_rk5aw")
 
-[node name="baton" type="MeshInstance3D" parent="fakepopcop/Armature"]
-transform = Transform3D(-3.61999e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.61999e-06, -1.1, 2.05809, 0)
+[node name="baton" type="MeshInstance3D" parent="fakepopcop/Armature" unique_id=1986726889]
+transform = Transform3D(-3.6199901e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.6199865e-06, -1.1, 2.05809, 0)
 mesh = SubResource("ArrayMesh_cb5t1")
 skeleton = NodePath("")
 
-[node name="batonmotionblur" type="MeshInstance3D" parent="fakepopcop/Armature/baton"]
+[node name="batonmotionblur" type="MeshInstance3D" parent="fakepopcop/Armature/baton" unique_id=286877092]
 transform = Transform3D(0, -2.32337e-07, -1.94899, 1.94899, 2.32337e-07, 0, 2.32337e-07, -1.94899, 2.32337e-07, 0, -0.269867, 0)
 transparency = 1.0
 cast_shadow = 0
@@ -6530,33 +6524,31 @@ mesh = SubResource("ArrayMesh_tunlg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwafc")
 
-[node name="anim" type="AnimationPlayer" parent="fakepopcop"]
-libraries = {
-&"": SubResource("AnimationLibrary_k3p8h")
-}
-autoplay = "idle"
+[node name="anim" type="AnimationPlayer" parent="fakepopcop" unique_id=579727936]
+libraries/ = SubResource("AnimationLibrary_k3p8h")
+autoplay = &"idle"
 
-[node name="motionblur" type="MeshInstance3D" parent="fakepopcop"]
-transform = Transform3D(9.03018e-08, 1.26821, 1.61268e-07, 1.06803, -5.36413e-08, -0.27852, -0.27852, 2.05483e-07, -1.06803, 7.40349e-05, 0.479677, -10.975)
+[node name="motionblur" type="MeshInstance3D" parent="fakepopcop" unique_id=1178088899]
+transform = Transform3D(9.030183e-08, 1.26821, 1.6126822e-07, 1.0680311, -5.364126e-08, -0.2785203, -0.2785203, 2.0548293e-07, -1.0680311, 7.40349e-05, 0.479677, -10.975)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_gyup5")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwafc")
 
-[node name="fakepopcop2" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -2.40756, 0.1, -11.5624)
+[node name="fakepopcop2" type="Node3D" parent="." unique_id=819708961]
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, -2.40756, 0.1, -11.5624)
 
-[node name="Armature" type="Node3D" parent="fakepopcop2"]
-transform = Transform3D(-0.5, 0, 1.26759e-06, 0, 0.5, 0, -1.26759e-06, 0, -0.5, 0, 0, 0)
+[node name="Armature" type="Node3D" parent="fakepopcop2" unique_id=327189419]
+transform = Transform3D(-0.5, 0, 1.2675908e-06, 0, 0.5, 0, -1.2675908e-06, 0, -0.5, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="fakepopcop2/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="fakepopcop2/Armature" unique_id=225557804]
 bones/0/name = "body"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 1.00887, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(5.96046e-08, 1.00887, 1.21431e-17)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11747e-22, 1)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.1174693e-22, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "body.001"
 bones/1/parent = 0
@@ -6570,7 +6562,7 @@ bones/2/parent = -1
 bones/2/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, -0.2, 1.10887, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.2, 1.10887, -0.000483751)
-bones/2/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/2/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Lcalf"
 bones/3/parent = 2
@@ -6584,14 +6576,14 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(-8.76926e-08, 0.5, 2.45385e-08)
-bones/4/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/4/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Rthigh"
 bones/5/parent = -1
 bones/5/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, 0.2, 1.10887, 0)
 bones/5/enabled = true
 bones/5/position = Vector3(0.2, 1.10887, -1.40686e-15)
-bones/5/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/5/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/5/scale = Vector3(0.999999, 1, 1)
 bones/6/name = "Rcalf"
 bones/6/parent = 5
@@ -6605,25 +6597,25 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/7/enabled = true
 bones/7/position = Vector3(5.88528e-08, 0.5, 9.27785e-09)
-bones/7/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/7/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/7/scale = Vector3(1, 0.999998, 1)
 
-[node name="glass" type="MeshInstance3D" parent="fakepopcop2/Armature/Skeleton3D"]
+[node name="glass" type="MeshInstance3D" parent="fakepopcop2/Armature/Skeleton3D" unique_id=979845198]
 lod_bias = 6.0
 mesh = SubResource("ArrayMesh_c2jq4")
 skin = SubResource("Skin_rk5aw")
 surface_material_override/0 = SubResource("ShaderMaterial_n58q6")
 
-[node name="hat" type="MeshInstance3D" parent="fakepopcop2/Armature/Skeleton3D"]
+[node name="hat" type="MeshInstance3D" parent="fakepopcop2/Armature/Skeleton3D" unique_id=1779029449]
 mesh = SubResource("ArrayMesh_encfi")
 skin = SubResource("Skin_rk5aw")
 
-[node name="baton" type="MeshInstance3D" parent="fakepopcop2/Armature"]
-transform = Transform3D(-3.61999e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.61999e-06, -1.1, 2.05809, 0)
+[node name="baton" type="MeshInstance3D" parent="fakepopcop2/Armature" unique_id=1578050965]
+transform = Transform3D(-3.6199901e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.6199865e-06, -1.1, 2.05809, 0)
 mesh = SubResource("ArrayMesh_cb5t1")
 skeleton = NodePath("")
 
-[node name="batonmotionblur" type="MeshInstance3D" parent="fakepopcop2/Armature/baton"]
+[node name="batonmotionblur" type="MeshInstance3D" parent="fakepopcop2/Armature/baton" unique_id=1242277497]
 transform = Transform3D(0, -2.32337e-07, -1.94899, 1.94899, 2.32337e-07, 0, 2.32337e-07, -1.94899, 2.32337e-07, 0, -0.269867, 0)
 transparency = 1.0
 cast_shadow = 0
@@ -6631,33 +6623,31 @@ mesh = SubResource("ArrayMesh_tunlg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwafc")
 
-[node name="anim" type="AnimationPlayer" parent="fakepopcop2"]
-libraries = {
-&"": SubResource("AnimationLibrary_k3p8h")
-}
-autoplay = "idle"
+[node name="anim" type="AnimationPlayer" parent="fakepopcop2" unique_id=1399596499]
+libraries/ = SubResource("AnimationLibrary_k3p8h")
+autoplay = &"idle"
 
-[node name="motionblur" type="MeshInstance3D" parent="fakepopcop2"]
-transform = Transform3D(9.03018e-08, 1.26821, 1.61268e-07, 1.06803, -5.36413e-08, -0.27852, -0.27852, 2.05483e-07, -1.06803, 7.40349e-05, 0.479677, -10.975)
+[node name="motionblur" type="MeshInstance3D" parent="fakepopcop2" unique_id=134213128]
+transform = Transform3D(9.030183e-08, 1.26821, 1.6126822e-07, 1.0680311, -5.364126e-08, -0.2785203, -0.2785203, 2.0548293e-07, -1.0680311, 7.40349e-05, 0.479677, -10.975)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_gyup5")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwafc")
 
-[node name="fakepopcop3" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0.436975, 0.1, -9.58423)
+[node name="fakepopcop3" type="Node3D" parent="." unique_id=2126570305]
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, 0.436975, 0.1, -9.58423)
 
-[node name="Armature" type="Node3D" parent="fakepopcop3"]
-transform = Transform3D(-0.5, 0, 1.26759e-06, 0, 0.5, 0, -1.26759e-06, 0, -0.5, 0, 0, 0)
+[node name="Armature" type="Node3D" parent="fakepopcop3" unique_id=746997867]
+transform = Transform3D(-0.5, 0, 1.2675908e-06, 0, 0.5, 0, -1.2675908e-06, 0, -0.5, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="fakepopcop3/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="fakepopcop3/Armature" unique_id=64875383]
 bones/0/name = "body"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 1.00887, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(5.96046e-08, 1.00887, 1.21431e-17)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11747e-22, 1)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.1174693e-22, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "body.001"
 bones/1/parent = 0
@@ -6671,7 +6661,7 @@ bones/2/parent = -1
 bones/2/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, -0.2, 1.10887, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.2, 1.10887, -0.000483751)
-bones/2/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/2/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Lcalf"
 bones/3/parent = 2
@@ -6685,14 +6675,14 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(-8.76926e-08, 0.5, 2.45385e-08)
-bones/4/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/4/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Rthigh"
 bones/5/parent = -1
 bones/5/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, 0.2, 1.10887, 0)
 bones/5/enabled = true
 bones/5/position = Vector3(0.2, 1.10887, -1.40686e-15)
-bones/5/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/5/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/5/scale = Vector3(0.999999, 1, 1)
 bones/6/name = "Rcalf"
 bones/6/parent = 5
@@ -6706,25 +6696,25 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/7/enabled = true
 bones/7/position = Vector3(5.88528e-08, 0.5, 9.27785e-09)
-bones/7/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/7/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/7/scale = Vector3(1, 0.999998, 1)
 
-[node name="glass" type="MeshInstance3D" parent="fakepopcop3/Armature/Skeleton3D"]
+[node name="glass" type="MeshInstance3D" parent="fakepopcop3/Armature/Skeleton3D" unique_id=607814997]
 lod_bias = 6.0
 mesh = SubResource("ArrayMesh_c2jq4")
 skin = SubResource("Skin_rk5aw")
 surface_material_override/0 = SubResource("ShaderMaterial_n58q6")
 
-[node name="hat" type="MeshInstance3D" parent="fakepopcop3/Armature/Skeleton3D"]
+[node name="hat" type="MeshInstance3D" parent="fakepopcop3/Armature/Skeleton3D" unique_id=294565168]
 mesh = SubResource("ArrayMesh_encfi")
 skin = SubResource("Skin_rk5aw")
 
-[node name="baton" type="MeshInstance3D" parent="fakepopcop3/Armature"]
-transform = Transform3D(-3.61999e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.61999e-06, -1.1, 2.05809, 0)
+[node name="baton" type="MeshInstance3D" parent="fakepopcop3/Armature" unique_id=996645874]
+transform = Transform3D(-3.6199901e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.6199865e-06, -1.1, 2.05809, 0)
 mesh = SubResource("ArrayMesh_cb5t1")
 skeleton = NodePath("")
 
-[node name="batonmotionblur" type="MeshInstance3D" parent="fakepopcop3/Armature/baton"]
+[node name="batonmotionblur" type="MeshInstance3D" parent="fakepopcop3/Armature/baton" unique_id=1181405230]
 transform = Transform3D(0, -2.32337e-07, -1.94899, 1.94899, 2.32337e-07, 0, 2.32337e-07, -1.94899, 2.32337e-07, 0, -0.269867, 0)
 transparency = 1.0
 cast_shadow = 0
@@ -6732,33 +6722,31 @@ mesh = SubResource("ArrayMesh_tunlg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwafc")
 
-[node name="anim" type="AnimationPlayer" parent="fakepopcop3"]
-libraries = {
-&"": SubResource("AnimationLibrary_k3p8h")
-}
-autoplay = "idle"
+[node name="anim" type="AnimationPlayer" parent="fakepopcop3" unique_id=454792947]
+libraries/ = SubResource("AnimationLibrary_k3p8h")
+autoplay = &"idle"
 
-[node name="motionblur" type="MeshInstance3D" parent="fakepopcop3"]
-transform = Transform3D(9.03018e-08, 1.26821, 1.61268e-07, 1.06803, -5.36413e-08, -0.27852, -0.27852, 2.05483e-07, -1.06803, 7.40349e-05, 0.479677, -10.975)
+[node name="motionblur" type="MeshInstance3D" parent="fakepopcop3" unique_id=1236662624]
+transform = Transform3D(9.030183e-08, 1.26821, 1.6126822e-07, 1.0680311, -5.364126e-08, -0.2785203, -0.2785203, 2.0548293e-07, -1.0680311, 7.40349e-05, 0.479677, -10.975)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_gyup5")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwafc")
 
-[node name="fakepopcop4" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 2.05442, 0.0999998, -10.4493)
+[node name="fakepopcop4" type="Node3D" parent="." unique_id=714672927]
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, 2.05442, 0.0999998, -10.4493)
 
-[node name="Armature" type="Node3D" parent="fakepopcop4"]
-transform = Transform3D(-0.5, 0, 1.26759e-06, 0, 0.5, 0, -1.26759e-06, 0, -0.5, 0, 0, 0)
+[node name="Armature" type="Node3D" parent="fakepopcop4" unique_id=948043922]
+transform = Transform3D(-0.5, 0, 1.2675908e-06, 0, 0.5, 0, -1.2675908e-06, 0, -0.5, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="fakepopcop4/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="fakepopcop4/Armature" unique_id=2109626429]
 bones/0/name = "body"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 1.00887, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(5.96046e-08, 1.00887, 1.21431e-17)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11747e-22, 1)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.1174693e-22, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "body.001"
 bones/1/parent = 0
@@ -6772,7 +6760,7 @@ bones/2/parent = -1
 bones/2/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, -0.2, 1.10887, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.2, 1.10887, -0.000483751)
-bones/2/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/2/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Lcalf"
 bones/3/parent = 2
@@ -6786,14 +6774,14 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(-8.76926e-08, 0.5, 2.45385e-08)
-bones/4/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/4/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Rthigh"
 bones/5/parent = -1
 bones/5/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, 0.2, 1.10887, 0)
 bones/5/enabled = true
 bones/5/position = Vector3(0.2, 1.10887, -1.40686e-15)
-bones/5/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/5/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/5/scale = Vector3(0.999999, 1, 1)
 bones/6/name = "Rcalf"
 bones/6/parent = 5
@@ -6807,25 +6795,25 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/7/enabled = true
 bones/7/position = Vector3(5.88528e-08, 0.5, 9.27785e-09)
-bones/7/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/7/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/7/scale = Vector3(1, 0.999998, 1)
 
-[node name="glass" type="MeshInstance3D" parent="fakepopcop4/Armature/Skeleton3D"]
+[node name="glass" type="MeshInstance3D" parent="fakepopcop4/Armature/Skeleton3D" unique_id=616409364]
 lod_bias = 6.0
 mesh = SubResource("ArrayMesh_c2jq4")
 skin = SubResource("Skin_rk5aw")
 surface_material_override/0 = SubResource("ShaderMaterial_n58q6")
 
-[node name="hat" type="MeshInstance3D" parent="fakepopcop4/Armature/Skeleton3D"]
+[node name="hat" type="MeshInstance3D" parent="fakepopcop4/Armature/Skeleton3D" unique_id=1668424805]
 mesh = SubResource("ArrayMesh_encfi")
 skin = SubResource("Skin_rk5aw")
 
-[node name="baton" type="MeshInstance3D" parent="fakepopcop4/Armature"]
-transform = Transform3D(-3.61999e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.61999e-06, -1.1, 2.05809, 0)
+[node name="baton" type="MeshInstance3D" parent="fakepopcop4/Armature" unique_id=434746091]
+transform = Transform3D(-3.6199901e-06, 0, 0.999999, 0, 1, 0, -1, 0, -3.6199865e-06, -1.1, 2.05809, 0)
 mesh = SubResource("ArrayMesh_cb5t1")
 skeleton = NodePath("")
 
-[node name="batonmotionblur" type="MeshInstance3D" parent="fakepopcop4/Armature/baton"]
+[node name="batonmotionblur" type="MeshInstance3D" parent="fakepopcop4/Armature/baton" unique_id=893367071]
 transform = Transform3D(0, -2.32337e-07, -1.94899, 1.94899, 2.32337e-07, 0, 2.32337e-07, -1.94899, 2.32337e-07, 0, -0.269867, 0)
 transparency = 1.0
 cast_shadow = 0
@@ -6833,34 +6821,32 @@ mesh = SubResource("ArrayMesh_tunlg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwafc")
 
-[node name="anim" type="AnimationPlayer" parent="fakepopcop4"]
-libraries = {
-&"": SubResource("AnimationLibrary_k3p8h")
-}
-autoplay = "idle"
+[node name="anim" type="AnimationPlayer" parent="fakepopcop4" unique_id=1776862179]
+libraries/ = SubResource("AnimationLibrary_k3p8h")
+autoplay = &"idle"
 
-[node name="motionblur" type="MeshInstance3D" parent="fakepopcop4"]
-transform = Transform3D(9.03018e-08, 1.26821, 1.61268e-07, 1.06803, -5.36413e-08, -0.27852, -0.27852, 2.05483e-07, -1.06803, 7.40349e-05, 0.479677, -10.975)
+[node name="motionblur" type="MeshInstance3D" parent="fakepopcop4" unique_id=1222566177]
+transform = Transform3D(9.030183e-08, 1.26821, 1.6126822e-07, 1.0680311, -5.364126e-08, -0.2785203, -0.2785203, 2.0548293e-07, -1.0680311, 7.40349e-05, 0.479677, -10.975)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_gyup5")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwafc")
 
-[node name="fakebigpopcop" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0.0113697, 0, -12.527)
+[node name="fakebigpopcop" type="Node3D" parent="." unique_id=519472895]
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, 0.0113697, 0, -12.527)
 
-[node name="Armature" type="Node3D" parent="fakebigpopcop"]
-transform = Transform3D(-0.5, 0, 1.26759e-06, 0, 0.5, 0, -1.26759e-06, 0, -0.5, 0, 0, 0)
+[node name="Armature" type="Node3D" parent="fakebigpopcop" unique_id=331961291]
+transform = Transform3D(-0.5, 0, 1.2675908e-06, 0, 0.5, 0, -1.2675908e-06, 0, -0.5, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="fakebigpopcop/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="fakebigpopcop/Armature" unique_id=1503841314]
 transform = Transform3D(0.997987, 0, 0, 0, 0.997987, 0, 0, 0, 0.997987, 0, -0.123181, 0)
 bones/0/name = "body"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 1.00887, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(5.96046e-08, 1.00887, 1.20753e-17)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11747e-22, 1)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.1174693e-22, 1)
 bones/0/scale = Vector3(1.43, 1.3, 1.43)
 bones/1/name = "body.001"
 bones/1/parent = 0
@@ -6874,7 +6860,7 @@ bones/2/parent = -1
 bones/2/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, -0.2, 1.10887, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.2, 1.10887, -0.000483751)
-bones/2/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/2/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Lcalf"
 bones/3/parent = 2
@@ -6888,14 +6874,14 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(-8.76926e-08, 0.5, 2.45385e-08)
-bones/4/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/4/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Rthigh"
 bones/5/parent = -1
 bones/5/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, 0.2, 1.10887, 0)
 bones/5/enabled = true
 bones/5/position = Vector3(0.2, 1.10887, -1.7053e-13)
-bones/5/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/5/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/5/scale = Vector3(0.999999, 1, 1)
 bones/6/name = "Rcalf"
 bones/6/parent = 5
@@ -6909,64 +6895,62 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/7/enabled = true
 bones/7/position = Vector3(4.50596e-08, 0.5, 1.29401e-07)
-bones/7/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/7/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/7/scale = Vector3(1, 0.999998, 1)
 
-[node name="glass" type="MeshInstance3D" parent="fakebigpopcop/Armature/Skeleton3D"]
+[node name="glass" type="MeshInstance3D" parent="fakebigpopcop/Armature/Skeleton3D" unique_id=1800467900]
 lod_bias = 6.0
 mesh = SubResource("ArrayMesh_x2tpx")
 skin = SubResource("Skin_3cns7")
 surface_material_override/0 = SubResource("ShaderMaterial_cb5t1")
 
-[node name="hat" type="MeshInstance3D" parent="fakebigpopcop/Armature/Skeleton3D"]
+[node name="hat" type="MeshInstance3D" parent="fakebigpopcop/Armature/Skeleton3D" unique_id=1728914904]
 mesh = SubResource("ArrayMesh_snp8t")
 skin = SubResource("Skin_3cns7")
 surface_material_override/1 = SubResource("StandardMaterial3D_k44qe")
 
-[node name="eyes" type="BoneAttachment3D" parent="fakebigpopcop/Armature/Skeleton3D"]
-transform = Transform3D(1.43, -9.21714e-15, 3.48909e-07, -1.01607e-14, 1.2972, 8.72274e-08, -3.40938e-07, -7.73192e-08, 1.46343, 8.39795e-08, 2.22989, -3.24076e-07)
+[node name="eyes" type="BoneAttachment3D" parent="fakebigpopcop/Armature/Skeleton3D" unique_id=766021876]
+transform = Transform3D(1.43, -9.217141e-15, 3.4890888e-07, -1.0160731e-14, 1.297201, 8.722737e-08, -3.4093776e-07, -7.731916e-08, 1.4634334, 8.397945e-08, 2.229887, -3.2407644e-07)
 visible = false
 bone_name = "body.001"
 bone_idx = 1
 
-[node name="eye1" type="MeshInstance3D" parent="fakebigpopcop/Armature/Skeleton3D/eyes"]
+[node name="eye1" type="MeshInstance3D" parent="fakebigpopcop/Armature/Skeleton3D/eyes" unique_id=1407724457]
 transform = Transform3D(0.817547, -0.558014, -0.142258, -0.122061, 0.0735034, -0.989797, 0.562777, 0.82657, -0.00801933, -0.174608, 1.17115, 0.3)
 mesh = SubResource("ArrayMesh_5mknm")
 skeleton = NodePath("")
 
-[node name="eye2" type="MeshInstance3D" parent="fakebigpopcop/Armature/Skeleton3D/eyes"]
+[node name="eye2" type="MeshInstance3D" parent="fakebigpopcop/Armature/Skeleton3D/eyes" unique_id=1658355296]
 transform = Transform3D(0.90522, 0.406403, 0.124148, -0.0733033, 0.437112, -0.896415, -0.418572, 0.802353, 0.425474, 0.174608, 1.17115, 0.3)
 mesh = SubResource("ArrayMesh_k6qt8")
 skeleton = NodePath("")
 
-[node name="anim" type="AnimationPlayer" parent="fakebigpopcop"]
-libraries = {
-&"": SubResource("AnimationLibrary_2xwap")
-}
-autoplay = "idle"
+[node name="anim" type="AnimationPlayer" parent="fakebigpopcop" unique_id=632368806]
+libraries/ = SubResource("AnimationLibrary_2xwap")
+autoplay = &"idle"
 
-[node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop"]
-transform = Transform3D(-4.82441e-08, -1.26821, 9.12386e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
+[node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop" unique_id=1071896926]
+transform = Transform3D(-4.8244065e-08, -1.26821, 9.123869e-12, 1.0680311, -5.364126e-08, -0.2785203, 0.2785203, -1.3977691e-08, 1.0680311, 0.000296131, 1.03957, 0.0998774)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_0kbh1")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tws2p")
 
-[node name="fakebigpopcop2" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -3.94914, 0, -13.5618)
+[node name="fakebigpopcop2" type="Node3D" parent="." unique_id=963163875]
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, -3.94914, 0, -13.5618)
 
-[node name="Armature" type="Node3D" parent="fakebigpopcop2"]
-transform = Transform3D(-0.5, 0, 1.26759e-06, 0, 0.5, 0, -1.26759e-06, 0, -0.5, 0, 0, 0)
+[node name="Armature" type="Node3D" parent="fakebigpopcop2" unique_id=19219047]
+transform = Transform3D(-0.5, 0, 1.2675908e-06, 0, 0.5, 0, -1.2675908e-06, 0, -0.5, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="fakebigpopcop2/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="fakebigpopcop2/Armature" unique_id=1105474297]
 transform = Transform3D(0.997987, 0, 0, 0, 0.997987, 0, 0, 0, 0.997987, 0, -0.123181, 0)
 bones/0/name = "body"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 1.00887, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(5.96046e-08, 1.00887, 1.20753e-17)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11747e-22, 1)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.1174693e-22, 1)
 bones/0/scale = Vector3(1.43, 1.3, 1.43)
 bones/1/name = "body.001"
 bones/1/parent = 0
@@ -6980,7 +6964,7 @@ bones/2/parent = -1
 bones/2/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, -0.2, 1.10887, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.2, 1.10887, -0.000483751)
-bones/2/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/2/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Lcalf"
 bones/3/parent = 2
@@ -6994,14 +6978,14 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(-8.76926e-08, 0.5, 2.45385e-08)
-bones/4/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/4/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Rthigh"
 bones/5/parent = -1
 bones/5/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, 0.2, 1.10887, 0)
 bones/5/enabled = true
 bones/5/position = Vector3(0.2, 1.10887, -1.7053e-13)
-bones/5/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/5/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/5/scale = Vector3(0.999999, 1, 1)
 bones/6/name = "Rcalf"
 bones/6/parent = 5
@@ -7015,64 +6999,62 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/7/enabled = true
 bones/7/position = Vector3(4.50596e-08, 0.5, 1.29401e-07)
-bones/7/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/7/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/7/scale = Vector3(1, 0.999998, 1)
 
-[node name="glass" type="MeshInstance3D" parent="fakebigpopcop2/Armature/Skeleton3D"]
+[node name="glass" type="MeshInstance3D" parent="fakebigpopcop2/Armature/Skeleton3D" unique_id=2068820577]
 lod_bias = 6.0
 mesh = SubResource("ArrayMesh_x2tpx")
 skin = SubResource("Skin_3cns7")
 surface_material_override/0 = SubResource("ShaderMaterial_cb5t1")
 
-[node name="hat" type="MeshInstance3D" parent="fakebigpopcop2/Armature/Skeleton3D"]
+[node name="hat" type="MeshInstance3D" parent="fakebigpopcop2/Armature/Skeleton3D" unique_id=1895433594]
 mesh = SubResource("ArrayMesh_snp8t")
 skin = SubResource("Skin_3cns7")
 surface_material_override/1 = SubResource("StandardMaterial3D_k44qe")
 
-[node name="eyes" type="BoneAttachment3D" parent="fakebigpopcop2/Armature/Skeleton3D"]
-transform = Transform3D(1.43, -9.21714e-15, 3.48909e-07, -1.01607e-14, 1.2972, 8.72274e-08, -3.40938e-07, -7.73192e-08, 1.46343, 8.39795e-08, 2.22989, -3.24076e-07)
+[node name="eyes" type="BoneAttachment3D" parent="fakebigpopcop2/Armature/Skeleton3D" unique_id=1782211019]
+transform = Transform3D(1.43, -9.217141e-15, 3.4890888e-07, -1.0160731e-14, 1.297201, 8.722737e-08, -3.4093776e-07, -7.731916e-08, 1.4634334, 8.397945e-08, 2.229887, -3.2407644e-07)
 visible = false
 bone_name = "body.001"
 bone_idx = 1
 
-[node name="eye1" type="MeshInstance3D" parent="fakebigpopcop2/Armature/Skeleton3D/eyes"]
+[node name="eye1" type="MeshInstance3D" parent="fakebigpopcop2/Armature/Skeleton3D/eyes" unique_id=1325911590]
 transform = Transform3D(0.817547, -0.558014, -0.142258, -0.122061, 0.0735034, -0.989797, 0.562777, 0.82657, -0.00801933, -0.174608, 1.17115, 0.3)
 mesh = SubResource("ArrayMesh_5mknm")
 skeleton = NodePath("")
 
-[node name="eye2" type="MeshInstance3D" parent="fakebigpopcop2/Armature/Skeleton3D/eyes"]
+[node name="eye2" type="MeshInstance3D" parent="fakebigpopcop2/Armature/Skeleton3D/eyes" unique_id=962154120]
 transform = Transform3D(0.90522, 0.406403, 0.124148, -0.0733033, 0.437112, -0.896415, -0.418572, 0.802353, 0.425474, 0.174608, 1.17115, 0.3)
 mesh = SubResource("ArrayMesh_k6qt8")
 skeleton = NodePath("")
 
-[node name="anim" type="AnimationPlayer" parent="fakebigpopcop2"]
-libraries = {
-&"": SubResource("AnimationLibrary_2xwap")
-}
-autoplay = "idle"
+[node name="anim" type="AnimationPlayer" parent="fakebigpopcop2" unique_id=542020236]
+libraries/ = SubResource("AnimationLibrary_2xwap")
+autoplay = &"idle"
 
-[node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop2"]
-transform = Transform3D(-4.82441e-08, -1.26821, 9.12428e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
+[node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop2" unique_id=566308614]
+transform = Transform3D(-4.8244065e-08, -1.26821, 9.12429e-12, 1.0680311, -5.364126e-08, -0.2785203, 0.2785203, -1.397769e-08, 1.0680311, 0.000296131, 1.03957, 0.0998774)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_0kbh1")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tws2p")
 
-[node name="fakebigpopcop3" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 3.84013, 0, -9.64246)
+[node name="fakebigpopcop3" type="Node3D" parent="." unique_id=911488605]
+transform = Transform3D(-1, 0, -2.5351817e-06, 0, 1, 0, 2.5351817e-06, 0, -1, 3.84013, 0, -9.64246)
 
-[node name="Armature" type="Node3D" parent="fakebigpopcop3"]
-transform = Transform3D(-0.5, 0, 1.26759e-06, 0, 0.5, 0, -1.26759e-06, 0, -0.5, 0, 0, 0)
+[node name="Armature" type="Node3D" parent="fakebigpopcop3" unique_id=1196477220]
+transform = Transform3D(-0.5, 0, 1.2675908e-06, 0, 0.5, 0, -1.2675908e-06, 0, -0.5, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="fakebigpopcop3/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="fakebigpopcop3/Armature" unique_id=1197797616]
 transform = Transform3D(0.997987, 0, 0, 0, 0.997987, 0, 0, 0, 0.997987, 0, -0.123181, 0)
 bones/0/name = "body"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 1.00887, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(5.96046e-08, 1.00887, 1.20753e-17)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11747e-22, 1)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.1174693e-22, 1)
 bones/0/scale = Vector3(1.43, 1.3, 1.43)
 bones/1/name = "body.001"
 bones/1/parent = 0
@@ -7086,7 +7068,7 @@ bones/2/parent = -1
 bones/2/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, -0.2, 1.10887, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.2, 1.10887, -0.000483751)
-bones/2/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/2/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Lcalf"
 bones/3/parent = 2
@@ -7100,14 +7082,14 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(-8.76926e-08, 0.5, 2.45385e-08)
-bones/4/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/4/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Rthigh"
 bones/5/parent = -1
 bones/5/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, 0.2, 1.10887, 0)
 bones/5/enabled = true
 bones/5/position = Vector3(0.2, 1.10887, -1.7053e-13)
-bones/5/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/5/rotation = Quaternion(0.7071068, 0, -0.7071068, 0)
 bones/5/scale = Vector3(0.999999, 1, 1)
 bones/6/name = "Rcalf"
 bones/6/parent = 5
@@ -7121,133 +7103,131 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(0, -1, 4.37114e-08, 1, 0, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 0, 0.5, 0)
 bones/7/enabled = true
 bones/7/position = Vector3(4.50596e-08, 0.5, 1.29401e-07)
-bones/7/rotation = Quaternion(0, -5.33851e-08, 0.707107, 0.707107)
+bones/7/rotation = Quaternion(0, -5.3385087e-08, 0.7071068, 0.7071068)
 bones/7/scale = Vector3(1, 0.999998, 1)
 
-[node name="glass" type="MeshInstance3D" parent="fakebigpopcop3/Armature/Skeleton3D"]
+[node name="glass" type="MeshInstance3D" parent="fakebigpopcop3/Armature/Skeleton3D" unique_id=809453172]
 lod_bias = 6.0
 mesh = SubResource("ArrayMesh_x2tpx")
 skin = SubResource("Skin_3cns7")
 surface_material_override/0 = SubResource("ShaderMaterial_cb5t1")
 
-[node name="hat" type="MeshInstance3D" parent="fakebigpopcop3/Armature/Skeleton3D"]
+[node name="hat" type="MeshInstance3D" parent="fakebigpopcop3/Armature/Skeleton3D" unique_id=1508464859]
 mesh = SubResource("ArrayMesh_snp8t")
 skin = SubResource("Skin_3cns7")
 surface_material_override/1 = SubResource("StandardMaterial3D_k44qe")
 
-[node name="eyes" type="BoneAttachment3D" parent="fakebigpopcop3/Armature/Skeleton3D"]
-transform = Transform3D(1.43, -9.21714e-15, 3.48909e-07, -1.01607e-14, 1.2972, 8.72274e-08, -3.40938e-07, -7.73192e-08, 1.46343, 8.39795e-08, 2.22989, -3.24076e-07)
+[node name="eyes" type="BoneAttachment3D" parent="fakebigpopcop3/Armature/Skeleton3D" unique_id=135032469]
+transform = Transform3D(1.43, -9.217141e-15, 3.4890888e-07, -1.0160731e-14, 1.297201, 8.722737e-08, -3.4093776e-07, -7.731916e-08, 1.4634334, 8.397945e-08, 2.229887, -3.2407644e-07)
 visible = false
 bone_name = "body.001"
 bone_idx = 1
 
-[node name="eye1" type="MeshInstance3D" parent="fakebigpopcop3/Armature/Skeleton3D/eyes"]
+[node name="eye1" type="MeshInstance3D" parent="fakebigpopcop3/Armature/Skeleton3D/eyes" unique_id=730763026]
 transform = Transform3D(0.817547, -0.558014, -0.142258, -0.122061, 0.0735034, -0.989797, 0.562777, 0.82657, -0.00801933, -0.174608, 1.17115, 0.3)
 mesh = SubResource("ArrayMesh_5mknm")
 skeleton = NodePath("")
 
-[node name="eye2" type="MeshInstance3D" parent="fakebigpopcop3/Armature/Skeleton3D/eyes"]
+[node name="eye2" type="MeshInstance3D" parent="fakebigpopcop3/Armature/Skeleton3D/eyes" unique_id=1506444280]
 transform = Transform3D(0.90522, 0.406403, 0.124148, -0.0733033, 0.437112, -0.896415, -0.418572, 0.802353, 0.425474, 0.174608, 1.17115, 0.3)
 mesh = SubResource("ArrayMesh_k6qt8")
 skeleton = NodePath("")
 
-[node name="anim" type="AnimationPlayer" parent="fakebigpopcop3"]
-libraries = {
-&"": SubResource("AnimationLibrary_2xwap")
-}
-autoplay = "idle"
+[node name="anim" type="AnimationPlayer" parent="fakebigpopcop3" unique_id=293926766]
+libraries/ = SubResource("AnimationLibrary_2xwap")
+autoplay = &"idle"
 
-[node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop3"]
-transform = Transform3D(-4.82441e-08, -1.26821, 9.12428e-12, 1.06803, -5.36413e-08, -0.27852, 0.27852, -1.39777e-08, 1.06803, 0.000296131, 1.03957, 0.0998774)
+[node name="motionblur" type="MeshInstance3D" parent="fakebigpopcop3" unique_id=372318456]
+transform = Transform3D(-4.8244065e-08, -1.26821, 9.12429e-12, 1.0680311, -5.364126e-08, -0.2785203, 0.2785203, -1.397769e-08, 1.0680311, 0.000296131, 1.03957, 0.0998774)
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_0kbh1")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tws2p")
 
-[node name="Police_Car" type="MeshInstance3D" parent="."]
+[node name="Police_Car" type="MeshInstance3D" parent="." unique_id=666685268]
 transform = Transform3D(-0.0181173, 0, -0.0676148, 0, 0.07, 0, 0.0676148, 0, -0.0181173, 3, 0, -18)
 mesh = SubResource("ArrayMesh_3cns7")
 skeleton = NodePath("")
 
-[node name="smallhole" parent="." groups=["pipehole"] instance=ExtResource("22_ficjt")]
+[node name="smallhole" parent="." unique_id=1737363011 groups=["pipehole"] instance=ExtResource("22_ficjt")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -2, 9, -6)
 metadata/popping = false
 
-[node name="smallhole2" parent="." groups=["pipehole"] instance=ExtResource("22_ficjt")]
+[node name="smallhole2" parent="." unique_id=244571471 groups=["pipehole"] instance=ExtResource("22_ficjt")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 2, 9, -2.85113)
 metadata/popping = false
 
-[node name="smallhole3" parent="." groups=["pipehole"] instance=ExtResource("22_ficjt")]
+[node name="smallhole3" parent="." unique_id=1899762663 groups=["pipehole"] instance=ExtResource("22_ficjt")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -2, 9, 0.148872)
 metadata/popping = false
 
-[node name="mixingburst" type="Area3D" parent="."]
+[node name="mixingburst" type="Area3D" parent="." unique_id=2079605339]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mixingburst"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mixingburst" unique_id=1852864576]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 shape = SubResource("BoxShape3D_68yiy")
 debug_color = Color(0, 0.595, 0.7, 0.14902)
 
-[node name="fakehall" type="Node3D" parent="."]
+[node name="fakehall" type="Node3D" parent="." unique_id=274967286]
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="fakehall"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="fakehall" unique_id=859039488]
 transform = Transform3D(-1.47953e-14, -2.50344e-07, -8, 0.5, -1.62921e-07, 8.95632e-14, -8.14603e-08, -1, 2.00275e-06, 6, 2, 16)
 mesh = SubResource("PlaneMesh_ficjt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wbhwv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="fakehall/MeshInstance3D10"]
+[node name="StaticBody3D" type="StaticBody3D" parent="fakehall/MeshInstance3D10" unique_id=1401249121]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/MeshInstance3D10/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/MeshInstance3D10/StaticBody3D" unique_id=2131315344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_pat3k")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="fakehall"]
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="fakehall" unique_id=1696569403]
 transform = Transform3D(8.14603e-08, 1, -4.13264e-07, 0.5, -1.62921e-07, 2.23908e-14, -1.12346e-14, -2.06633e-07, -2, -2, 2, 14)
 mesh = SubResource("PlaneMesh_ficjt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wbhwv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="fakehall/MeshInstance3D11"]
+[node name="StaticBody3D" type="StaticBody3D" parent="fakehall/MeshInstance3D11" unique_id=325987801]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/MeshInstance3D11/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/MeshInstance3D11/StaticBody3D" unique_id=140481104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_pat3k")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="fakehall"]
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="fakehall" unique_id=789574635]
 transform = Transform3D(2.18557e-08, 1.1921e-07, 8, -1.03316e-07, -1, 9.53672e-07, 0.5, -2.06632e-07, -3.49691e-07, 6, 4, 14)
 mesh = SubResource("PlaneMesh_ficjt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wbhwv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="fakehall/MeshInstance3D12"]
+[node name="StaticBody3D" type="StaticBody3D" parent="fakehall/MeshInstance3D12" unique_id=148985505]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/MeshInstance3D12/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/MeshInstance3D12/StaticBody3D" unique_id=908268520]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_pat3k")
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="fakehall"]
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="fakehall" unique_id=128389481]
 transform = Transform3D(-2.18557e-08, 1.1921e-07, 8, 5.96046e-08, 1, -9.53672e-07, -0.5, 1.1921e-07, -3.49691e-07, 6, 0, 14)
 mesh = SubResource("PlaneMesh_ficjt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wbhwv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="fakehall/MeshInstance3D13"]
+[node name="StaticBody3D" type="StaticBody3D" parent="fakehall/MeshInstance3D13" unique_id=823594064]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/MeshInstance3D13/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/MeshInstance3D13/StaticBody3D" unique_id=469760495]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_pat3k")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="fakehall"]
+[node name="StaticBody3D" type="StaticBody3D" parent="fakehall" unique_id=928969787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10707, 9.92492)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fakehall/StaticBody3D" unique_id=1820387365]
 shape = SubResource("BoxShape3D_k680r")
 debug_color = Color(0, 0.595, 0.7, 0.490196)
 
-[node name="killcops" type="GPUParticles3D" parent="."]
+[node name="killcops" type="GPUParticles3D" parent="." unique_id=1946662345]
 transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, -9.13182, 3.72585, -13.4455)
 emitting = false
 amount = 2000
@@ -7258,18 +7238,18 @@ visibility_aabb = AABB(-24.105, -1.405, -4, 33.27, 11.57, 20.465)
 process_material = SubResource("ParticleProcessMaterial_7monm")
 draw_pass_1 = SubResource("PlaneMesh_y7swh")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1952179846]
 transparent_bg = true
 size = Vector2i(1080, 1080)
 render_target_update_mode = 4
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport" unique_id=2004423680]
 position = Vector2(540, 720)
 sprite_frames = SubResource("SpriteFrames_dankd")
 autoplay = "default"
 frame_progress = 0.97229
 
-[node name="Label" type="Label" parent="SubViewport"]
+[node name="Label" type="Label" parent="SubViewport" unique_id=1897528535]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -7286,14 +7266,14 @@ text = "Throw one!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="arrow" type="Sprite3D" parent="."]
+[node name="arrow" type="Sprite3D" parent="." unique_id=2115429592]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.8, 2, 4)
 transparency = 1.0
 offset = Vector2(0, 485.465)
 billboard = 1
 texture = SubResource("ViewportTexture_hq1ii")
 
-[node name="dust" type="GPUParticles3D" parent="."]
+[node name="dust" type="GPUParticles3D" parent="." unique_id=1149722427]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.00551, -5)
 emitting = false
 amount = 10000
@@ -7305,36 +7285,36 @@ visibility_aabb = AABB(-8, -8, -2, 16, 16, 16)
 process_material = SubResource("ParticleProcessMaterial_linha")
 draw_pass_1 = SubResource("PlaneMesh_v10xi")
 
-[node name="particlecol" type="Node3D" parent="."]
+[node name="particlecol" type="Node3D" parent="." unique_id=630070273]
 
-[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="particlecol"]
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="particlecol" unique_id=850044718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 5, 0)
 size = Vector3(2, 10, 16)
 
-[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="particlecol"]
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="particlecol" unique_id=1190230988]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 5, 0)
 size = Vector3(2, 10, 16)
 
-[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="particlecol"]
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="particlecol" unique_id=1585194371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
 size = Vector3(16, 2, 16)
 
-[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="particlecol"]
+[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="particlecol" unique_id=1256463101]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(16, 2, 16)
 
-[node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="particlecol"]
+[node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="particlecol" unique_id=431724571]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, 10)
 size = Vector3(16, 4, 16)
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=1452225606]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -4)
 unit_size = 30.0
 
-[node name="waittoload" type="Timer" parent="."]
+[node name="waittoload" type="Timer" parent="." unique_id=1583820096]
 one_shot = true
 
-[node name="speedrunsign" parent="." instance=ExtResource("36_2rrpr")]
+[node name="speedrunsign" parent="." unique_id=1461830199 instance=ExtResource("36_2rrpr")]
 transform = Transform3D(-0.433013, 0, -0.25, 0, 0.5, 0, 0.25, 0, -0.433013, 2, 0, 7)
 surface_material_override/1 = null
 surface_material_override/2 = null

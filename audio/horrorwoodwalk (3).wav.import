@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1svgyrcjqnpd"
+path="res://.godot/imported/horrorwoodwalk (3).wav-07124dc8eb5e0fa6e358489c476879da.sample"
+
+[deps]
+
+source_file="res://audio/horrorwoodwalk (3).wav"
+dest_files=["res://.godot/imported/horrorwoodwalk (3).wav-07124dc8eb5e0fa6e358489c476879da.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

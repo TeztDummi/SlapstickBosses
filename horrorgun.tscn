@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=4 uid="uid://34p41xh5gknj"]
+[gd_scene format=4 uid="uid://34p41xh5gknj"]
 
 [ext_resource type="Script" uid="uid://jqlbj3cyo6rt" path="res://horrorgun.gd" id="1_njpic"]
 [ext_resource type="Texture2D" uid="uid://b2soq7n7mahr7" path="res://horrorgun_Untitled.png" id="2_6jprt"]
@@ -956,18 +956,18 @@ material = SubResource("StandardMaterial3D_ltag8")
 size = Vector2(1, 1)
 orientation = 2
 
-[node name="horrorgun" type="Node3D"]
+[node name="horrorgun" type="Node3D" unique_id=524193775]
 script = ExtResource("1_njpic")
 
-[node name="shot" type="AnimatedSprite3D" parent="."]
+[node name="shot" type="AnimatedSprite3D" parent="." unique_id=335454633]
 transform = Transform3D(0.0392457, 4.44089e-16, 6.68354e-14, -2.22045e-16, 0.05, -6.61744e-24, -4.87388e-14, -1.32349e-23, 0.0499999, 0.179599, -0.0445963, -0.516028)
 modulate = Color(0.71, 0.71, 0.71, 1)
 render_priority = -128
 sprite_frames = SubResource("SpriteFrames_rhxoq")
 autoplay = "start"
 
-[node name="gun" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.61999e-07, 0.1, 0, 3.61999e-07, 1.31043e-12, -0.1, -0.1, -3.61999e-07, -3.61999e-07, 0.173, -0.132, -0.223)
+[node name="gun" type="MeshInstance3D" parent="." unique_id=23084961]
+transform = Transform3D(-3.61999e-07, 0.1, 0, 3.61999e-07, 1.3104329e-12, -0.1, -0.1, -3.61999e-07, -3.61999e-07, 0.173, -0.132, -0.223)
 mesh = SubResource("ArrayMesh_5obec")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_8723d")
@@ -975,49 +975,47 @@ surface_material_override/1 = SubResource("StandardMaterial3D_344gh")
 surface_material_override/2 = SubResource("ShaderMaterial_ltag8")
 surface_material_override/3 = SubResource("StandardMaterial3D_njpic")
 
-[node name="button" type="MeshInstance3D" parent="gun"]
+[node name="button" type="MeshInstance3D" parent="gun" unique_id=64590800]
 transform = Transform3D(0.0850909, -0.000631576, -0.00172404, 0.00169567, -0.00362048, 0.0850167, -0.000704217, -0.0850313, -0.00360706, -0.321563, 0.423558, -0.14896)
 mesh = SubResource("ArrayMesh_xqkbb")
 skeleton = NodePath("")
 
-[node name="cylinders" type="MeshInstance3D" parent="gun"]
+[node name="cylinders" type="MeshInstance3D" parent="gun" unique_id=1711063163]
 transform = Transform3D(-4.76787e-08, 1.21691, 0.127903, -1.22361, -5.34859e-08, 5.27529e-08, 5.80547e-08, -0.127903, 1.21691, 2.71451, -0.000461605, -0.810613)
 mesh = SubResource("ArrayMesh_7ifym")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7wnhl")
 surface_material_override/1 = SubResource("StandardMaterial3D_72oba")
 
-[node name="needle" type="MeshInstance3D" parent="gun"]
+[node name="needle" type="MeshInstance3D" parent="gun" unique_id=1143046088]
 transform = Transform3D(-3.62117e-10, -0.02, 1.23635e-09, -0.0141421, -6.18173e-10, -0.0141421, 0.0141421, -1.13028e-09, -0.0141421, -0.162066, -0.000461634, -0.929402)
 mesh = SubResource("ArrayMesh_sorct")
 skeleton = NodePath("")
 
-[node name="trigger" type="MeshInstance3D" parent="gun"]
+[node name="trigger" type="MeshInstance3D" parent="gun" unique_id=615256365]
 transform = Transform3D(7.54979e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -7.54979e-08, -3.30012e-15, 0.368576, 0.00155968, -0.149276)
 mesh = SubResource("ArrayMesh_faf3d")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7wnhl")
 
-[node name="timeslow" type="MeshInstance3D" parent="gun"]
-transform = Transform3D(0.08, -1.42109e-15, 1.57774e-30, 1.42109e-15, 0.08, -3.55271e-16, 4.73316e-30, 3.55271e-16, 0.08, 0.427852, 0.360162, -1.1148)
+[node name="timeslow" type="MeshInstance3D" parent="gun" unique_id=821034103]
+transform = Transform3D(0.08, -1.42109e-15, 1.577741e-30, 1.42109e-15, 0.08, -3.5527098e-16, 4.73316e-30, 3.5527098e-16, 0.08, 0.427852, 0.360162, -1.1148)
 mesh = SubResource("PlaneMesh_mjswh")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_pru84")
 
-[node name="timeslow2" type="MeshInstance3D" parent="gun"]
-transform = Transform3D(0.2, -8.88178e-16, 9.86078e-31, 8.88178e-16, 0.2, -2.22045e-16, -2.25695e-37, 2.22045e-16, 0.2, 0.427852, 0.360162, -1.1148)
+[node name="timeslow2" type="MeshInstance3D" parent="gun" unique_id=1776054168]
+transform = Transform3D(0.2, -8.88178e-16, 9.860776e-31, 8.88178e-16, 0.2, -2.22045e-16, -2.2569492e-37, 2.22045e-16, 0.2, 0.427852, 0.360162, -1.1148)
 mesh = SubResource("PlaneMesh_mjswh")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_pru84")
 
-[node name="anim" type="AnimationPlayer" parent="gun"]
+[node name="anim" type="AnimationPlayer" parent="gun" unique_id=308084695]
 root_node = NodePath("../timeslow")
-libraries = {
-&"": SubResource("AnimationLibrary_04w6v")
-}
-autoplay = "timeslow"
+libraries/ = SubResource("AnimationLibrary_04w6v")
+autoplay = &"timeslow"
 
-[node name="particles" type="GPUParticles3D" parent="gun"]
+[node name="particles" type="GPUParticles3D" parent="gun" unique_id=599757593]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0258, -4.44089e-15, -0.753275)
 emitting = false
 amount = 20
@@ -1027,20 +1025,18 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_bfgvw")
 draw_pass_1 = SubResource("PlaneMesh_bh5xc")
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_cppts")
-}
+[node name="anim" type="AnimationPlayer" parent="." unique_id=2128720729]
+libraries/ = SubResource("AnimationLibrary_cppts")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1966052106]
 
-[node name="raycast" type="RayCast3D" parent="."]
+[node name="raycast" type="RayCast3D" parent="." unique_id=1097265671]
 target_position = Vector3(0, 0, -1000)
 hit_from_inside = true
 collide_with_areas = true
 debug_shape_custom_color = Color(1, 1, 1, 1)
 
-[node name="flashlight" type="SpotLight3D" parent="."]
+[node name="flashlight" type="SpotLight3D" parent="." unique_id=1081881206]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 light_indirect_energy = 25.0
@@ -1050,22 +1046,22 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 spot_angle_attenuation = 9.51365
 
-[node name="audio" type="AudioStreamPlayer" parent="."]
+[node name="audio" type="AudioStreamPlayer" parent="." unique_id=808961290]
 stream = ExtResource("18_mjswh")
 volume_db = 5.0
 
-[node name="cooldown" type="Timer" parent="."]
+[node name="cooldown" type="Timer" parent="." unique_id=2079378090]
 wait_time = 0.1
 one_shot = true
 
-[node name="hiss" type="AudioStreamPlayer" parent="."]
+[node name="hiss" type="AudioStreamPlayer" parent="." unique_id=411980981]
 stream = ExtResource("19_mjswh")
 autoplay = true
 
-[node name="canvas" type="CanvasLayer" parent="."]
+[node name="canvas" type="CanvasLayer" parent="." unique_id=271956846]
 layer = 0
 
-[node name="damage" type="RichTextLabel" parent="canvas"]
+[node name="damage" type="RichTextLabel" parent="canvas" unique_id=94916193]
 modulate = Color(1, 1, 1, 0)
 offset_left = 921.0
 offset_top = 41.0
@@ -1083,7 +1079,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="rightclick" type="RichTextLabel" parent="canvas"]
+[node name="rightclick" type="RichTextLabel" parent="canvas" unique_id=1362603772]
 modulate = Color(1, 0, 0, 1)
 offset_left = 22.0
 offset_top = 1.0
@@ -1100,18 +1096,16 @@ text = "[shake rate=20.0 level=20 connected=1]Right Click to slow movement[/shak
 fit_content = true
 vertical_alignment = 1
 
-[node name="anim" type="AnimationPlayer" parent="canvas"]
-libraries = {
-&"": SubResource("AnimationLibrary_p6kgb")
-}
+[node name="anim" type="AnimationPlayer" parent="canvas" unique_id=784791441]
+libraries/ = SubResource("AnimationLibrary_p6kgb")
 
-[node name="combo" type="AudioStreamPlayer" parent="."]
+[node name="combo" type="AudioStreamPlayer" parent="." unique_id=424365732]
 stream = ExtResource("22_yv1i1")
 
-[node name="particlepivot" type="Marker3D" parent="."]
+[node name="particlepivot" type="Marker3D" parent="." unique_id=730838744]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.172904, -0.0516193, -0.517604)
 
-[node name="particles" type="GPUParticles3D" parent="particlepivot"]
+[node name="particles" type="GPUParticles3D" parent="particlepivot" unique_id=1245244185]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -50)
 emitting = false
 amount = 50

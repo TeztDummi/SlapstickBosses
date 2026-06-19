@@ -1,4 +1,4 @@
-[gd_scene load_steps=191 format=4 uid="uid://c11dbyk63u0v8"]
+[gd_scene format=4 uid="uid://c11dbyk63u0v8"]
 
 [ext_resource type="Texture2D" uid="uid://dgsocf5uqa2su" path="res://gunman_gunman.png" id="1_bqlv2"]
 [ext_resource type="Script" uid="uid://dmsxqis84m06t" path="res://gunman.gd" id="1_qr28j"]
@@ -877,6 +877,18 @@ tracks/71/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/72/type = "value"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("introcam:environment")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_02yve"]
 resource_name = "activatewall"
@@ -1322,6 +1334,12 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+
+[sub_resource type="Environment" id="Environment_ldkac"]
+adjustment_enabled = true
+adjustment_brightness = 2.03
+adjustment_contrast = 8.0
+adjustment_saturation = 0.01
 
 [sub_resource type="Animation" id="Animation_6l236"]
 resource_name = "death"
@@ -2033,6 +2051,18 @@ tracks/55/keys = {
 "args": [NodePath("gunman/torso/rpg2/RocketLauncher_008")],
 "method": &"shootrocket"
 }]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("introcam:environment")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(20.4, 20.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("Environment_ldkac"), null]
 }
 
 [sub_resource type="Animation" id="Animation_xe4lj"]
@@ -9456,83 +9486,81 @@ transparency = 4
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("23_x5fec")
 
-[node name="gunman" type="CharacterBody3D" groups=["gunman"]]
+[node name="gunman" type="CharacterBody3D" unique_id=64208312 groups=["gunman"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_qr28j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=264957841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 shape = SubResource("CapsuleShape3D_th2ss")
 
-[node name="slaparea" type="Area3D" parent="."]
+[node name="slaparea" type="Area3D" parent="." unique_id=304709246]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="slaparea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slaparea" unique_id=1452344910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00635529, 2.60648, -3.66031)
 shape = SubResource("BoxShape3D_epps6")
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_p6q25")
-}
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1091499825]
+libraries/ = SubResource("AnimationLibrary_p6q25")
 
-[node name="look" type="RayCast3D" parent="."]
+[node name="look" type="RayCast3D" parent="." unique_id=422103318]
 transform = Transform3D(0.992928, 0, 0.118716, 0, 1, 0, -0.118716, 0, 0.992928, 0, 6.5, 0)
 target_position = Vector3(0, 0, -200)
 collision_mask = 3
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=982944922]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4, 0)
 volume_db = 10.0
 
-[node name="gunman" type="Node3D" parent="."]
+[node name="gunman" type="Node3D" parent="." unique_id=167851163]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="torso" type="MeshInstance3D" parent="gunman"]
+[node name="torso" type="MeshInstance3D" parent="gunman" unique_id=1681881746]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64267e-07, 3.75225, 0)
 mesh = SubResource("ArrayMesh_8co0x")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_aj5ej")
 
-[node name="Cube_003" type="MeshInstance3D" parent="gunman/torso"]
+[node name="Cube_003" type="MeshInstance3D" parent="gunman/torso" unique_id=195303393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00151796, -0.517912, -0.889422)
 mesh = SubResource("ArrayMesh_w8lop")
 skeleton = NodePath("")
 
-[node name="head" type="MeshInstance3D" parent="gunman/torso"]
+[node name="head" type="MeshInstance3D" parent="gunman/torso" unique_id=51911484]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133387, 1.915, -0.495596)
 mesh = SubResource("ArrayMesh_fpgsv")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_8q7al")
 
-[node name="headlook" type="Marker3D" parent="gunman/torso/head"]
+[node name="headlook" type="Marker3D" parent="gunman/torso/head" unique_id=2038949503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="sniper" type="MeshInstance3D" parent="gunman/torso/head"]
-transform = Transform3D(0.4, 0, 0, 0, -4.32743e-08, 0.4, 0, -0.99, -1.74846e-08, 0.514181, 1.26645, 0.97801)
+[node name="sniper" type="MeshInstance3D" parent="gunman/torso/head" unique_id=1909486513]
+transform = Transform3D(0.4, 0, 0, 0, -4.3274273e-08, 0.4, 0, -0.99, -1.7484556e-08, 0.514181, 1.26645, 0.97801)
 mesh = SubResource("ArrayMesh_3tcma")
 skeleton = NodePath("")
 
-[node name="Cylinder_001" type="MeshInstance3D" parent="gunman/torso/head/sniper"]
+[node name="Cylinder_001" type="MeshInstance3D" parent="gunman/torso/head/sniper" unique_id=266340422]
 transform = Transform3D(0.7, 0, 0, 0, 1, 1.28057e-09, 0, 9.31324e-09, 0.7, 0, -0.020202, 1.90735e-06)
 mesh = SubResource("ArrayMesh_8a2ek")
 skeleton = NodePath("")
 
-[node name="Cylinder_002" type="MeshInstance3D" parent="gunman/torso/head/sniper/Cylinder_001"]
-transform = Transform3D(0.6, 0, 2.47574e-05, 0, 0.999999, 0, -2.47574e-05, 0, 0.6, 0, -0.0202015, 0)
+[node name="Cylinder_002" type="MeshInstance3D" parent="gunman/torso/head/sniper/Cylinder_001" unique_id=2013334851]
+transform = Transform3D(0.6, 0, 2.4757373e-05, 0, 0.999999, 0, -2.4757373e-05, 0, 0.6, 0, -0.0202015, 0)
 mesh = SubResource("ArrayMesh_ghv8x")
 skeleton = NodePath("")
 
-[node name="laser" type="MeshInstance3D" parent="gunman/torso/head/sniper/Cylinder_001/Cylinder_002"]
+[node name="laser" type="MeshInstance3D" parent="gunman/torso/head/sniper/Cylinder_001/Cylinder_002" unique_id=2089956004]
 transform = Transform3D(1, 0, 0, 0, 1, 1.5134e-09, 0, -3.72529e-09, 1, 0, 101.785, -2.203)
 visible = false
 mesh = SubResource("CylinderMesh_5n1fd")
 surface_material_override/0 = SubResource("StandardMaterial3D_lplvw")
 
-[node name="snipershoot" type="Marker3D" parent="gunman/torso/head/sniper/Cylinder_001/Cylinder_002"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -4.76837e-07, 2.0202, 0)
+[node name="snipershoot" type="Marker3D" parent="gunman/torso/head/sniper/Cylinder_001/Cylinder_002" unique_id=1365152379]
+transform = Transform3D(1, 0, 0, 0, -0.999999, 8.742278e-08, 0, -8.742269e-08, -1, -4.76837e-07, 2.0202, 0)
 
-[node name="sniperparticle" type="GPUParticles3D" parent="gunman/torso/head/sniper/Cylinder_001/Cylinder_002"]
+[node name="sniperparticle" type="GPUParticles3D" parent="gunman/torso/head/sniper/Cylinder_001/Cylinder_002" unique_id=320689054]
 transform = Transform3D(2.27225e-07, -1.917e-07, 1, 1, -5.18975e-08, -2.27224e-07, 5.18975e-08, 1, 1.91699e-07, 0, 2.08092, 0)
 emitting = false
 amount = 1
@@ -9542,30 +9570,30 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_ck31t")
 draw_pass_2 = SubResource("PlaneMesh_rd7m0")
 
-[node name="hatch" type="MeshInstance3D" parent="gunman/torso/head/sniper"]
-transform = Transform3D(-0.258819, -0.0022887, 0.965923, 0.0022887, 0.999993, 0.00298269, -0.965923, 0.00298268, -0.258812, -0.709618, 1.04, 0.707111)
+[node name="hatch" type="MeshInstance3D" parent="gunman/torso/head/sniper" unique_id=2085785004]
+transform = Transform3D(-0.25881934, -0.0022887017, 0.9659229, 0.0022886973, 0.999993, 0.002982685, -0.9659227, 0.0029826832, -0.2588123, -0.709618, 1.04, 0.707111)
 mesh = SubResource("ArrayMesh_yxsw3")
 skeleton = NodePath("")
 
-[node name="blackareaiforgot" type="MeshInstance3D" parent="gunman/torso/head/sniper"]
+[node name="blackareaiforgot" type="MeshInstance3D" parent="gunman/torso/head/sniper" unique_id=10365525]
 transform = Transform3D(1, 4.65661e-10, 2.38418e-07, -4.65662e-10, 1, 2.79397e-09, -2.38419e-07, 4.65661e-09, 0.999999, -0.40732, 1.04, 0.707109)
 mesh = SubResource("ArrayMesh_yxsw3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1kjl")
 surface_material_override/1 = SubResource("StandardMaterial3D_r5fg6")
 
-[node name="Scope_Cube_001" type="MeshInstance3D" parent="gunman/torso/head/sniper"]
-transform = Transform3D(-9.94965e-08, -2.29014, -6.47515e-09, 0.610705, -3.73111e-07, 2.23463e-07, -5.95903e-08, -6.47511e-09, 2.29014, 0.873185, 1.01878, -0.0147419)
+[node name="Scope_Cube_001" type="MeshInstance3D" parent="gunman/torso/head/sniper" unique_id=25636182]
+transform = Transform3D(-9.949648e-08, -2.29014, -6.475146e-09, 0.610705, -3.7311116e-07, 2.2346325e-07, -5.95903e-08, -6.47511e-09, 2.29014, 0.873185, 1.01878, -0.0147419)
 mesh = SubResource("ArrayMesh_kck53")
 skeleton = NodePath("")
 
-[node name="Scope_Cube_005" type="MeshInstance3D" parent="gunman/torso/head/sniper"]
+[node name="Scope_Cube_005" type="MeshInstance3D" parent="gunman/torso/head/sniper" unique_id=1441376445]
 transform = Transform3D(0, -2.29014, 3.35276e-08, 0.610705, 1.86265e-08, -8.9407e-08, 0, 6.33299e-08, 2.29014, -2.50269, 1.04784, 0.0749525)
 mesh = SubResource("ArrayMesh_h1uxn")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("ShaderMaterial_l0gl6")
 
-[node name="spark" type="GPUParticles3D" parent="gunman/torso/head"]
+[node name="spark" type="GPUParticles3D" parent="gunman/torso/head" unique_id=514976756]
 transform = Transform3D(-0.860186, 0.507442, -0.0508804, 0.509734, 0.858603, -0.0545501, 0.0160046, -0.0728585, -0.997214, -1.36713, 1.54679, -0.238479)
 emitting = false
 amount = 1
@@ -9574,84 +9602,82 @@ one_shot = true
 process_material = SubResource("ParticleProcessMaterial_48l17")
 draw_pass_1 = SubResource("PlaneMesh_ookb6")
 
-[node name="rpg" type="MeshInstance3D" parent="gunman/torso"]
-transform = Transform3D(-3.64668, -20.681, 3.46113e-06, 1.20763, -0.212938, 20.9642, -20.6457, 3.64046, 1.22626, -0.234195, 7.31945e-05, 0.171274)
+[node name="rpg" type="MeshInstance3D" parent="gunman/torso" unique_id=1810035918]
+transform = Transform3D(-3.646685, -20.68095, 3.4611298e-06, 1.2076254, -0.21293785, 20.964167, -20.64566, 3.6404629, 1.2262552, -0.234195, 7.31945e-05, 0.171274)
 mesh = SubResource("ArrayMesh_yigf3")
 skeleton = NodePath("")
 
-[node name="RocketLauncher_002" type="MeshInstance3D" parent="gunman/torso/rpg"]
+[node name="RocketLauncher_002" type="MeshInstance3D" parent="gunman/torso/rpg" unique_id=817973407]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351037, -0.00634162, 0.00329103)
 mesh = SubResource("ArrayMesh_1i5r0")
 skeleton = NodePath("")
 
-[node name="RocketLauncher_003" type="MeshInstance3D" parent="gunman/torso/rpg"]
+[node name="RocketLauncher_003" type="MeshInstance3D" parent="gunman/torso/rpg" unique_id=2135294262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351037, 0.00804803, 0.000335423)
 mesh = SubResource("ArrayMesh_ow0ut")
 skeleton = NodePath("")
 
-[node name="RocketLauncher_004" type="MeshInstance3D" parent="gunman/torso/rpg"]
+[node name="RocketLauncher_004" type="MeshInstance3D" parent="gunman/torso/rpg" unique_id=295968432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351037, -0.00170643, -0.0106486)
 mesh = SubResource("ArrayMesh_cuk3i")
 skeleton = NodePath("")
 
-[node name="rpg2" type="MeshInstance3D" parent="gunman/torso"]
-transform = Transform3D(3.64665, -20.6767, -0.42008, 1.20763, -0.212938, 20.9642, -20.6457, -3.66458, 1.15206, 0.234195, 7.31945e-05, 0.171274)
+[node name="rpg2" type="MeshInstance3D" parent="gunman/torso" unique_id=1295291106]
+transform = Transform3D(3.6466496, -20.67669, -0.42008045, 1.2076254, -0.21293785, 20.964167, -20.645666, -3.6645846, 1.1520565, 0.234195, 7.31945e-05, 0.171274)
 mesh = SubResource("ArrayMesh_f2c8j")
 skeleton = NodePath("")
 
-[node name="RocketLauncher_006" type="MeshInstance3D" parent="gunman/torso/rpg2"]
+[node name="RocketLauncher_006" type="MeshInstance3D" parent="gunman/torso/rpg2" unique_id=1984299513]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351037, -0.00634162, 0.00329102)
 mesh = SubResource("ArrayMesh_jqobv")
 skeleton = NodePath("")
 
-[node name="RocketLauncher_007" type="MeshInstance3D" parent="gunman/torso/rpg2"]
+[node name="RocketLauncher_007" type="MeshInstance3D" parent="gunman/torso/rpg2" unique_id=194909486]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351037, 0.00804803, 0.000335414)
 mesh = SubResource("ArrayMesh_24agm")
 skeleton = NodePath("")
 
-[node name="RocketLauncher_008" type="MeshInstance3D" parent="gunman/torso/rpg2"]
+[node name="RocketLauncher_008" type="MeshInstance3D" parent="gunman/torso/rpg2" unique_id=504596143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351037, -0.00170643, -0.0106486)
 mesh = SubResource("ArrayMesh_3oe5i")
 skeleton = NodePath("")
 
-[node name="shotgun" type="Marker3D" parent="gunman/torso"]
-transform = Transform3D(-1.04026e-08, -0.556896, 0.253792, -7.45058e-09, 0.253792, 0.556896, -0.612, 6.37622e-09, -1.10936e-08, -1.87473, 2.17662, 0.00137776)
+[node name="shotgun" type="Marker3D" parent="gunman/torso" unique_id=1843066160]
+transform = Transform3D(-1.0402554e-08, -0.5568964, 0.25379202, -7.4505757e-09, 0.25379202, 0.5568964, -0.612, 6.376223e-09, -1.1093602e-08, -1.87473, 2.17662, 0.00137776)
 gizmo_extents = 14.8
 
-[node name="anim" type="AnimationPlayer" parent="gunman/torso/shotgun"]
+[node name="anim" type="AnimationPlayer" parent="gunman/torso/shotgun" unique_id=349765048]
 root_node = NodePath("../shotgun/shotgun")
-libraries = {
-&"": SubResource("AnimationLibrary_fnvob")
-}
+libraries/ = SubResource("AnimationLibrary_fnvob")
 
-[node name="shotgun" type="Marker3D" parent="gunman/torso/shotgun"]
+[node name="shotgun" type="Marker3D" parent="gunman/torso/shotgun" unique_id=221385377]
 transform = Transform3D(-4.29014e-08, -9.74188e-08, -3.26882, -2.97451, 1.35556, 3.44281e-07, 1.35556, 2.97451, 2.71334e-07, 3.74392e-07, 2.86102e-06, 2.38419e-06)
 gizmo_extents = 1.15
 
-[node name="shotgun" type="MeshInstance3D" parent="gunman/torso/shotgun/shotgun"]
+[node name="shotgun" type="MeshInstance3D" parent="gunman/torso/shotgun/shotgun" unique_id=1818652699]
 transform = Transform3D(0.305917, 0, 0, 0, 0.305921, 0, 0, 0, 0.305924, 0.0429978, -0.174001, -1.54972e-06)
 mesh = SubResource("ArrayMesh_37cnd")
 skeleton = NodePath("")
 
-[node name="Node3D" type="Node3D" parent="gunman/torso/shotgun/shotgun/shotgun"]
-transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 0.999999, 0, 0, 0, 1, -0.103004, -0.162567, 0.0365901)
+[node name="Node3D" type="Node3D" parent="gunman/torso/shotgun/shotgun/shotgun" unique_id=1538098724]
+transform = Transform3D(1, 2.9802269e-08, 0, -2.98023e-08, 0.999999, 0, 0, 0, 1, -0.103004, -0.162567, 0.0365901)
 
-[node name="Icosphere_001" type="MeshInstance3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D"]
+[node name="Icosphere_001" type="MeshInstance3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D" unique_id=891194784]
 transform = Transform3D(0.892203, 0.130423, 2.08616e-07, -0.130423, 0.892205, 1.19209e-07, -2.08616e-07, -1.78814e-07, 0.901686, 1.19413, 0.0814295, -0.23258)
 mesh = SubResource("ArrayMesh_0tcw2")
 skeleton = NodePath("")
 
-[node name="Shotgun" type="MeshInstance3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D"]
+[node name="Shotgun" type="MeshInstance3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D" unique_id=1845904925]
 transform = Transform3D(289.86, -8.39233e-05, -736.059, 621.581, -6.10352e-05, 343.243, -0.000656128, -872.508, 7.24792e-05, 1.19242, 0.0825169, -0.244532)
 mesh = SubResource("ArrayMesh_44p6u")
 skeleton = NodePath("")
 
-[node name="Shotgun_001" type="MeshInstance3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D"]
+[node name="Shotgun_001" type="MeshInstance3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D" unique_id=989956476]
 transform = Transform3D(289.86, -0.000144958, -736.059, 621.581, -6.10352e-05, 343.243, -0.000679016, -872.508, 8.7738e-05, -1.73674, -4.71293, -0.24784)
 mesh = SubResource("ArrayMesh_7cs2t")
 skeleton = NodePath("")
 
-[node name="shotgunparticle" type="GPUParticles3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D"]
+[node name="shotgunparticle" type="GPUParticles3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D" unique_id=1071014282]
 transform = Transform3D(-0.417091, -0.906913, 0.0595666, -0.908725, 0.414977, -0.0449037, 0.0160046, -0.0728585, -0.997214, -3.23382, -5.71557, -0.238479)
 emitting = false
 amount = 1
@@ -9661,18 +9687,18 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_0qylk")
 draw_pass_2 = SubResource("PlaneMesh_qokqk")
 
-[node name="bullets" type="Marker3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D"]
+[node name="bullets" type="Marker3D" parent="gunman/torso/shotgun/shotgun/shotgun/Node3D" unique_id=1247998419]
 transform = Transform3D(1, 2.89494e-14, -3.55271e-15, 3.64621e-15, 1, 2.84217e-14, 7.10543e-15, -7.10543e-15, 1, -2.885, -5.76759, -7.45058e-09)
 
-[node name="smgarm" type="MeshInstance3D" parent="gunman/torso"]
-transform = Transform3D(0.891824, -0.452384, 0, 0.452384, 0.891825, 0, 0, 0, 1, 1.7667, 2.06542, 0.00212002)
+[node name="smgarm" type="MeshInstance3D" parent="gunman/torso" unique_id=2015443066]
+transform = Transform3D(0.8918241, -0.45238408, 0, 0.45238364, 0.89182496, 0, 0, 0, 1, 1.7667, 2.06542, 0.00212002)
 mesh = SubResource("ArrayMesh_pb7ux")
 skeleton = NodePath("")
 
-[node name="Armature" type="Node3D" parent="gunman/torso/smgarm"]
+[node name="Armature" type="Node3D" parent="gunman/torso/smgarm" unique_id=1700586945]
 transform = Transform3D(0.891824, 0.452383, 0, -0.452383, 0.891824, 0, 0, 0, 1, 0.00694537, -0.533598, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="gunman/torso/smgarm/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="gunman/torso/smgarm/Armature" unique_id=901848149]
 transform = Transform3D(1, 7.45058e-09, 8.9407e-08, 0, 1, 5.96046e-08, 5.96046e-08, -1.49012e-07, 1, 0, 0, 0)
 bones/0/name = "Bone"
 bones/0/parent = -1
@@ -9724,17 +9750,17 @@ bones/6/position = Vector3(-0.200948, -2.89036, -0.00189165)
 bones/6/rotation = Quaternion(-0.00457376, -0.00111103, 0.971728, 0.236058)
 bones/6/scale = Vector3(1, 1, 1)
 
-[node name="Vert_001" type="BoneAttachment3D" parent="gunman/torso/smgarm/Armature/Skeleton3D"]
-transform = Transform3D(1, -2.06812e-07, -1.86265e-08, 2.7e-07, 1, -4.65661e-09, 2.14204e-08, 4.19095e-09, 1, 0.175797, 0.109039, 4.23633e-08)
+[node name="Vert_001" type="BoneAttachment3D" parent="gunman/torso/smgarm/Armature/Skeleton3D" unique_id=893633246]
+transform = Transform3D(0.9999998, -2.0681182e-07, -1.8626451e-08, 2.6999987e-07, 0.99999976, -4.656613e-09, 2.142042e-08, 4.1909516e-09, 1, 0.17579746, 0.10903931, 4.236327e-08)
 bone_name = "Vert.001"
 bone_idx = 6
 
-[node name="Vert_001" type="MeshInstance3D" parent="gunman/torso/smgarm/Armature/Skeleton3D/Vert_001"]
+[node name="Vert_001" type="MeshInstance3D" parent="gunman/torso/smgarm/Armature/Skeleton3D/Vert_001" unique_id=1330765161]
 transform = Transform3D(1, -1.49012e-08, 3.72529e-08, -1.49012e-08, 1, 2.98023e-08, 3.72529e-09, 1.49012e-08, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_lgtjj")
 skeleton = NodePath("")
 
-[node name="smgparticle" type="GPUParticles3D" parent="gunman/torso/smgarm/Armature/Skeleton3D/Vert_001"]
+[node name="smgparticle" type="GPUParticles3D" parent="gunman/torso/smgarm/Armature/Skeleton3D/Vert_001" unique_id=2019631776]
 transform = Transform3D(0.452435, -2.39349e-08, 0.891798, -0.891799, -3.89818e-08, 0.452435, 2.39349e-08, -1, -3.89817e-08, 2.77526, -5.65208, -0.165885)
 emitting = false
 amount = 3
@@ -9744,70 +9770,70 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_0qylk")
 draw_pass_2 = SubResource("PlaneMesh_qokqk")
 
-[node name="smgbullets" type="Marker3D" parent="gunman/torso/smgarm/Armature/Skeleton3D/Vert_001"]
+[node name="smgbullets" type="Marker3D" parent="gunman/torso/smgarm/Armature/Skeleton3D/Vert_001" unique_id=1856469036]
 transform = Transform3D(-0.883211, -0.00210161, -0.468972, -0.468977, 0.00396232, 0.883202, 2.07154e-06, 0.99999, -0.0044852, 2.77526, -5.65208, -0.165885)
 gizmo_extents = 1.01
 
-[node name="Vert_002" type="MeshInstance3D" parent="gunman/torso/smgarm/Armature/Skeleton3D"]
+[node name="Vert_002" type="MeshInstance3D" parent="gunman/torso/smgarm/Armature/Skeleton3D" unique_id=1611155683]
 transform = Transform3D(1, 0, 4.59841e-09, 2.98023e-08, 1, 6.8685e-09, 2.68919e-08, -6.75209e-09, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ht6xa")
 skin = SubResource("Skin_h1seq")
 
-[node name="rthigh_001" type="MeshInstance3D" parent="gunman"]
-transform = Transform3D(0.593717, -0.0206176, -0.0594782, 0.0109213, 0.603174, -0.101837, 0.0584884, 0.0966619, 0.62278, 0.673947, 3.07334, 0.141897)
+[node name="rthigh_001" type="MeshInstance3D" parent="gunman" unique_id=1418009702]
+transform = Transform3D(0.593717, -0.020617591, -0.05947816, 0.010921253, 0.603174, -0.101836964, 0.05848836, 0.09666192, 0.62278, 0.673947, 3.07334, 0.141897)
 mesh = SubResource("ArrayMesh_kuhk3")
 skeleton = NodePath("")
 
-[node name="rcalf_001" type="MeshInstance3D" parent="gunman/rthigh_001"]
-transform = Transform3D(0.8119, 0.0735565, -0.0107622, -0.0594108, 0.768043, 0.367321, 0.0391236, -0.360153, 0.781132, -0.0521886, -2.48732, 0.0973134)
+[node name="rcalf_001" type="MeshInstance3D" parent="gunman/rthigh_001" unique_id=205783941]
+transform = Transform3D(0.8119001, 0.073556505, -0.0107621765, -0.05941081, 0.768043, 0.36732143, 0.039123584, -0.36015308, 0.78113174, -0.0521886, -2.48732, 0.0973134)
 mesh = SubResource("ArrayMesh_l5ex4")
 skeleton = NodePath("")
 
-[node name="rfoot_001" type="MeshInstance3D" parent="gunman/rthigh_001/rcalf_001"]
-transform = Transform3D(0.759953, -0.0229613, 0.00505379, 0.0455736, 0.360963, -0.329181, 0.009683, 0.103185, 1.15267, 0.184246, -2.62677, -0.319576)
+[node name="rfoot_001" type="MeshInstance3D" parent="gunman/rthigh_001/rcalf_001" unique_id=1427902745]
+transform = Transform3D(0.75995284, -0.022961315, 0.0050537875, 0.04557357, 0.3609631, -0.32918084, 0.009683002, 0.10318494, 1.1526701, 0.184246, -2.62677, -0.319576)
 mesh = SubResource("ArrayMesh_5pitf")
 skeleton = NodePath("")
 
-[node name="rthigh" type="MeshInstance3D" parent="gunman"]
-transform = Transform3D(-0.593718, 0.0206159, 0.0594764, 0.0109199, 0.603174, -0.101837, 0.0584865, 0.0966621, 0.622781, -0.673947, 3.07334, 0.141897)
+[node name="rthigh" type="MeshInstance3D" parent="gunman" unique_id=1728413900]
+transform = Transform3D(-0.59371805, 0.020615898, 0.059476424, 0.0109199025, 0.603174, -0.101837076, 0.05848651, 0.09666211, 0.6227808, -0.673947, 3.07334, 0.141897)
 mesh = SubResource("ArrayMesh_3t0wr")
 skeleton = NodePath("")
 
-[node name="rcalf" type="MeshInstance3D" parent="gunman/rthigh"]
-transform = Transform3D(0.811902, 0.073557, -0.0107622, -0.0594109, 0.768048, 0.367322, 0.0391237, -0.360156, 0.781133, -0.0521888, -2.48732, 0.0973132)
+[node name="rcalf" type="MeshInstance3D" parent="gunman/rthigh" unique_id=1572591415]
+transform = Transform3D(0.8119019, 0.073557, -0.010762194, -0.05941095, 0.76804817, 0.367322, 0.039123673, -0.3601555, 0.781133, -0.0521888, -2.48732, 0.0973132)
 mesh = SubResource("ArrayMesh_unpmi")
 skeleton = NodePath("")
 
-[node name="rfoot" type="MeshInstance3D" parent="gunman/rthigh/rcalf"]
-transform = Transform3D(0.759951, -0.0229613, 0.00505378, 0.0455735, 0.360963, -0.329181, 0.00968299, 0.103185, 1.15267, 0.184246, -2.62677, -0.319576)
+[node name="rfoot" type="MeshInstance3D" parent="gunman/rthigh/rcalf" unique_id=1616633730]
+transform = Transform3D(0.759951, -0.022961315, 0.005053776, 0.045573458, 0.3609631, -0.32918084, 0.009682985, 0.10318494, 1.1526701, 0.184246, -2.62677, -0.319576)
 mesh = SubResource("ArrayMesh_8e1ay")
 skeleton = NodePath("")
 
-[node name="direction" type="Marker3D" parent="."]
+[node name="direction" type="Marker3D" parent="." unique_id=1905830759]
 
-[node name="introcam" type="Camera3D" parent="."]
-transform = Transform3D(-2, -5.07036e-06, -1.83547e-11, 0, -7.23998e-06, 2, -5.07036e-06, 2, 7.23998e-06, -0.095, 6.13, -3.83)
+[node name="introcam" type="Camera3D" parent="." unique_id=1801658966]
+transform = Transform3D(-2, -5.0703634e-06, -1.8354665e-11, 0, -7.2399803e-06, 2, -5.0703634e-06, 2, 7.2399803e-06, -0.095, 6.13, -3.83)
 
-[node name="cutsceneaudio" type="AudioStreamPlayer" parent="introcam"]
+[node name="cutsceneaudio" type="AudioStreamPlayer" parent="introcam" unique_id=1480392016]
 stream = ExtResource("21_ldkac")
 
-[node name="splash" type="MeshInstance3D" parent="introcam"]
+[node name="splash" type="MeshInstance3D" parent="introcam" unique_id=783847312]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.465)
 visible = false
 mesh = SubResource("PlaneMesh_pcrf8")
 surface_material_override/0 = SubResource("StandardMaterial3D_25lj7")
 
-[node name="splashback" type="MeshInstance3D" parent="introcam/splash"]
+[node name="splashback" type="MeshInstance3D" parent="introcam/splash" unique_id=2024695235]
 transform = Transform3D(1.5, -1.11759e-08, -2.23518e-08, 1.11759e-08, 1.5, 5.58793e-08, 2.23518e-08, -5.58793e-08, 1.5, 0, 0, -6.3)
 mesh = SubResource("PlaneMesh_lw7cd")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ffqbw")
 
-[node name="Armature" type="Node3D" parent="."]
+[node name="Armature" type="Node3D" parent="." unique_id=2130324523]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -48)
 visible = false
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Armature" unique_id=2080158604]
 bones/0/name = "Bone.002"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38418e-07, -7.10543e-15, 1, 5.96046e-08, -2.38418e-07, -5.96046e-08, 1, 0, 0.691587, 0)
@@ -9893,23 +9919,23 @@ bones/11/position = Vector3(0, 0.25, 0)
 bones/11/rotation = Quaternion(-0.491462, -0.576396, 0.42359, 0.496794)
 bones/11/scale = Vector3(1, 1, 1)
 
-[node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+[node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=2103552182]
 mesh = SubResource("ArrayMesh_cv0im")
 skin = SubResource("Skin_n54qb")
 surface_material_override/0 = SubResource("StandardMaterial3D_7wann")
 
-[node name="headbone" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93414e-08, 1.06218, 0.826616)
+[node name="headbone" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=628624691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93414e-08, 1.0621791, 0.826616)
 bone_name = "Bone.003"
 bone_idx = 1
 
-[node name="offset" type="Marker3D" parent="Armature/Skeleton3D/headbone"]
+[node name="offset" type="Marker3D" parent="Armature/Skeleton3D/headbone" unique_id=182072766]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 0.999999, 0, 8.74228e-08, 0, -1, 0, 0.4, 0)
 
-[node name="attachments" type="Marker3D" parent="Armature/Skeleton3D/headbone"]
+[node name="attachments" type="Marker3D" parent="Armature/Skeleton3D/headbone" unique_id=251367422]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)
 
-[node name="sniperbullet" type="MeshInstance3D" parent="."]
+[node name="sniperbullet" type="MeshInstance3D" parent="." unique_id=270941379]
 transform = Transform3D(-0.180452, 0, -5.4934e-07, 0, 0.180452, 0, 1.57756e-08, 0, -6.28372, 1.335, 1.617, -39.239)
 visible = false
 mesh = SubResource("ArrayMesh_eonf4")
@@ -9920,7 +9946,7 @@ skeleton = NodePath("")
 "blend_shapes/Key 4" = 0.399997
 surface_material_override/0 = SubResource("StandardMaterial3D_5w43d")
 
-[node name="Icosphere2" type="MeshInstance3D" parent="sniperbullet"]
+[node name="Icosphere2" type="MeshInstance3D" parent="sniperbullet" unique_id=2076993533]
 transform = Transform3D(1.245, 0, 4.54747e-12, 0, 1.245, 0, -1.19904e-14, 0, 1.17805, 7.50051e-07, 0, -0.14265)
 mesh = SubResource("ArrayMesh_eonf4")
 skeleton = NodePath("")
@@ -9930,21 +9956,21 @@ skeleton = NodePath("")
 "blend_shapes/Key 4" = 0.399997
 surface_material_override/0 = SubResource("StandardMaterial3D_yd2uy")
 
-[node name="body" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.850555, -0.351875, -0.39082, -0.392224, 0.91951, 0.0257296, 0.350309, 0.175173, -0.920108, 1.12374, 0.631201, -47.686)
+[node name="body" type="MeshInstance3D" parent="." unique_id=1641835040]
+transform = Transform3D(-0.8505551, -0.35187474, -0.39082003, -0.39222372, 0.91951007, 0.025729572, 0.35030913, 0.17517324, -0.92010796, 1.12374, 0.631201, -47.686)
 visible = false
 mesh = SubResource("ArrayMesh_njbty")
 skeleton = NodePath("")
 
-[node name="barrel" type="MeshInstance3D" parent="body"]
+[node name="barrel" type="MeshInstance3D" parent="body" unique_id=404660214]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.704899, 0, 1.78814e-07)
 mesh = SubResource("ArrayMesh_sw3q8")
 skeleton = NodePath("")
 
-[node name="deathsmg" type="Timer" parent="."]
+[node name="deathsmg" type="Timer" parent="." unique_id=663911625]
 wait_time = 0.05
 
-[node name="boom" type="GPUParticles3D" parent="."]
+[node name="boom" type="GPUParticles3D" parent="." unique_id=1851066026]
 transform = Transform3D(0.707107, -0.707107, 0, 0.612372, 0.612372, 0.5, -0.353553, -0.353553, 0.866025, 0, 22, 0.0279999)
 emitting = false
 amount = 1000
@@ -9954,7 +9980,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_xwp00")
 draw_pass_1 = SubResource("PlaneMesh_vf671")
 
-[node name="boom2" type="GPUParticles3D" parent="boom"]
+[node name="boom2" type="GPUParticles3D" parent="boom" unique_id=1457380726]
 emitting = false
 amount = 1000
 lifetime = 5.0
@@ -9963,7 +9989,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_f1tch")
 draw_pass_1 = SubResource("PlaneMesh_1r6hf")
 
-[node name="ring" type="GPUParticles3D" parent="boom"]
+[node name="ring" type="GPUParticles3D" parent="boom" unique_id=2022117451]
 transform = Transform3D(0.75, -0.25, 0.612373, -0.25, 0.75, 0.612373, -0.612373, -0.612373, 0.5, 0, 0, 0)
 emitting = false
 amount = 20
@@ -9973,7 +9999,7 @@ explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_s5xle")
 draw_pass_1 = SubResource("PlaneMesh_2exa2")
 
-[node name="deadhead" type="MeshInstance3D" parent="."]
+[node name="deadhead" type="MeshInstance3D" parent="." unique_id=1687988948]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.8039, 0)
 visible = false
 mesh = SubResource("ArrayMesh_fpgsv")

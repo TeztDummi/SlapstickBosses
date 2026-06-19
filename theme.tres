@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cmewige4oh18h"]
+[gd_resource type="Theme" format=3 uid="uid://cmewige4oh18h"]
 
 [ext_resource type="FontFile" uid="uid://bl2v3t75lb0tl" path="res://RelapseRegular-G12G.ttf" id="1_d4qmt"]
 [ext_resource type="Texture2D" uid="uid://db2y2cyhnpmv" path="res://ui/sliderdotunhovered.png" id="2_dnr1t"]

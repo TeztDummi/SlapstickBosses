@@ -12,7 +12,6 @@ func _process(delta):
 	
 	if time >= 20:
 		delete()
-		delete.rpc()
 		
 	if $projectile.visible:
 		$projectile.position.z += delta*50
@@ -22,11 +21,9 @@ func _on_area_body_entered(body):
 		if $projectile.visible:
 			hit()
 					
-@rpc("any_peer")
 func delete():
 	queue_free()
 
-@rpc("any_peer")
 func hit():
 	$projectile.hide()
 	$explosion.position = $projectile.position

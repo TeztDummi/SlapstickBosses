@@ -33,6 +33,8 @@ var ended = false
 
 var tentaclesparried = 0
 
+var barshake = 0
+
 func _ready() -> void:
 	if diff == 0:
 		maxhealth = 4000.0
@@ -81,13 +83,16 @@ func _ready() -> void:
 	
 	$"../music".stop()
 	
-	$Armature.show()
-	if chal == "horrorgun":
-		$Armature/Skeleton3D/hand/gun.show()
+	if $"../".restarted != 1:
+		$Armature.show()
+		if chal == "horrorgun":
+			$Armature/Skeleton3D/hand/gun.show()
+		else:
+			$Armature/Skeleton3D/hand/katana.show()
+		$cutscene.play("start")
+		$cutscenecam.current = true
 	else:
-		$Armature/Skeleton3D/hand/katana.show()
-	$cutscene.play("start")
-	$cutscenecam.current = true
+		player.camera.current = true
 	
 	var loadoutfit = load($"../".outfit).instantiate()
 	for child in $Armature/Skeleton3D/headbone/attachments.get_children():
@@ -122,9 +127,11 @@ func hurt(dmg):
 	if started:
 		if !dead:
 			health -= dmg
+			barshake += 0.03*(dmg/150.0)
 		
 		if health < 0 && !dead:
 			dead = true
+			barshake = 0.03
 			$"../".transitionmusic("res://audio/music/horrorthemespicy.mp3", 0.25, false, 42.666, -2.666)
 			health = 0
 			$topgunk.queue_free()
@@ -167,9 +174,26 @@ func _process(delta: float) -> void:
 	
 	var healthval = health
 	if chal == "eyes": healthval = openeyes
-	$"../canvas/hud/bossbar".value = healthval
-	$"../canvas/hud/bossbar"/healthlabel.text = str(int(round(healthval)))
-	$"../canvas/hud/bossbar".tint_progress = Color.from_hsv(healthval*0.003*(100/maxhealth), 0.5, 1)
+	$"../canvas/hud/horrorbossbar".value = healthval
+	$"../canvas/hud/horrorbossbar"/healthlabel.text = str(int(round(healthval)))
+	
+	var mat = $"../canvas/hud/horrorbossbar".material
+	
+	if barshake > 0.001:
+		if !dead: barshake = lerpf(barshake, 0, delta*2)
+		else: barshake = lerpf(barshake, 0, delta*0.25)
+		mat.set_shader_parameter("amplitude_x", barshake)
+		mat.set_shader_parameter("amplitude_y", barshake)
+		mat.set_shader_parameter("speed_x", 40)
+		mat.set_shader_parameter("speed_y", 60)
+		#$camera.h_offset = randf_range(-1, 1)*barshake
+	else:
+		barshake = 0.001
+		mat.set_shader_parameter("amplitude_x", barshake)
+		mat.set_shader_parameter("amplitude_y", barshake)
+		mat.set_shader_parameter("speed_x", 1.0)
+		mat.set_shader_parameter("speed_y", 1.5)
+		#$camera.h_offset = 0
 	
 	if health <= maxhealth/2:
 		if dead:
@@ -317,8 +341,8 @@ func _on_startarea_body_entered(body: Node3D) -> void:
 				$tentacletimer.wait_time = 5
 			for timer in timers:
 				timer.start()
-			$"../canvas/hud/bossbar".show()
-			$"../canvas/hud/bossbar".max_value = health
+			$"../canvas/hud/horrorbossbar".show()
+			$"../canvas/hud/horrorbossbar".max_value = health
 			gun.turnflashlighton()
 			$"../music".stream = load("res://audio/music/horrortheme.mp3")
 			$"../music".play()
@@ -334,7 +358,7 @@ func _on_startarea_body_entered(body: Node3D) -> void:
 				for eye in $eyes.get_children():
 					eye.open()
 					openeyes += 1
-				$"../canvas/hud/bossbar".max_value = $eyes.get_child_count()
+				$"../canvas/hud/horrorbossbar".max_value = $eyes.get_child_count()
 				var wait = 0.1
 				for timer in timers:
 					if timer.name != "floortentacletimer":

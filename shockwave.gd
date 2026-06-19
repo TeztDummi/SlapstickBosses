@@ -4,9 +4,6 @@ var speed = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var dupe = $GPUParticles3D.draw_pass_1.material.duplicate()
-	dupe.albedo_color.a = 1
-	$GPUParticles3D.draw_pass_1.material = dupe
 	var procdupe = $GPUParticles3D.process_material.duplicate()
 	$GPUParticles3D.process_material = procdupe
 
@@ -18,7 +15,6 @@ func _process(delta):
 	$GPUParticles3D.process_material.emission_shape_scale.z = $shockwave.scale.x*0.14
 	if $shockwave.scale.x > shrinktime:
 		$shockwave.scale.y -= delta*8*speed
-		var colore = $GPUParticles3D.draw_pass_1.material.albedo_color
-		$GPUParticles3D.draw_pass_1.material.albedo_color.a -= delta*8*speed
+		$GPUParticles3D.emitting = false
 	if $shockwave.scale.y <= 0:
 		queue_free()

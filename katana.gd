@@ -72,6 +72,10 @@ func _process(delta: float) -> void:
 								
 								if damage >= 200:
 									main.setAchievement("aroundtheworld")
+									
+								if damage >= 150:
+									player.impactframe()
+									player.screenshake += 2
 								
 								if ray.get_collider().is_in_group("eye"):
 									if ray.get_collider().get_parent().isopen:

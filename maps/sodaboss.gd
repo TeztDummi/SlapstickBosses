@@ -34,6 +34,7 @@ func _ready():
 	
 	preload("res://audio/music/factoryescape.mp3")
 	preload("res://audio/music/factoryescapespicy.mp3")
+	preload("res://bitchslapper.tscn")
 	
 	if diff == 2:
 		roomstillboss = 30
@@ -103,6 +104,8 @@ func givebitchslapper():
 	var gun = load("res://bitchslapper.tscn").instantiate()
 	$"../player/camera/gun".add_child(gun)
 	$"../player".scroll = 1
+	player.screenshake += 0.5
+	player.impactframe()
 	
 	changemusic("factoryescapepolice", "factoryescape")
 		
@@ -227,3 +230,4 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "start":
 		$anim.play("Animation")
 		player.screenshake += 1
+		player.impactframe()

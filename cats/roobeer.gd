@@ -7,6 +7,7 @@ var speed = 3
 var shake = 0
 var slamming = false
 var dashing = "no"
+var prevvel = Vector3.ZERO
 
 func _ready():
 	var dupe = $visual/cat.get_surface_override_material(0).duplicate()
@@ -61,9 +62,28 @@ func _process(delta):
 								person.velocity.y += 30
 								person.velocity.z += cos(knockdir)*50
 								person.hurt(20, "ragdoll")
+								
+								var tempaudio = load("res://tempaudio.tscn").instantiate()
+								add_child(tempaudio)
+								tempaudio.stream = load("res://audio/roobeerwallhit.mp3")
+								tempaudio.pitch_scale = 0.75
+								tempaudio.volume_db = 16
+								tempaudio.play()
 			if dashing != "no":
 				velocity.x *= 1-(delta*0.2)
 				velocity.z *= 1-(delta*0.2)
+				
+				$dashparticles.emitting = (velocity.length() > 20)
+				var amount = ((prevvel.length()-velocity.length())/delta)
+				if (amount > 2500):
+					print("HIT WALL!!!")
+					print(amount)
+					var tempaudio = load("res://tempaudio.tscn").instantiate()
+					add_child(tempaudio)
+					tempaudio.stream = load("res://audio/roobeerwallhit.mp3")
+					tempaudio.volume_db = 16
+					tempaudio.play()
+				prevvel = velocity
 				
 			if slamming:
 				velocity *= (0.5+disttoclosest/4)
@@ -87,6 +107,8 @@ func _on_anim_animation_finished(anim_name):
 		animplay("move")
 	if anim_name == "dash":
 		$dashcollider.disabled = true
+		$dashparticles.emitting = false
+		prevvel = Vector3.ZERO
 		dashing = "no"
 		animplay("move")
 			
@@ -96,6 +118,7 @@ func activateexplode():
 			if !person.dead:
 				person.hurt(75, "ragdoll")
 	player.screenshake += 2
+	player.impactframe()
 					
 func changedashing(val):
 	dashing = val
@@ -143,6 +166,7 @@ func slam():
 		if person.is_in_group("playergroup"):
 			if !person.dead:
 				person.hurt(30, "squish")
+	$slamparticles.restart()
 	shockwave()
 		
 func shockwave():
@@ -171,7 +195,6 @@ func _on_shoottimer_timeout():
 					pos = Vector3(pos.x+randf_range(-5, 5)+choice.velocity.x*2, pos.y, pos.z+randf_range(-5, 5)+choice.velocity.z*2)
 					pos.y += 0.5
 					var dir = Vector3(position.x-pos.x, position.y-pos.y, position.z-pos.z)
-					dir
 					var angvel = Vector3(randf_range(-5, 5), randf_range(-5, 5), randf_range(-5, 5))
 					shootprojectile(dir, angvel)
 					animplay("throw2L")

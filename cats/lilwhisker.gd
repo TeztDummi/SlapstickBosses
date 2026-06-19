@@ -85,7 +85,7 @@ func animplay(animation):
 	$anim.play(animation)
 
 func shockwave():
-	var shockwave = load("res://shockwave.tscn").instantiate()
+	var shockwave = backload("res://shockwave.tscn").instantiate()
 	shockwave.position = position
 	shockwave.shrinktime = 25
 	shockwave.speed = 1.5
@@ -111,3 +111,14 @@ func _on_audio_finished():
 		playsound("music", 1)
 		$shoottimer.stop()
 		$shoottimer.start()
+		
+func backload(path):
+	ResourceLoader.load_threaded_request(path)
+	var progress = []
+	ResourceLoader.load_threaded_get_status(path, progress)
+	var obj
+	if progress[0] == 1:
+		obj = ResourceLoader.load_threaded_get(path)
+	else:
+		obj = load(path)
+	return obj

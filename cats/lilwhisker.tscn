@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://jw1buriflmye"]
+[gd_scene format=3 uid="uid://jw1buriflmye"]
 
 [ext_resource type="Script" uid="uid://cr0oqp11sjsld" path="res://cats/lilwhisker.gd" id="1_y6mh1"]
 [ext_resource type="Texture2D" uid="uid://dxl3i5ao3r88c" path="res://cats/lil whisker.png" id="2_pw1ud"]
@@ -254,29 +254,29 @@ _data = {
 &"move": SubResource("Animation_3td8l")
 }
 
-[node name="lilwhisker" type="CharacterBody3D" groups=["cat"]]
+[node name="lilwhisker" type="CharacterBody3D" unique_id=649862615 groups=["cat"]]
 script = ExtResource("1_y6mh1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1670148818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_a4ove")
 
-[node name="visual" type="Marker3D" parent="."]
+[node name="visual" type="Marker3D" parent="." unique_id=188972306]
 
-[node name="cat" type="MeshInstance3D" parent="visual"]
+[node name="cat" type="MeshInstance3D" parent="visual" unique_id=806388732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("PlaneMesh_wd5hw")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_yw0er")
 
-[node name="healthsprite" type="Sprite3D" parent="visual"]
+[node name="healthsprite" type="Sprite3D" parent="visual" unique_id=1723946934]
 transform = Transform3D(0.501547, 0, 0, 0, 0.501547, 0, 0, 0, 0.501547, 0, 2.1, 0)
 offset = Vector2(0, 162)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_jy42d")
 
-[node name="deathparticle" type="GPUParticles3D" parent="visual"]
+[node name="deathparticle" type="GPUParticles3D" parent="visual" unique_id=427497095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 emitting = false
 amount = 1
@@ -286,25 +286,25 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_c125f")
 draw_pass_1 = SubResource("PlaneMesh_8ub40")
 
-[node name="range" type="Area3D" parent="."]
+[node name="range" type="Area3D" parent="." unique_id=383658564]
 visible = false
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="range"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="range" unique_id=1574786738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("SphereShape3D_udd60")
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=1384233185]
 stream = ExtResource("4_shr4l")
 volume_db = -20.0
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=946611741]
 transparent_bg = true
 size = Vector2i(1152, 326)
 render_target_update_mode = 4
 
-[node name="healthbar" type="TextureProgressBar" parent="SubViewport"]
+[node name="healthbar" type="TextureProgressBar" parent="SubViewport" unique_id=1157743409]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -323,7 +323,7 @@ texture_under = ExtResource("5_ly0qh")
 texture_progress = ExtResource("6_or8xj")
 tint_progress = Color(0.501961, 1, 0.501961, 1)
 
-[node name="healthlabel" type="Label" parent="SubViewport/healthbar"]
+[node name="healthlabel" type="Label" parent="SubViewport/healthbar" unique_id=341311336]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -342,7 +342,7 @@ text = "50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="namelabel" type="Label" parent="SubViewport"]
+[node name="namelabel" type="Label" parent="SubViewport" unique_id=273708054]
 offset_top = 245.0
 offset_right = 1152.0
 offset_bottom = 326.0
@@ -354,15 +354,13 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_qymhj")
-}
+[node name="anim" type="AnimationPlayer" parent="." unique_id=662653741]
+libraries/ = SubResource("AnimationLibrary_qymhj")
 
-[node name="shoottimer" type="Timer" parent="."]
+[node name="shoottimer" type="Timer" parent="." unique_id=750048604]
 wait_time = 0.774
 
-[node name="walldetect" type="RayCast3D" parent="."]
+[node name="walldetect" type="RayCast3D" parent="." unique_id=1890895568]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 target_position = Vector3(0, 0, 10)
 

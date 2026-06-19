@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=4 uid="uid://d0ue6x5jp8e62"]
+[gd_scene format=4 uid="uid://d0ue6x5jp8e62"]
 
 [ext_resource type="Texture2D" uid="uid://droe6lin7eob" path="res://cats/2literroobeer_2literroobeer.png" id="1_mre5n"]
 [ext_resource type="Script" uid="uid://n50meb1xuuru" path="res://cats/2Lroobeer.gd" id="1_r1h5x"]
 [ext_resource type="Texture2D" uid="uid://d3uo7fb74kalu" path="res://addons/kenney_particle_pack/smoke_08.png" id="2_g2enw"]
 [ext_resource type="AudioStream" uid="uid://dn2jfhd54vf4c" path="res://audio/2Lroobeer.mp3" id="4_lnxed"]
 [ext_resource type="AudioStream" uid="uid://b48jyrdtmkdeo" path="res://audio/bottlehit.mp3" id="5_d40nf"]
+[ext_resource type="Texture2D" uid="uid://3qui1aqpv43t" path="res://textures/roobeerblastwarning.png" id="6_q4wjc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lwyxi"]
 friction = 100.0
@@ -237,6 +238,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("animwarning:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.86, 0.6, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("animwarning:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_kws4r"]
 resource_name = "start"
@@ -307,6 +332,30 @@ tracks/4/keys = {
 "method": &"activate"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("animwarning:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.54999995, 0.7499999, 0.85, 2.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.858824, 0.596078, 0), Color(1, 0.858824, 0.596078, 0.247059), Color(1, 0.858824, 0.596078, 0.164706), Color(1, 0.86, 0.6, 0.59607846), Color(1, 0.858824, 0.596078, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("animwarning:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.49999988, 2.3500001),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(5, 5, 5)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qwtnc"]
 _data = {
@@ -314,19 +363,54 @@ _data = {
 &"start": SubResource("Animation_kws4r")
 }
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_71dry"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath(".:rotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l31al"]
 radius = 0.485
 height = 1.84
 
-[node name="2Lroobeer" type="RigidBody3D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyf4v"]
+atlas = ExtResource("6_q4wjc")
+region = Rect2(0, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpphb"]
+atlas = ExtResource("6_q4wjc")
+region = Rect2(720, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4frb"]
+atlas = ExtResource("6_q4wjc")
+region = Rect2(1440, 0, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rka5a"]
+atlas = ExtResource("6_q4wjc")
+region = Rect2(0, 720, 720, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4ekx"]
+atlas = ExtResource("6_q4wjc")
+region = Rect2(720, 720, 720, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpqsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyf4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpphb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4frb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rka5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4ekx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="2Lroobeer" type="RigidBody3D" unique_id=1904020587]
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_lwyxi")
 center_of_mass_mode = 1
@@ -334,60 +418,64 @@ center_of_mass = Vector3(0, 0, -0.23)
 freeze = true
 script = ExtResource("1_r1h5x")
 
-[node name="mesh" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="." unique_id=1615479382]
 transform = Transform3D(4.77671e-16, -1.09278e-08, 0.25, -0.25, -1.09278e-08, 0, 1.09278e-08, -0.25, -1.09278e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_gtqcl")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_xibu1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1489878056]
 transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_0wuud")
 
-[node name="particlescenter" type="GPUParticles3D" parent="."]
+[node name="particlescenter" type="GPUParticles3D" parent="." unique_id=703732915]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 emitting = false
 amount = 1000
 lifetime = 2.0
+one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_i22tf")
 draw_pass_1 = SubResource("PlaneMesh_fv2j1")
 
-[node name="warning" type="MeshInstance3D" parent="."]
+[node name="warning" type="MeshInstance3D" parent="." unique_id=505327645]
 mesh = SubResource("SphereMesh_0420m")
 skeleton = NodePath("../hitarea")
 surface_material_override/0 = SubResource("StandardMaterial3D_jrinq")
 
-[node name="hitarea" type="Area3D" parent="."]
+[node name="hitarea" type="Area3D" parent="." unique_id=2058981391]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hitarea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitarea" unique_id=1090693449]
 shape = SubResource("SphereShape3D_33fue")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qwtnc")
-}
-autoplay = "start"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1065653562]
+libraries/ = SubResource("AnimationLibrary_qwtnc")
+autoplay = &"start"
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_71dry")
-
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=432093106]
 stream = ExtResource("4_lnxed")
+volume_db = 3.0
 autoplay = true
 
-[node name="bottlehitarea" type="Area3D" parent="."]
+[node name="bottlehitarea" type="Area3D" parent="." unique_id=465389023]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bottlehitarea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bottlehitarea" unique_id=917139804]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.291752)
 shape = SubResource("CapsuleShape3D_l31al")
 
-[node name="donk" type="AudioStreamPlayer3D" parent="."]
+[node name="donk" type="AudioStreamPlayer3D" parent="." unique_id=1093915479]
 stream = ExtResource("5_d40nf")
+
+[node name="animwarning" type="AnimatedSprite3D" parent="." unique_id=180430693]
+modulate = Color(1, 0.86, 0.6, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_vpqsq")
+autoplay = "default"
+frame_progress = 0.67541456
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="bottlehitarea" to="." method="_on_area_3d_body_entered"]

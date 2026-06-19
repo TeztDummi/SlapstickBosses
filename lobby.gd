@@ -75,7 +75,6 @@ func _ready():
 		$updateday.start()
 		
 func _process(delta):
-	
 	if !$"../".didintro:
 		if Input.is_action_just_pressed("click"):
 			$introstuff/anim.play("default")
@@ -230,5 +229,11 @@ func setboingchallenge(num):
 						child.get_node("boingchallenge").hide()
 
 func _on_skyscraperarea_body_entered(body: Node3D) -> void:
-	#$platform/StaticBody3D/CollisionShape3D.disabled = true
-	print("disable floor")
+	if body.is_in_group("playergroup"):
+		if !$platform/StaticBody3D/CollisionShape3D.disabled:
+			$platform/StaticBody3D/CollisionShape3D.disabled = true
+			$platform/StaticBody3D/CollisionShape3D.position.z = 5000
+			print("disable floor")
+			$"../music".stop()
+			player.falloff = false
+			$cube.followplayer = false

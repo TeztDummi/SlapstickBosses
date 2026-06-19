@@ -9,23 +9,33 @@ var chal = "none"
 @onready var player = $"../../player"
 var ismain = true
 @onready var anim = $anim
+var choice = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	playsound("res://audio/elevator/intro.mp3")
-	if ismain: $introcamera.current = true
+	if $"../../".restarted != 1:
+		$anim.play("intro")
+		if ismain:
+			playsound("res://audio/elevator/intro.mp3")
+			$introcamera.current = true
+	else:
+		_on_anim_animation_finished("intro")
+		
 	if !ismain:
 		position.z = 6
 		$introcamera/splash/splashback.hide()
 	if chal == "2elevators":
 		$introcamera/splash/s.show()
 		$introcamera/splash.position.x -= 0.1
-		
+			
 	var dupe = $elevator/glow.get_surface_override_material(0).duplicate()
 	$elevator/glow.set_surface_override_material(0, dupe)
 	var dupe2 = $elevator/laserwarning.get_surface_override_material(0).duplicate()
 	$elevator/laserwarning.set_surface_override_material(0, dupe2)
 	var dupe3 = $warning.get_surface_override_material(0).duplicate()
 	$warning.set_surface_override_material(0, dupe3)
+	
+	preload("res://elevator/elevatorslam.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !dead:
@@ -67,13 +77,13 @@ func _process(delta):
 			if diff == 0:
 				if time >= 60: rotation_degrees.y += delta*65
 				elif time >= 30: rotation_degrees.y += delta*90
-				else: rotation_degrees.y += delta*135
+				else: rotation_degrees.y += delta*90
 			if diff == 1:
-				if time >= 60: rotation_degrees.y += delta*90
-				elif time >= 30 || chal == "2elevators": rotation_degrees.y += delta*135
-				else: rotation_degrees.y += delta*180
+				if time >= 60: rotation_degrees.y += delta*65
+				elif time >= 30 || chal == "2elevators": rotation_degrees.y += delta*90
+				else: rotation_degrees.y += delta*135
 			if diff == 2:
-				rotation_degrees.y += delta*180
+				rotation_degrees.y += delta*135
 		
 		if lasering:
 			var peoplelasered = $lasercollider.get_overlapping_bodies()
@@ -82,7 +92,8 @@ func _process(delta):
 					player.hurt(100, "bluelaser")
 				if person.is_in_group("elevatorenemy"):
 					person.queue_free()
-			player.screenshake = 0.2
+			if player.screenshake < 0.2:
+				player.screenshake = 0.2
 		
 		if time <= 30 || diff == 2:
 			if $"../../music".stream.resource_path.get_file() == "bossmusic.mp3":
@@ -136,10 +147,10 @@ func _on_anim_animation_finished(anim_name):
 	
 	if !dead:
 		if (time < 50 || diff == 2) && diff != 0 && $slamtimer.wait_time != 0.9: $slamtimer.wait_time = 0.9
-		if (time < 30 || diff == 2) && diff != 0 && $slamtimer.wait_time != 0.6: $slamtimer.wait_time = 0.6
+		if (time < 0 || diff == 2) && diff != 0 && $slamtimer.wait_time != 0.6: $slamtimer.wait_time = 0.6
 		
 		if anim_name == "goupcomedown":
-			if diff == 2 && time >= 30:
+			if diff == 2 && time >= 0:
 				slams = 0
 			else:
 				slams = randi_range(0, 1)
@@ -147,7 +158,7 @@ func _on_anim_animation_finished(anim_name):
 			if (time >= 50 && diff != 2) || diff == 0:
 				$anim.play("comedown")
 				playsound("res://audio/elevator/comedown.mp3")
-			elif (time >= 30 && diff != 2) && diff != 0:
+			elif (time >= 0 && diff != 2) && diff != 0:
 				$anim.play("comedownsemifast")
 				playsound("res://audio/elevator/comedownsemifast.mp3")
 			else:
@@ -159,6 +170,10 @@ func _on_anim_animation_finished(anim_name):
 				else:
 					$anim.play("comedownfast")
 					playsound("res://audio/elevator/comedownfast.mp3")
+					
+			if $target.transparency < 1:
+				$target/anim.play("warn")
+					
 			if time >= 50 && diff != 2:
 				position = Vector3(player.position.x+randf_range(-3, 3), 0, player.position.z+randf_range(-3, 3))
 			else:
@@ -173,15 +188,18 @@ func _on_anim_animation_finished(anim_name):
 				if (time >= 50 && diff != 2) || diff == 0:
 					$anim.play("comedown")
 					playsound("res://audio/elevator/comedown.mp3")
-				elif (time >= 30 && diff != 2) && diff != 0:
+				elif (time >= 0 && diff != 2) && diff != 0:
 					$anim.play("comedownsemifast")
 					playsound("res://audio/elevator/comedownsemifast.mp3")
 				else:
 					$anim.play("comedownfast")
 					rotation.y = atan2(player.position.x-position.x, player.position.z-position.z)
 					playsound("res://audio/elevator/comedownfast.mp3")
+					
+				if $target.transparency < 1:
+					$target/anim.play("warn")
 
-				if time >= 30 && diff != 2:
+				if time >= 50 && diff != 2:
 					position = Vector3(player.position.x+randf_range(-3, 3), 0, player.position.z+randf_range(-3, 3))
 				else:
 					position = Vector3(player.position.x+player.velocity.x*0.9, 0, player.position.z+player.velocity.z*0.9)
@@ -191,13 +209,16 @@ func _on_anim_animation_finished(anim_name):
 				if (time >= 50 && diff != 2) || diff == 0:
 					$anim.play("comedownhitfloor")
 					playsound("res://audio/elevator/comedownhitfloor.mp3")
-				elif (time >= 30 && diff != 2) || diff == 0:
+				elif (time >= 0 && diff != 2) || diff == 0:
 					$anim.play("comedownhitfloorsemifast")
 					playsound("res://audio/elevator/comedownhitfloorsemifast.mp3")
 				else:
 					$anim.play("comedownhitfloorfast")
 					rotation.y = atan2(player.position.x-position.x, player.position.z-position.z)
 					playsound("res://audio/elevator/comedownhitfloorfast.mp3")
+				
+				if $target.transparency < 1:
+					$target/anim.play("warn")
 					
 				if time >= 50 && diff != 2:
 					position = Vector3(player.position.x+randf_range(-3, 3), 0, player.position.z+randf_range(-3, 3))
@@ -242,24 +263,47 @@ func _on_slamtimer_timeout():
 			
 func chooseattack():
 	if !dead:
-		var rand = randi_range(0, 3)
+		var rand = {
+			"goup": 2,
+			"laser": 1.5,
+			"enemy": 1,
+		}
+		
 		if diff == 2 && time >= 30:
-			rand = randi_range(-3, 3)
-		if diff >= 1 && time < 20:
-			rand = randi_range(0, 2)
-		if rand >= -3 && rand <= 1 || player.dead:
+			rand = {
+				"goup": 15,
+				"laser": 1.5,
+				"enemy": 1,
+			}
+		if time < 20:
+			rand["enemy"] = 0
+			
+		if rand.has(choice): rand[choice] *= 0.2
+			
+		var weightsum = 0
+		var weights = {}
+		for i in rand:
+			weightsum += rand[i]
+			weights[i] = weightsum
+		var item = randf_range(0, weightsum)
+		for i in weights:
+			if item < weights[i]:
+				choice = i
+				break
+		
+		if choice == "goup" || player.dead:
 			$anim.play("goupcomedown")
 			playsound("res://audio/elevator/goup.mp3")
-		elif rand == 2:
+		elif choice == "laser":
 			$anim.play("laserblast")
 			playsound("res://audio/elevator/laserblast.mp3")
 			$lasertimer.start()
-		else:
+		elif choice == "enemy":
 			if randi_range(0, 30) == 0:
 				$anim.play("getdummi")
 				playsound("res://audio/elevator/getenemy.mp3")
 				$enemytimer.start()
-			elif randi_range(0, 5) != 0 && chal != "rats":
+			elif randi_range(0, 2) != 0 && chal != "rats":
 				$anim.play("getrats")
 				playsound("res://audio/elevator/getenemy.mp3")
 				$enemytimer.start()
@@ -270,10 +314,12 @@ func chooseattack():
 
 func _on_lasertimer_timeout():
 	lasering = true
+	player.impactframe()
+	player.screenshake = 2
 
 func _on_enemytimer_timeout():
 	if !dead:
-		var rand = randi_range(5, 8)
+		var rand = randi_range(4, 4)
 		spawnenemy($anim.current_animation, rand)
 			
 func playsound(sound):
@@ -315,6 +361,10 @@ func spawnenemy(anim, rand):
 			var shockwave = load("res://shockwave.tscn").instantiate()
 			shockwave.position = position
 			$"../".add_child(shockwave)
+			var slamdecal = load("res://elevator/elevatorslam.tscn").instantiate()
+			slamdecal.position = position
+			slamdecal.rotation = rotation
+			$"../".add_child(slamdecal)
 			
 			if diff == 2:
 				var newshockwave = load("res://shockwave.tscn").instantiate()

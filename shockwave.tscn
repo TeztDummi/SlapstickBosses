@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://broyur4kg3n0g"]
+[gd_scene format=3 uid="uid://broyur4kg3n0g"]
 
 [ext_resource type="Script" uid="uid://eqbkq8n21go" path="res://shockwave.gd" id="1_moa10"]
 [ext_resource type="Shader" uid="uid://b0mj05dyr72dj" path="res://fire.gdshader" id="2_c005s"]
@@ -29,9 +29,9 @@ offsets = PackedFloat32Array(0, 0.557047)
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8buhn"]
 width = 2000
 height = 100
-seamless = true
-color_ramp = SubResource("Gradient_0vtak")
 noise = SubResource("FastNoiseLite_nb52s")
+color_ramp = SubResource("Gradient_0vtak")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2feb1"]
 render_priority = -1
@@ -98,33 +98,33 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_u54cg")
 orientation = 2
 
-[node name="shockwave" type="Node3D"]
+[node name="shockwave" type="Node3D" unique_id=1187431650]
 script = ExtResource("1_moa10")
 
-[node name="shockwave" type="StaticBody3D" parent="." groups=["shockwave"]]
+[node name="shockwave" type="StaticBody3D" parent="." unique_id=908131099 groups=["shockwave"]]
 transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0, 0)
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="shockwave"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shockwave" unique_id=1189417697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("ConcavePolygonShape3D_vox7a")
 
-[node name="shockwave2" type="MeshInstance3D" parent="shockwave"]
+[node name="shockwave2" type="MeshInstance3D" parent="shockwave" unique_id=836421075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 mesh = SubResource("CylinderMesh_1j5ll")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_2feb1")
 
-[node name="shockwave" type="MeshInstance3D" parent="shockwave"]
+[node name="shockwave" type="MeshInstance3D" parent="shockwave" unique_id=1994527788]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 mesh = SubResource("CylinderMesh_avshs")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_0nwu0")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1185916539]
 transform = Transform3D(0.906047, 0, 0, 0, 0.906047, 0, 0, 0, 0.906047, 0, 0, 0)
 amount = 500
 lifetime = 0.2
-visibility_aabb = AABB(-107.727, -660.158, -103.025, 215.454, 1320.32, 206.05)
+visibility_aabb = AABB(-50000, -50000, -50000, 100000, 100000, 100000)
 process_material = SubResource("ParticleProcessMaterial_lyiey")
 draw_pass_1 = SubResource("PlaneMesh_dkh8t")

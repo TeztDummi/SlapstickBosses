@@ -1,6 +1,9 @@
 extends Decal
 var timer = 0
 
+func _ready():
+	preload("res://dummirigid.tscn")
+
 func _process(delta):
 	if timer > 0: timer -= delta
 

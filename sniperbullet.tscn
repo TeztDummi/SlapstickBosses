@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://k3sohdxewc6s"]
+[gd_scene format=3 uid="uid://k3sohdxewc6s"]
 
 [ext_resource type="PackedScene" uid="uid://dbje57lu7r0g6" path="res://bullet.tscn" id="1_hfdad"]
 
@@ -17,7 +17,7 @@ grow = true
 radius = 0.085
 height = 11.5256
 
-[node name="sniperbullet" instance=ExtResource("1_hfdad")]
+[node name="sniperbullet" unique_id=1496035515 groups=["sniperbullet"] instance=ExtResource("1_hfdad")]
 
 [node name="Icosphere" parent="." index="0"]
 transform = Transform3D(-0.180452, 0, -9.48815e-07, 0, 0.180452, 0, 2.72475e-08, 0, -6.28372, 0, 0, 7.20886)

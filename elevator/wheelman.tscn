@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bucg6hbsbi4k8"]
+[gd_scene format=4 uid="uid://bucg6hbsbi4k8"]
 
 [ext_resource type="Texture2D" uid="uid://bky773jrlwnn" path="res://addons/kenney_particle_pack/fire_01.png" id="1_p4401"]
 [ext_resource type="Script" uid="uid://ie67qijrl22u" path="res://elevator/wheelman.gd" id="1_x565n"]
@@ -73,7 +73,7 @@ color_ramp = SubResource("GradientTexture1D_ldpax")
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0, 0, 0, 0.37254903)
 albedo_texture = ExtResource("1_p4401")
 billboard_mode = 3
 particles_anim_h_frames = 1
@@ -82,7 +82,7 @@ particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r3ht0"]
 material = SubResource("StandardMaterial3D_hxvwh")
-size = Vector2(0.5, 0.5)
+size = Vector2(1, 1)
 orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6td8"]
@@ -308,42 +308,71 @@ height = 3.0
 radius = 1.0
 height = 3.5
 
-[node name="wheelman" type="CharacterBody3D" groups=["elevatorenemy"]]
+[sub_resource type="CylinderMesh" id="CylinderMesh_6umkw"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 40.0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="Gradient" id="Gradient_hdyud"]
+offsets = PackedFloat32Array(0, 0.11462451, 0.45059288, 0.5059289)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7gkn6"]
+gradient = SubResource("Gradient_hdyud")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aauds"]
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.6901961)
+albedo_texture = SubResource("GradientTexture2D_7gkn6")
+uv1_offset = Vector3(0, 0.008, 0)
+proximity_fade_enabled = true
+proximity_fade_distance = 5.0
+distance_fade_min_distance = 3.95
+
+[node name="wheelman" type="CharacterBody3D" unique_id=277897775 groups=["elevatorenemy"]]
 collision_layer = 4
 script = ExtResource("1_x565n")
 
-[node name="Human_Mesh_001" type="MeshInstance3D" parent="."]
+[node name="Human_Mesh_001" type="MeshInstance3D" parent="." unique_id=1655296097]
 transform = Transform3D(-40, 0, 6.03983e-06, 0, 40, 0, -6.03983e-06, 0, -40, -0.0600956, 0.0378987, 0)
 mesh = SubResource("ArrayMesh_qlw8x")
 skeleton = NodePath("")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=99166244]
 amount = 500
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_ttdef")
 draw_pass_1 = SubResource("PlaneMesh_r3ht0")
 
-[node name="wheelchair" type="MeshInstance3D" parent="."]
+[node name="wheelchair" type="MeshInstance3D" parent="." unique_id=1077027903]
 mesh = SubResource("ArrayMesh_fwwgs")
 skeleton = NodePath("")
 
-[node name="wheels" type="MeshInstance3D" parent="."]
+[node name="wheels" type="MeshInstance3D" parent="." unique_id=415097488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.436505, 0.625545, 0.00285838)
 mesh = SubResource("ArrayMesh_6jdps")
 skeleton = NodePath("")
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=1400171953]
 stream = ExtResource("2_bu7k8")
 volume_db = -80.0
 autoplay = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=642491149]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_kbr1p")
 
-[node name="hitarea" type="Area3D" parent="."]
+[node name="hitarea" type="Area3D" parent="." unique_id=510139943]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hitarea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitarea" unique_id=802281559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 shape = SubResource("CapsuleShape3D_jp8cr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=580242654]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -19.654892, 1.9999992, 0)
+mesh = SubResource("CylinderMesh_6umkw")
+surface_material_override/0 = SubResource("StandardMaterial3D_aauds")

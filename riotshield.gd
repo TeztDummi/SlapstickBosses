@@ -16,13 +16,15 @@ func _ready():
 func _process(delta):
 	if delay >= 0: delay -= delta
 
-func hit(amount):
+func hit(amount, purp = false):
 	if !dead:
 		if up:
 			if !$AnimationPlayer.is_playing():
 				$AnimationPlayer.play("hit")
 			$mesh/audio.stream = load("res://audio/riotshieldhit"+str(randi_range(0, 1))+".mp3")
 			$mesh/audio.play()
+			if !purp: $mesh/flash.restart()
+			else: $mesh/purpflash.restart()
 			$mesh/audio.pitch_scale = randf_range(0.75, 1.2)
 			health -= amount
 			$SubViewport/healthbar.value = health

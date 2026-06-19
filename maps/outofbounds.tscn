@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://n71vocgcq7ka"]
+[gd_scene format=3 uid="uid://n71vocgcq7ka"]
 
 [ext_resource type="Script" uid="uid://ba37ysf1ocevm" path="res://maps/outofbounds.gd" id="1_g2oxu"]
 [ext_resource type="Texture2D" uid="uid://d0sqr3ekfr1hf" path="res://ui/splatterparticle.png" id="2_g2oxu"]
@@ -163,43 +163,42 @@ _data = {
 &"start": SubResource("Animation_g2oxu")
 }
 
-[node name="outofbounds" type="Node3D"]
+[node name="outofbounds" type="Node3D" unique_id=1751718528]
 script = ExtResource("1_g2oxu")
 
-[node name="outofbounds" type="Marker3D" parent="."]
+[node name="outofbounds" type="Marker3D" parent="." unique_id=393079232]
 editor_description = "null"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=820130802]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 light_angular_distance = 90.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1767981616]
 environment = SubResource("Environment_p3fj8")
 
-[node name="cube" type="MeshInstance3D" parent="."]
+[node name="cube" type="MeshInstance3D" parent="." unique_id=1234205510]
 transform = Transform3D(1414.21, -1414.21, -0.000776851, 1158.46, 1158.45, 1147.15, -811.16, -811.16, 1638.3, 0, 0, 0)
 mesh = SubResource("BoxMesh_w1vvu")
 surface_material_override/0 = SubResource("StandardMaterial3D_dxr4g")
 
-[node name="cube" type="MeshInstance3D" parent="cube"]
+[node name="cube" type="MeshInstance3D" parent="cube" unique_id=206540676]
 transform = Transform3D(0.999, 0, 0, 0, 0.999, 0, 0, 0, 0.999, 0, 0, 0)
 mesh = SubResource("BoxMesh_w1vvu")
 surface_material_override/0 = SubResource("StandardMaterial3D_6ny4q")
 
-[node name="cubeparticles" type="GPUParticles3D" parent="cube/cube"]
+[node name="cubeparticles" type="GPUParticles3D" parent="cube/cube" unique_id=2058989083]
 amount = 1000
 preprocess = 10.0
 process_material = SubResource("ParticleProcessMaterial_se0e2")
 draw_pass_1 = SubResource("PlaneMesh_vd84v")
 
-[node name="cubearea" type="Area3D" parent="cube"]
+[node name="cubearea" type="Area3D" parent="cube" unique_id=293965024]
 process_mode = 3
 transform = Transform3D(1, 5.96046e-08, 2.98023e-08, -2.98023e-08, 1, -2.98023e-08, 2.98023e-08, 0, 1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cube/cubearea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube/cubearea" unique_id=263919022]
 shape = SubResource("BoxShape3D_g2oxu")
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_p3fj8")
-}
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1341867163]
+libraries/ = SubResource("AnimationLibrary_p3fj8")
+autoplay = &"start"

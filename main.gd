@@ -5,6 +5,7 @@ var timer = 0
 var timershake = 0
 var tplock = null
 var AppID = "3082220"
+var steamname = ""
 
 var head = "res://objects/bowlingball.tscn"
 var bodycolor = Color(96.0/255.0, 104.0/255.0, 149.0/255.0)
@@ -89,7 +90,7 @@ func _ready():
 	
 	if isRunning:
 		var id = Steam.getSteamID()
-		var steamname = Steam.getFriendPersonaName(id)
+		steamname = Steam.getFriendPersonaName(id)
 		print("username: ", str(steamname))
 	else:
 		print("steam aint runnin")
@@ -126,6 +127,27 @@ func _ready():
 	#for conv in conversations:
 		#convnames += conv.name+"\n"
 	#print(clean_dialogue(convnames))
+	
+	preload("res://audio/slide.tres")
+	preload("res://audio/wallslide.tres")
+	preload("res://audio/walk (1).wav")
+	preload("res://audio/walk (2).wav")
+	preload("res://audio/walk (3).wav")
+	preload("res://audio/walk (4).wav")
+	preload("res://audio/snowwalk (1).wav")
+	preload("res://audio/snowwalk (2).wav")
+	preload("res://audio/snowwalk (3).wav")
+	preload("res://audio/snowwalk (4).wav")
+	preload("res://audio/jump.wav")
+	preload("res://audio/land.wav")
+	preload("res://audio/doublejump.wav")
+	preload("res://audio/doublejumpcharged.mp3")
+	preload("res://audio/walljump.mp3")
+	preload("res://audio/walllatch.mp3")
+	preload("res://audio/slidestart.wav")
+	preload("res://tempaudio.tscn")
+	ResourceLoader.load_threaded_request("res://moveeffects.tscn")
+	ResourceLoader.load_threaded_request("res://slideslam.tscn")
 		
 func clean_dialogue(text: String) -> String:
 	var regex = RegEx.new()
@@ -264,10 +286,11 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("f8"):
 		pass
 	if Input.is_action_just_pressed("f3"):
-		$canvas.visible = !$canvas.visible
-		if $"player/camera/gun".get_children().size() >= 1:
-			$"player/camera/gun".get_child(0).visible = !$"player/camera/gun".get_child(0).visible
-		print("hudgone")
+		if escapedcube != "player":
+			$canvas.visible = !$canvas.visible
+			if $"player/camera/gun".get_children().size() >= 1:
+				$"player/camera/gun".get_child(0).visible = !$"player/camera/gun".get_child(0).visible
+			print("hudgone")
 	if Input.is_action_just_pressed("enter"):
 		if $player.dead:
 			if !$canvas/hud/died.is_playing() && transition == [""]:
@@ -407,6 +430,8 @@ func loadmap(mappath, diff, chal, playerpos = Vector3.ZERO):
 	timer = 100
 	$canvas/hud/timer.hide()
 	$canvas/hud/gunmanbossbar.hide()
+	$canvas/hud/horrorbossbar.hide()
+	$canvas/hud/sodaboxbossbar.hide()
 	$canvas/hud/bossbar.hide()
 	$canvas/hud/catcount.hide()
 	for child in $"player/camera/gun".get_children():
@@ -511,7 +536,7 @@ func transitionfunc(array):
 	"challenges for each boss are unlocked after beating normal mode",
 	"the sock's name is crusty",
 	"most characters have lots of dialogue",
-	"there are trailers on the youtube channel, subscribe to Tezt Dummi why dontcha.",
+	"SUB TO TEZT DUMMI",
 	"the red hoodie guy goes somewhere every time you come back to the lobby.",
 	"every boss has one bag of bits hidden somewhere, each worth 100 bits",
 	"links to important websites are in the credits.",
@@ -548,10 +573,27 @@ func transitionfunc(array):
 	"no game fell off harder than Roblocks",
 	"zendaya is mid 3000",
 	"im eating animal crackers right now, jealous?",
-	"you lost the game"
+	"you lost the game",
+	"a woodchuck would chuck as much wood as a woodchuck could chuck if a woodchuck could chuck wood",
+	"is that from the battle pass",
+	"who up slappin they stick",
+	"when you see what we did to the lettuce, you're gonna freak the f*ck out",
+	"say gex",
+	tr("you've hooped ")+str(int(baskets))+tr(" times broh"),
+	tr("the save data is here go nuts: ")+str(ProjectSettings.globalize_path("user://SlapstickBosses.save")),
+	tr("hi ")+str(steamname),
+	"my favorite boss is the 6th one",
+	"you're ugly",
+	"you don't know what kind of game you're playing kid",
+	"i'm dipping nuggets you've never heard of into sauces you'll never understand",
+	"they dont know i'm jim",
+	"use the designated grease zone to pacify that weird green cat (his name is grease)",
+	"leave a review pls i respond to most of em",
+	"f*ck worl..."
 	]
-	if randf() <= 0.05: $canvas/hud/transitionin/tip.text = tr("Player tip: ")
-	else: $canvas/hud/transitionin/tip.text = tr("Tip: ")
+	if randf() <= 0.05: $canvas/hud/transitionin/tip.text = tr("Player tip:")
+	else: $canvas/hud/transitionin/tip.text = tr("Tip:")
+	$canvas/hud/transitionin/tip.text += " "
 	$canvas/hud/transitionin/tip.text += tr(tips.pick_random())
 	
 func _on_died_animation_finished(manual = false):
@@ -1005,6 +1047,9 @@ func _on_qualityupdate_timeout() -> void:
 func _on_skeletimer_timeout() -> void:
 	if spooky:
 		if randf() <= 0.1:
+			$canvas/hud/skeleton.play("default")
+	else:
+		if randf() <= 0.01:
 			$canvas/hud/skeleton.play("default")
 
 func _on_useless_value_changed(value: float) -> void:

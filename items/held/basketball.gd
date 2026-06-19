@@ -13,6 +13,7 @@ var power = 0
 var goingup = true
 var resting = true
 var prevvel = 0
+var scream = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +32,8 @@ func _ready():
 			elif $"../..".boughtitems.has(item):
 				$pricetag.hide()
 				remove_meta("price")
+		if scream:
+			$RigidBody3D/scream.play()
 
 func _physics_process(delta: float) -> void:
 	if !held:
@@ -61,7 +64,7 @@ func _physics_process(delta: float) -> void:
 						
 			if !resting:
 				var currentvel = sqrt(pow($RigidBody3D.linear_velocity.x, 2)+pow($RigidBody3D.linear_velocity.y, 2)+pow($RigidBody3D.linear_velocity.z, 2))
-				var amount = prevvel-currentvel
+				var amount = ((prevvel-currentvel)/delta)*0.01666666666667
 				amount /= 8
 				amount = clamp(amount, 0, 2)
 
@@ -132,6 +135,7 @@ func _unhandled_input(event):
 				placed.rotation.y = player.rotation.y
 				if power >= 0.95:
 					power = 5
+					placed.scream = true
 				placed.get_child(0).linear_velocity = ($throwfrom.global_position-global_position).normalized()*power*30
 				if power < 1:
 					placed.get_child(0).linear_velocity.y += power*10

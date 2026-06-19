@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://85jgwhxxh4ow"]
+[gd_scene format=4 uid="uid://85jgwhxxh4ow"]
 
 [ext_resource type="Script" uid="uid://gvxglxkkqx24" path="res://gunmanrocket.gd" id="1_nt8nb"]
 [ext_resource type="Texture2D" uid="uid://d2cav6bd58yq" path="res://addons/kenney_particle_pack/smoke_04.png" id="2_01f51"]
@@ -193,24 +193,24 @@ orientation = 2
 [sub_resource type="SphereShape3D" id="SphereShape3D_m61ry"]
 radius = 3.0
 
-[node name="gunmanrocket" type="Node3D"]
+[node name="gunmanrocket" type="Node3D" unique_id=1345694097]
 script = ExtResource("1_nt8nb")
 
-[node name="rocket" type="MeshInstance3D" parent="."]
+[node name="rocket" type="MeshInstance3D" parent="." unique_id=1967540761]
 transform = Transform3D(3.7749e-06, 0, 50, 0, 50, 0, -50, 0, 3.7749e-06, 0, 0, 0.147)
 mesh = SubResource("ArrayMesh_vwm7b")
 skeleton = NodePath("")
 
-[node name="fakedir" type="Marker3D" parent="."]
+[node name="fakedir" type="Marker3D" parent="." unique_id=644293893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
 
-[node name="trail" type="GPUParticles3D" parent="."]
+[node name="trail" type="GPUParticles3D" parent="." unique_id=1305164325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.881566)
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_pn0kg")
 draw_pass_1 = SubResource("PlaneMesh_iupck")
 
-[node name="boom" type="GPUParticles3D" parent="."]
+[node name="boom" type="GPUParticles3D" parent="." unique_id=77762200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0279999)
 emitting = false
 amount = 100
@@ -220,7 +220,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_bufhi")
 draw_pass_1 = SubResource("PlaneMesh_ojcw2")
 
-[node name="boom2" type="GPUParticles3D" parent="."]
+[node name="boom2" type="GPUParticles3D" parent="." unique_id=1547874475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0279999)
 emitting = false
 amount = 100
@@ -230,18 +230,18 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_tmdkk")
 draw_pass_1 = SubResource("PlaneMesh_a6plf")
 
-[node name="killtimer" type="Timer" parent="."]
+[node name="killtimer" type="Timer" parent="." unique_id=1198501990]
 one_shot = true
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1578535604]
 
-[node name="area" type="Area3D" parent="."]
+[node name="area" type="Area3D" parent="." unique_id=555377016]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area" unique_id=1435864721]
 shape = SubResource("SphereShape3D_m61ry")
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=99857121]
 stream = ExtResource("4_wp5u2")
 autoplay = true
 max_distance = 50.0

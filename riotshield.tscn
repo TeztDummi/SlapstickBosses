@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=4 uid="uid://bxlrv5avoo3n6"]
+[gd_scene format=4 uid="uid://bxlrv5avoo3n6"]
 
 [ext_resource type="Script" uid="uid://bvlhoxworwhkg" path="res://riotshield.gd" id="1_obbml"]
 [ext_resource type="Texture2D" uid="uid://b4x8fhlybxffs" path="res://textures/glass-1.jpg" id="2_a25o1"]
+[ext_resource type="Texture2D" uid="uid://dqp5m5jiakby6" path="res://textures/shot/sprite_sheetcolorless.png" id="3_eorw4"]
 [ext_resource type="Texture2D" uid="uid://bykrrt01t8mkv" path="res://ui/healthbottom.png" id="3_jwwgk"]
 [ext_resource type="Texture2D" uid="uid://bxb88xlsajxjq" path="res://ui/healthprogress.png" id="4_t3rjv"]
 
@@ -211,6 +212,48 @@ points = PackedVector3Array(-0.1516, 1.15711, 0.861971, -0.18689, 1.14457, 0.851
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6u6ba"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pvr6x"]
+angle_min = -44.99999
+angle_max = 45.00001
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 7.0
+color = Color(1, 1, 1, 0.3137255)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0dfo"]
+transparency = 4
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.31, 1, 1)
+albedo_texture = ExtResource("3_eorw4")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 10
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_amrgu"]
+material = SubResource("StandardMaterial3D_g0dfo")
+size = Vector2(1.28, 0.72)
+orientation = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g0dfo"]
+angle_min = -44.99999
+angle_max = 45.00001
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 7.0
+color = Color(1, 1, 1, 0.57254905)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dtiwk"]
+material = SubResource("StandardMaterial3D_g0dfo")
+size = Vector2(1.28, 0.72)
+orientation = 2
 
 [sub_resource type="Animation" id="Animation_ysf28"]
 length = 0.001
@@ -520,11 +563,11 @@ _data = {
 &"pullup": SubResource("Animation_84ky8")
 }
 
-[node name="riotshield" type="Marker3D" groups=["riotshield"]]
+[node name="riotshield" type="Marker3D" unique_id=1212834841 groups=["riotshield"]]
 script = ExtResource("1_obbml")
 
-[node name="mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.582745, 0.582745, 0.566407, -0.707107, 0.707107, 0, -0.40051, -0.40051, 0.824126, 0.925, -0.575, -0.435)
+[node name="mesh" type="MeshInstance3D" parent="." unique_id=220630063]
+transform = Transform3D(0.58274513, 0.58274496, 0.56640655, -0.70710665, 0.7071069, 0, -0.40050998, -0.40050983, 0.82412595, 0.925, -0.575, -0.435)
 mesh = SubResource("ArrayMesh_7l6ga")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ypjoj")
@@ -532,37 +575,57 @@ surface_material_override/1 = SubResource("StandardMaterial3D_udji5")
 surface_material_override/2 = SubResource("ShaderMaterial_o1jgw")
 surface_material_override/3 = SubResource("StandardMaterial3D_ypjoj")
 
-[node name="handles" type="MeshInstance3D" parent="mesh"]
+[node name="handles" type="MeshInstance3D" parent="mesh" unique_id=2014043618]
 transform = Transform3D(1, 0, 0, 0, 0.563432, 0, 0, 0, 0.992646, -0.195568, 0.222587, -0.59736)
 mesh = SubResource("ArrayMesh_cfp1u")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_k0vrc")
 
-[node name="static" type="StaticBody3D" parent="mesh" groups=["riotshield"]]
+[node name="static" type="StaticBody3D" parent="mesh" unique_id=1695791071 groups=["riotshield"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.215, 0.35, -5.31093e-08)
 collision_layer = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/static"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/static" unique_id=1298352499]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.35, -1.215)
 shape = SubResource("ConvexPolygonShape3D_cy8cb")
 
-[node name="healthsprite" type="Sprite3D" parent="mesh"]
+[node name="healthsprite" type="Sprite3D" parent="mesh" unique_id=1187478675]
 transform = Transform3D(-4.55712e-07, 0, -1, 0, 0.203046, 0, 0.125888, 0, -3.61999e-06, 0.0553406, 0.225731, 2.00333e-07)
 texture = SubResource("ViewportTexture_6u6ba")
 
-[node name="audio" type="AudioStreamPlayer3D" parent="mesh"]
+[node name="audio" type="AudioStreamPlayer3D" parent="mesh" unique_id=1158001480]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0.324721, 0.116622, 1.17549e-06)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_1phg6")
-}
+[node name="flash" type="GPUParticles3D" parent="mesh" unique_id=43948298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0000001, 0.21063484, 3.6199908e-06)
+emitting = false
+amount = 1
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-1.28, -1.28, -1.28, 2.56, 2.56, 2.56)
+process_material = SubResource("ParticleProcessMaterial_pvr6x")
+draw_pass_1 = SubResource("PlaneMesh_amrgu")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="purpflash" type="GPUParticles3D" parent="mesh" unique_id=616040289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0000001, 0.21063484, 3.6199908e-06)
+emitting = false
+amount = 1
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-1.28, -1.28, -1.28, 2.56, 2.56, 2.56)
+process_material = SubResource("ParticleProcessMaterial_g0dfo")
+draw_pass_1 = SubResource("PlaneMesh_dtiwk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1036810492]
+libraries/ = SubResource("AnimationLibrary_1phg6")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=486761902]
 transparent_bg = true
 size = Vector2i(697, 112)
 
-[node name="healthbar" type="TextureProgressBar" parent="SubViewport"]
+[node name="healthbar" type="TextureProgressBar" parent="SubViewport" unique_id=239552079]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

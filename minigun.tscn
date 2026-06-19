@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dbaxgx51svm4b"]
+[gd_scene format=4 uid="uid://dbaxgx51svm4b"]
 
 [ext_resource type="Script" uid="uid://bu4dv3xwlvdn3" path="res://minigun.gd" id="1_3w73q"]
 [ext_resource type="Shader" uid="uid://dknogeoufmn1b" path="res://animtex.gdshader" id="2_o64u3"]
@@ -646,16 +646,16 @@ _data = {
 &"shootloop": SubResource("Animation_fxnb0")
 }
 
-[node name="minigun" type="Marker3D"]
+[node name="minigun" type="Marker3D" unique_id=90615787]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_3w73q")
 
-[node name="body" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.81e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.81e-06, -0.31, -0.185, 0.545)
+[node name="body" type="MeshInstance3D" parent="." unique_id=1097908595]
+transform = Transform3D(-1.8099951e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.8099951e-06, -0.31, -0.185, 0.545)
 mesh = SubResource("ArrayMesh_ccw11")
 skeleton = NodePath("")
 
-[node name="longshoot" type="GPUParticles3D" parent="body"]
+[node name="longshoot" type="GPUParticles3D" parent="body" unique_id=43779013]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.1569, 8.58307e-06, -2.20537e-06)
 visible = false
 amount = 10
@@ -663,7 +663,7 @@ lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_an8t2")
 draw_pass_1 = SubResource("PlaneMesh_l6yrx")
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="body"]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="body" unique_id=586274964]
 transform = Transform3D(1.31134e-07, -1, 3.82137e-15, 4.37114e-08, 1.91069e-15, -1, 1, 1.31134e-07, 4.37114e-08, -3.18786, 8.46386e-06, -2.80142e-06)
 visible = false
 amount = 10
@@ -671,37 +671,35 @@ lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_qoko5")
 draw_pass_1 = SubResource("PlaneMesh_sgqkj")
 
-[node name="barrel" type="MeshInstance3D" parent="body"]
-transform = Transform3D(-3.61999e-06, -1, 0, 1, -3.61999e-06, 0, 0, 0, 1, -0.704899, 0, 2.38419e-07)
+[node name="barrel" type="MeshInstance3D" parent="body" unique_id=2081411324]
+transform = Transform3D(-3.6199901e-06, -1, 0, 1, -3.6199901e-06, 0, 0, 0, 1, -0.704899, 0, 2.38419e-07)
 mesh = SubResource("ArrayMesh_77sk1")
 skeleton = NodePath("")
 
-[node name="blurbarrel" type="MeshInstance3D" parent="body/barrel"]
+[node name="blurbarrel" type="MeshInstance3D" parent="body/barrel" unique_id=1229020206]
 visible = false
 mesh = SubResource("ArrayMesh_u0r6u")
 skeleton = NodePath("")
 
-[node name="shootfrom" type="Marker3D" parent="body"]
+[node name="shootfrom" type="Marker3D" parent="body" unique_id=660703790]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.20962, 0, -1.19209e-07)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/shootfrom"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/shootfrom" unique_id=899693502]
 transform = Transform3D(-4.24023e-07, -5.50518e-06, 0.120036, 0.120033, -6.72876e-08, 4.24035e-07, 5.24533e-09, 1.53936, 4.29281e-07, 0.0228982, 0, -1.12807)
 visible = false
 mesh = SubResource("CylinderMesh_xk72y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_nji3k")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1779559344]
+libraries/ = SubResource("AnimationLibrary_nji3k")
 
-[node name="shoottimer" type="Timer" parent="."]
+[node name="shoottimer" type="Timer" parent="." unique_id=1649312896]
 wait_time = 0.1
 one_shot = true
 
-[node name="raycast" type="RayCast3D" parent="."]
+[node name="raycast" type="RayCast3D" parent="." unique_id=1775970133]
 target_position = Vector3(0, 0, 1000)
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=710360040]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.314516, -0.192627, 1)
 volume_db = -20.0
 max_db = -5.0

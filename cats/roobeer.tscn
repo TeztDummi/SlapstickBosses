@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://den3vbudjumyx"]
+[gd_scene format=3 uid="uid://den3vbudjumyx"]
 
 [ext_resource type="Script" uid="uid://2w0tehwxue8j" path="res://cats/roobeer.gd" id="1_csxim"]
 [ext_resource type="Texture2D" uid="uid://bww1rw2ll1ivv" path="res://cats/roobeer.png" id="2_2bdsb"]
@@ -477,57 +477,148 @@ radius = 6.0
 height = 10.0
 radius = 3.2
 
-[node name="roobeer" type="CharacterBody3D" groups=["cat"]]
+[sub_resource type="Gradient" id="Gradient_invl2"]
+offsets = PackedFloat32Array(0, 0.08510638, 0.42553192, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.68235296, 1, 1, 1, 0.69803923, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t316w"]
+gradient = SubResource("Gradient_invl2")
+
+[sub_resource type="Curve" id="Curve_3rd3i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_il1jp"]
+curve = SubResource("Curve_3rd3i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7hdc"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(2, 0.02, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 12.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, -2, 0)
+damping_min = 3.2600002
+damping_max = 4.815
+damping_curve = SubResource("CurveTexture_il1jp")
+color_ramp = SubResource("GradientTexture1D_t316w")
+turbulence_influence_min = 0.080000006
+turbulence_influence_max = 0.080000006
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_usvgs"]
+load_path = "res://.godot/imported/sandparticle.png-3f47a3c83ed7928e8aae34aaffee3147.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a24h2"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.72, 0.64452, 0.5976, 0.80784315)
+albedo_texture = SubResource("CompressedTexture2D_usvgs")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+proximity_fade_distance = 5.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8rv25"]
+material = SubResource("StandardMaterial3D_a24h2")
+size = Vector2(3, 3)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_t316w"]
+offsets = PackedFloat32Array(0, 0.08510638, 0.42553192, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.68235296, 1, 1, 1, 0.69803923, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3rd3i"]
+gradient = SubResource("Gradient_t316w")
+
+[sub_resource type="Curve" id="Curve_il1jp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v7hdc"]
+curve = SubResource("Curve_il1jp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_usvgs"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(2, 0.02, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 4.0
+initial_velocity_max = 8.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, -2, 0)
+damping_min = 3.2600002
+damping_max = 4.815
+damping_curve = SubResource("CurveTexture_v7hdc")
+color_ramp = SubResource("GradientTexture1D_3rd3i")
+turbulence_influence_min = 0.080000006
+turbulence_influence_max = 0.080000006
+
+[node name="roobeer" type="CharacterBody3D" unique_id=356831958 groups=["cat"]]
 script = ExtResource("1_csxim")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1548062641]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("SphereShape3D_te3gs")
 
-[node name="dashcollider" type="CollisionShape3D" parent="."]
+[node name="dashcollider" type="CollisionShape3D" parent="." unique_id=1313809943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 shape = SubResource("SphereShape3D_jv0ne")
 disabled = true
 
-[node name="visual" type="Marker3D" parent="."]
+[node name="visual" type="Marker3D" parent="." unique_id=451372529]
 
-[node name="cat" type="MeshInstance3D" parent="visual"]
+[node name="cat" type="MeshInstance3D" parent="visual" unique_id=836154123]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 3, 0)
 mesh = SubResource("PlaneMesh_wd5hw")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_8nb1w")
 
-[node name="healthsprite" type="Sprite3D" parent="visual"]
+[node name="healthsprite" type="Sprite3D" parent="visual" unique_id=331930971]
 transform = Transform3D(0.501547, 0, 0, 0, 0.501547, 0, 0, 0, 0.501547, 0, 6.1, 0)
 offset = Vector2(0, 162)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_jy42d")
 
-[node name="audio" type="AudioStreamPlayer3D" parent="visual"]
+[node name="audio" type="AudioStreamPlayer3D" parent="visual" unique_id=1312235935]
 stream = ExtResource("3_3ntql")
 volume_db = 8.889
 
-[node name="cat2" type="MeshInstance3D" parent="."]
+[node name="cat2" type="MeshInstance3D" parent="." unique_id=1212119582]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_wd5hw")
 surface_material_override/0 = SubResource("StandardMaterial3D_6epfb")
 
-[node name="range" type="Area3D" parent="."]
+[node name="range" type="Area3D" parent="." unique_id=1546646233]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="range"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="range" unique_id=177103384]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("SphereShape3D_337qo")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1828175598]
 transparent_bg = true
 size = Vector2i(1152, 326)
 render_target_update_mode = 4
 
-[node name="healthbar" type="TextureProgressBar" parent="SubViewport"]
+[node name="healthbar" type="TextureProgressBar" parent="SubViewport" unique_id=1843406266]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -546,7 +637,7 @@ texture_under = ExtResource("5_jory2")
 texture_progress = ExtResource("6_50jvo")
 tint_progress = Color(0.501961, 1, 0.501961, 1)
 
-[node name="healthlabel" type="Label" parent="SubViewport/healthbar"]
+[node name="healthlabel" type="Label" parent="SubViewport/healthbar" unique_id=2076320240]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -565,7 +656,7 @@ text = "500"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="namelabel" type="Label" parent="SubViewport"]
+[node name="namelabel" type="Label" parent="SubViewport" unique_id=1633310354]
 offset_top = 245.0
 offset_right = 1152.0
 offset_bottom = 326.0
@@ -577,21 +668,19 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qymhj")
-}
-autoplay = "move"
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1246578916]
+libraries/ = SubResource("AnimationLibrary_qymhj")
+autoplay = &"move"
 
-[node name="shoottimer" type="Timer" parent="."]
+[node name="shoottimer" type="Timer" parent="." unique_id=2057119593]
 wait_time = 4.0
 
-[node name="warning" type="MeshInstance3D" parent="."]
+[node name="warning" type="MeshInstance3D" parent="." unique_id=1902054125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 mesh = SubResource("SphereMesh_cumqa")
 surface_material_override/0 = SubResource("StandardMaterial3D_a3akd")
 
-[node name="deathparticle" type="GPUParticles3D" parent="."]
+[node name="deathparticle" type="GPUParticles3D" parent="." unique_id=1216758928]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
 emitting = false
 amount = 5000
@@ -602,34 +691,54 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_qyb5c")
 draw_pass_1 = SubResource("PlaneMesh_bgqcx")
 
-[node name="explode" type="Area3D" parent="."]
+[node name="explode" type="Area3D" parent="." unique_id=409867571]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="explode"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="explode" unique_id=828275274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("SphereShape3D_ohiwt")
 
-[node name="slamwarning" type="MeshInstance3D" parent="."]
+[node name="slamwarning" type="MeshInstance3D" parent="." unique_id=1874873513]
 transform = Transform3D(3.03162, 0, 0, 0, 0.87, 0, 0, 0, 3.03162, 0, 0.1, 0)
 mesh = SubResource("CylinderMesh_lro4y")
 surface_material_override/0 = SubResource("StandardMaterial3D_wmq8n")
 
-[node name="slam" type="Area3D" parent="."]
+[node name="slam" type="Area3D" parent="." unique_id=1356375016]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="slam"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slam" unique_id=1773039191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_nqag3")
 
-[node name="dash" type="Area3D" parent="."]
+[node name="dash" type="Area3D" parent="." unique_id=1790970709]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dash"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dash" unique_id=1265050383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 shape = SubResource("CylinderShape3D_1gw54")
+
+[node name="dashparticles" type="GPUParticles3D" parent="." unique_id=623897076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17925096, 0, 0)
+sorting_offset = -30.0
+emitting = false
+amount = 200
+lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_v7hdc")
+draw_pass_1 = SubResource("PlaneMesh_8rv25")
+
+[node name="slamparticles" type="GPUParticles3D" parent="." unique_id=40697128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17925096, 0, 0)
+sorting_offset = -30.0
+emitting = false
+amount = 75
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_usvgs")
+draw_pass_1 = SubResource("PlaneMesh_8rv25")
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="shoottimer" to="." method="_on_shoottimer_timeout"]

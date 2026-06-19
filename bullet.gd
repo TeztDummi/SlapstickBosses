@@ -45,7 +45,7 @@ func _on_area_body_entered(body):
 			rotation.y = lerp_angle(player.rotation.y, atan2(player.position.x-gunman.position.x, player.position.z-gunman.position.z), 0.75)
 			position.y = 1
 			fromplayer = true
-			body.get_parent().get_parent().hit(10*scale.x)
+			body.get_parent().get_parent().hit(10*scale.x, is_in_group("sniperbullet"))
 	if body.is_in_group("drone"):
 		body.get_parent().boom()
 	var onriot = false

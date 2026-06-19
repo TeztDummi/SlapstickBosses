@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://chwr8oem503jp"]
+[gd_scene format=4 uid="uid://chwr8oem503jp"]
 
 [ext_resource type="Script" uid="uid://bjpn2a0wgi7cf" path="res://player.gd" id="1_1li8y"]
 [ext_resource type="Shader" uid="uid://b82urhehdrcc3" path="res://blurvignette.gdshader" id="2_cqahk"]
@@ -1490,6 +1490,50 @@ emission_texture = SubResource("GradientTexture2D_nh4b6")
 uv2_scale = Vector3(0.5, 0.5, 0.5)
 uv2_triplanar = true
 
+[sub_resource type="Animation" id="Animation_pbfsw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Environment" id="Environment_5tmop"]
+adjustment_enabled = true
+adjustment_brightness = 2.03
+adjustment_contrast = 8.0
+adjustment_saturation = 0.01
+
+[sub_resource type="Animation" id="Animation_7ahtn"]
+resource_name = "default"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("Environment_5tmop"), null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7lmhl"]
+_data = {
+&"RESET": SubResource("Animation_pbfsw"),
+&"default": SubResource("Animation_7ahtn")
+}
+
 [sub_resource type="Gradient" id="Gradient_rv66v"]
 offsets = PackedFloat32Array(0, 0.118056, 0.611111, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
@@ -1660,31 +1704,31 @@ radius = 2.0
 [sub_resource type="BoxMesh" id="BoxMesh_pbfsw"]
 size = Vector3(1, 3, 0.1)
 
-[node name="player" type="CharacterBody3D" groups=["playergroup"]]
+[node name="player" type="CharacterBody3D" unique_id=561049855 groups=["playergroup"]]
 collision_layer = 2
 script = ExtResource("1_1li8y")
 
-[node name="stand" type="CollisionShape3D" parent="."]
+[node name="stand" type="CollisionShape3D" parent="." unique_id=1729991922]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 shape = SubResource("CapsuleShape3D_gmxeg")
 
-[node name="crouch" type="CollisionShape3D" parent="."]
+[node name="crouch" type="CollisionShape3D" parent="." unique_id=1234376251]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_e4e8u")
 disabled = true
 
-[node name="canuncrouch" type="RayCast3D" parent="."]
+[node name="canuncrouch" type="RayCast3D" parent="." unique_id=1233210361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 target_position = Vector3(0, 0.7, 0)
 
-[node name="audio" type="AudioStreamPlayer" parent="."]
+[node name="audio" type="AudioStreamPlayer" parent="." unique_id=576735696]
 stream = ExtResource("2_fvbit")
 volume_db = 5.0
 
-[node name="Armature" type="Node3D" parent="."]
+[node name="Armature" type="Node3D" parent="." unique_id=1328561677]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Armature" unique_id=1751535120]
 bones/0/name = "Bone.002"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38418e-07, -7.10543e-15, 1, 5.96046e-08, -2.38418e-07, -5.96046e-08, 1, 0, 0.691587, 0)
@@ -1704,43 +1748,43 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(-0.175791, 0.984428, -2.88795e-07, -0.984428, -0.175791, -2.82109e-07, -3.28483e-07, 2.34706e-07, 1, 0, 0.4, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(0, 0.4, 0)
-bones/2/rotation = Quaternion(2.01266e-07, 1.5456e-08, -0.766743, 0.641954)
+bones/2/rotation = Quaternion(2.0126603e-07, 1.5455996e-08, -0.7667431, 0.6419542)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.009"
 bones/3/parent = 1
 bones/3/rest = Transform3D(-0.175791, -0.984428, -1.88042e-07, 0.984428, -0.175791, -2.82109e-07, 2.4466e-07, -2.34706e-07, 1, 0, 0.4, 0)
 bones/3/enabled = true
 bones/3/position = Vector3(0, 0.4, 0)
-bones/3/rotation = Quaternion(1.84605e-08, -1.6851e-07, 0.766743, 0.641954)
+bones/3/rotation = Quaternion(1.8460504e-08, -1.6851004e-07, 0.7667431, 0.6419542)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Bone.010"
 bones/4/parent = 0
 bones/4/rest = Transform3D(0, 1, -2.38419e-07, -1, 0, -6.39758e-07, -6.39758e-07, 2.38419e-07, 1, 0, 0.408414, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(0, 0.408414, 0)
-bones/4/rotation = Quaternion(3.10482e-07, 1.41895e-07, -0.707107, 0.707107)
+bones/4/rotation = Quaternion(3.104819e-07, 1.4189499e-07, -0.7071068, 0.7071068)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Bone.001"
 bones/5/parent = 4
 bones/5/rest = Transform3D(6.55651e-07, 0.634552, 0.77288, 0, 0.772881, -0.634552, -1, 4.17233e-07, 4.76837e-07, -1.19209e-07, 0.4, 0)
 bones/5/enabled = true
 bones/5/position = Vector3(-1.19209e-07, 0.4, 0)
-bones/5/rotation = Quaternion(0.099877, 0.493935, -0.429526, 0.749373)
-bones/5/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.09987701, 0.4939351, -0.42952612, 0.74937314)
+bones/5/scale = Vector3(1, 1.0000006, 0.9999999)
 bones/6/name = "Bone.011"
 bones/6/parent = 0
 bones/6/rest = Transform3D(0, -1, -2.38419e-07, 1, 0, 1.94707e-07, -1.94707e-07, -2.38419e-07, 1, 0, 0.408414, 0)
 bones/6/enabled = true
 bones/6/position = Vector3(0, 0.408414, 0)
-bones/6/rotation = Quaternion(-1.53133e-07, -1.54545e-08, 0.707107, 0.707107)
+bones/6/rotation = Quaternion(-1.5313297e-07, -1.5454498e-08, 0.7071068, 0.7071068)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Bone"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0, -0.634552, 0.77288, -8.9407e-08, 0.77288, 0.634552, -1, -5.96046e-08, 0, 1.19209e-07, 0.4, 0)
 bones/7/enabled = true
 bones/7/position = Vector3(1.19209e-07, 0.4, 0)
-bones/7/rotation = Quaternion(-0.412814, 0.807434, 0.155087, 0.391897)
-bones/7/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.4128139, 0.8074339, 0.15508698, 0.39189696)
+bones/7/scale = Vector3(1, 0.9999999, 0.9999999)
 bones/8/name = "Bone.012"
 bones/8/parent = -1
 bones/8/rest = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0.691587, 0)
@@ -1753,8 +1797,8 @@ bones/9/parent = 8
 bones/9/rest = Transform3D(-3.57628e-07, 1.19209e-07, 1, -0.987427, 0.158073, -3.57628e-07, -0.158073, -0.987427, 0, 0, 0.25, 0)
 bones/9/enabled = true
 bones/9/position = Vector3(0, 0.25, 0)
-bones/9/rotation = Quaternion(-0.514741, 0.603698, -0.394975, 0.463234)
-bones/9/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.5147409, 0.6036979, -0.39497492, 0.46323395)
+bones/9/scale = Vector3(0.9999996, 0.9999996, 1)
 bones/10/name = "Bone.013"
 bones/10/parent = -1
 bones/10/rest = Transform3D(0, -1, 0, 0, 0, 1, -1, 0, 0, 0, 0.691587, 0)
@@ -1767,77 +1811,75 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(-3.57628e-07, -1.19209e-07, -1, 0.987427, 0.158073, -3.57628e-07, 0.158073, -0.987427, 0, 0, 0.25, 0)
 bones/11/enabled = true
 bones/11/position = Vector3(0, 0.25, 0)
-bones/11/rotation = Quaternion(-0.514741, -0.603698, 0.394975, 0.463234)
-bones/11/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-0.5147409, -0.6036979, 0.39497492, 0.46323395)
+bones/11/scale = Vector3(0.9999996, 0.9999996, 1)
 
-[node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+[node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=1035012696]
 mesh = SubResource("ArrayMesh_wafr1")
 skin = SubResource("Skin_3vo0y")
 surface_material_override/0 = SubResource("StandardMaterial3D_s5iw2")
 
-[node name="headbone" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(1, 1.06581e-13, 2.38418e-07, -5.68433e-14, 1, -2.08616e-07, -2.38418e-07, 2.08616e-07, 1, 1.16078e-14, 1.1, 7.30301e-08)
+[node name="headbone" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1471274577]
+transform = Transform3D(1, 1.0658125e-13, 2.3841802e-07, -5.6843334e-14, 1, -2.086164e-07, -2.3841802e-07, 2.086164e-07, 1, 1.1607787e-14, 1.100001, 7.3030144e-08)
 bone_name = "Bone.003"
 bone_idx = 1
 
-[node name="offset" type="Marker3D" parent="Armature/Skeleton3D/headbone"]
+[node name="offset" type="Marker3D" parent="Armature/Skeleton3D/headbone" unique_id=1572057575]
 transform = Transform3D(-1, 7.02858e-09, 7.91624e-08, 4.46744e-09, 0.999466, -0.0326306, -8.75443e-08, -0.0326305, -0.999467, 1.2009e-09, 0.399946, -0.00652698)
 
-[node name="attachments" type="Marker3D" parent="Armature/Skeleton3D/headbone"]
+[node name="attachments" type="Marker3D" parent="Armature/Skeleton3D/headbone" unique_id=105776886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)
 
-[node name="fakeshadow" type="Decal" parent="Armature/Skeleton3D"]
+[node name="fakeshadow" type="Decal" parent="Armature/Skeleton3D" unique_id=1283864964]
 transform = Transform3D(0.999987, 0, 0, 0, 0.999987, 0, 0, 0, 0.999987, 0, 0, 0)
 size = Vector3(2, 100, 2)
 texture_albedo = SubResource("GradientTexture2D_pylmc")
 emission_energy = 0.0
-upper_fade = 1e+06
+upper_fade = 1000000.0
 lower_fade = 1.5529
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_l3m7e")
-}
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1626557245]
+libraries/ = SubResource("AnimationLibrary_l3m7e")
 
-[node name="cubeleavearea" type="Area3D" parent="."]
+[node name="cubeleavearea" type="Area3D" parent="." unique_id=62059425]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cubeleavearea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cubeleavearea" unique_id=1814255982]
 shape = SubResource("SphereShape3D_pbfsw")
 
-[node name="camera" type="Camera3D" parent="."]
+[node name="camera" type="Camera3D" parent="." unique_id=2138979887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.6)
 cull_mask = 1048543
 current = true
 
-[node name="Elevatorup" type="Sprite2D" parent="camera"]
+[node name="Elevatorup" type="Sprite2D" parent="camera" unique_id=587824516]
 visible = false
 position = Vector2(370, 242)
 texture = ExtResource("2_usup8")
 
-[node name="Elevatorpainting" type="Sprite2D" parent="camera"]
+[node name="Elevatorpainting" type="Sprite2D" parent="camera" unique_id=1157240880]
 visible = false
 position = Vector2(893, 467)
 scale = Vector2(0.362466, 0.393279)
 texture = ExtResource("2_kutj3")
 
-[node name="Hsv" type="Sprite2D" parent="camera"]
+[node name="Hsv" type="Sprite2D" parent="camera" unique_id=887847824]
 visible = false
 position = Vector2(593, 376)
 texture = ExtResource("4_oilwa")
 
-[node name="motionblur" type="Sprite2D" parent="camera"]
+[node name="motionblur" type="Sprite2D" parent="camera" unique_id=1888212887]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(640, 360)
 rotation = 0.715596
 scale = Vector2(0.782633, 0.782633)
 texture = SubResource("AnimatedTexture_lenwx")
 
-[node name="raycast" type="RayCast3D" parent="camera"]
+[node name="raycast" type="RayCast3D" parent="camera" unique_id=1827375305]
 target_position = Vector3(0, 0, -5)
 
-[node name="grain" type="ColorRect" parent="camera"]
+[node name="grain" type="ColorRect" parent="camera" unique_id=101379724]
 z_index = 999
 material = SubResource("ShaderMaterial_5tmop")
 anchors_preset = 15
@@ -1847,7 +1889,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="dualtone" type="ColorRect" parent="camera"]
+[node name="dualtone" type="ColorRect" parent="camera" unique_id=1515298891]
 z_index = 100
 material = SubResource("ShaderMaterial_fdimd")
 anchors_preset = 15
@@ -1857,7 +1899,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="blurvignette" type="ColorRect" parent="camera"]
+[node name="blurvignette" type="ColorRect" parent="camera" unique_id=101952836]
 z_index = 999
 material = SubResource("ShaderMaterial_i23xc")
 anchors_preset = 15
@@ -1867,7 +1909,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="actionlines" type="ColorRect" parent="camera"]
+[node name="actionlines" type="ColorRect" parent="camera" unique_id=506331800]
 z_index = 999
 material = SubResource("ShaderMaterial_op7ga")
 anchors_preset = 15
@@ -1877,7 +1919,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="damage" type="ColorRect" parent="camera"]
+[node name="damage" type="ColorRect" parent="camera" unique_id=2005165140]
 z_index = 999
 material = SubResource("ShaderMaterial_vc8c2")
 anchors_preset = 15
@@ -1887,29 +1929,32 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="shootraycast" type="RayCast3D" parent="camera"]
+[node name="shootraycast" type="RayCast3D" parent="camera" unique_id=1308871550]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 target_position = Vector3(0, 0, -5000)
 
-[node name="gun" type="Marker3D" parent="camera"]
+[node name="gun" type="Marker3D" parent="camera" unique_id=1706142577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.03)
 
-[node name="slidething" type="MeshInstance3D" parent="camera"]
+[node name="slidething" type="MeshInstance3D" parent="camera" unique_id=602993067]
 transform = Transform3D(-8.09557e-05, 3, -5.77977e-05, -3, -8.0955e-05, 3.27131e-05, 3.27115e-05, 5.77986e-05, 3, 0, -0.5, 0.6)
 transparency = 0.5
 mesh = SubResource("SphereMesh_y10ep")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_2kfdm")
 
-[node name="walktimer" type="Timer" parent="."]
+[node name="impactframe" type="AnimationPlayer" parent="camera" unique_id=1528895241]
+libraries/ = SubResource("AnimationLibrary_7lmhl")
+
+[node name="walktimer" type="Timer" parent="." unique_id=2103689418]
 one_shot = true
 
-[node name="djumpaccidentproofing" type="RayCast3D" parent="."]
+[node name="djumpaccidentproofing" type="RayCast3D" parent="." unique_id=614706803]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 target_position = Vector3(0, -1.25, 0)
 debug_shape_custom_color = Color(1, 1, 1, 1)
 
-[node name="sand" type="GPUParticles3D" parent="."]
+[node name="sand" type="GPUParticles3D" parent="." unique_id=226297250]
 emitting = false
 amount = 50
 lifetime = 5.0
@@ -1917,7 +1962,7 @@ visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 process_material = SubResource("ParticleProcessMaterial_6q3fx")
 draw_pass_1 = SubResource("PlaneMesh_sfgrm")
 
-[node name="walkparticle" type="GPUParticles3D" parent="."]
+[node name="walkparticle" type="GPUParticles3D" parent="." unique_id=861286013]
 emitting = false
 amount = 25
 lifetime = 5.0
@@ -1925,7 +1970,7 @@ visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 process_material = SubResource("ParticleProcessMaterial_u1c27")
 draw_pass_1 = SubResource("PlaneMesh_pylmc")
 
-[node name="bubbles" type="GPUParticles3D" parent="."]
+[node name="bubbles" type="GPUParticles3D" parent="." unique_id=1609424968]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05868, 0.676052)
 emitting = false
 amount = 200
@@ -1933,9 +1978,9 @@ lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_dx0e4")
 draw_pass_1 = SubResource("PlaneMesh_7hik5")
 
-[node name="slidepivot" type="Node3D" parent="."]
+[node name="slidepivot" type="Node3D" parent="." unique_id=996184445]
 
-[node name="slideparticle" type="GPUParticles3D" parent="slidepivot"]
+[node name="slideparticle" type="GPUParticles3D" parent="slidepivot" unique_id=1760990472]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 4)
 transparency = 1.0
 amount = 25
@@ -1944,78 +1989,79 @@ visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 process_material = SubResource("ParticleProcessMaterial_5tmop")
 draw_pass_1 = SubResource("PlaneMesh_7lmhl")
 
-[node name="light" type="OmniLight3D" parent="."]
+[node name="light" type="OmniLight3D" parent="." unique_id=1632531205]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 light_energy = 0.5
 light_bake_mode = 0
 omni_range = 3.0
 
-[node name="wind" type="AudioStreamPlayer" parent="."]
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=456800562]
 stream = SubResource("AudioStreamWAV_hu1rm")
 volume_db = -80.0
 autoplay = true
 
-[node name="groundslam" type="Area3D" parent="."]
+[node name="groundslam" type="Area3D" parent="." unique_id=1758815205]
 collision_layer = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="groundslam"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="groundslam" unique_id=656199205]
 shape = SubResource("CylinderShape3D_uxwyk")
 
-[node name="walljump" type="Node3D" parent="."]
+[node name="walljump" type="Node3D" parent="." unique_id=1647369232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
-[node name="raycast0" type="RayCast3D" parent="walljump"]
+[node name="raycast0" type="RayCast3D" parent="walljump" unique_id=1284824500]
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
-[node name="raycast1" type="RayCast3D" parent="walljump"]
+[node name="raycast1" type="RayCast3D" parent="walljump" unique_id=2082897552]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
-[node name="raycast2" type="RayCast3D" parent="walljump"]
+[node name="raycast2" type="RayCast3D" parent="walljump" unique_id=1364410744]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
-[node name="raycast3" type="RayCast3D" parent="walljump"]
+[node name="raycast3" type="RayCast3D" parent="walljump" unique_id=1878656290]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
-[node name="raycast4" type="RayCast3D" parent="walljump"]
+[node name="raycast4" type="RayCast3D" parent="walljump" unique_id=971099859]
 transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
-[node name="raycast5" type="RayCast3D" parent="walljump"]
+[node name="raycast5" type="RayCast3D" parent="walljump" unique_id=1857518572]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
-[node name="raycast6" type="RayCast3D" parent="walljump"]
+[node name="raycast6" type="RayCast3D" parent="walljump" unique_id=1148236427]
 transform = Transform3D(8.9407e-08, 0, -1, 0, 1, 0, 1, 0, 8.9407e-08, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
-[node name="raycast7" type="RayCast3D" parent="walljump"]
+[node name="raycast7" type="RayCast3D" parent="walljump" unique_id=305222893]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(0, 1, 0.0333333, 1)
 
-[node name="lavacheck" type="Area3D" parent="."]
+[node name="lavacheck" type="Area3D" parent="." unique_id=1516696700]
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="lavacheck"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lavacheck" unique_id=244208034]
 shape = SubResource("BoxShape3D_pbfsw")
 debug_color = Color(0, 0.595, 0.7, 0.333333)
 
-[node name="surfboard" type="Node3D" parent="."]
+[node name="surfboard" type="Node3D" parent="." unique_id=2147206913]
 visible = false
 
-[node name="surfboard" type="MeshInstance3D" parent="surfboard"]
+[node name="surfboard" type="MeshInstance3D" parent="surfboard" unique_id=890461180]
 mesh = SubResource("BoxMesh_pbfsw")
 skeleton = NodePath("../..")
 
+[connection signal="area_entered" from="cubeleavearea" to="." method="_on_cubeleavearea_area_entered"]
 [connection signal="area_exited" from="cubeleavearea" to="." method="_on_cubeleavearea_area_exited"]
 [connection signal="timeout" from="walktimer" to="." method="_on_walktimer_timeout"]

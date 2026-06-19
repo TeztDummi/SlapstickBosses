@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=4 uid="uid://cnp6qtr48jbbr"]
+[gd_scene format=4 uid="uid://cnp6qtr48jbbr"]
 
 [ext_resource type="Script" uid="uid://c28ik7a8xlnfr" path="res://musicboss/musicboss.gd" id="1_206uo"]
 [ext_resource type="AudioStream" uid="uid://3p36hioo0iqs" path="res://audio/music/remixmain.mp3" id="2_wkin1"]
@@ -1045,6 +1045,7 @@ shader_parameter/highlight_color = Color(1, 1, 0, 1)
 shader_parameter/highlight_power = 3.0
 shader_parameter/highlight_intensity = 0.267
 shader_parameter/rim_power = 3.0
+shader_parameter/grow = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kykmv"]
 next_pass = SubResource("ShaderMaterial_c8y8k")
@@ -1069,6 +1070,7 @@ shader_parameter/highlight_color = Color(1, 1, 0, 1)
 shader_parameter/highlight_power = 3.0
 shader_parameter/highlight_intensity = 1.0
 shader_parameter/rim_power = 3.0
+shader_parameter/grow = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6eijr"]
 next_pass = SubResource("ShaderMaterial_0fmfh")
@@ -1596,88 +1598,86 @@ shader_parameter/alpha = 0.5
 material = SubResource("ShaderMaterial_dqkva")
 flip_faces = true
 
-[node name="musicboss" type="Node3D"]
+[node name="musicboss" type="Node3D" unique_id=941627559]
 script = ExtResource("1_206uo")
 
-[node name="remixmusicboss" type="Marker3D" parent="."]
+[node name="remixmusicboss" type="Marker3D" parent="." unique_id=419075612]
 editor_description = "Chasing Pimpledump Kinkledorf Dingledale ...... but cool"
 metadata/discdiff = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=761345888]
 environment = SubResource("Environment_b4qdf")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1463773548]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=126286552]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 light_color = Color(0, 1, 1, 1)
 light_angular_distance = 5.0
 shadow_enabled = true
 
-[node name="mainmusic" type="AudioStreamPlayer" parent="."]
+[node name="mainmusic" type="AudioStreamPlayer" parent="." unique_id=11843343]
 stream = ExtResource("2_wkin1")
 bus = &"Music"
 
-[node name="startarea" type="Area3D" parent="."]
+[node name="startarea" type="Area3D" parent="." unique_id=1971415705]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3826, 4.92797)
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="startarea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="startarea" unique_id=299452905]
 shape = SubResource("BoxShape3D_yybyd")
 
-[node name="testcam" type="Marker3D" parent="."]
+[node name="testcam" type="Marker3D" parent="." unique_id=577646745]
 process_mode = 3
 script = ExtResource("3_j2d1x")
 
-[node name="cam" type="Camera3D" parent="testcam"]
+[node name="cam" type="Camera3D" parent="testcam" unique_id=2058480508]
 
-[node name="music0" type="AudioStreamPlayer" parent="."]
+[node name="music0" type="AudioStreamPlayer" parent="." unique_id=1824688650]
 volume_db = 5.0
 bus = &"Music"
 
-[node name="music1" type="AudioStreamPlayer" parent="."]
+[node name="music1" type="AudioStreamPlayer" parent="." unique_id=1775773372]
 volume_db = 5.0
 bus = &"Music"
 
-[node name="music2" type="AudioStreamPlayer" parent="."]
+[node name="music2" type="AudioStreamPlayer" parent="." unique_id=1991341771]
 volume_db = 5.0
 bus = &"Music"
 
-[node name="music3" type="AudioStreamPlayer" parent="."]
+[node name="music3" type="AudioStreamPlayer" parent="." unique_id=419240278]
 volume_db = 5.0
 bus = &"Music"
 
-[node name="wizard" type="MeshInstance3D" parent="."]
+[node name="wizard" type="MeshInstance3D" parent="." unique_id=766219025]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 27)
 mesh = SubResource("PlaneMesh_jaaeg")
 surface_material_override/0 = SubResource("StandardMaterial3D_3dqc3")
 
-[node name="audio" type="AudioStreamPlayer3D" parent="wizard"]
+[node name="audio" type="AudioStreamPlayer3D" parent="wizard" unique_id=1797778908]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 stream = ExtResource("5_gf07f")
 
-[node name="wizardarea" type="Area3D" parent="wizard"]
+[node name="wizardarea" type="Area3D" parent="wizard" unique_id=623749282]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wizard/wizardarea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wizard/wizardarea" unique_id=1585519826]
 shape = SubResource("SphereShape3D_1gxlc")
 
-[node name="killcam" type="Camera3D" parent="wizard"]
+[node name="killcam" type="Camera3D" parent="wizard" unique_id=806739827]
 transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, -1, -7)
 
-[node name="Armature" type="Node3D" parent="wizard"]
+[node name="Armature" type="Node3D" parent="wizard" unique_id=1497369775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -2.46)
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="wizard/Armature"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wizard/Armature" unique_id=770808090]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_l3m7e")
-}
+libraries/ = SubResource("AnimationLibrary_l3m7e")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="wizard/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="wizard/Armature" unique_id=1795867063]
 bones/0/name = "Bone.002"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -7.10543e-15, 2.38418e-07, -7.10543e-15, 1, 5.96046e-08, -2.38418e-07, -5.96046e-08, 1, 0, 0.691587, 0)
@@ -1763,17 +1763,17 @@ bones/11/position = Vector3(0, 0.25, 0)
 bones/11/rotation = Quaternion(-0.648998, -0.728148, 0.106439, 0.193061)
 bones/11/scale = Vector3(1, 1, 1)
 
-[node name="Cube" type="MeshInstance3D" parent="wizard/Armature/Skeleton3D"]
+[node name="Cube" type="MeshInstance3D" parent="wizard/Armature/Skeleton3D" unique_id=918665843]
 mesh = SubResource("ArrayMesh_mplby")
 skin = SubResource("Skin_owha3")
 surface_material_override/0 = SubResource("StandardMaterial3D_ir06o")
 
-[node name="hand" type="BoneAttachment3D" parent="wizard/Armature/Skeleton3D"]
-transform = Transform3D(0.607226, -0.293251, -0.738431, -0.742598, 0.121019, -0.658713, 0.282533, 0.948345, -0.144282, -0.383837, 2.51567, 1.53783)
+[node name="hand" type="BoneAttachment3D" parent="wizard/Armature/Skeleton3D" unique_id=916900834]
+transform = Transform3D(0.6072258, -0.29325143, -0.7384311, -0.74259806, 0.1210191, -0.65871257, 0.28253272, 0.9483449, -0.14428207, -0.38383746, 2.5156672, 1.537827)
 bone_name = "Bone"
 bone_idx = 7
 
-[node name="dagger" type="MeshInstance3D" parent="wizard/Armature/Skeleton3D/hand"]
+[node name="dagger" type="MeshInstance3D" parent="wizard/Armature/Skeleton3D/hand" unique_id=1833102584]
 transform = Transform3D(0.359599, -0.0957702, -0.077508, 0.11423, 0.34876, 0.0990387, 0.0461611, -0.116984, 0.358713, -0.0313833, 0.534775, 0.00867772)
 mesh = SubResource("ArrayMesh_24hgx")
 skeleton = NodePath("")
@@ -1783,28 +1783,26 @@ surface_material_override/2 = SubResource("StandardMaterial3D_kykmv")
 surface_material_override/3 = SubResource("StandardMaterial3D_s658p")
 surface_material_override/4 = SubResource("StandardMaterial3D_6eijr")
 
-[node name="headbone" type="BoneAttachment3D" parent="wizard/Armature/Skeleton3D"]
-transform = Transform3D(0.999907, 0.000222404, 0.0136282, 2.92059e-09, 0.999867, -0.0163175, -0.01363, 0.016316, 0.999774, 0, 1.1, 0)
+[node name="headbone" type="BoneAttachment3D" parent="wizard/Armature/Skeleton3D" unique_id=1634660093]
+transform = Transform3D(0.99990714, 0.00022240481, 0.013628172, 0.006533813, -0.88531715, -0.4649418, 0.0119618485, 0.46498764, -0.8852364, 0.0161254, 2.5182807, 1.5426117)
 bone_name = "Bone.003"
 bone_idx = 1
 
-[node name="attachments" type="Marker3D" parent="wizard/Armature/Skeleton3D/headbone"]
+[node name="attachments" type="Marker3D" parent="wizard/Armature/Skeleton3D/headbone" unique_id=669365833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)
 
-[node name="offset" type="Marker3D" parent="wizard/Armature/Skeleton3D/headbone"]
+[node name="offset" type="Marker3D" parent="wizard/Armature/Skeleton3D/headbone" unique_id=24480406]
 transform = Transform3D(-1, 7.02858e-09, 7.91624e-08, 4.46744e-09, 0.999466, -0.0326306, -8.75443e-08, -0.0326305, -0.999467, 1.2009e-09, 0.399946, -0.00652698)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="wizard"]
-libraries = {
-&"": SubResource("AnimationLibrary_7fbtk")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wizard" unique_id=1531421942]
+libraries/ = SubResource("AnimationLibrary_7fbtk")
 
-[node name="putplayerhere" type="Marker3D" parent="wizard"]
+[node name="putplayerhere" type="Marker3D" parent="wizard" unique_id=1002305130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4, -3.4)
 
-[node name="particlepivot" type="Marker3D" parent="wizard"]
+[node name="particlepivot" type="Marker3D" parent="wizard" unique_id=1210207626]
 
-[node name="kicks" type="GPUParticles3D" parent="wizard/particlepivot"]
+[node name="kicks" type="GPUParticles3D" parent="wizard/particlepivot" unique_id=322995303]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75891, -0.813705, 0)
 emitting = false
 amount = 4
@@ -1814,7 +1812,7 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_riasw")
 draw_pass_2 = SubResource("PlaneMesh_6xwip")
 
-[node name="kicks2" type="GPUParticles3D" parent="wizard/particlepivot"]
+[node name="kicks2" type="GPUParticles3D" parent="wizard/particlepivot" unique_id=620959006]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54109, -0.813705, 0)
 emitting = false
 amount = 4
@@ -1824,7 +1822,7 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_riasw")
 draw_pass_2 = SubResource("PlaneMesh_6xwip")
 
-[node name="hats" type="GPUParticles3D" parent="wizard/particlepivot"]
+[node name="hats" type="GPUParticles3D" parent="wizard/particlepivot" unique_id=193399988]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75891, -0.813705, 0)
 emitting = false
 amount = 4
@@ -1834,7 +1832,7 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_4eiwo")
 draw_pass_2 = SubResource("PlaneMesh_24hgx")
 
-[node name="hats2" type="GPUParticles3D" parent="wizard/particlepivot"]
+[node name="hats2" type="GPUParticles3D" parent="wizard/particlepivot" unique_id=417331207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54109, -0.813705, 0)
 emitting = false
 amount = 4
@@ -1844,7 +1842,7 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_4eiwo")
 draw_pass_2 = SubResource("PlaneMesh_24hgx")
 
-[node name="variety" type="GPUParticles3D" parent="wizard/particlepivot"]
+[node name="variety" type="GPUParticles3D" parent="wizard/particlepivot" unique_id=2127391368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75891, -0.813705, 0)
 emitting = false
 amount = 4
@@ -1854,7 +1852,7 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_htfu1")
 draw_pass_2 = SubResource("PlaneMesh_pscym")
 
-[node name="variety2" type="GPUParticles3D" parent="wizard/particlepivot"]
+[node name="variety2" type="GPUParticles3D" parent="wizard/particlepivot" unique_id=53472955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54109, -0.813705, 0)
 emitting = false
 amount = 4
@@ -1864,7 +1862,7 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_htfu1")
 draw_pass_2 = SubResource("PlaneMesh_pscym")
 
-[node name="bassline" type="GPUParticles3D" parent="wizard/particlepivot"]
+[node name="bassline" type="GPUParticles3D" parent="wizard/particlepivot" unique_id=904538050]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75891, -0.813705, 0)
 emitting = false
 amount = 4
@@ -1874,7 +1872,7 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_kykmv")
 draw_pass_2 = SubResource("PlaneMesh_s658p")
 
-[node name="bassline2" type="GPUParticles3D" parent="wizard/particlepivot"]
+[node name="bassline2" type="GPUParticles3D" parent="wizard/particlepivot" unique_id=724232827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54109, -0.813705, 0)
 emitting = false
 amount = 4
@@ -1884,352 +1882,350 @@ draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_kykmv")
 draw_pass_2 = SubResource("PlaneMesh_s658p")
 
-[node name="platform" type="Node3D" parent="."]
+[node name="platform" type="Node3D" parent="." unique_id=950560846]
 
-[node name="coolplat" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat" type="StaticBody3D" parent="platform" unique_id=1035344687 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2.5, 6)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat" unique_id=1624457255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat" unique_id=1027838505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat" unique_id=625267319]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat" unique_id=647678775]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat2" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat2" type="StaticBody3D" parent="platform" unique_id=696948118 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 6)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat2" unique_id=2039082604]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat2" unique_id=1299055381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat2"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat2" unique_id=1978163638]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat2"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat2" unique_id=1292551415]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat3" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat3" type="StaticBody3D" parent="platform" unique_id=1494305592 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2.5, 6)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat3" unique_id=316008526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat3" unique_id=1186268070]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat3"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat3" unique_id=887990843]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat3"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat3" unique_id=1263923821]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat4" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat4" type="StaticBody3D" parent="platform" unique_id=180869349 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2.5, 3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat4" unique_id=1996182338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat4" unique_id=1342347210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat4"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat4" unique_id=1590062333]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat4"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat4" unique_id=1596147780]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat5" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat5" type="StaticBody3D" parent="platform" unique_id=1580903040 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat5" unique_id=1661922101]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat5" unique_id=913152171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat5"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat5" unique_id=563218513]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat5"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat5" unique_id=1382568046]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat6" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat6" type="StaticBody3D" parent="platform" unique_id=2085446964 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2.5, 3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat6"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat6" unique_id=231127255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat6" unique_id=1437407646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat6"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat6" unique_id=323634837]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat6"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat6" unique_id=369550807]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat7" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat7" type="StaticBody3D" parent="platform" unique_id=1111169819 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2.5, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat7"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat7" unique_id=116414500]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat7" unique_id=743976827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat7"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat7" unique_id=1194566106]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat7"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat7" unique_id=1682807470]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat8" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat8" type="StaticBody3D" parent="platform" unique_id=2041444871 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat8"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat8" unique_id=1308982042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat8"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat8" unique_id=264065129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat8"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat8" unique_id=1957750828]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat8"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat8" unique_id=752446866]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat9" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat9" type="StaticBody3D" parent="platform" unique_id=407946059 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2.5, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat9"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat9" unique_id=1097920357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat9"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat9" unique_id=2007280218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat9"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat9" unique_id=519935866]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat9"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat9" unique_id=1764165998]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat10" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat10" type="StaticBody3D" parent="platform" unique_id=56340256 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2.5, -3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat10"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat10" unique_id=533273863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat10"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat10" unique_id=356604271]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat10"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat10" unique_id=587137567]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat10"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat10" unique_id=1475906545]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat11" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat11" type="StaticBody3D" parent="platform" unique_id=309464470 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, -3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat11"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat11" unique_id=1062381958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat11"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat11" unique_id=702823515]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat11"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat11" unique_id=808631911]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat11"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat11" unique_id=2025830346]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="coolplat12" type="StaticBody3D" parent="platform" groups=["musicplat"]]
+[node name="coolplat12" type="StaticBody3D" parent="platform" unique_id=1716712781 groups=["musicplat"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2.5, -3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat12"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/coolplat12" unique_id=1705071567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_snkg0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat12"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform/coolplat12" unique_id=935839040]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_5fpnm")
 
-[node name="glow" type="MeshInstance3D" parent="platform/coolplat12"]
+[node name="glow" type="MeshInstance3D" parent="platform/coolplat12" unique_id=1666634349]
 transform = Transform3D(1.12439, 0, 0, 0, 1.01896, 0, 0, 0, 1.10653, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_dx0or")
 
-[node name="glow2" type="MeshInstance3D" parent="platform/coolplat12"]
+[node name="glow2" type="MeshInstance3D" parent="platform/coolplat12" unique_id=650708137]
 transform = Transform3D(1.22065, 0, 0, 0, 1.04538, 0, 0, 0, 1.20868, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_mkbcf")
 surface_material_override/0 = SubResource("StandardMaterial3D_tluau")
 
-[node name="talkcam" type="Camera3D" parent="."]
+[node name="talkcam" type="Camera3D" parent="." unique_id=1698478140]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, 20)
 
-[node name="littlewizard" type="StaticBody3D" parent="." groups=["lilwizard", "talk"]]
+[node name="littlewizard" type="StaticBody3D" parent="." unique_id=903803280 groups=["lilwizard", "talk"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
 script = ExtResource("11_vgsyn")
 
-[node name="mesh" type="MeshInstance3D" parent="littlewizard"]
+[node name="mesh" type="MeshInstance3D" parent="littlewizard" unique_id=370971409]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("PlaneMesh_oseje")
 surface_material_override/0 = SubResource("StandardMaterial3D_klrom")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="littlewizard"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="littlewizard" unique_id=902738516]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671666, 0)
 shape = SubResource("CapsuleShape3D_8nhje")
 
-[node name="bitpath" type="Node3D" parent="."]
+[node name="bitpath" type="Node3D" parent="." unique_id=1535208889]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
-[node name="plat" type="StaticBody3D" parent="bitpath"]
+[node name="plat" type="StaticBody3D" parent="bitpath" unique_id=933088315]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -12)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="bitpath/plat"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bitpath/plat" unique_id=231895140]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_4yfna")
 surface_material_override/0 = SubResource("StandardMaterial3D_g0irh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bitpath/plat"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bitpath/plat" unique_id=145478442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_ba6gw")
 
-[node name="plat2" type="StaticBody3D" parent="bitpath"]
+[node name="plat2" type="StaticBody3D" parent="bitpath" unique_id=523290409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -27)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="bitpath/plat2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bitpath/plat2" unique_id=1814250697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_4yfna")
 surface_material_override/0 = SubResource("StandardMaterial3D_g0irh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bitpath/plat2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bitpath/plat2" unique_id=159795651]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_ba6gw")
 
-[node name="plat3" type="StaticBody3D" parent="bitpath"]
+[node name="plat3" type="StaticBody3D" parent="bitpath" unique_id=803234903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -42)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="bitpath/plat3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bitpath/plat3" unique_id=1946698843]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_4yfna")
 surface_material_override/0 = SubResource("StandardMaterial3D_g0irh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bitpath/plat3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bitpath/plat3" unique_id=2130567216]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_ba6gw")
 
-[node name="plat4" type="StaticBody3D" parent="bitpath"]
+[node name="plat4" type="StaticBody3D" parent="bitpath" unique_id=831876197]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -57)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="bitpath/plat4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bitpath/plat4" unique_id=1808909419]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_4yfna")
 surface_material_override/0 = SubResource("StandardMaterial3D_g0irh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bitpath/plat4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bitpath/plat4" unique_id=1290689166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 shape = SubResource("BoxShape3D_ba6gw")
 
-[node name="anim" type="AnimationPlayer" parent="bitpath"]
-libraries = {
-&"": SubResource("AnimationLibrary_d7qhj")
-}
+[node name="anim" type="AnimationPlayer" parent="bitpath" unique_id=1692255423]
+libraries/ = SubResource("AnimationLibrary_d7qhj")
 
-[node name="particles" type="GPUParticles3D" parent="."]
+[node name="particles" type="GPUParticles3D" parent="." unique_id=55377854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 amount = 50
 visibility_aabb = AABB(-192.684, -77.5547, -168.936, 385.368, 155.109, 337.872)
 process_material = SubResource("ParticleProcessMaterial_f70f0")
 draw_pass_1 = SubResource("PlaneMesh_umokw")
 
-[node name="cube" type="MeshInstance3D" parent="."]
+[node name="cube" type="MeshInstance3D" parent="." unique_id=1116243535]
 transform = Transform3D(1414.21, -1414.21, -0.000776851, 1158.46, 1158.45, 1147.15, -811.16, -811.16, 1638.3, 0, 0, 0)
 mesh = SubResource("BoxMesh_yugwg")
 script = ExtResource("19_01pq4")

@@ -26,6 +26,7 @@ func _on_starttimer_timeout():
 	
 	if chal == "2elevators": $"../".timer = 60
 	else: $"../".timer = 90
+	$lightningtimer.start()
 	$"../canvas/hud/timer".show()
 	
 	if chal == "rats":
@@ -61,3 +62,11 @@ func _on_neodetect_body_exited(body):
 	if body.is_in_group("playergroup"):
 		if neo == 1:
 			neo = 2
+
+func _on_lightningtimer_timeout() -> void:
+	if boss != null:
+		if !boss.dead:
+			$lightning.play("default")
+			$lightningaudio.play()
+			$lightningtimer.wait_time = 20
+			$lightningtimer.start()

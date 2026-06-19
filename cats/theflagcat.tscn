@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dkitp5rjnr7ha"]
+[gd_scene format=3 uid="uid://dkitp5rjnr7ha"]
 
 [ext_resource type="Script" uid="uid://jyjswasj3h3g" path="res://cats/theflagcat.gd" id="1_4sp72"]
 [ext_resource type="Texture2D" uid="uid://b2g44tvrjksw8" path="res://cats/flagkitty.png" id="1_j20gv"]
@@ -100,35 +100,35 @@ _data = {
 &"move": SubResource("Animation_j6gs5")
 }
 
-[node name="theflagcat" type="CharacterBody3D" groups=["cat"]]
+[node name="theflagcat" type="CharacterBody3D" unique_id=309763048 groups=["cat"]]
 script = ExtResource("1_4sp72")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1113251941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_a4ove")
 
-[node name="visual" type="Marker3D" parent="."]
+[node name="visual" type="Marker3D" parent="." unique_id=483321630]
 
-[node name="Sprite3D" type="Sprite3D" parent="visual"]
-sorting_offset = 0.01
+[node name="Sprite3D" type="Sprite3D" parent="visual" unique_id=1954596123]
+sorting_offset = 10.0
 offset = Vector2(320, 400)
 billboard = 1
 texture = SubResource("ViewportTexture_td5wk")
 
-[node name="cat" type="MeshInstance3D" parent="visual"]
+[node name="cat" type="MeshInstance3D" parent="visual" unique_id=2117776161]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 mesh = SubResource("PlaneMesh_du8g0")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_xtpur")
 
-[node name="healthsprite" type="Sprite3D" parent="visual"]
+[node name="healthsprite" type="Sprite3D" parent="visual" unique_id=1164661132]
 transform = Transform3D(0.501547, 0, 0, 0, 0.501547, 0, 0, 0, 0.501547, 0, 2.1, 0)
 offset = Vector2(0, 162)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_jy42d")
 
-[node name="deathparticle" type="GPUParticles3D" parent="visual"]
+[node name="deathparticle" type="GPUParticles3D" parent="visual" unique_id=1284623009]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 emitting = false
 amount = 1
@@ -138,15 +138,15 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_c125f")
 draw_pass_1 = SubResource("PlaneMesh_8ub40")
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=354532330]
 max_db = 6.0
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=903739479]
 transparent_bg = true
 size = Vector2i(1152, 326)
 render_target_update_mode = 4
 
-[node name="namelabel" type="Label" parent="SubViewport"]
+[node name="namelabel" type="Label" parent="SubViewport" unique_id=2039786300]
 offset_top = 245.0
 offset_right = 1152.0
 offset_bottom = 326.0
@@ -158,15 +158,15 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1009308983]
 replication_config = SubResource("SceneReplicationConfig_ruqme")
 
-[node name="SubViewport2" type="SubViewport" parent="."]
+[node name="SubViewport2" type="SubViewport" parent="." unique_id=2144000384]
 transparent_bg = true
 size = Vector2i(800, 800)
 render_target_update_mode = 4
 
-[node name="wavetext" type="Label" parent="SubViewport2"]
+[node name="wavetext" type="Label" parent="SubViewport2" unique_id=29930030]
 offset_left = -15.32
 offset_top = 56.72
 offset_right = 944.68
@@ -178,10 +178,8 @@ theme_override_font_sizes/font_size = 391
 text = "?"
 horizontal_alignment = 1
 
-[node name="anim" type="AnimationPlayer" parent="."]
-autoplay = "move"
-libraries = {
-"": SubResource("AnimationLibrary_rnyir")
-}
+[node name="anim" type="AnimationPlayer" parent="." unique_id=298082482]
+libraries/ = SubResource("AnimationLibrary_rnyir")
+autoplay = &"move"
 
 [connection signal="finished" from="audio" to="." method="_on_audio_finished"]

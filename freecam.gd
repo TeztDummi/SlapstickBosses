@@ -31,7 +31,7 @@ func _process(delta):
 		
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("f1"):
-		if $"../".escapedcube == "none":
+		if $"../".escapedcube != "freecam":
 			if !on:
 				if !get_tree().paused:
 					#get_tree().paused = true

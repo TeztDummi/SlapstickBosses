@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfhl60oftxhrm"]
+[gd_scene format=3 uid="uid://dfhl60oftxhrm"]
 
 [ext_resource type="PackedScene" uid="uid://os5kwy1uuguh" path="res://moveeffects.glb" id="1_t18jt"]
 [ext_resource type="Script" uid="uid://b2ncwqe4abvu0" path="res://moveeffects.gd" id="2_0jqsx"]
@@ -193,16 +193,15 @@ _data = {
 &"jumpeffect": SubResource("Animation_an16g")
 }
 
-[node name="moveeffects" instance=ExtResource("1_t18jt")]
+[node name="moveeffects" unique_id=621446804 instance=ExtResource("1_t18jt")]
 script = ExtResource("2_0jqsx")
 
 [node name="landeffect" parent="." index="0"]
 transform = Transform3D(0.531837, 0, 0, 0, 1.36168, 0, 0, 0, 0.531837, 0, 0, 0)
-visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_0j28w")
 
 [node name="runeffect" parent="." index="1"]
-transform = Transform3D(-0.824451, 0, -1.50996e-07, 0, 1, 0, 1.24489e-07, 0, -1, 0, 0, 0)
+transform = Transform3D(-0.824451, 0, -1.509958e-07, 0, 1, 0, 1.2448865e-07, 0, -1, 0, 0, 0)
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_ehbxe")
 
@@ -211,10 +210,8 @@ transform = Transform3D(0.580596, 0, 0, 0, 1, 0, 0, 0, 0.580596, 0, 0, 0)
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_ehbxe")
 
-[node name="animplayer" type="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_2luso")
-}
-autoplay = "jumpeffect"
+[node name="animplayer" type="AnimationPlayer" parent="." index="3" unique_id=874864444]
+libraries/ = SubResource("AnimationLibrary_2luso")
+autoplay = &"jumpeffect"
 
 [connection signal="animation_finished" from="animplayer" to="." method="_on_animplayer_animation_finished"]

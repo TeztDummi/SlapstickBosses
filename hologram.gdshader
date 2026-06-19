@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, fog_disabled;
+render_mode unshaded, fog_disabled, shadows_disabled;
 
 uniform sampler2D texture_image;
 
@@ -20,7 +20,11 @@ uniform lowp float flickering : hint_range(0, 1) = 0.55;
 uniform lowp float alpha : hint_range(0, 1) = 1;
 
 vec3 fresnel_glow(float amount, float intensity, vec3 color, vec3 normal, vec3 view) {
-	return pow((1.0 - dot(normalize(normal), normalize(view))), amount) * color * intensity;
+	vec3 fres = pow((1.0 - dot(normalize(normal), normalize(view))), amount) * color * intensity;
+	fres.x = clamp(fres.x, -10, 10);
+	fres.y = clamp(fres.y, -10, 10);
+	fres.z = clamp(fres.z, -10, 10);
+	return fres;
 }
 
 void fragment () {

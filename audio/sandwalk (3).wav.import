@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jpix4437p4ue"
+path="res://.godot/imported/sandwalk (3).wav-9b830b9a10e8ac61c76f0ecf753de2af.sample"
+
+[deps]
+
+source_file="res://audio/sandwalk (3).wav"
+dest_files=["res://.godot/imported/sandwalk (3).wav-9b830b9a10e8ac61c76f0ecf753de2af.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -113,6 +113,7 @@ func _process(delta):
 	if !$camera.current && !$"../canvas/hud/talk".visible && !$"../canvas/hud/pause".visible && !get_viewport().get_camera_3d().has_meta("showhud"):
 		$camera/gun.hide()
 		$Armature.hide()
+		$walkparticle.hide()
 		$light.hide()
 		if !$"../tppivot/tppivot2/tpcam".current && !$"../canvas/hud/transitionin".is_playing():
 			$"../canvas/hud".hide()
@@ -121,6 +122,7 @@ func _process(delta):
 	else:
 		$camera/gun.show()
 		$Armature.show()
+		$walkparticle.show()
 		$light.show()
 		$"../canvas/hud".show()
 	if get_viewport().get_camera_3d().has_meta("freecam"):
@@ -134,6 +136,7 @@ func _process(delta):
 		
 		
 	var windspeed = totalvel
+	if $"../".escapedcube == "player": windspeed = 0
 	
 	if inwater:
 		windspeed *= 3
@@ -204,11 +207,13 @@ func _process(delta):
 		screenshake = lerpf(screenshake, 0, delta*4)
 		$camera.h_offset = randf_range(-1, 1)*screenshake
 		$camera.v_offset = randf_range(-1, 1)*screenshake
+		$camera.rotation.z = randf_range(-0.05, 0.05)*screenshake
 		$camera/gun.position = Vector3($camera.h_offset*0.9, $camera.v_offset*0.9, 0)
 	else:
 		screenshake = 0
 		$camera.h_offset = 0
 		$camera.v_offset = 0
+		$camera.rotation.z = 0
 		$camera/gun.position = Vector3(0, 0, 0)
 	$camera/gun.position.z = (-(1.0/$camera.fov-1.0/75)*45)+abs((1.0/$camera.fov-1.0/75)*4)
 		
@@ -289,8 +294,9 @@ func _physics_process(delta):
 		# Add the gravity.
 		
 		if !is_on_floor():
-			velocity.y -= gravity * delta
-			falldamagemult = velocity.y
+			if $"../".escapedcube != "player":
+				velocity.y -= gravity * delta
+				falldamagemult = velocity.y
 		else: 
 			coyote = 0.1
 			
@@ -544,6 +550,7 @@ func _physics_process(delta):
 				velocity.x += direction.x*SPEED*SLIDEMULT*mult
 				velocity.z += direction.z*SPEED*SLIDEMULT*mult
 				
+			
 			#print("velocity = "+str(sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))))
 			if sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 25:
 				for body in $groundslam.get_overlapping_bodies():
@@ -561,6 +568,7 @@ func _physics_process(delta):
 				$audio.pitch_scale = lerpf($audio.pitch_scale, pitch, delta*2)
 				$audio.volume_db = vol
 			
+			
 			if is_on_floor():
 				if slidefallpos > position.y:
 					var extra = slidefallpos-position.y
@@ -571,10 +579,18 @@ func _physics_process(delta):
 					
 					print("groundslam power: "+str(extra))
 					
-					if extra > 8:
+					if extra > 12:
 						for body in $groundslam.get_overlapping_bodies():
 							if body.is_in_group("popcop"):
 								body.die()
+						ResourceLoader.load_threaded_request("res://slideslam.tscn")
+						var progress = []
+						ResourceLoader.load_threaded_get_status("res://slideslam.tscn", progress)
+						if progress[0] == 1:
+							var effect = ResourceLoader.load_threaded_get("res://slideslam.tscn").instantiate()
+							effect.position = position
+							$"../".add_child(effect)
+						impactframe()
 					if extra > 0.2:
 						for body in $groundslam.get_overlapping_bodies():
 							if body.is_in_group("springmachine"):
@@ -606,23 +622,47 @@ func _physics_process(delta):
 					if djap != null:
 						if djap.is_in_group("snow"):
 							walksound = "res://audio/snowwalk ("+str(randi_range(1, 4))+").wav"
-					playaudio(walksound)
+						if djap.is_in_group("sand"):
+							walksound = "res://audio/sandwalk ("+str(randi_range(1, 4))+").wav"
+						if djap.is_in_group("musicplat"):
+							walksound = "res://audio/musicplatwalk ("+str(randi_range(1, 4))+").wav"
+						if djap.is_in_group("horrorbrick"):
+							walksound = "res://audio/horrorbrickwalk ("+str(randi_range(1, 4))+").wav"
+						if djap.is_in_group("horrorwood"):
+							walksound = "res://audio/horrorwoodwalk ("+str(randi_range(1, 4))+").wav"
+					var tempaudio = load("res://tempaudio.tscn").instantiate()
+					add_child(tempaudio)
+					tempaudio.stream = load(walksound)
+					tempaudio.play()
+					#playaudio(walksound)
 					moveeffect("run")
 					$walktimer.wait_time = 0.4/SPEED
 					$walktimer.start()
 				if $anim.current_animation != "move": $anim.play("move")
 			if direction == Vector3.ZERO && is_on_floor() && !emoting:
 				if $anim.current_animation != "idle": $anim.play("idle")
+				
+			if $"../".escapedcube != "player":
+				var control = 1
+				if not is_on_floor():
+					control = 0.2
+				if direction:
+					var futurevelocity_x = velocity.x + direction.x * SPEED * control
+					var futurevelocity_z = velocity.z + direction.z * SPEED * control
+					if sqrt(pow(futurevelocity_x, 2) + pow(futurevelocity_z, 2)) <= 5*SPEED:
+						velocity.x = futurevelocity_x
+						velocity.z = futurevelocity_z
+			else:
+				if direction:
+					velocity.x += direction.x*delta*500
+					velocity.z += direction.z*delta*500
+
+				if Input.is_action_pressed("jump"):
+					velocity.y += delta*500
+				if Input.is_action_pressed("crouch"):
+					velocity.y -= delta*500
 					
-			var control = 1
-			if not is_on_floor():
-				control = 0.2
-			if direction:
-				var futurevelocity_x = velocity.x + direction.x * SPEED * control
-				var futurevelocity_z = velocity.z + direction.z * SPEED * control
-				if sqrt(pow(futurevelocity_x, 2) + pow(futurevelocity_z, 2)) <= 5*SPEED:
-					velocity.x = futurevelocity_x
-					velocity.z = futurevelocity_z
+				velocity *= 1-(0.1*delta)
 		else:
 			#slide
 			if direction != Vector3.ZERO && is_on_floor():
@@ -688,6 +728,7 @@ func _physics_process(delta):
 				$surfboard/surfboard.rotation.z = -rotation.y
 				$surfboard.rotation = Vector3(PI/2, -rotation.y, 0)
 		
+		
 		if djap != null && sqrt(pow(velocity.x, 2) + pow(velocity.z, 2)) >= 0.1 && is_on_floor():
 			$sand.emitting = djap.is_in_group("sand")
 			var slideeffect = clamp((sqrt(pow(velocity.x, 2) + pow(velocity.z, 2))-15)/25, 0, 1)
@@ -729,11 +770,15 @@ func _physics_process(delta):
 			$audio.stop()
 			
 func moveeffect(anim):
-	var effect = load("res://moveeffects.tscn").instantiate()
-	effect.effect = anim
-	effect.position = position
-	effect.rotation = Vector3(0, atan2(-velocity.x, -velocity.z), 0)
-	get_parent().add_child(effect)
+	ResourceLoader.load_threaded_request("res://moveeffects.tscn")
+	var progress = []
+	ResourceLoader.load_threaded_get_status("res://moveeffects.tscn", progress)
+	if progress[0] == 1:
+		var effect = ResourceLoader.load_threaded_get("res://moveeffects.tscn").instantiate()
+		effect.effect = anim
+		effect.position = position
+		effect.rotation = Vector3(0, atan2(-velocity.x, -velocity.z), 0)
+		get_parent().add_child(effect)
 		
 func playaudio(stream, pitch = 1, vol = 5):
 	$audio.stream = load(stream)
@@ -746,10 +791,10 @@ func rotatecam(movecamx, movecamy):
 		if !$"../tppivot/tppivot2/tpcam".current:
 			if !Input.is_action_pressed("zoom"):
 				rotate_y(-movecamx * ($"../".sensitivity/1000))
-				$camera.rotate_x(-movecamy * ($"../".sensitivity/1000))
+				$camera.rotation.x += (-movecamy * ($"../".sensitivity/1000))
 			else:
 				rotate_y(-movecamx * ($"../".sensitivity/1000)/5)
-				$camera.rotate_x(-movecamy * ($"../".sensitivity/1000)/5)
+				$camera.rotation.x += (-movecamy * ($"../".sensitivity/1000)/5)
 			$camera.rotation.x = clamp($camera.rotation.x, -PI/2, PI/2)
 			
 			if (atan2(movecamx, movecamy) != 0):
@@ -890,7 +935,6 @@ func kill(effect):
 		ragdoll.position = position
 		$"../map".add_child(ragdoll)
 		$"../".tplock = ragdoll.get_child(1).get_child(0)
-		$"../"
 		
 	if effect == "bluelaser":
 		var hitaudio = load("res://tempaudio.tscn").instantiate()
@@ -904,7 +948,7 @@ func kill(effect):
 		ragdoll.position = position
 		ragdoll.position.y = 0
 		$"../map".add_child(ragdoll)
-		$"../".tplock = ragdoll
+		$"../".tplock = ragdoll.get_child(0)
 		
 	if effect == "lasernopile":
 		var hitaudio = load("res://tempaudio.tscn").instantiate()
@@ -1015,7 +1059,10 @@ func hurt(dmg, effect):
 			camera.current = true
 		
 		if $"../map/lobbyportal" != null:
-			pass
+			health -= dmg
+			if health <= 0:
+				position = $"../map/lobbyportal".position+Vector3(0.1, 0.1, 0.1)
+			health = 100
 		else:
 			health -= dmg
 			print("ow my balls: " + str(dmg))
@@ -1111,9 +1158,21 @@ func setshaders(val):
 	for child in $camera.get_children():
 		if child is ColorRect:
 			child.visible = val
+			
+func impactframe():
+	$camera/impactframe.play("default")
 
 func _on_cubeleavearea_area_exited(area: Area3D) -> void:
-	pass
-	#print("area exiting: ")
-	#if area.name == "cubearea" && !dead:
-		#$"../".escapecube("player")
+	if position.y < -1000:
+		print("area exiting: ")
+		if area.name == "cubearea" && !dead:
+			$"../".escapecube("player")
+			cancrouch = false
+			candash = false
+			$"../canvas".visible = false
+
+
+func _on_cubeleavearea_area_entered(area: Area3D) -> void:
+	if $"../".escapedcube == "player":
+		if area.name == "cubearea":
+			velocity = -velocity+position.normalized()*10
